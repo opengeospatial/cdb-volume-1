@@ -11,7 +11,7 @@ A data store that conforms to the CDB standard (i.e., a CDB) contains datasets o
 For ease of editing and review, the standard has been separated into 12 Volumes and a schema repository.
 
 * Volume 0: OGC CDB Companion Primer for the CDB standard. (Best Practice)
-* Volume 1: OGC CDB Core Standard: Model and Physical Data Store Structure. The main body (core) of the CBD standard (Normative).
+* Volume 1: OGC CDB Core Standard: Model and Physical Data Store Structure. The main body (core) of the CDB standard (Normative).
 * Volume 2: OGC CDB Core Model and Physical Structure Annexes (Best Practice).
 * Volume 3: OGC CDB Terms and Definitions (Normative).
 * Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage (Best Practice).
