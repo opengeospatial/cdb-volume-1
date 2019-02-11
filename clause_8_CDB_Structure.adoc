@@ -720,7 +720,7 @@ The following table defines each field of the file name and Table 5-9 provides t
 [[GTModelCMTNamingConvention]]
 ===== GTModelCMT Naming Convention
 
-include::requirements/REQ050B.adoc[]
+include::requirements/REQ051.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
 
