@@ -824,9 +824,21 @@ The component selector 2 is set to 001 for basic navigation records and these fi
 - T126: Additional Ident 4 search Key
 
 
-
 include::requirements/REQ081.adoc[]
 
+[#table_ListofNavigationComponents,reftext='{table-caption} {counter:table-num}']
+*Table 5-3: List of Navigation Components*
+[cols=",,,",]
+|=====================================================================================================================================================================================================================================================================================
+|*Component Name* |*CS1* |*Shape Type* |*Component Description*
+|Airport |1 |Point |Area or land that is used (or intended for use) for the landing and take-off of aircraft.
+|AirRefueling |2 |Point |A specifically designated airspace where air-to-air refueling operations are normally conducted.
+|AirRefuelingControl |3 |Point |Information regarding the Air Traffic Control Center that controls the airspace within which the refueling track or anchor is located.
+|AirRefuelingFootnote |4 |Point |Supplemental notes defining an Air Refueling component
+|AirRefuelingPoint |5 |Point |Single Point from an Air Refueling structure
+|AirRefuelingSegment |6 |Multipoint |Segment from an Air Refueling structure
+|AirspaceBoundary |7 |Point |Designated airspace within which some or all aircraft may be subject to air traffic control.
+|=====================================================================================================================================================================================================================================================================================
 
 [[SchemaFiles]]
 ==== Schema Files
