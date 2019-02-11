@@ -4,7 +4,7 @@
 |http://www.opengis.net/spec/CDB/1.0/core/crs{set:cellbgcolor:#FFFFFF} +
 
 
-Geographic locations in CDB _SHALL_ be expressed usingWGS-84 (World Geodetic System 1984), equivalent to EPSG (European Petroleum Survey Group) code 4326 (2 dimensions) and EPSG code 4979 (3 dimensions).
+Geographic locations in CDB _SHALL_ be expressed using WGS-84 (World Geodetic System 1984), equivalent to EPSG (European Petroleum Survey Group) code 4326 (2 dimensions) and EPSG code 4979 (3 dimensions).
 
 If a geographic location also has an altitude, the altitude _SHALL_ be expressed relative to the WGS-84 reference ellipsoid.
 
