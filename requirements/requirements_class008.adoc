@@ -1,0 +1,22 @@
+[cols="1,4",width="90%"]
+|=======================================================================================================
+2+|Requirements Class - Geotypical Models (GTModel) naming conventions (42-56) {set:cellbgcolor:#CACCCE}
+2+|/req/core/gtmodel-naming {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Various XML schema
+|Requirement 42 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/1.0/core/texture-name[/req/core/texture-name] {set:cellbgcolor:#FFFFFF}
+|Requirement 43 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/1.0/core/texture-name[/req/core/texture-name]-file-name {set:cellbgcolor:#FFFFFF}
+|Requirement 44 {set:cellbgcolor:#CACCCE} |/req/core/lod-file-name {set:cellbgcolor:#FFFFFF}
+|Requirement 45 {set:cellbgcolor:#CACCCE} |/req/core/gtmodel-directories {set:cellbgcolor:#FFFFFF}
+|Requirement 46 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelgeometry-entry-name {set:cellbgcolor:#FFFFFF}
+|Requirement 47 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelgeometry-lod-name {set:cellbgcolor:#FFFFFF}
+|Requirement 48 {set:cellbgcolor:#CACCCE} |/req/core/gtmodeldescriptor-name {set:cellbgcolor:#FFFFFF}
+|Requirement 49 {set:cellbgcolor:#CACCCE} |/req/core/gtmodeltexture-name {set:cellbgcolor:#FFFFFF}
+|Requirement 50 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelmaterial-name {set:cellbgcolor:#FFFFFF}
+|Requirement 51 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelcmt-name {set:cellbgcolor:#FFFFFF}
+|Requirement 52 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelinteriorgeometry-name {set:cellbgcolor:#FFFFFF}
+|Requirement 53 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelinteriordescriptor-name {set:cellbgcolor:#FFFFFF}
+|Requirement 54 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelinteriortexture-name {set:cellbgcolor:#FFFFFF}
+|Requirement 55 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelinteriormaterial-name {set:cellbgcolor:#FFFFFF}
+|Requirement 56 {set:cellbgcolor:#CACCCE} |/req/core/gtmodelsignature-name {set:cellbgcolor:#FFFFFF}
+|=======================================================================================================

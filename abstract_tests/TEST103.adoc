@@ -1,0 +1,9 @@
+[cols=",,",]
+|===================================================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/tiled-raster-vstlm*
+|*Requirements* 2+|/req/core/tiled-raster-vstlm 
+|*Dependency* 2+|Various XML schema, JPEG 2000
+|*Test 103* |*Test purpose* |Verify that the VSTLM component is represented as single-channel gray-scale images, or as triple-channel color images and stored in JPEG 2000 format. Also, if it is a monochrome VSTLM, the implied chrominance of the VSTLM is white.
+| |*Test method* |Visually pass if VSTLM component is represented as single-channel gray-scale images, or as triple-channel color images and stored in JPEG 2000 format and if a monochrome VSTLM exists, the implied chrominance of the VSTLM is white.
+| |*Test type* |Conformance
+|===================================================================================================================================================================================================================================================================

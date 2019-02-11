@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 17*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/light-name{set:cellbgcolor:#FFFFFF} +
+
+The name of a light SHALL be composed as follows. Starting from the top-most level of the hierarchy, concatenate each of the names encountered with the backslashfootnote:[The CDB standard uses the backslash character as a separator for light names. In no time should the reader assume that the Specification is favoring the Windows operating system which is also using the backslash as a separator when building directory paths. Again, the backslash is simply a separator for names.] “\” character. Go down through hierarchy until the desired level of specificity is encountered.{set:cellbgcolor:#FFFFFF}
+|===

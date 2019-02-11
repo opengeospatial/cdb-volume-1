@@ -1,0 +1,21 @@
+[cols="1,4",width="90%"]
+|=====================================================================================================================================================================================================================================================================================================
+2+|Requirements Class (29-32) {set:cellbgcolor:#CACCCE}
+2+|/req/core/cdb-root-requirements {set:cellbgcolor:#FFFFFF}
+|Target type |Data instance
+|Dependency |XML
+|Dependency |CDB file hierarchy
+|Dependency |XML Schema – Part 2
+|Requirement 29 {set:cellbgcolor:#CACCCE} |req/core/root-file-hierarchy +
+
+All of the files stored within a CDB data store _SHALL_ be under the root directory or within a subdirectory under the root directory {set:cellbgcolor:#FFFFFF}
+|Requirement 30 {set:cellbgcolor:#CACCCE} |req/core/root-give-path +
+
+Run-time applications _SHALL_ be given the path and device on which the CDB is stored in order to access the CDB. {set:cellbgcolor:#FFFFFF}
+|Requirement 31 {set:cellbgcolor:#CACCCE} |req/core/root-access-version +
+
+The CDB standard also has provisions for the handling of multiple, incremental versioning of the CDB. To support this capability, run time applications _SHALL_ first access a predetermined version of the CDB and all its predecessors to determine content changes to the CDB. {set:cellbgcolor:#FFFFFF}
+|Requirement 32 {set:cellbgcolor:#CACCCE} |req/core/root-version-default +
+
+If no change is encountered in any of the incremental versions, the applications _SHALL_ use the content of the active default CDB. The versioning mechanism is done at the file level. Refer to Section 3.2, CDB Configuration Management, for details on how CDB supports incremental versioning. {set:cellbgcolor:#FFFFFF}
+|=====================================================================================================================================================================================================================================================================================================

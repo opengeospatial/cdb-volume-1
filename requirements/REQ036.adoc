@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 36*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/cdb-version-path{set:cellbgcolor:#FFFFFF} +
+
+A CDB Version path name _SHALL_ not be within another CDB Version{set:cellbgcolor:#FFFFFF}
+|===

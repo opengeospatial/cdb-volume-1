@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 42*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/1.0/core/texture-name[http://www.opengis.net/spec/cdb/1.0/core/texture-name]{set:cellbgcolor:#FFFFFF} +
+
+The name of 3D model textures _SHALL_ be a character string having a minimum of 2 characters and a maximum length of 32 characters. The first two characters _SHALL_ be alphanumeric.{set:cellbgcolor:#FFFFFF}
+|===

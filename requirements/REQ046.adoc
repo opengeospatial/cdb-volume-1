@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 46*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/gtmodelgeometry-entry-name[http://www.opengis.net/spec/cdb/core/1.0/gtmodelgeometry-entry-name]{set:cellbgcolor:#FFFFFF} +
+
+The files of the GTModelGeometry Entry File dataset _SHALL_ be stored in level 4 of the 5-level directory structure presented above. The names of the files _SHALL_ adhere to the following naming convention: D500_Snnn_Tnnn_FeatureCode_FSC_MODL”.extfootnote:[“.ext” represents the file extension used for a given model type. For example, an OpenFlight file extension is “.flt.”]”{set:cellbgcolor:#FFFFFF}
+|===

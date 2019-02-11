@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 44*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/1.0/core/texture-name[http://www.opengis.net/spec/cdb/1.0/core/]lod-file-name{set:cellbgcolor:#FFFFFF} +
+
+In the context of the CDB standard, filenames and directory names _SHALL_ be composed from the concept of LOD.{set:cellbgcolor:#FFFFFF}
+|===

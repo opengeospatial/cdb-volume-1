@@ -1,0 +1,43 @@
+[cols=",,",]
+|========================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/materials*
+|*Requirements* 2+|/req/core/materials 
+|*Dependency* 2+|Material
+|*Dependency* 2+|XML
+|*Dependency* 2+|CDB data store structure and model
+|*Test 22* |/conf/core/materials/composite-materials-resolution |
+| |*Requirement* |/req/core/composite-materials-resolution
+| |*Test purpose* |Verify that references to composite materials resolves down to one or more of the stated CDB Base Materials.
+| |*Test method* |Inspect whether the composite materials are conformant to material.XML schema located in the CDB schema folder.
+| |*Test type* |Conformance
+|*Test 23* |/conf/core/materials/base-material-name |
+| |*Requirement* |/req/core/base-material-name
+| |*Test purpose* |Verify the base material’s name begins with “BM_” followed by a unique arbitrary string based on specific conventions.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 24* |/conf/core/materials/primary-substrate |
+| |*Requirement* |/req/core/primary-substrate
+| |*Test purpose* |Verify that if there is a Primary_Substrate, there is only one.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 25* |/conf/core/materials/cdb-structure-tiles-lod/lod-area-coverage |
+| |*Requirement* |req/core/base-material-coverage
+| |*Test purpose* |Verify that the base materials of each substrate is listed in decreasing order of weighting.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 26* |/conf/core/materials/composite-material-tag |
+| |*Requirement* |req/core/composite-material-tag
+| |*Test purpose* |Verify that each composite material _is_ tagged with a specific convention.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 27* |/conf/core/materials/sem-base-materials |
+| |*Requirement* |req/core/sem-base-materials
+| |*Test purpose* |Verify that any SEM has a corresponding Base Material for each of the CDB Base Materials.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 28* |/conf/core/materials/generation-materials-3d |
+| |*Requirement* |req/core/generation-materials-3d
+| |*Test purpose* |Verify the zones or selected polygons are tagged with the appropriate materials in 3D models.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|========================================================================================================================================

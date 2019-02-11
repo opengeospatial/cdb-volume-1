@@ -1,0 +1,26 @@
+[cols=",,",]
+|=========================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/file-structure*
+|*Requirements* 2+|/req/core/cdb-root-requirements
+|*Dependency* 2+|CDB data store structure and model
+|*Test 29* |/conf/core/cdb-root-requirements/root-file-hierarchy |
+| |*Requirement* |req/core/root-file-hierarchy
+| |*Test purpose* |Verify the files stored within a CDB data store are under the root directory or within a subdirectory under the root directory
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 30* |/conf/core/cdb-root-requirements/root-give-path |
+| |*Requirement* |req/core/root-give-path
+| |*Test purpose* |Verify that run-time applications are given the path and device on which the CDB is stored in order to access the CDB.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 31* |/conf/core/cdb-root-requirements/root-access-version |
+| |*Requirement* |req/core/root-access-version
+| |*Test purpose* |Verify that the CDB Standard also has provisions for the handling of multiple, incremental versioning of the CDB.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 32* |/conf/core/cdb-root-requirements/root-version-default |
+| |*Requirement* |req/core/root-version-default
+| |*Test purpose* |Verify that If no change is encountered in any of the incremental versions, the applications use the content of the active default CDB.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|=========================================================================================================================================================

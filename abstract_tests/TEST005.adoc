@@ -1,0 +1,13 @@
+[cols=",,",]
+|=======================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/platform*
+|*Requirements* 2+|/req/core/platform
+|*Dependency* 2+|Operating System
+|*Dependency* 2+|Hardware
+|*Dependency* 2+|File Management system
+|*Test 5* |/conf/platform/literal-case |
+| |Requirement |req/core/literal-case
+| |Test purpose |Verify the CDB implementation including filenames and directory paths supports the literal case rules and semantic meaning as specified in the file naming conventions.
+| |Test method |Visual
+| |Test type |Conformance
+|=======================================================================================================================================================================================

@@ -1,0 +1,26 @@
+[cols=",,",
+|======================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/nav-data*
+|*Requirements* 2+|/req/core/nav-data
+|*Dependency* 2+|Various XML schema
+|*Test 81* |/conf/core/nav-data/navigation-file-format |
+| |*Requirement* |/req/core/navigation-file-format
+| |*Test purpose* |Verify that the Navigation Dataset uses a CDB specified vector data format
+| |*Test method* |Visually
+| |*Test type* |Conformance
+|*Test 82* |/conf/core/nav-data/nav-schema-cs2 |
+| |*Requirement* |/req/core/nav-schema-cs2
+| |*Test purpose* |Verify that CS2 value is correct.
+| |*Test method* |Visually check if the value of CS2 is T002 for the schema files,
+| |*Test type* |Conformance
+|*Test 83* |/conf/core/nav-data/nav-key-datasets |
+| |*Requirement* |/req/core/nav-key-datasets
+| |*Test purpose* |Verify that for each attribute that has an index key in the schema file, an index Key Dataset is available and For Key Datasets, the Dataset CS2 include the last three digits of the index key from the schema file
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 84* |/conf/core/nav-data/navdata-component |
+| |*Requirement* |/req/core/navdata-component
+| |*Test purpose* |Verify that the Airport NavData Component is correct.
+| |*Test method* |Visually check if for the Airport NavData Component, there are 4 key datasets (for attributes StoraNumber, Ident, IcaoCode and Country)
+| |*Test type* |Conformance
+|======================================================================================================================================================================================================================================

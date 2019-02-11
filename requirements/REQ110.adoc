@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 110 Client device position for Light Point with Z* {set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]light-point-with-z-position{set:cellbgcolor:#FFFFFF} +
+
+For Light Point features with a Z component, client-devices _SHALL_ position the light point’s center as per the AHGT value. If AHGT is true, the light point’s center _SHALL_ be positioned to the value specified by the Z component (Absolute Terrain Altitude), irrelevant of the terrain elevation dataset. If AHGT is false or not present, the light point’s center _SHALL_ be positioned to the value specified by the underlying terrain offset by the Z component value.{set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,28 @@
+[width="90%",cols="2,2,3,3"]
+|===
+2+|*Requirement 99* {set:cellbgcolor:#CACCCE}
+2+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]jpeg-origin-metadata {set:cellbgcolor:#FFFFFF} +
+
+
+
+The rules for metadata about the origin of data defined in the following table _SHALL_ be implemented with a JPEG image in the CDB data store.
+
+|*XML Tag Name* |*Format* |*Description* |*Values*
+|datetime |STRING |File Date & Time: This field _SHALL_ contain the file’s origination in the format CCYYMMDDhhmmss, where CC is the first two digits of the year (00-99), YY is the last two digits of the year (00-99), MM is the month (01-012), DD is the day (01-31), hh is the hour (00-23), mm is the minute (00-59), and ss is the second (00-59). UTC is assumed to be the time zone designator to express the time of day. a|
+Default is 14 spaces
+
+Date Format:
+
+CCYYMMDDhhmmss
+
+|originatingstationid |STRING |Originating Station ID: This field _SHALL_ contain the identification code or name of the originating organization, system, station, or product. It shall not be filled with spaces. |This 10-character field _SHALL_ NOT be blank
+|originatorname |STRING |Originator’s Name: This field _SHALL_ contain a valid name for the operator who originated the file. If the field is all spaces, it shall represent that no operator is assigned responsibility for origination. |Default is 24 spaces
+|originatorphone |STRING |Originator’s Phone Number. This field _SHALL_ contain valid phone number for the operator who originated the file. If the field is all spaces, it shall represent that no phone number is available for the operator assigned responsibility for origination. |Default is 18 spaces
+|originatororganization |STRING |Originator’s Organization. This field _SHALL_ contain a valid name of the supporting organization. |Default is 80 spaces
+|originatoraddress |STRING |Originator’s Address. This field SHALL contain a valid address of the supporting organization. |Default is 256 spaces
+|originatoremail |STRING |Originator’s Electronic Mail Address. This field _SHALL_ contain a valid email address of the supporting organization. |Default is 100 spaces
+|originatorwebsite |STRING |Originator’s Web Site Address. This field shall contain a valid web site address of the supporting organization. |Default is 100 spaces
+|originatorremark |STRING |Originator’s Remark Text. This field _SHALL_ contain description text for any special remarks concerning the file. |Default is 100 spaces
+
+
+|===

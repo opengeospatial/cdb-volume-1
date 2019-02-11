@@ -1,0 +1,23 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 75*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/version[http://www.opengis.net/spec/cdb/1.0/core]/attribute-definition +
+
+
+Each attribute _SHALL_ be defined as follows:
+
+
+<Attribute code="..." symbol="...">
+
+<Name>...</Name>
+
+<Description>...</Description>
+
+<Level>...</Level>
+
+<Value>...</Value>
+
+</Attribute>
+
+{set:cellbgcolor:#FFFFFF}
+|===

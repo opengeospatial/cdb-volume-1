@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 106 Composite Materials Table (CMT)*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]tcmt-data-type{set:cellbgcolor:#FFFFFF} +
+
+The TCMT _SHALL_ follow the syntax described in Section 2.5.2.2, Composite Material Tables (CMT).{set:cellbgcolor:#FFFFFF}
+|===

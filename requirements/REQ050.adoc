@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 50*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/gtmodelmaterial-name[http://www.opengis.net/spec/cdb/core/1.0/gtmodelmaterial-name]{set:cellbgcolor:#FFFFFF} +
+
+The names of the GTModelMaterial files _SHALL_ adhere to the following naming convention: D504_Snnn_Tnnn_LOD_TNAM.<ext>{set:cellbgcolor:#FFFFFF}
+|===

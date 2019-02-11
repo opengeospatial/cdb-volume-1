@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 52*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/gtmodelinteriorgeometry-name{set:cellbgcolor:#FFFFFF} +
+
+The files of the GTModelInteriorGeometry dataset _SHALL_ be stored in level 5 of its directory structure. The names of the files _SHALL_ adhere to the following naming convention: D506_Snnn_Tnnn_LOD_FeatureCode_FSC_MODL.”ext”{set:cellbgcolor:#FFFFFF}
+|===

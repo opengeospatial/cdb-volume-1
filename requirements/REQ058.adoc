@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 58*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/mmodelgeometry-name{set:cellbgcolor:#FFFFFF} +
+
+The names of all MModelGeometry files _SHALL_ adhere to the following naming convention: D600_Snnn_Tnnn_MMDC.<ext>{set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,20 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 79* {set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/version[http://www.opengis.net/spec/cdb/1.0/core]/attribute-scaler {set:cellbgcolor:#FFFFFF} +
+
+The <Scalers> section SHALL be a list of <Scaler> definitions as follow:
+
+<Scaler code="..." symbol="...">
+
+<Name>...</Name>
+
+<Description>...</Description>
+
+<Multiplier>...</Multiplier>
+
+</Scaler>
+
+The code is a positive integer used as a key when a <Value> references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier. The <Name> is the long form of the scaler symbol and <Description> is a free-form text describing this scaler. Finally, <Multiplier> is the numerical multiplier applied to the base unit.
+
+|===

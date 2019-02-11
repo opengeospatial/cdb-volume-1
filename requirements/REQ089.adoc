@@ -1,0 +1,13 @@
+[width="90%",cols="2,0,6"]
+|===
+|*Requirement 89*{set:cellbgcolor:#CACCCE}
+|{set:cellbgcolor:#FFFFFF}
+a|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]terrain-tiff-channel1 +
+
+The first channel of the TIFF image _SHALL_ contain the _Elevation_ component and is represented as a floating-point or signed integer value. Integer values for tiles at LOD larger than 0 _SHALL_ be scaled according to the following formula:
+
+
+image::images/image54.png[image,width=257,height=42]
+
+{set:cellbgcolor:#FFFFFF}
+|===

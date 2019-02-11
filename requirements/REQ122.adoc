@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 122*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/hypsography-elevation[http://www.opengis.net/spec/cdb/1.0/core/hypsography-elevation]-offline{set:cellbgcolor:#FFFFFF} +
+
+When performed off-line, hypsography features _SHALL_ have AHGT set to True, thereby instructing the SE Tools to constrain the terrain elevation using the supplied (latitude, longitude, and elevation) coordinates.{set:cellbgcolor:#FFFFFF}
+|===

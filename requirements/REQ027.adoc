@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 27*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/sem-base-material{set:cellbgcolor:#FFFFFF} +
+
+The specialist _SHALL_ ensure that his SEM has a corresponding Base Material for each of the CDB Base Materials.{set:cellbgcolor:#FFFFFF}
+|===

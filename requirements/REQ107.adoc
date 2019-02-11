@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 107 Vector Type*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/1.0/vector-type-rule{set:cellbgcolor:#FFFFFF} +
+
+All instances of the feature _SHALL_ be of the same vector data type. The CDB standard requires a maximum of one vector data type for point features, a maximum of one type for lineal features and a maximum of one type for polygon features for each tile (for a maximum of 3 feature vector files per tile).{set:cellbgcolor:#FFFFFF}
+|===

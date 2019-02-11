@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 103*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]vstlm-component-data-type{set:cellbgcolor:#FFFFFF} +
+
+The VSTLM component _SHALL_ be represented as single-channel gray-scale images, or as triple-channel color images. The data _SHALL_ be stored in JPEG 2000 format. Note that in the case of a monochrome VSTLM, the implied chrominance of the VSTLM is white.{set:cellbgcolor:#FFFFFF}
+|===

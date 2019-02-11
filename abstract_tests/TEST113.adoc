@@ -1,0 +1,34 @@
+[cols=",,",]
+|=============================================================================================================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/tiled-vector-datasets-mandatory-attributes*
+|*Requirements* 2+|/req/core/tiled-vector-datasets-mandatory-attributes
+|*Dependency* 2+|Various XML schema
+|*Test 113* |/conf/core/tiled-vector-datasets-mandatory-attributes/mandatory-attribute-compliance |
+| |*Requirement* |/req/core/mandatory-attribute-compliance
+| |*Test purpose* |Verify that any CDB compliant dataset has no missing mandatory attributes.
+| |*Test method* |Visually investigate if all of the mandatory attributes in a CDB dataset are available and have value.
+| |*Test type* |Conformance
+|*Test 114* |/conf/core/tiled-vector-datasets-mandatory-attributes/optional-attribute-compliance |
+| |*Requirement* |/req/core/optional-attribute-compliance
+| |*Test purpose* |Verify that a CDB dataset with missing optional attributes _is_ considered compliant although the performance of one or more of the client-devices may be degraded.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 115* |/conf/core/tiled-vector-datasets-mandatory-attributes/dataset-instance-schema |
+| |*Requirement* |/req/core/dataset-instance-schema
+| |*Test purpose* a|
+Verify that:
+
+- All the attributes and their values are specified as attribution columns in the instance-level*.dbf file that accompanies the vector dataset.
+
+- This file or table is referred to as the Dataset Instance-level file.
+
+- Each attribute is uniquely defined by an attribute identifier that is a “case-sensitive” character string of 10 characters or less.
+
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 116* |/conf/core/tiled-vector-datasets-mandatory-attributes/attributes-metadata |
+| |*Requirement* |/req/core/attributes-metadata
+| |*Test purpose* |Verify that the CDB_Attributes.xml metadata file _is_ included in the CDB folder hierarchy under the CDB Metadata directory and is based on a*.xsd schema file that governs the syntax and structure of the attribute metadata file and used to describe all the CDB attributes listed in CDB Attribution.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|=============================================================================================================================================================================================================================================================================================================================

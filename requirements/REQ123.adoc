@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 123*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/hyspograph-shapefile[http://www.opengis.net/spec/cdb/1.0/core/hyspograph-vector-types]{set:cellbgcolor:#FFFFFF} +
+
+The allowed feature types _SHALL_ be of type PointZ, MultiPointZ, PolyLineZ, PolygonZ, or MultiPatch.{set:cellbgcolor:#FFFFFF}
+|===

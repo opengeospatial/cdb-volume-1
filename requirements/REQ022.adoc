@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 22*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/composite-materials-resolution{set:cellbgcolor:#FFFFFF} +
+
+All references to Composite Materials _SHALL_, in the end, resolve down to one or more of the stated CDB Base Materials.{set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,14 @@
+[cols="1,4",width="90%"]
+|==================================================================================================================================================
+2+|Requirements Class - MModel) naming conventions (57-63) {set:cellbgcolor:#CACCCE}
+2+|/req/core/mmodel-naming {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Various XML schema
+|Requirement 57 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/core/1.0/mmodel-root[/req/core/mmodel-root] {set:cellbgcolor:#FFFFFF}
+|Requirement 58 {set:cellbgcolor:#CACCCE} |/req/core/mmodelgeometry-name {set:cellbgcolor:#FFFFFF}
+|Requirement 59 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/core/1.0/mmodeldescriptor-name[/req/core/mmodeldescriptor-name] {set:cellbgcolor:#FFFFFF}
+|Requirement 60 {set:cellbgcolor:#CACCCE} |/req/core/mmodeltexture-name {set:cellbgcolor:#FFFFFF}
+|Requirement 61 {set:cellbgcolor:#CACCCE} |/req/core/mmodelmaterial-name {set:cellbgcolor:#FFFFFF}
+|Requirement 62 {set:cellbgcolor:#CACCCE} |/req/core/mmodelcmt-name {set:cellbgcolor:#FFFFFF}
+|Requirement 63 {set:cellbgcolor:#CACCCE} |/req/core/mmodelsignature-name {set:cellbgcolor:#FFFFFF}
+|==================================================================================================================================================

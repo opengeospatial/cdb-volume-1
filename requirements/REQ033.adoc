@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 33*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/metadata-version{set:cellbgcolor:#FFFFFF} +
+
+Each CDB Version SHALL have a metadata file whose complete path and filename is: \CDB\Metadata\Version.xml{set:cellbgcolor:#FFFFFF}
+|===

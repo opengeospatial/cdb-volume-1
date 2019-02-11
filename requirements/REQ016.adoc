@@ -1,0 +1,11 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 16*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/tile-lod-replacement{set:cellbgcolor:#FFFFFF} +
+
+
+For negative levels of details, a tile at LOD n _SHALL_ replace exactly one tile at LOD n−1 since both tiles cover the same area.{set:cellbgcolor:#FFFFFF}
+{set:cellbgcolor:#FFFFFF}
+For positive levels of details, a tile at LOD n _SHALL_ be replaced by 4 tiles at LOD n+1 since tiles from LOD n+1 cover only a quarter of the area covered by the tile at LOD n.{set:cellbgcolor:#FFFFFF}
+{set:cellbgcolor:#FFFFFF}
+|===

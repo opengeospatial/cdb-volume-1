@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 111 Vertex CRS*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]vertex-position{set:cellbgcolor:#FFFFFF} +
+
+The position of vertices _SHALL_ be expressed using WGS-84 geographic coordinates (latitude, longitude, altitude), as explained in Volume 8 OGC CDB Spatial Reference System Guidance. In the case of vector data types that do not have a Z component value, the vertex’s height value _SHALL_ be referenced to the underlying terrain; as a result, client-devices are required to position the vertex’s origin wrt underlying terrain elevation dataset. For vector data types with a Z component, client-devices _SHALL_ position the vertex as per the AHGT value. If AHGT is true, the vertex _SHALL_ be positioned to the value specified by the Z component (Absolute Terrain Altitude), irrelevant of the terrain elevation dataset. If AHGT is false or not present, the vertex _SHALL_ be positioned to the value specified by the underlying terrain offset by the Z component value.{set:cellbgcolor:#FFFFFF}
+|===

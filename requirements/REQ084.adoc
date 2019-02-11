@@ -1,0 +1,21 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 84* {set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/navdata-component] {set:cellbgcolor:#FFFFFF} +
+
+
+For the Airport NavData Component, there _SHALL_ be 4 key datasets (for attributes StoraNumber, Ident, IcaoCode and Country):
+
+\CDB\Navigation\400_NavData\D400_S001_T101.dbf +
+(StoraNumber, key index 2101)
+
+\CDB\Navigation\400_NavData\D400_S001_T102.dbf +
+(Ident, key index 2102)
+
+\CDB\Navigation\400_NavData\D400_S001_T103.dbf +
+(IcaoCode, key index 2103)
+
+\CDB\Navigation\400_NavData\D400_S001_T116.dbf +
+(Country, key index 2116)
+
+|===

@@ -1,0 +1,9 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 90*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]terrain-tiff-channel2 +
+
+The second channel of the TIFF image contains the _Mest Type_ and _SHALL_ be stored as an unsigned 8-bit integer.
+The third and fourth channels contain the _Latitude_ and _Longitude Offset_ components and _SHALL_ be stored as unsigned 8-bit integers.
+{set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 43*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/1.0/core/texture-name[http://www.opengis.net/spec/cdb/1.0/core/texture-name]-file-name{set:cellbgcolor:#FFFFFF} +
+
+The acronym TNAM __SHAL__L represents the texture name and is used to compose texture file and directory names. The following directory structure _SHALL_ be used by CDB Model texture-related datasets: \A\B\TNAM\{set:cellbgcolor:#FFFFFF}
+|===

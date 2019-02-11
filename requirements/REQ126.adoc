@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 126*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/tiled-powerlinenetwork[http://www.opengis.net/spec/cdb/1.0/core/tiled-powerlinenetwork]{set:cellbgcolor:#FFFFFF} +
+
+The PowerLineNetwork Dataset _SHALL_ be used to specify powerlinefootnote:[Within the context of the CDB, the term powerline encompasses a broad gamut of networks implemented through the use of wires, cables and/or pipes.] networks.{set:cellbgcolor:#FFFFFF}
+|===

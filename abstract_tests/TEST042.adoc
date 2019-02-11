@@ -1,0 +1,81 @@
+[cols=",,",]
+|========================================================================================================================================================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/gtmodel-naming*
+|*Requirements* 2+|/req/core/gtmodel-naming
+|*Dependency* 2+|Various XML schema
+|*Test 42* |/conf/core/gtmodel-naming/texture-name |
+| |*Requirement* |/req/core/texture-name
+| |*Test purpose* |Verify that the name of 3D model textures is character string having a minimum of 2 characters and a maximum length of 32 characters and the first two characters are alphanumeric.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 43* |/conf/core/gtmodel-naming/texture-name-file-name |
+| |*Requirement* |/req/core/texture-name-file-name
+| |*Test purpose* |Verify that the acronym TNAM represents the texture name and is used to compose texture file and directory names and The following directory structure is used by CDB Model texture-related datasets: \A\B\TNAM\
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 44* |/conf/core/gtmodel-naming/lod-file-name |
+| |*Requirement* |/req/core/lod-file-name
+| |*Test purpose* |Verify that in the context of the CDB Standard, filenames and directory names are composed from the concept of LOD.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 45* |/conf/core/gtmodel-naming/gtmodel-directories |
+| |*Requirement* |/req/core/gtmodel-directories
+| |*Test purpose* |Verify that the “\CDB\GTModel\” folder is the root directory of the GTModel library which is composed of the following datasets: GTModelGeometry,GTModelTexture,GTModelDescriptor,GTModelMaterial, GTModelCMT, GTModelInteriorGeometry, GTModelInteriorTexture,GTModelinteriorDescriptor,GTModelInteriorMaterial, GTModelInteriorCMT,GTModelSignature.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 46* |/conf/core/gtmodel-naming/gtmodelgeometry-entry-name |
+| |*Requirement* |/req/core/gtmodelgeometry-entry-name
+| |*Test purpose* |Verify that the files of the GTModelGeometry Entry File dataset is stored in level 4 of its directory structure and the names of the files adhere to the following naming convention: D500_Snnn_Tnnn_FeatureCode_FSC_MODL.<ext>. Always flt in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 47* |/conf/core/gtmodel-naming/gtmodelgeometry-lod-name |
+| |*Requirement* |/req/core/gtmodelgeometry-lod-name
+| |*Test purpose* |Verify that the files of the GTModelGeometry Level of Detail dataset are stored in level 5 of its directory structure and the names of the files adhere to the following naming convention: D510_Snnn_Tnnn_LOD_FeatureCode_FSC_MODL.<ext>. In CDB Version 1.0 this was always “.flt” for OpenFlight files.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 48* |/conf/core/gtmodel-naming/gtmodeldescriptor-name |
+| |*Requirement* |/req/core/gtmodeldescriptor-name
+| |*Test purpose* |Verify that the files of the GTModelDescriptor dataset are stored in level 4 of of its directory structure and the names of the files adhere to the following naming convention: D503_Snnn_Tnnn_FeatureCode_FSC_MODL.xml
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 49* |/conf/core/gtmodel-naming/gtmodeltexture-name |
+| |*Requirement* |/req/core/gtmodeltexture-name
+| |*Test purpose* |Verify that the names of the GTModelTexture files adhere to the following naming convention: D511_Snnn_Tnnn_LOD_TNAM.<ext> Always rgb in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 50* |/conf/core/gtmodel-naming/gtmodelmaterial-name |
+| |*Requirement* |/req/core/gtmodelmaterial-name
+| |*Test purpose* |Verify that the names of the GTModelMaterial files adhere to the following naming convention: D504_Snnn_Tnnn_LOD_TNAM.<ext> Always tif in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 51* |/conf/core/gtmodel-naming/gtmodelcmt-name |
+| |*Requirement* |/req/core/gtmodelcmt-name
+| |*Test purpose* |Verify that the names of the GTModelCMT files adhere to the following naming convention: D505_Snnn_Tnnn_TNAM.xml
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 52* |/conf/core/gtmodel-naming/gtmodelinteriorgeometry-name |
+| |*Requirement* |/req/core/gtmodelinteriorgeometry-name
+| |*Test purpose* |Verify that the files of the GTModelInteriorGeometry dataset is stored in level 5 of its directory structure and the names of the files adhere to the following naming convention: D506_Snnn_Tnnn_LOD_FeatureCode_FSC_MODL.<ext>. For CDB Version 1.0 this was always “.flt” for OpenFlight files.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 53* |/conf/core/gtmodel-naming/gtmodelinteriordescriptor-name |
+| |*Requirement* |/req/core/gtmodelinteriordescriptor-name
+| |*Test purpose* |The files of the GTModelInteriorDescriptor dataset is stored in level 4 of the 5-level directory structure presented above. The names of the files adhere to the following naming convention: D508_Snnn_Tnnn_FeatureCode_FSC_MODL.xml
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 54* |/conf/core/gtmodel-naming/gtmodelinteriortexture-name |
+| |*Requirement* |/req/core/gtmodelinteriortexture-name
+| |*Test purpose* |Verify that the names of the GTModelInteriorTexture files adhere to the following naming convention: D507_Snnn_Tnnn_LOD_TNAM.<ext> Always rgb in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 55* |/conf/core/gtmodel-naming/gtmodelinteriormaterial-name |
+| |*Requirement* |/req/core/gtmodelinteriormaterial-name
+| |*Test purpose* |Verify that the names of the GTModelInteriorMaterial files adhere to the following naming convention: D509_Snnn_Tnnn_LOD_TNAM.<ext> Always tif in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 56* |/conf/core/gtmodel-naming/gtmodelsignature-name |
+| |*Requirement* |/req/core/gtmodelsignature-name
+| |*Test purpose* |Verify that the names of the GTModelSignature files adhere to the following naming convention: D512_Snnn_Tnnn_LOD_FeatureCode_FSC_MODL.ext
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|========================================================================================================================================================================================================================================================================================================================================================================

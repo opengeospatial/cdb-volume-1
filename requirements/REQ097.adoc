@@ -1,0 +1,20 @@
+[width="90%",cols="2,0,6"]
+|===
+|*Requirement 97* {set:cellbgcolor:#CACCCE}
+|{set:cellbgcolor:#FFFFFF}
+a|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]subordinate-alternate-bathymetry-data-type {set:cellbgcolor:#FFFFFF} +
+
+The first channel of the TIFF image SHALL _contain_ the Depth component and _SHALL_ be represented as a floating-point or signed integer value. Integer values for tiles at LOD larger than 0 are scaled according to the following formula:
+
+image::images/image69.png[image,width=231,height=34]
+
+Integer samples can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
+
+The second channel of the TIFF image _SHALL_ contain the _Mest Type and *SHALL* be stored as an unsigned 8-bit integer.
+
+The third channel of the TIFF image _SHALL_ contain the Latitude Offset and _SHALL_ be stored as an 8-bit unsigned integer value ranging from 0 to 255. The value is scaled so that each grid element is fragmented in 256 equal parts in the latitude direction. Thus, the grid post cannot be positioned on the latitude of the next grid element directly north of the current grid element.
+
+The fourth channel of the TIFF image _SHALL_ contain the Longitude Offset and _SHALL_ be stored as an 8-bit unsigned integer value ranging from 0 to 255. The value is scaled so that each grid element is fragmented in 256 equal parts in the longitude direction. Thus, the grid post cannot be positioned on the longitude of the next grid element directly east of the current grid element.
+
+{set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 9*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/crs-client{set:cellbgcolor:#FFFFFF} +
+
+Each implementation of the simulator client-devices accessing the CDB geospatial data _SHALL_ at a minimum support the WGS-84 geodetic coordinate system as specified in link:#coordinate-reference-systems[Req 8]. Other reference systems may be used in the client application.{set:cellbgcolor:#FFFFFF}
+|===

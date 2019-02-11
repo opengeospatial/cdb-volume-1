@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 24*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/primary-substrate{set:cellbgcolor:#FFFFFF} +
+
+There _SHALL_ be only one Primary_Substrate. If there is a Surface_Substrate there shall be only one. However, a Surface_Substrate is optional.{set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 82* {set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/schema-cs2[http://www.opengis.net/spec/cdb/1.0/core/nav-schema-cs2]  {set:cellbgcolor:#FFFFFF} +
+
+For schema files, the value of CS2 _SHALL_ be T002
+|===

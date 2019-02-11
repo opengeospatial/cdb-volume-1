@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 72*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/gsmodeldescriptor-archive-name[http://www.opengis.net/spec/cdb/1.0/core/gsmodeldescriptor-archive-name]{set:cellbgcolor:#FFFFFF} +
+
+The files from the GSModelGeometry and GSModelInteriorGeometry datasets _SHALL_ have the following naming convention: LatLon_Dnnn_Snnn_Tnnn_LOD_Un_Rn_FeatureCode_FSC_MODL.<ext>footnote:[The file extension was .flt in CDB Version 1]{set:cellbgcolor:#FFFFFF}
+|===

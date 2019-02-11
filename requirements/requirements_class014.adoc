@@ -1,0 +1,10 @@
+[cols="1,4",width="90%"]
+|================================================================================================================================================================================================================================
+2+|Requirements Class - Tiled Raster General (85-87) {set:cellbgcolor:#CACCCE}
+2+|/req/core/tiled-raster-datasets-general {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Various XML schema
+|Requirement 85 {set:cellbgcolor:#CACCCE} |/req/core/tile-grid-structure {set:cellbgcolor:#FFFFFF}
+|Requirement 86 {set:cellbgcolor:#CACCCE} |/req/core/tile-implicit-corner-computation {set:cellbgcolor:#FFFFFF}
+|Requirement 87 {set:cellbgcolor:#CACCCE} |/req/core/tile-implicit-center-computation {set:cellbgcolor:#FFFFFF}
+|================================================================================================================================================================================================================================

@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 38*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/cdb-chain-max{set:cellbgcolor:#FFFFFF} +
+
+Since a CDB is usually intended for use in real-time simulation systems, all CDB chains _SHALL_ be limited to no more than 8 CDB versionsfootnote:[For instance, this would allow for configurations that consist of 1 version for a background world, 3 versions for each of the CDB specification versions, 1 version for dynamic changes, and 3 modeling content versions (1 content version for each specification version).]. This requirement is meant to ensure adequate performance of an implementation using a CDB data store.{set:cellbgcolor:#FFFFFF}
+|===

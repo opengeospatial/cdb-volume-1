@@ -1,0 +1,14 @@
+[cols="1,4",width="90%"]
+|=========================================================================================================================================================================================================
+2+|Requirements Class - Metadata Datasets (74-80) {set:cellbgcolor:#CACCCE}
+2+|/req/core/metadata-datasets {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Various XML schema
+|Requirement 74 {set:cellbgcolor:#CACCCE} |/req/core/version {set:cellbgcolor:#FFFFFF}
+|Requirement 75 {set:cellbgcolor:#CACCCE} |/req/core/attribute-definition {set:cellbgcolor:#FFFFFF}
+|Requirement 76 {set:cellbgcolor:#CACCCE} |/req/core/attribute-schema-level {set:cellbgcolor:#FFFFFF}
+|Requirement 77 {set:cellbgcolor:#CACCCE} |/req/core/attribute-value {set:cellbgcolor:#FFFFFF}
+|Requirement 78 {set:cellbgcolor:#CACCCE} |/req/core/attribute-units {set:cellbgcolor:#FFFFFF}
+|Requirement 79 {set:cellbgcolor:#CACCCE} |/req/core/attribute-scaler {set:cellbgcolor:#FFFFFF}
+|Requirement 80 {set:cellbgcolor:#CACCCE} |/req/core/ao1 footnote:[Angle of Orientation with greater than 1-degree resolution. The angular distance measured from true north (0 deg) clockwise to the major (Y) axis of the feature.] {set:cellbgcolor:#FFFFFF}
+|=========================================================================================================================================================================================================
