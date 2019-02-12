@@ -1,7 +1,7 @@
 [cols="1,4",width="90%"]
 |=================================================================================================================================================================
 2+|Requirements Class - Tiled Datasets (64-67) {set:cellbgcolor:#CACCCE}
-2+|http://www.opengis.net/spec/waterml/part2/json/req/req-core[/req/]core/tiled-data {set:cellbgcolor:#FFFFFF}
+2+|/req/core/tiled-data {set:cellbgcolor:#FFFFFF}
 |Target type |Operations
 |Dependency |Various XML schema
 |Requirement 64 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/core/vector-dataset-llimit[/req/core/vector-dataset-limit] {set:cellbgcolor:#FFFFFF}
