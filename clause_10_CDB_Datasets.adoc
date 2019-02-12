@@ -838,6 +838,16 @@ include::requirements/REQ081.adoc[]
 |AirRefuelingPoint |5 |Point |Single Point from an Air Refueling structure
 |AirRefuelingSegment |6 |Multipoint |Segment from an Air Refueling structure
 |AirspaceBoundary |7 |Point |Designated airspace within which some or all aircraft may be subject to air traffic control.
+|AirwayRestriction |8 |Point |Altitude and time restrictions for airways, airway segments, or sequences of airway segments
+|Approach |9 |Multipoint |Preplanned instrument flight rule (IFR) for air traffic control approach procedures.
+|ArrestingGear |10 |Point |Safety device consisting of engaging or catching devices, and energy absorption devices for the purpose of arresting both tail hook and/or non-tail hook equipped aircraft
+|COMMS |11 |Point |Voice, radio communications, and facility call sign and frequenciesavailable for same operations between the airport environment and aircraft.
+|ControlAirspace |12 |Multipoint |Sequential listing of vertical and lateral limits, defining airspaces of different classifications, within which air traffic control service is provided
+|EnrouteAirway |13 |Point |A specified route designed for channeling the flow of traffic as necessary for the provision of air traffic services
+|FirUir |14 |Multipoint |Flight Information region – Upper Information Region. Designated airspace within which some or all aircraft may be subject to air traffic control.
+|Gate |15 |Point |Passenger gate at an airport
+|GLS |16 |Point |GNSS Landing System
+|Helipad |17 |Line |Designated area usually with a prepared surface used for take-off and landing of helicopters
 |=====================================================================================================================================================================================================================================================================================
 
 [[SchemaFiles]]
