@@ -16,4 +16,4 @@ This folder contains the text for the standard
 
 To produce the HTML of the standard run `asciidoctor -a stem=latexmath --safe -a data-uri  -o standard_document.html standard_document.adoc`.
 
-To produce the PDF of the standard run `asciidoctor-pdf -a stem=latexmath --safe -a data-uri  -o standard_document.html standard_document.adoc`
+To produce the PDF of the standard run `asciidoctor-pdf -a stem=latexmath --safe -a data-uri  -o standard_document.pdf standard_document.adoc`

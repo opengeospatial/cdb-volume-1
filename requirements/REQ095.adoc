@@ -2,9 +2,17 @@
 |===
 |*Requirement 95*{set:cellbgcolor:#CACCCE}
 |http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]maxculture-data-type +
-The MaxCulture component _SHALL_ be represented as floating-point or signed integer values. Integer values for tiles at LOD larger than 0 _SHALL_ be scaled according to the following formula: latexmath:[$Elevation = IntValue \times 2^{- LOD}$]
+The MaxCulture component _SHALL_ be represented as floating-point or signed integer values. Integer values for tiles at LOD larger than 0 _SHALL_ be scaled according to the following formula:
+ifndef::backend-pdf[]
+  latexmath:[$Elevation = IntValue \times 2^{- LOD}$]
+endif::[]
+ifdef::backend-pdf[]
+  image:images/requirement95.png[]
+endif::[]
 
 Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
 
 {set:cellbgcolor:#FFFFFF}
 |===
+
+//latexmath:[$Elevation = IntValue \times 2^{- LOD}$]
