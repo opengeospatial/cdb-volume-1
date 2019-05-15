@@ -6,10 +6,10 @@
 
 The MinElevation and MaxElevation components _SHALL_ be represented as floating-point or signed integer values. Integer values for tiles at LOD larger than 0 _SHALL_ be scaled according to the following formula:
 ifndef::backend-pdf[]
-  latexmath:[$Elevation = IntValue \times 2^{- LOD}$]
+latexmath:[$Elevation = IntValue \times 2^{- LOD}$]
 endif::[]
 ifdef::backend-pdf[]
-  image:images/requirement94.png[]
+image:math/requirement94.png[]
 endif::[]
 
 Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
