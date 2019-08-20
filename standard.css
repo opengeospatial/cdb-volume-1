@@ -766,6 +766,10 @@ p a > code:hover {
     clear: both;
 }
 
+#header {
+    display: none;
+}
+
 #content {
     margin-top: 1.25em;
 }
@@ -1386,6 +1390,7 @@ table.pyhltable .linenodiv {
 
 table.tableblock {
     max-width: 100%;
+    width: 100%;
     border-collapse: separate;
 }
 
