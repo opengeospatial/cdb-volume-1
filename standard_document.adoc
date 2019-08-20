@@ -21,7 +21,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: 2018-03-04
 |Approval Date:      2018-08-27
-|Publication Date:      2018-dd-mm
+|Publication Date:      2018-12-19
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.1
 |Internal reference number of this OGC(R) document:        15-113r5
 |Version: 1.1
@@ -46,15 +46,16 @@
 |*Warning*
 |===
 
-This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.
-
-Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+This document is an OGC Member approved international standard. This document is available
+on a royalty free, non-discriminatory basis. Recipients of this document are invited to submit,
+with their comments, notification of any relevant patent rights of which they are aware and to
+provide supporting documentation.
 
 [width = "50%", grid = "none"]
 |===
 |Document type:   	    OGC® Standard
-|Document subtype:   	if applicable
-|Document stage:   	Draft
+|Document subtype:   
+|Document stage:   	Approved
 |Document language: 	English
 |===
 
