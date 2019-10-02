@@ -4835,6 +4835,16 @@ Dataset 311, GSModelInteriorCMT
 
 The size of any GSModel archive is limited to 32 MB to permit reading, processing and writing the file at runtime.
 
+[[TiledGSModelDescriptorDatasets]]
+==== Tiled GSModelDescriptor Datasets
+
+Since each GSModel can have more than one level of detail, discovery of the associated GSModelDescriptor is needed.  Therefore, there must be a GSModelDescriptor file for each model LOD, stored at the same CDB LOD that each LOD of the model is stored at.
+
+Add Requirement
+include::requirements/requirements_class030.adoc[]
+
+include::requirements/REQ129.adoc[]
+
 
 [[TiledT2DModelDatasets]]
 ==== Tiled T2DModel Datasets
