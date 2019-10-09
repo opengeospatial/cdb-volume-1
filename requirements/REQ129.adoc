@@ -3,5 +3,5 @@
 |*Requirement 129*{set:cellbgcolor:#CACCCE}
 |http://www.opengis.net/spec/cdb/core/tiled-gsmd[http://www.opengis.net/spec/cdb/1.0/core/tiled-gsmd]{set:cellbgcolor:#FFFFFF} +
 
-There _SHALL_ be one GeoSpecific Model Descriptor file per GeoSpecific model level of detail.  Each GeoSpecific Model Descriptor file _SHALL_ be at the same LODs as the corresponding GeoSpecific model's level of detail.{set:cellbgcolor:#FFFFFF}
+There _SHALL_ be one GeoSpecific Model Descriptor file per GeoSpecific model level of detail.  Each GeoSpecific Model Descriptor file _SHALL_ be at the same LOD as the corresponding GeoSpecific model's level of detail.{set:cellbgcolor:#FFFFFF}
 |===
