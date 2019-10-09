@@ -3,7 +3,7 @@
 |*Conformance Class* 2+|*/conf/core/vcmt*
 |*Requirements* 2+|/req/core/vcmt 
 |*Dependency* 2+|Various XML schema
-|*Test 128* |*Test purpose* |Verify that there is on VCMT for each CDB Geocell which provides a list of the Composite Materials shared by all vector datasets.
+|*Test 128* |*Test purpose* |Verify that there is one VCMT for each CDB Geocell which provides a list of the Composite Materials shared by all vector datasets.
 | |*Test method* |Visually pass if there is one VCMT for each CDB Geocell.
 | |*Test type* |Conformance
 |=======================================================================================================================================================================================================================
