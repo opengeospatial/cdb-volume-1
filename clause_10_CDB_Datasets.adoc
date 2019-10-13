@@ -1394,7 +1394,7 @@ The Elevation Dataset is comprised of several components listed here and detaile
 Extension* |*Component +
 Name* |*Component +
 Description*
-|Dataset 001, Elevation | | | |
+5+^|Dataset 001, Elevation
 |001 |001 |*.tif |Primary Terrain Elevation |A grid of data representing the Elevation at the surface of the Earth. Stored as a 1 or 2-channel TIFF image. When present, the second channel provides the mesh type of each grid element.
 |001 |002 |*.tif |Primary Terrain Elevation Control |Deprecated
 |001 |003 |*.tif |Primary Alternate Terrain Elevation |A grid of data representing the Elevation of the surface of the Earth at specified Latitude and Longitude offsets inside each grid element. Stored as a 4-channel TIFF image.
@@ -1403,10 +1403,10 @@ Description*
 |100 |001 |*.tif |Subordinate Bathymetry |A grid of data representing the Depth of water with respect to the selected Terrain Elevation component. Store as a 1 or 2-channel TIFF image. When present, the second channel provides the mesh type of each grid element.
 |100 |002 |*.tif |Subordinate Alternate Bathymetry |A grid of data representing the Depth of water at specified Latitude and Longitude offsets inside each grid element with respect to the selected Terrain Elevation component. Stored as a 4-channel TIFF image.
 |101 |001 |*.tif |Subordinate Tide Elevation |A grid of data representing the average height variation of water with respect to the Primary Terrain Elevation Component.
-|Dataset 002, MinMaxElevation | | | |
+5+^|Dataset 002, MinMaxElevation
 |001 |001 |*.tif |Minimum Elevation |Minimum height (on a per tile LOD basis) of the Primary Terrain Elevation Dataset Component (excluding all cultural features).
 |001 |002 |*.tif |Maximum Elevation |Maximum height (on a per tile LOD basis) of the Primary Terrain Elevation Dataset Component (excluding all cultural features).
-|Dataset 003, MaxCulture | | | |
+5+^|Dataset 003, MaxCulture
 |001 |001 |*.tif |Primary Maximum Culture Elevation |Maximum height (on a per tile LOD basis) of the bounding boxes of all cultural features held in the vector tiled datasets within the geographic footprint of the area represented by the sample value.
 |=====================================================================================================================================================================================================================================================================
 
