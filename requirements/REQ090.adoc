@@ -1,9 +1,8 @@
 [width="90%",cols="2,6"]
 |===
 |*Requirement 90*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]terrain-tiff-channel2 +
+|http://www.opengis.net/spec/cdb/core/terrain-tiff-channel2[http://www.opengis.net/spec/cdb/1.0/core/terrain-tiff-channel2] +
 
-The second channel of the TIFF image contains the _Mest Type_ and _SHALL_ be stored as an unsigned 8-bit integer.
-The third and fourth channels contain the _Latitude_ and _Longitude Offset_ components and _SHALL_ be stored as unsigned 8-bit integers.
+The _Mesh Type_ _SHALL_ be represented as a 0 or 1.  If the _Mesh Type_ is stored as the second channel of a TIFF image, it _SHALL_ be stored as an unsigned 8-bit integer.  If the _Mesh Type_ is stored as a single channel sub image of a TIFF, it _SHALL_ be stored as either an unsigned 8-bit integer or as a bilevel 1-bit image.
 {set:cellbgcolor:#FFFFFF}
 |===
