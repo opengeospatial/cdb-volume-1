@@ -1446,7 +1446,11 @@ ifdef::backend-pdf[]
 image:math/elevationintvalue.png[]
 endif::[]
 
+include::requirements/REQ089.adoc[]
+
 Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
+
+include::requirements/REQ090.adoc[]
 
 The _Mesh Type_ is stored as an unsigned 8-bit integer.
 
@@ -1507,13 +1511,11 @@ The second method stores the data elements as a single TIFF image with 3 subfile
 [[DataType_3]]
 ====== Data Type
 
-include::requirements/REQ089.adoc[]
+The _Elevation_ and _Mesh Type_ components follow Requirements 89 and 90.
 
+include::requirements/REQ129.adoc[]
 
-Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
-
-include::requirements/REQ090.adoc[]
-
+Offset integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
 
 
 [[DefaultReadValue_4]]
