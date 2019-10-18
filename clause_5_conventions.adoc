@@ -164,4 +164,5 @@ In CDB Version 1.1, explicit file name extensions in Requirements were replaced 
 |*.dbf, *.dbt |dBASE III+ and above |Ignores data
 |*.xml |1.0 |Ignores data
 |*.zip |6.3.1 |Ignores data
+|*.gpkg|1.1 and 1.2|Ignores data
 |=====================================================================================================
