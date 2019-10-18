@@ -151,7 +151,7 @@ The /CDB folder hierarchy provides a complete list of directory and filename pat
 
 Together, these files provide all the information required to build the names of all directories permitted by the standard.
 
-In CDB Version 1.1, explicit file name extensions in Requirements were replaced with a generic <ext> to designate that one or more file types are allowed to satisfy that requirement. Notes are also provided to indicate what filename extension (type) was required as specified in CDB Version 1.0. In CBD Version 1.1, the following file extensions are used:
+In CDB Version 1.1, explicit file name extensions in Requirements were replaced with a generic <ext> to designate that one or more file types are allowed to satisfy that requirement. Notes are also provided to indicate what filename extension (type) was required as specified in CDB Version 1.0. In CBD Version 1.2, the following file extensions are used:
 
 [cols=",,",]
 |=====================================================================================================
