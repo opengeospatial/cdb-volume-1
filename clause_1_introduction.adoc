@@ -2,7 +2,7 @@
 [[Introduction]]
 == Introduction
 
-The CDB standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The standard makes use of existing commercial and simulation data formats footnote:[Future versions of the CDB standard will define how to use other industry approved standards and formats.].
+The CDB standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The standard makes use of existing commercial and simulation data formats footnote:[Future versions of the CDB standard will continue to define the use of other industry approved standards and formats.].
 
 The CDB conceptual model is a representation of the natural environment including external features such as man-made structures and systems. The model encompasses planimetry, terrain relief, terrain imagery, three-dimensional (3D) models of natural and man-made cultural features, 3D models of vehicles, the ocean surface, and the ocean bottom, including features (both natural and man-made) on the ocean floor. In addition, the model includes the attributes of the synthetic environment data as well as their relationships.
 
