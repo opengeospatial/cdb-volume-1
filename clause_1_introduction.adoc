@@ -2,13 +2,13 @@
 [[Introduction]]
 == Introduction
 
-The CDB standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The standard makes use of existing commercial and simulation data formats footnote:[Future versions of the CDB standard will define how to use other industry approved standards and formats.].
+The CDB standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The standard makes use of existing commercial and simulation data formats footnote:[Future versions of the CDB standard will continue to define the use of other industry approved standards and formats.].
 
 The CDB conceptual model is a representation of the natural environment including external features such as man-made structures and systems. The model encompasses planimetry, terrain relief, terrain imagery, three-dimensional (3D) models of natural and man-made cultural features, 3D models of vehicles, the ocean surface, and the ocean bottom, including features (both natural and man-made) on the ocean floor. In addition, the model includes the attributes of the synthetic environment data as well as their relationships.
 
 A data store that conforms to the CDB standard (i.e., a CDB) contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features and models of a synthetic environment for the purposes of distributed simulation applications. The organization of the geospatial data in a CDB data store is specifically tailored for real-time applications.
 
-For ease of editing and review, the standard has been separated into 12 Volumes and a schema repository.
+For ease of editing and review, the standard has been separated into 14 Volumes and a schema repository.
 
 * Volume 0: OGC CDB Companion Primer for the CDB standard. (Best Practice)
 * Volume 1: OGC CDB Core Standard: Model and Physical Data Store Structure. The main body (core) of the CDB standard (Normative).
@@ -23,6 +23,7 @@ For ease of editing and review, the standard has been separated into 12 Volumes 
 * Volume 10: OGC CDB Implementation Guidance (Best Practice).
 * Volume 11: OGC CDB Core Standard Conceptual Model (Normative)
 * Volume 12: OGC CDB Navaids Attribution and Navaids Attribution Enumeration Values (Best Practice)
+* Volume 13: OGC CDB - Rules for Structuring a GeoPackage.
+* Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages (Best Practice)
 
-
-Once this version is approved as an OGC standard, the CDB SWG shall consider how this standard will evolve to align with the OGC/ISO standards baseline. Discussion and suggestions have already started, specifically in relation to the OGC GeoPackage, DGGS, KML, and CityGML standards.
+The major enhancements for version 1.2 is the definition of 1.) rules for storing GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB ShapeFiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests.
