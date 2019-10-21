@@ -10,4 +10,6 @@ A data store that conforms to the CDB standard (i.e., a CDB) contains datasets o
 
 include::list_of_volumes.adoc[]
 
-The major enhancements for version 1.2 is the definition of 1.) rules for storing GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB ShapeFiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests.
+The major enhancements for version 1.2 are the definition of 1.) rules for encoding GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB ShapeFiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests. 
+
+The GeoPackage encoding is an optional extension and does not need to be implemented to provide a compliant CDB data store to the community. The only caveat is that if the developer of a version of a CDB data store wishes to use GeoPackages, then that version of the data store must use only the CDB GeoPackage encoding. Shapefiles and GeoPackages cannot be mixed in a unique version of a CDB data store.
