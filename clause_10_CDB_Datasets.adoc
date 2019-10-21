@@ -2399,7 +2399,7 @@ The files associated with the Terrain Composite Material Table for the area cove
 [[TiledVectorDatasets]]
 === Tiled Vector Datasets
 
-Tiled vector data differs from their raster counterpart in three important ways. First of all, a tiled vector data internal structure permits a non-uniform distribution of elements within the tile, (i.e., the position of each element within the tile is explicit). Secondly, the tiled vector datas internal structure permits a variable number of elements within the tile confines. Finally, it is possible to control the distribution of the element types from a single list.
+Tiled vector data differs from their raster counterpart in three important ways. First of all, a tiled vector data internal structure permits a non-uniform distribution of elements within the tile, (i.e., the position of each element within the tile is explicit). Secondly, the tiled vector data internal structure permits a variable number of elements within the tile confines. Finally, it is possible to control the distribution of the element types from a single list.
 
 Conceptually, the LOD of tiled vector data implicitly provides the average density of elements within the tile. The run-time level-of-detail behavior that controls the rendered number of data elements depends on various parameters and on the off-line filtering process.
 
