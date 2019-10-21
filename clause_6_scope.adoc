@@ -38,8 +38,8 @@ The current CDB standard relies on established industry formats:
 * *OpenFlight*: The Best Practice use of the OpenFlight footnote:[Other 3d formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth.] format (Volume 6: OGC CDB Rules for Encoding Data using OpenFlight);
 * *RGB*: The RGB format. Included in the Gamma Tutorial Section, Volume 10: OGC CDB Implementation Guidance
 * *Shapefiles*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
-* *GeoPackages*: The normative requirements and conformance classes for the use of GeoPackages in a CDB data store. The GeoPackage content encoding rules documented in Volume 13: OGC CDB - Rules for Structuring a GeoPackage;
-* *JPEG*: JPEG 2000 file format (Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
+* *GeoPackages*: The normative requirements and conformance classes for correctly structuring GeoPackages for use in a CDB data store. The GeoPackage content encoding rules documented in OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage;
+* *JPEG 2000*: JPEG 2000 file format (Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
 
 Each of these documents has been annotated to reflect the conventions established by the CDB standard. The Best Practice conventions currently define how TIFF, OpenFlight, RGB, Shapefile and JPEG 2000 formatted files are to be interpreted by CDB-compliant simulator readers.
 
