@@ -1519,9 +1519,7 @@ include::requirements/REQ129.adoc[]
 [[DefaultReadValue_4]]
 ====== Default Read Value
 
-Simulator client-devices should assume an _Elevation_ value of _Default_Elevation-1_ if the data values of the Primary Alternate Terrain Elevation component are not available (files associated with the Primary Alternate Terrain Elevation component for the area covered by a tile, at a given LOD or coarser, are either missing or cannot be accessed). The default value is stored in \CDB\Metadata\Defaults.xml. In absence of a default value, the CDB Specification states that client-devices use a value of zero.
-
-The default _Mesh Type_, _Latitude Offset_, and _Longitude Offset_ are zero.
+If the Primary Alternate Terrain Elevation dataset is not available (files associated with the Primary Alternate Terrain Elevation component for the area covered by a tile, at a given LOD or coarser, are either missing or cannot be accessed), a CDB client-device should use the Primary Terrain Elevation dataset.  In the absence of missing _Mesh Type_, _Latitude Offset_, or _Longitude Offset_ values, they are assumed to be zero.
 
 
 [[DefaultWriteValue_5]]
