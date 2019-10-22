@@ -36,8 +36,8 @@ The current CDB standard relies on established industry formats:
 
 * *TIFF 6.0*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance;
 * *OpenFlight*: The Best Practice use of the OpenFlight footnote:[Other 3d formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth.] format (Volume 6: OGC CDB Rules for Encoding Data using OpenFlight);
-* *SGI image format*: A native raster graphics file format also known as RGB file format. Included in the Gamma Tutorial Section, Volume 10: OGC CDB Implementation Guidance
-* *Shapefiles*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
+* *SGI image format*: A native raster graphics file format also known as RGB file format.
+* *Shapefiles*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
 * *GeoPackages*: Using GeoPackages for use in a CDB data store. The GeoPackage content encoding rules are documented in the OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage standard;
 * *JPEG 2000*: JPEG 2000 file format (Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
 
