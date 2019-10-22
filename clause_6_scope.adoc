@@ -36,12 +36,12 @@ The current CDB standard relies on established industry formats:
 
 * *TIFF 6.0*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance;
 * *OpenFlight*: The Best Practice use of the OpenFlight footnote:[Other 3d formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth.] format (Volume 6: OGC CDB Rules for Encoding Data using OpenFlight);
-* *RGB*: The RGB format. Included in the Gamma Tutorial Section, Volume 10: OGC CDB Implementation Guidance
+* *SGI image format*: A native raster graphics file format also known as RGB file format. Included in the Gamma Tutorial Section, Volume 10: OGC CDB Implementation Guidance
 * *Shapefiles*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
 * *GeoPackages*: Using GeoPackages for use in a CDB data store. The GeoPackage content encoding rules are documented in the OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage standard;
 * *JPEG 2000*: JPEG 2000 file format (Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
 
-Each of these documents has been annotated to reflect the conventions established by the CDB standard. The Best Practice conventions currently define how TIFF, OpenFlight, RGB, Shapefile and JPEG 2000 formatted files are to be interpreted by CDB-compliant simulator readers.
+Each of these documents has been annotated to reflect the conventions established by the CDB standard. The Best Practice conventions currently define how TIFF, OpenFlight, SGI Image Format, Shapefile, GeoPackage and JPEG 2000 formatted files are to be interpreted by CDB-compliant simulator readers.
 
 In addition, a new CDB topic volume for CDB Version 1.2 defines the Best Practices for conversion of CDB structured Shapefiles into CDB structured GeoPackages.
 
@@ -70,7 +70,7 @@ Currently, the majority of a CDB conformant internal data storage representation
 
 * For the representation of terrain altimetry, terrain surface characteristics relevant to simulation: TIFF/GeoTIFF.
 * For the representation of 3D culture and moving models: OpenFlight.
-* For the textures associated with 3D culture and moving models: RGB.
+* For the textures associated with 3D culture and moving models: SGI image format (RGB).
 * For the instancing and attribution of statically positioned point, lineal and polygon 2D/3D culture features: Shapefiles or GeoPackage.
 * For a representation of terrain raster imagery comprising a well-defined and accepted compression method that allows both lossy and lossless schemes: JPEG 2000.
 
@@ -90,7 +90,6 @@ The CDB standard relies on three important concepts to organize the geospatial d
 
 The standard does not define or enforce an operating system or file system.
 
-
 [[WhattheCDBStandardisNot]]
 ==== What the CDB Standard is Not
 
@@ -104,7 +103,6 @@ The CDB standard does not specify a mandatory “coverage completeness requireme
 
 Given the requirement that the CDB standard be platform independent, the standard does not provide the implementation details of specific off-line data store compilers or runtime publishers attached to specific client-devices footnote:[Example client devices are: UAV simulators, mission planning simulators, , helicopter training simulators, and so fort]. Furthermore, since there is no standardization of the SE representation internal to client-devices (they vary by type footnote:[It is precisely the intent of the CDB standard to provide such standardization.], by vendors), it is unlikely that such information would completely satisfy the interests of all developers. More importantly, the structure and format of data ingested by each client-device is typically proprietary. Finally, this standard does not describe the effort required to develop CDB off-line compilers and/or CDB runtime publishers.
 
-
 [[GeneralCDBDataStoreandImplementationrequirements]]
 === General CDB Data Store and Implementation requirements
 
@@ -112,38 +110,30 @@ This section details the requirements for a CDB conformant or structured data st
 
 include::requirements/REQ001.adoc[]
 
-
 [[PlatformRequirements]]
 ==== Platform Requirements
 
 include::requirements/requirements_class001.adoc[]
-
-
-
 
 [[FileSystem]]
 ===== File System
 
 Moved to section 5.1 Volume 10: Implementation Guidance
 
-
 [[OperatingSystem]]
 ===== Operating System
 
 Moved to section 5.2 Volume 10: Implementation Guidance
-
 
 [[TransportProtocols]]
 ===== Transport Protocols
 
 The CDB standard is transport protocol-independent. The standard does not mandate the use of specific transport protocols. Furthermore, this standard does not explicitly rely on or specify any transport protocols.
 
-
 [[SystemHardwareIndependence]]
 ===== System Hardware Independence
 
 This section was moved to section 5.3 Volume 10, Implementation Guidance
-
 
 [[LiteralCase]]
 ===== Literal Case
@@ -156,7 +146,6 @@ Throughout this standard, the reader will notice that filenames and directory pa
 
 However, it is important to note that no two names are to differ only by their case. After all, a name is used to designate a single object or concept whether that name is spelled in lowercase or uppercase or even using mixed case. For instance, the terms house, House, and HOUSE (and even HoUsE) all convey the same idea of a residence where people live. And this stays true for all combination of cases.
 
-
 [[GeneralDataRepresentationRequirements]]
 ==== General Data Representation Requirements
 
@@ -164,26 +153,20 @@ The following is the Requirements Class for general data representation requirem
 
 include::requirements/requirements_class002.adoc[]
 
-
-
-
 [[CompressionofStorageIntensiveImageryDatasets]]
 ===== Compression of Storage Intensive Imagery Datasets
 
 include::requirements/REQ006.adoc[]
-
 
 [[Compressionofotherimagerydatasets]]
 ===== Compression of other imagery datasets
 
 In general, all TIFF/GeoTIFF files benefit from LZW compression. For this reason, and as a general practice, the compression of all TIFF-based raster datasets is recommended. The one exception is when every cell in the raster dataset is a unique floating point number. In this case, the compressed file may be larger than the original.
 
-
 [[UnitsofMeasure]]
 ===== Units of Measure
 
 include::requirements/REQ007.adoc[]
-
 
 [[CoordinateReferenceSystems]]
 ==== Coordinate Reference Systems
@@ -193,7 +176,6 @@ include::requirements/REQ008.adoc[]
 Please see the Volume 8: OGC CDB Spatial Reference System Guidance.
 
 include::requirements/REQ009.adoc[]
-
 
 [[GeographicCoordinates]]
 ==== Geographic Coordinates
