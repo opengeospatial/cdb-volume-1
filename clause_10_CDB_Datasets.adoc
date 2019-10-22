@@ -102,88 +102,49 @@ The light type code can range from *0 to 9,999*. The light type codes are used b
 
 Below is a small sample of the CDB light name hierarchy in XML format.
 
-[source,xml]
-----
+```
 <Lights>
-
-<Light type="Light" code="0">
-
-<Description>
-
-All Purpose Generic light
-
-</Description>
-
-<Light type="Platform" code="1">
-
-<Description>
-
-Platform light
-
-</Description>
-
-<Light type="Air" code="2">
-
-<Description>
-
-Aircraft light
-
-</Description>
-
-<Light type="Aircraft_Helos" code="3">
-
-<Description>
-
-Light for Aircraft and Helicopters
-
-</Description>
-
-<Light type="Anti-collision" code="4">
-
-<Description>
-
-Anti collision light – normally red flashing
-
-</Description>
-
-<Light type="Bottom_Light" code="5">
-
-<Description>
-
-Anti-collision found on bottom of the fuselage
-
-</Description>
-
-<Light type="NVG_Bottom_Light" code="6">
-
-<Description>
-
-Anti-collision found on bottom of fuselage in NVG mode
-
-</Description>
-
-</Light>
-
-</Light>
-
-</Light>
-
-... other light definitions of type Platform-Air-Aircraft_Helos
-
-</Light>
-
-... other light definitions of type Platform-Air
-
-</Light>
-
-... other light definitions of type Platform
-
-</Light>
-
-</Light>
-
+  <Light type="Light" code="0">
+    <Description>
+      All Purpose Generic light
+    </Description>
+    <Light type="Platform" code="1">
+      <Description>
+        Platform light
+      </Description>
+      <Light type="Air" code="2">
+        <Description>
+          Aircraft light
+        </Description>
+        <Light type="Aircraft_Helos" code="3">
+          <Description>
+            Light for Aircraft and Helicopters
+          </Description>
+          <Light type="Anti-collision" code="4">
+            <Description>
+              Anti collision light – normally red flashing
+            </Description>
+            <Light type="Bottom_Light" code="5">
+              <Description>
+                Anti-collision found on bottom of the fuselage
+              </Description>
+              <Light type="NVG_Bottom_Light" code="6">
+                <Description>
+                  Anti-collision found on bottom of fuselage in NVG mode
+                </Description>
+              </Light>
+            </Light>
+          </Light>
+      ... other light definitions of type Platform-Air-Aircraft_Helos
+        </Light>
+    ... other light definitions of type Platform-Air
+      </Light>
+  ... other light definitions of type Platform
+    </Light>
+  </Light>
 </Lights>
-----
+
+```
 
 Note that light code numbering need not be consecutive. Light codes have a one-to-one association with light types; consequently, the light codes are unique among all light types.
 
