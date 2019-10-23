@@ -105,11 +105,11 @@ include::clause_9_File_Formats.adoc[]
 
 include::clause_10_CDB_Datasets.adoc[]
 
-///
+////
 include::clause_10_Metadata_5.1_CDB_Datasets.adoc[]
 
 include::clause_10_Navigation_5.2_CDB_Datasets.adoc[]
-///
+////
 
 <<<
 ////
