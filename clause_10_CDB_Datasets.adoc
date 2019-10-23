@@ -28,36 +28,39 @@ For example, Clause 3.6.3.1.1 provides an example of the name of an elevation fi
 
 “The primary elevation data corresponding to this coordinate will be found in the file named:
 
-S06E045_D001_S001_T001_L02_U3_R0.tif”
+```
+    S06E045_D001_S001_T001_L02_U3_R0.tif”
+```
 
 If there are metadata for the elevation dataset, then perhaps this example is expanded to:
 
 “The primary elevation data and geospatial metadata corresponding to this coordinate will be found in the file named:
 
-S06E045_D001_S001_T001_L02_U3_R0.tif
+```
+    S06E045_D001_S001_T001_L02_U3_R0.tif
 
-S06E045_D001_S001_T001_L02_U3_R0_mtd.xml
+    S06E045_D001_S001_T001_L02_U3_R0_mtd.xml
+```
 
 The associated metadata file is specified by using a “_mtd” addition to the base file name and then followed by the <.ext> file type designation which in the above case is “.xml”. Another example for a ShapeFile might be:
 
 If ShapeFiles are being used, this approach results in the following file names:
 
-N62W162_D100_S001_T001_L07_U38_R102.shp
+```
+    N62W162_D100_S001_T001_L07_U38_R102.shp
 
-N62W162_D100_S001_T001_L07_U38_R102.shx
+    N62W162_D100_S001_T001_L07_U38_R102.shx
 
-N62W162_D100_S001_T001_L07_U38_R102.dbf
+    N62W162_D100_S001_T001_L07_U38_R102.dbf
 
-N62W162_D100_S001_T001_L07_U38_R102.dbt
+    N62W162_D100_S001_T001_L07_U38_R102.dbt
 
-N62W162_D100_S001_T001_L07_U38_R102_mtd.xml
+    N62W162_D100_S001_T001_L07_U38_R102_mtd.xml
+```
 
 include::requirements/requirements_class012.adoc[]
 
-
 The table below lists all metadata files that are allowed and defined by the CDB standard. Note that a dataset code and component selectors are assigned to each metadata file even though these codes do not participate in the construction of their file names. Dataset codes are assigned to metadata datasets for consistency with all other CDB Datasets.
-
-
 
 [#table_ComponentSelectorsforCDBControlledVocabulariesandMetadataDatasets*,reftext='{table-caption} {counter:table-num}']
 *Table 5-1: Component Selectors for CDB Controlled Vocabularies and Metadata Datasets*
@@ -81,7 +84,6 @@ The table below lists all metadata files that are allowed and defined by the CDB
 |===============================================================
 
 For client-specific metadata, the standard only reserves one dataset code but no component selector. The mechanism is kept for backward compatibility with previous versions of the CDB standard. However, its use is strongly discouraged because it defeats the very intent of the CDB, which is to promote correlation between client devices by having a single source of data.
-
 
 [[LightDataHierarchyControlledVocabulary]]
 ==== Light Data Hierarchy Controlled Vocabulary
@@ -148,7 +150,6 @@ Below is a small sample of the CDB light name hierarchy in XML format.
 
 Note that light code numbering need not be consecutive. Light codes have a one-to-one association with light types; consequently, the light codes are unique among all light types.
 
-
 [[ClientSpecificLightsDefinitionMetadata]]
 ===== Client Specific Lights Definition Metadata
 
@@ -178,51 +179,29 @@ The XML schema for the fields of the Lights_xxx.xml is delivered with the standa
 
 Here is a sample of a _Lights_xxx.xml_ file where a modeler has exercised explicit control over the properties of an anti-collision light and a landing light.
 
-[source,xml]
-----
+```
 <Lights_Tuning>
-
-<Light type="\Light\Platform\Air\Aircraft_Helos\Anti-collision">
-
-<Description>Tuned for MH-47 CMS</Description>
-
-<Intensity>0.75</Intensity>
-
-<Color>1.0 0.0 0.0</Color>
-
-<Directionality>Omnidirectional</Directionality>
-
-<Frequency>0.5</Frequency>
-
-<Duty_Cycle>0.2</Duty_Cycle>
-
-</Light>
-
-<Light type="\Light\Platform\Air\Aircraft_Helos\Landing">
-
-<Description>...</Description>
-
-<Intensity>1.0</Intensity>
-
-<Color>1.0 0.9 0.9</Color>
-
-<Directionality>Directional</Directionality>
-
-<Residual_Intensity>0.05</Residual_Intensity>
-
-<Lobe_Width>
-
-<Horizontal>30.0</Horizontal>
-
-<Vertical>25.0</Vertical>
-
-</Lobe_Width>
-
-</Light>
-
+  <Light type="\Light\Platform\Air\Aircraft_Helos\Anti-collision">
+    <Description>Tuned for MH-47 CMS</Description>
+    <Intensity>0.75</Intensity>
+    <Color>1.0 0.0 0.0</Color>
+    <Directionality>Omnidirectional</Directionality>
+    <Frequency>0.5</Frequency>
+    <Duty_Cycle>0.2</Duty_Cycle>
+  </Light>
+  <Light type="\Light\Platform\Air\Aircraft_Helos\Landing">
+    <Description>...</Description>
+    <Intensity>1.0</Intensity>
+    <Color>1.0 0.9 0.9</Color>
+    <Directionality>Directional</Directionality>
+    <Residual_Intensity>0.05</Residual_Intensity>
+    <Lobe_Width>
+      <Horizontal>30.0</Horizontal>
+      <Vertical>25.0</Vertical>
+    </Lobe_Width>
+  </Light>
 </Lights_Tuning>
-----
-
+```
 
 [[ModelComponentsDefinitionFile]]
 ==== Model Components Definition File
