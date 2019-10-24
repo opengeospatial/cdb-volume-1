@@ -6,14 +6,12 @@
 
 This chapter provides the description of the content of datsets in a CDB data store, except OpenFlight and RCS models that are covered in separate documents (Volumes 5 and 6 of this standard). Chapter 5 also provides the Component Selectors necessary to complete the file names associated with all CDB datasets
 
-
 [[ControlledVocabulariesandMetadataDatasetsusedbyCDB]]
 === Controlled Vocabularies and Metadata Datasets used by CDB
 
 This clause provides details on the requirements and guidance for the various global and local metadata files that can be used in a CDB data store. As mentioned above, controlled vocabularies are agreements on how to define the concepts and relationships (also referred to as “terms”) used to describe and represent an area of concern. Controlled vocabularis define the structure, naming hierarchies, default values, allowable values, and status of terms used globally in a CDB data store.
 
 Currently, the majority of CDB controlled vocabularies, enumerations, and metadata files are formatted using eXtended Markup Language (XML) files and their XML schemas can be found in the \CDB\Metadata\Schema\ folder delivered with the CDB standard. The exceptions are the global and local geospatial metadata files which may be XML schema, JSON, JSON schema, or some other internationally recognized coding.
-
 
 [[GlobalMetadata]]
 ==== Global Metadata
@@ -26,7 +24,7 @@ Local refers to metadata specific to a given dataset within a CDB data store. Th
 
 For example, Clause 3.6.3.1.1 provides an example of the name of an elevation file in a given tile. The example from that section is:
 
-“The primary elevation data corresponding to this coordinate will be found in the file named:
+The primary elevation data corresponding to this coordinate will be found in the file named:
 
 ```
     S06E045_D001_S001_T001_L02_U3_R0.tif”
@@ -2177,7 +2175,6 @@ The CDB standard supports compressed form using the JPEG 2000 format.
 
 Historically, Digital Feature Analysis (DFAD) and VPF (Vector Product Format) data have been used to provide the terrain and cultural content information used by the real-time sensors, the computer generated forces and the visual systems. The vectorized outlines of areas tagged with attribution data had a cartoon-like appearance because they did not capture the richly varying mixture of materials. Each geometric shape would be represented as a single material type resulting in simplistic sensor scenes. Sometimes, a locally applied texture pattern would be applied to add some realism to the single material type. While it is still possible to build a CDB compliant data store in this manner, the preferred approach involves the use of the Raster Material Dataset described here. The Raster Material Dataset can be readily derived from the (image) classification of mono, color or multispectral imagery. This Dataset is a material-coded image. It is independent of wavelength (visible, infrared, etc.) and is designed to support geospecific, multi-spectral scene simulation across any computing platform. The Raster Material Dataset is typically generated from material classification and mixturing analysis (see Figure 5-26: Image Classification Example). It can be developed directly from geospecific imagery, (e.g., SPOT, Landsat) and have a one-to-one correspondence with the image data. The Raster Material Dataset results in a smoothly varying simulation data store free of hard edges characteristically found in vectorized DFAD outlines.
 
-
 image::images/image74.jpeg[image,width=250,height=213]
 image::images/image75.jpeg[image,width=250,height=213]
 [#img_ImageClassificationExample,reftext='{figure-caption} {counter:figure-num}']
@@ -2327,68 +2324,43 @@ include::requirements/requirements_class021.adoc[]
 [[IntroductiontoVectorDatasets]]
 ==== Introduction to Vector Datasets
 
-A point feature is a geographic entity where its simplest representation resolves to a point with general attributes such as size, position, or material. A lineal feature is a geographic entity that defines a one-dimensional feature such as a road, a canal, a river. A polygon feature is a geographic entity where its simplest representation resolves to a two-dimension feature such as a lake or soil type boundary. In this context, a geographic entity is always specified by latitude and longitude coordinates; in turn, the geographic entity is conformed onto the terrain by the client-device.
+The term vector data refers to data that represents the spatial configuration of features as a set of directed line segments. Vector geometry is representation of geometry for vector data through the use of constructive geometric primitives. Commonly known vector geometies are typically called point, line, and polygon features. Very specific definitions of these geometry types and many other geometry types that are used in GIS, CAD, and other technologies can be found in https://www.iso.org/standard/66175.html[ISO 19107:2003 Geographic information — Spatial schema] (recently updated).
+
+For the purposes of the CDB standard, a point feature is a geographic entity where its simplest representation resolves to a point with general attributes such as size, position, or material. A lineal feature is a geographic entity that defines a one-dimensional feature such as a road, a canal, or a river. A polygon feature is a geographic entity where its simplest representation resolves to a two-dimension feature such as a lake or soil type boundary. In this context, a geographic entity is always specified by latitude and longitude coordinates; in turn, the geographic entity is conformed onto the terrain by the client-device.
 
 The lineal and polygon feature’s representation abstractly resolves to a one or a two-dimensional feature. Unless otherwise specifically mentioned, lineal and polygon feature’s representations are not used to model a geometrical representation. However, these features may optionally reference an explicitly modeled representation (for example an OpenFlight model) located in the geospecific model or the geotypical model datasets.
 
-The current CDB standard specifies Esri Shapefiles to represent vector data and attributes. All shape types are supported to represent point, line, and polygon features. Please refer to Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage for detailed information and requirements for using Shapefiles for storing vector data in a CDB data store.
+Version 1.2 of the CDB standard specifies the use of either OGC GeoPackages or Esri Shapefiles to represent vector data and attributes. In each case, geometry types are supported to represent point, line, and polygon features.
 
-Allowed vector data features types for a CDB data store are as follows:
+* Refer to Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage for detailed information and requirements for using Shapefiles for storing vector data in a CDB data store.
+* Refer to Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage. for detailed information and requirements for using GeoPackages for storing vector data in a CDB data store.
+* Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages. 
+
+Geometry data features types used in a CDB data store are as follows:
 
 [cols=",,",options="header",]
 |===============================================================================================
-|*Value* |*Vector type* |*Fields*
-|0 |Null shape |None
-|1 |Point |X, Y
-|3 |Polyline |MBR, Number of parts, Number of points, Parts, Points
-|5 |Polygon |MBR, Number of parts, Number of points, Parts, Points
-|8 |MultiPoint |MBR, Number of points, Points
-|11 |PointZ a|
-X, Y, Z
-
-_Optional_: M
-
-|13 |PolylineZ a|
-_Mandatory_: MBR, Number of parts, Number of points, Parts, Points, Z range, Z array
-
-_Optional_: M range, M array
-
-|15 |PolygonZ a|
-_Mandatory_: MBR, Number of parts, Number of points, Parts, Points, Z range, Z array
-
-_Optional_: M range, M array
-
-|18 |MultiPointZ a|
-_Mandatory_: MBR, Number of points, Points, Z range, Z array
-
-_Optional_: M range, M array
-
-|21 |PointM |X, Y, M
-|23 |PolylineM a|
-_Mandatory_: MBR, Number of parts, Number of points, Parts, Points
-
-_Optional_: M range, M array
-
-|25 |PolygonM a|
-_Mandatory_: MBR, Number of parts, Number of points, Parts, Points
-
-_Optional_: M range, M array
-
-|28 |MultiPointM a|
-_Mandatory_: MBR, Number of points, Points
-
-_Optional Fields_: M range, M array
-
-|31 |MultiPatch a|
-_Mandatory_: MBR, Number of parts, Number of points, Parts, Part types, Points, Z range, Z array
-
-_Optional_: M range, M array
+|*Value* | GeoPackage geometry type |* Shapefile Vector type* |*Fields*
+|0 ||Null shape |None
+|1 |Point Pont | |X, Y
+|3 |Linestring | Polyline |MBR, Number of parts, Number of points, Parts, Points
+|5 |Polygon |Polygon |MBR, Number of parts, Number of points, Parts, Points
+|8 |MultiPoint |MultiPoint |MBR, Number of points, Points
+|11 |Point | PointZ a| X, Y, Z _Optional_: M
+|13 | Linestring | PolylineZ a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points, Z range, Z array _Optional_: M range, M array
+|15 |Polygon | PolygonZ a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points, Z range, Z array _Optional_: M range, M array
+|18 | Multipoint | MultiPointZ a| _Mandatory_: MBR, Number of points, Points, Z range, Z array _Optional_: M range, M array
+|21 |Point | PointM |X, Y, M
+|23 | Linestring | PolylineM a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points _Optional_: M range, M array
+|25 | Polygon | PolygonM a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points _Optional_: M range, M array
+|28 |MultiPoint | MultiPointM a| _Mandatory_: MBR, Number of points, Points _Optional Fields_: M range, M array
+|31 | Surface | MultiPatch a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Part types, Points, Z range, Z array _Optional_: M range, M array
 
 |===============================================================================================
 
 include::requirements/REQ107.adoc[]
 
-All of the information that is needed to instance features is organized in accordance to the CDB tile structure. All the tiled Vector dataset files are located in the same directory; the dataset’s second component selector (CS2) is used to differentiate between files with the same extension or with the same Vector features. Table 5-18: Component Selector 2 for Vector Dataset, presents the list of codes that are allocated. Note that Vector datasets do not necessarily use all of the Dataset Component Selector 2 reserved codes. Users of the CDB standard should refer to the appropriate section for an enumeration of the supported File Component Selector 2 codes as well as the ones specific to the Dataset.
+All of the information that is needed to instance features is organized in accordance to the CDB tile structure. All the tiled Vector dataset files are located in the same directory.The dataset’s second component selector (CS2) is used to differentiate between files with the same extension or with the same Vector features. Table 5-18: Component Selector 2 for Vector Dataset, presents the list of codes that are allocated. Note that Vector datasets do not necessarily use all of the Dataset Component Selector 2 reserved codes. Users of the CDB standard should refer to the appropriate section for an enumeration of the supported File Component Selector 2 codes as well as the ones specific to the Dataset.
 
 The Vector dataset concept and the feature concepts overlap somewhat; some of the Vector datasets are generalizations or specializations of feature codes. Section 1.5 provides a recommended mapping of the feature attributes across the CDB compliant datasets. Note that the same feature _should_ not have two representations.
 
