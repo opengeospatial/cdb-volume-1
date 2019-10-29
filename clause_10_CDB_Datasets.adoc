@@ -1440,7 +1440,7 @@ include::requirements/REQ088.adoc[]
 The first channel contains the _Elevation_ of the grid post; the optional second channel indicates the _Mesh_ _Type_ used to connect the four grid posts that are adjacent to the grid element. The elevation is represented by a floating-point or signed integer value expressed in meters and relative to the WGS-84 reference ellipsoid. Integer values for tiles at LOD larger than 0 are scaled according to the following formula:
 
 ifndef::backend-pdf[]
-latexmath:[$Elevation = IntValue \times 2^{- LOD}$]
+latexmath:[Elevation = IntValue \times 2^{-LOD}]
 endif::[]
 ifdef::backend-pdf[]
 image:math/elevationintvalue.png[]
