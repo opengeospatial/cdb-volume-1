@@ -10,7 +10,7 @@
 :sectanchors:
 :sectnums:
 :sectnumlevels: 6
-:source-highlighter: pygments
+:source-highlighter: coderay
 
 = {title}
 
