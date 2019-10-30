@@ -1728,16 +1728,13 @@ image::images/image66.jpeg[image,width=484,height=164]
 [#img_DerivedEarthElevationValues,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Derived Earth Elevation Values_*
 
-
 The Bathymetry component needs to be provided only in areas on the Earth’s surface where water is present. Below is another example of the relations between the Primary Elevation component and the Subordinate Bathymetry component.
 
 image::images/image67.jpeg[cid:image004.jpg@01CEFB11.A465BDB0,width=528,height=287]
 [#img_ExampleofPrimaryTerrainElevationandBathymetryComponents,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Example of Primary Terrain Elevation and Bathymetry Components_*
 
-
 include::requirements/requirements_class016.adoc[]
-
 
 
 [[DataType_16]]
@@ -1745,12 +1742,10 @@ include::requirements/requirements_class016.adoc[]
 
 include::requirements/REQ096.adoc[]
 
-
 [[DefaultReadValue_17]]
 ====== Default Read Value
 
 Simulator client-devices should assume a _Depth_ value of _Default_Bathymetry_ if the data values are not available. The default value can be found in \CDB\Metadata\Defaults.xml. In the case where the default value cannot be found, the CDB standard states that client-devices use a value of zero. The default _Mesh Type_ is zero.
-
 
 [[DefaultWriteValue_18]]
 ====== Default Write Value
@@ -1762,7 +1757,6 @@ The files associated with the Subordinate Bathymetry component for area covered 
 ====== Supported Compression Algorithm
 
 The CDB standard supports the LZW compression algorithm for the Subordinate Bathymetry component. Consider compressing the file if its content is not of type floating-point.
-
 
 [[SubordinateAlternateBathymetryComponent]]
 ===== Subordinate Alternate Bathymetry Component
@@ -2336,13 +2330,13 @@ Version 1.2 of the CDB standard specifies the use of either OGC GeoPackages or E
 * Refer to Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage. for detailed information and requirements for using GeoPackages for storing vector data in a CDB data store.
 * Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages. 
 
-Geometry data features types used in a CDB data store are as follows:
+Geometry data features types used in a CDB data store are as follows <Note - remove??>:
 
-[cols=",,",options="header",]
+[options="header",]
 |===============================================================================================
 |*Value* | GeoPackage geometry type |* Shapefile Vector type* |*Fields*
 |0 ||Null shape |None
-|1 |Point Pont | |X, Y
+|1 |Point | Point | |X, Y
 |3 |Linestring | Polyline |MBR, Number of parts, Number of points, Parts, Points
 |5 |Polygon |Polygon |MBR, Number of parts, Number of points, Parts, Points
 |8 |MultiPoint |MultiPoint |MBR, Number of points, Points
@@ -2354,8 +2348,6 @@ Geometry data features types used in a CDB data store are as follows:
 |23 | Linestring | PolylineM a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points _Optional_: M range, M array
 |25 | Polygon | PolygonM a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points _Optional_: M range, M array
 |28 |MultiPoint | MultiPointM a| _Mandatory_: MBR, Number of points, Points _Optional Fields_: M range, M array
-|31 | Surface | MultiPatch a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Part types, Points, Z range, Z array _Optional_: M range, M array
-
 |===============================================================================================
 
 include::requirements/REQ107.adoc[]
