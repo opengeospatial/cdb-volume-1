@@ -8,22 +8,8 @@ The CDB conceptual model is a representation of the natural environment includin
 
 A data store that conforms to the CDB standard (i.e., a CDB) contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features and models of a synthetic environment for the purposes of distributed simulation applications. The organization of the geospatial data in a CDB data store is specifically tailored for real-time applications.
 
-For ease of editing and review, the standard has been separated into 12 Volumes and a schema repository.
+include::list_of_volumes.adoc[]
 
-* Volume 0: OGC CDB Companion Primer for the CDB standard (Best Practice).
-* Volume 1: OGC CDB Core Standard: Model and Physical Data Store Structure. The main body (core) of the CDB standard (Normative).
-* Volume 2: OGC CDB Core Model and Physical Structure Annexes (Best Practice).
-* Volume 3: OGC CDB Terms and Definitions (Normative).
-* Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage (Best Practice).
-* Volume 5: OGC CDB Radar Cross Section (RCS) Models (Best Practice).
-* Volume 6: OGC CDB Rules for Encoding Data using OpenFlight (Best Practice).
-* Volume 7: OGC CDB Data Model Guidance (Best Practice).
-* Volume 8: OGC CDB Spatial Reference System Guidance (Best Practice).
-* Volume 9: OGC CDB Schema Package: provides the normative schemas for key features types required in the synthetic modelling environment. Essentially, these schemas are designed to enable semantic interoperability within the simulation context (Normative).
-* Volume 10: OGC CDB Implementation Guidance (Best Practice).
-* Volume 11: OGC CDB Core Standard Conceptual Model (Normative).
-* Volume 12: OGC CDB Navaids Attribution and Navaids Attribution Enumeration Values (Best Practice).
-* Volume 13: OGC CDB Rules for Structuring a GeoPackage (Best Practice).
-* Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages (Best Practice).
+The major enhancements for version 1.2 are the definition of 1.) rules for encoding GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB ShapeFiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests. 
 
-The major enhancements for version 1.2 are (a) defining rules for storing GeoPackages in a CDB data store, (b) documenting the best practices for conversion of CDB Shapefiles into CDB GeoPackages, and (c) resolution and incorporation of changes defined in <[line-through]##TBD##> OGC Change Requests.
+The GeoPackage encoding is an optional extension and does not need to be implemented to provide a compliant CDB data store to the community. The only caveat is that if the developer of a version of a CDB data store wishes to use GeoPackages, then that version of the data store must use only the CDB GeoPackage encoding. Shapefiles and GeoPackages cannot be mixed in a unique version of a CDB data store.

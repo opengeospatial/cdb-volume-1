@@ -2,7 +2,7 @@
 |=========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 2+|*Requirement 100* {set:cellbgcolor:#CACCCE}
 2+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/core/]jpeg-security-metadata  {set:cellbgcolor:#FFFFFF} +
-The rules for metadata about the security of data defined in the following table _SHALL_ be implemented with a JPEG image in the CDB data store. The rules for using JPEG security are defined in the table below.
+The rules for metadata about the security of data defined in the following table _SHALL_ be implemented with a JPEG 2000 image in the CDB data store. The rules for using JPEG security are defined in the table below.
 
 |*Attribute Name* |*Format* |*Description* |*Values*
 |classificationlevel |BYTE |File Security Classification: This field _SHALL_ contain a 1-character valid value representing the classification level of the entire file. a|
