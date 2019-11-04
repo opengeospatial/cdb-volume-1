@@ -1,8 +1,5 @@
-
-
 [[CDBFileFormats]]
 == CDB File Formats
-
 The CDB standard internal formats are based on the formats used by industry-standard toolsets. This approach eliminates the time-consuming off-line data assembly and data publishing process usually imposed by each of the clients. Refer to Section 1.6.4.2, Data Store Generation Flow for a more comprehensive discussion of this topic.
 
 Furthermore, the translation step into a CDB specified storage format is typically trivial since the CDB standard is based on industry-standard native tool formats. Please note that a CDB structured data store supports other file types. For example, an OGC GeoPackage file could be stored in the CDB structure. However, a compliance test may throw an exception stating that the GeoPackage file type is not recognized.
@@ -15,27 +12,27 @@ The formats currently used in a CDB compliant data stores are the following.
 
 1.  TIFF (*.tif): used for the representation of all datasets whose inherent structure reflects that of a two-dimensional regular grid in a Cartesian coordinate system. The primary use of TIFF within a CDB conformat data store is for the representation of terrain elevation and raster imagery. To qualify as a CDB-compliant TIFF reader, the reader must satisfy the requirements described in Clause 8 of Volume 10: OGC CDB Implementation Guidance. Please note that the LZW compression algorithm within the TIFF format is supported and encouraged by the CDB standard when the data type of the content of the file is of integral type. As a consequence, it is strongly recommended to compress TIFF files containing integer values but to avoid compression if the file contains floating-point values.
 2.  GeoTIFF (*.tif): used for the representation of all datasets whose inherent structure reflects that of a two-dimensional regular grid of a Geographic coordinate system. The primary use of GeoTIFF within a CDB data store is for the representation of terrain elevation (note: the use GeoTIFF is preferred over TIFF in the case of terrain elevation). CDB-compliant GeoTIFF readers do not concern themselves with any of the GeoTIFF specific tags because the CDB standard provides all of the conventions to geo-reference each geographic dataset. However, it is strongly recommended that data store generation tools be fully compliant to GeoTIFF; this provision eliminates the need for the tools to be aware of the CDB conventions governing the content of each geo-referenced dataset.
-3.  SGI Format (*.rgb): used for the representation of 3D model textures. The file format allows for the representation of an image with 1, 2, 3, or 4 channels. A single channel image represents a grey-shaded texture; a two-channel image represents a grey-shaded texture with an alpha component providing the transparency; a three-channel image represents a color (RGB) texture; finally, a four-channel image is a color (RGB) texture with an alpha channel providing the transparency. CDB-compliant RGB readers must be fully compliant with the SGI Image File Format Specification. Its use is limited to 3D models.
+3.  SGI Image (*.rgb): used for the representation of 3D model textures. The file format allows for the representation of an image with 1, 2, 3, or 4 channels. A single channel image represents a grey-shaded texture; a two-channel image represents a grey-shaded texture with an alpha component providing the transparency; a three-channel image represents a color (RGB) texture; finally, a four-channel image is a color (RGB) texture with an alpha channel providing the transparency. CDB-compliant RGB readers must be fully compliant with the SGI Image File Format Specification. Its use is limited to 3D models.
 4.  JPEG 2000 (*.jp2): used for the representation of an image encoded in accordance to the JPEG 2000 standard. CDB-compliant JPEG 2000 readers must be fully compliant with the JPEG 2000 standard while reading such still image file types. JPEG 2000 encoded images can be used for the representation of geo-referenced terrain imagery with some degree of compression levels and is only applicable in the case of terrain raster imagery. Volume 2 CDB Core: Model and Physical Structure: Annexes C and H describe the use of the JPEG 2000 file format in a CDB data store.
-5.  3D Models: Currently OpenFlight is used for the representation of 3-dimensional geometric representation of all models (statically positioned cultural models, moving models). Please refer to the requirements described in Volume 6 OGC CDB Rules for Encoding Data using [https://en.wikipedia.org/wiki/OpenFlight]OpenFlight.
-6.  Vector features and geometry: Currently ShapeFiles are used for the representation and attribution of the vector feature datasets in a CDB data store. Please see the requirements described in Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage.
+5.  OpenFlight (*.flt): used for the representation of 3D model geometry. Refer to Volume 6, OGC CDB Rules for Encoding Data using https://en.wikipedia.org/wiki/OpenFlight[OpenFlight], for details.
+6.  Shapefile (*.shp/shx/dbf/dbt): used for the representation and attribution of vector data. Refer to Volume 4, OGC CDB Best Practice use of Shapefiles for Vector Data Storage, for details.
+6.  GeoPackage (*.gpkg): used for the representation and attribution of vector data. Refer to Volume 13, OGC CDB Rules for Structuring a GeoPackage, for details.
 7.  Extensible Markup Language (*.xml): used to store metadata that describes CDB versioning, describes CDB Composite and Base material structure, defines CDB light type naming conventions and hierarchy, and defines CDB model component hierarchy.
 8.  Cross-platform and interoperable file storage and transfer format (*.zip): used to archive and store geospecific 3D model datasets. The ZIP format is mainly used as a container to regroup files located in a given directory. Compressing ZIP files is allowed; the application creating the file is free to decide whether or not it compresses its content.
 
-
 For all other formats (used by this standard), CDB readers should be fully compliant footnote:[This table will be expanded as Best Practices for additional formats and encodings are developed.].
 
+[options="autowidth"]
+|===
+|File Format|Minimal Version Number
 
-[cols=",,",]
-|=====================================================================================================
-|*File Format* |*Versions Currently Supported by CDB* |*CDB Client-device Behavior for Prior Versions*
-|*.tif |6.0 |Ignores data
-|*.rgb |1.0 |Ignores data
-|*.jp2 |1.0 |Ignores data
-|*.flt |OpenFlight 16.0 |Ignores data
-|*.shp, *.shx |ShapeFiles - Esri White Paper, July 98 |Ignores data
-|*.dbf, *.dbt |dBASE III+ and above |Ignores data
-|*.xml |W3C 1.0 |Ignores data
-|*.zip |6.3.1 |Ignores data
-|*.gpkg|OGC GeoPackage 1.1 or 1.2|Ignores data
-|=====================================================================================================
+|TIFF|6.0
+|SGI Image|1.0
+|JPEG 2000|1.0
+|OpenFlight|16.0
+|ShapeFile|Esri White Paper, July 98
+|dBASE|III+
+|XML|1.0
+|ZIP|6.3.1
+|GeoPackage|1.1
+|===

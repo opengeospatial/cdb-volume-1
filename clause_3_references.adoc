@@ -5,4 +5,4 @@
 Normative References
 
 
-Please see the Bibliography in this CDB volume for a complete list of all normative and informative references.
+Please see the link:annex-bibliography.adoc[Bibliography] in this CDB volume for a complete list of all normative and informative references.

@@ -34,16 +34,16 @@ Section 5: CDB Datasets provides a detailed description of all CDB datasets.
 
 The current CDB standard relies on established industry formats:
 
-* *TIFF 6.0*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance;
+* *TIFF*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance;
 * *OpenFlight*: The Best Practice use of the OpenFlight footnote:[Other 3d formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth.] format (Volume 6: OGC CDB Rules for Encoding Data using OpenFlight);
 * *RGB*: The RGB format. Included in the Gamma Tutorial Section, Volume 10: OGC CDB Implementation Guidance
-* *Shapefiles*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
-* *GeoPackages*: The normative requirements and conformance classes for the use of GeoPackages in a CDB data store. The GeoPackage content encoding rules documented in Volume 13: OGC CDB - Rules for Structuring a GeoPackage;
+* *Shapefile*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
+* *GeoPackage*: The normative requirements and conformance classes for the use of GeoPackages in a CDB data store. The GeoPackage content encoding rules documented in Volume 13: OGC CDB - Rules for Structuring a GeoPackage;
 * *JPEG*: JPEG 2000 file format (Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
 
 Each of these documents has been annotated to reflect the conventions established by the CDB standard. The Best Practice conventions currently define how TIFF, OpenFlight, RGB, Shapefile and JPEG 2000 formatted files are to be interpreted by CDB-compliant simulator readers.
 
-In addition, a new volume in CB Version 1.2 defines the Best Practices for conversion of CDB structured Shapefiles into CDB structured GeoPackages.
+In addition, a new volume in CDB Version 1.2 defines the Best Practices for conversion of CDB Shapefiles into CDB GeoPackages.
 
 Annexes J and F of Volume 2 provide the CDB light type naming hierarchy and the CDB model component hierarchies respectively while `\CDB\Metadata\Materials.xml` provides the material list for the CDB standard.
 
@@ -66,15 +66,15 @@ The CDB standard is fundamentally about:
 * A representation of the earth and man-made environment for use in real time simulations; and
 * A turnkey, as-is representation of the Synthetic Environment (SE) for use in real-time distributed simulation applications.
 
-Currently, the majority of a CDB conformant internal data storage representation is based on five well known and supported data formats endorsed by leaders of the simulation database tools industry. The CDB Best Practices associated with the Core standard are currently recommended for implementation of a CDB data store:
+Currently, the majority of a CDB conformant internal data storage representation is based on well known and supported data formats endorsed by leaders of the Modeling and Simulation (M&S) industry. The CDB Best Practices associated with the Core standard are currently recommended for implementation of a CDB data store:
 
 * For the representation of terrain altimetry, terrain surface characteristics relevant to simulation: TIFF/GeoTIFF.
 * For the representation of 3D culture and moving models: OpenFlight.
 * For the textures associated with 3D culture and moving models RGB.
-* For the instancing and attribution of statically positioned point, lineal and polygon 2D/3D culture features: Shapefiles or GeoPackages.
+* For the instancing and attribution of statically positioned point, lineal and polygon 2D/3D culture features: Shapefile or GeoPackage.
 * For a representation of terrain raster imagery comprising a well-defined and accepted compression method that allows both lossy and lossless schemes: JPEG 2000.
 
-Please note that the OGC CDB Standards Working Group will consider developing best practice guidance for using other industry standard formats and encodings, such as OGC CityGML, and OGC InDoorGML.
+Note that the OGC CDB Standards Working Group will consider developing best practice guidance for using other industry standard formats and encodings, such as OGC CityGML or OGC InDoorGML.
 
 NOTE: _Due to the real time requirement, the CDB standard limits the number of units of measure for each physical quantity. For instance, all coordinates are represented in latitude longitude and all distances are in meters._
 

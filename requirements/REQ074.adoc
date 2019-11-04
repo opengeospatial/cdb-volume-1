@@ -1,17 +1,20 @@
 [width="90%",cols="2,6"]
 |===
 |*Requirement 74*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/version[http://www.opengis.net/spec/cdb/1.2/core/version] +
+a|http://www.opengis.net/spec/cdb/core/version[http://www.opengis.net/spec/cdb/1.2/core/version]
 
 Each CDB Version _SHALL_ have a version control file that is called Version.xml. The schema contents are as follows:
 
+.Version.xml
+[source,xml]
+----
 <Version>
-  <PreviousIncrementalRootDirectory name="Path to another CDB Version"/> +
-  <Comment>A comment to describe this CDB Version</Comment> +
-  <Specification version="one of 1.2, 1.1, 1.0, 3.2, 3.1, 3.0" authority="OGC" update=”n”/ +
-  <Metadata- standard="metadata-standard-name"/> +
-  <Extension name="name of the extension" version="version of this extension"/ +
+  <PreviousIncrementalRootDirectory name="Path to another CDB Version"/>
+  <Comment>A comment to describe this CDB Version</Comment>
+  <Specification version="one of 1.2, 1.1, 1.0, 3.2, 3.1, 3.0" authority="OGC" update=”n”/>
+  <Metadata standard="metadata-standard-name"/>
+  <Extension name="name of the extension" version="version of this extension"/>
 </Version>
-
+----
 {set:cellbgcolor:#FFFFFF}
 |===
