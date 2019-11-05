@@ -13,6 +13,6 @@ For ease of editing and review, the standard has been separated into 16 Volumes,
 * Volume 10: OGC CDB Implementation Guidance (Best Practice).
 * Volume 11: OGC CDB Core Standard Conceptual Model (Normative).
 * Volume 12: OGC CDB Navaids Attribution and Navaids Attribution Enumeration Values (Best Practice).
-* Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage (Best Practice).
+* Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage (Normative).
 * Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages (Best Practice).
-* Volume 15: OGC CDB Optional Multi-Spectral Imagery Extension 
+* Volume 15: OGC CDB Optional Multi-Spectral Imagery Extension (Normative).
