@@ -1,9 +1,9 @@
 [cols=",,",]
 |=======================================================================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/vcmt*
-|*Requirements* 2+|/req/core/vcmt 
+|*Conformance Class* 2+|*/conf/core/gsmd*
+|*Requirements* 2+|/req/core/gsmd 
 |*Dependency* 2+|Various XML schema
-|*Test 128* |*Test purpose* |Verify that there is one VCMT for each CDB Geocell which provides a list of the Composite Materials shared by all vector datasets.
-| |*Test method* |Visually pass if there is one VCMT for each CDB Geocell.
+|*Test 129* |*Test purpose* |Verify that there is one GS Model Descriptor file for each GS Model level of detail, and that the file is found at the same LOD as the model's level of detail.
+| |*Test method* |Visually pass if the GS Model Descriptor file exists at the proper LOD for each GS Model's level of detail file.
 | |*Test type* |Conformance
 |=======================================================================================================================================================================================================================

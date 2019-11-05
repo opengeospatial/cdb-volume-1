@@ -4699,6 +4699,15 @@ Dataset 311, GSModelInteriorCMT
 
 The size of any GSModel archive is limited to 32 MB to permit reading, processing and writing the file at runtime.
 
+[[TiledGSModelDescriptorDatasets]]
+==== Tiled GSModelDescriptor Datasets
+
+Since each GSModel can have more than one level of detail, discovery of the associated GSModelDescriptor is needed.  Therefore, there must be one GSModelDescriptor file stored at the same CDB LOD of the corresponding GSModelGeometry file.
+
+include::requirements/requirements_class030.adoc[]
+
+include::requirements/REQ129.adoc[]
+
 
 [[TiledT2DModelDatasets]]
 ==== Tiled T2DModel Datasets
@@ -4708,14 +4717,11 @@ Table 5-38 provides the component selectors for the T2DModel datasets.
 
 [#table_ComponentSelectorsforT2DModelDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-38: Component Selectors for T2DModel Datasets*
-[cols=",,,,",]
-|============================================================================================================================================================================================================================
-|*CS1* |*CS2* |*File +
-Extension* |*Component +
-Name* |*Component +
-Description*
+|===
+|CS1|CS2|File Extension|Component Name|Component Description
+
 |Dataset 310, T2DModelGeometry | | | |
 |001 |001 |*.flt |Model Geometry |One model file containing the geometry of the T2DModel of a Tile-LOD. The content of the file is explained in Volume 6 – CDB Rules for Encoding Data.
 |Dataset 312, T2DModelCMT | | | |
 |001 |001 |*.xml |Composite Material Table |Contains the definition of the composite materials referenced by the model geometry dataset above. Its format is as specified in section 2.5.2.2, Composite Material Tables (CMT)
-|============================================================================================================================================================================================================================
+|===

@@ -1,9 +1,7 @@
-
 [[Conventions]]
 === Conventions
 
 This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
-
 
 [[Identifiers]]
 ==== Identifiers
@@ -22,8 +20,6 @@ An example might be:
 
 
 req/core/platform
-
-
 
 [[CDBXMLSchemaDefinitions]]
 ==== CDB XML Schema Definitions
@@ -46,7 +42,6 @@ The following XML Schemas can be found in the `\CDB\Metadata\Schema` subdirector
 * OpenFlightModelExtensions.xsd
 * VectorAttributes.xsd
 * Version.xsd
-
 
 Clause 1.4.3 and 1.4.4 provides more information on these files.
 
@@ -102,24 +97,24 @@ In computer programming, an enumerated type (also called enumeration) is a data 
 
 The following is a list of these files. While the general term being used is “metadata” in terms of the file system structure, a number of these files are either controlled vocabularies or attribute files. Please read link:#cdb-structure[Clauses 1.4.4, 1.5, and 3.1.1 Metadata Directory] for more detailed information on the files maintained in that folder. The following table identifies the files stored in the metadata folder and whether they are metadata or controlled vocabularies.
 
-[cols=",,,,",options="header",]
-|=============================================================================================================================================================================================================
-|*Name* |*Location* |**Type**footnote:[CV = Controlled Vocabulary, M = Metadata, E = Ennumeration] |*Extension* |**M/O**footnote:[M = Mandatory, O = Optional, C=Conditional]
-|CDBAttributes |\CDB\Metadata\ CDB-Attributes |CV |.xml |O
-|Configuration |\CDB\Metadata\Configuration |M |.xml |O
-|Datasets |\CDB\Metadata\Datasets |CV |.xml |O
-|Lights |\CDB\Metadata\Lights |CV |.xml |O
-|LightsFLIR |\CDB\Metadata\LightsFLIR |CV |.xml |C
-|Defaults |\CDB\Metadata\Defaults |E |.xml |O
-|Materials |\CDB\Metadata\Materials |CV |.xml |O
-|Modelcomponents |\CDB\Metadata\Modelcomponents |CV |.xml |O
-|Movingmodelcodes |\CDB\Metadata\MovingModelcodes |E |.xml |O
-|Version |\CDB\Metadata\Version |M |.xml |M
-|FeatureDataDixtionary |\CDB\Metadata |CV |.xml |O
-|DISCountryCodes |\CDB\Metadata\DIScountrycodes |E |.xml |O
-|Globalgeometadata |\CDB\Metadata\Globalgeo |M |.<ext>footnote:[<ext> could be xml for xml schema, jsn for JSON, and other extensions based on the encoding technology used for the geospatial metadata] |O
-|Localgeometadata |Determined by directory path rules |M |.<ext> |O
-|=============================================================================================================================================================================================================
+|===
+|Name|Location|Typefootnote:[CV = Controlled Vocabulary, M = Metadata, E = Enumeration]|Extension|M/Ofootnote:[M = Mandatory, O = Optional, C = Conditional]
+
+|CDB_Attributes|\CDB\Metadata|CV|.xml|O
+|Configuration|\CDB\Metadata|M|.xml|O
+|Datasets|\CDB\Metadata|CV|.xml|O
+|Lights|\CDB\Metadata|CV|.xml|O
+|Lights___xxx__|\CDB\Metadata|CV|.xml|C
+|Defaults|\CDB\Metadata|E|.xml|O
+|Materials|\CDB\Metadata|CV|.xml|O
+|Modelcomponents|\CDB\Metadata|CV|.xml|O
+|MovingModelCodes|\CDB\Metadata|E|.xml|O
+|Version|\CDB\Metadata|M|.xml|M
+|FeatureDataDictionary|\CDB\Metadata|CV|.xml|O
+|DISCountryCodes|\CDB\Metadata|E|.xml|O
+|Globalgeometadata|\CDB\Metadata|M|.<ext>footnote:[<ext> could be xml for XML, jsn for JSON, and other extensions based on the encoding technology used for the geospatial metadata]|O
+|Localgeometadata|Determined by directory path rules|M|.<ext>|O
+|===
 
 Each of these files is described in detail later in this document.
 
@@ -138,18 +133,18 @@ The /CDB folder hierarchy provides a complete list of directory and filename pat
 
 Together, these files provide all the information required to build the names of all directories permitted by the standard.
 
-In CDB Version 1.1, explicit file name extensions in Requirements were replaced with a generic <ext> to designate that one or more file types are allowed to satisfy that requirement. Notes are also provided to indicate what filename extension (type) was required as specified in CDB Versions 1.0 and 1.1. In CBD Version 1.2, the following file extensions are used:
+The following file extensions are used:
 
-[cols=",,",]
-|=====================================================================================================
-|*File Format* |*Versions Currently Supported by CDB* |*CDB Client-device Behavior for Prior Versions*
-|*.tif |TIFF 6.0 |Ignores data
-|*.rgb |SGI image format 1.0 |Ignores data
-|*.jp2 |JPEG 2000 1.0 |Ignores data
-|*.flt |OpenFlight 16.0 |Ignores data
-|*.shp, *.shx |Shapefile - Esri White Paper, July 98 |Ignores data
+|===
+|File Format|Versions Currently Supported by CDB|CDB Client-device Behavior for Prior Versions
+
+|*.tif |6.0 |Ignores data
+|*.rgb |1.0 |Ignores data
+|*.jp2 |1.0 |Ignores data
+|*.flt |16.0 |Ignores data
+|*.shp, *.shx |Esri White Paper, July 98 |Ignores data
 |*.dbf, *.dbt |dBASE III+ and above |Ignores data
-|*.xml |W3C XML 1.0 |Ignores data
-|*.zip |ZIP 6.3.1 |Ignores data
-|*.gpkg |OGC geoPackage 1.0 or 1.1|Ignores data
-|=====================================================================================================
+|*.xml |1.0 |Ignores data
+|*.zip |6.3.1 |Ignores data
+|*.gpkg|1.1 |Ignores data
+|===
