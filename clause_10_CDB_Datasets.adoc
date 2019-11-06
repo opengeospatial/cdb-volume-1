@@ -1330,7 +1330,7 @@ image::images/image58.jpeg[image,width=551,height=275]
 
 include::requirements/REQ093.adoc[]
 
-The LPN attribute is a number in the 0-32767; low numeric values correspond to low priority. The LPN attribute is used to control the order in which the features are applied to (e.g. rendered into) the Elevation dataset. Features are applied in succession in low-to-high priority order into the Terrain Elevation dataset.
+The <<LayerPriorityNumberLPN>>LPN attribute is a number in the 0-32767. Low numeric values correspond to low priority. The LPN attribute is used to control the order in which the features are applied to (e.g. rendered into) the Elevation dataset. Features are applied in succession in low-to-high priority order into the Terrain Elevation dataset.
 
 [[MinElevationandMaxElevationComponents]]
 ===== MinElevation and MaxElevation Components
@@ -1379,11 +1379,9 @@ image::images/image60.jpeg[image,width=544,height=457]
 [#img_GenerationofLODsfortheMinMaxElevationDataset(1D),reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Generation of LODs for the MinMaxElevation Dataset (1D)_*
 
-
 image::images/image61.png[image,width=428,height=662]
 [#img_GenerationofLODsfortheMinMaxElevationDataset(2D),reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Generation of LODs for the MinMaxElevation Dataset (2D)_*
-
 
 image::images/image62.jpeg[untitled3,width=557,height=461]
 [#img_GenerationofLODsfortheMinMaxElevationDataset(1D)–SpecialCase,reftext='{figure-caption} {counter:figure-num}']
@@ -1396,7 +1394,6 @@ image::images/image63.png[image,width=561,height=283]
 The CDB standard does not require that the entire LOD hierarchy be stored for the MinMaxElevation dataset. In fact, it is possible to omit some of the finest levels-of-detail from the hierarchy. The CDB Standard recommends that the MinElevation and MaxElevation need only be stored to LOD = _n_ - 4 and coarser (where _n_ is the finest available LOD of the Primary Terrain Elevation component in a geocell). For example, if Primary Terrain Elevation data is available for LOD = 15, then the MinMaxElevation hierarchy need only be provided for LOD = -10 to LOD = 11. Note, that LOD = -10 to LOD = 0 are always required subject to the availability of Primary Terrain Elevation data (these guidelines are explained in more detail in section 5.6.1.6.4, Default Write Value).
 
 Note that the presence of the MinMaxElevation dataset has a negligible effect on the size of the CDB. In fact, the dataset adds only 1% of additional storage over and above that required by the Primary Terrain Elevation component. This is a small price to pay in order to provide the means to significantly speed-up line-of-sight computations in applications requiring the utmost in determinism and real-time.
-
 
 [[DataType_7]]
 ====== Data Type
@@ -1672,7 +1669,6 @@ In addition, the CDB standard defines a subordinate light map representation tha
 
 As briefly mentioned earlier in Section 1.4.10, the CDB standard introduces the notion of support for JPEG 2000 raster-based storage format for raster imagery files. Since the CDB standard enforces a unique filename for each dataset file, a different file extension is required for such a dataset file format to distinguish it from TIFF for other raster-based datasets, thus any raster imagery dataset shall be stored under the “.jp2” file extension.
 
-
 [[JPEG2000Metadata]]
 ====== JPEG 2000 Metadata
 
@@ -1690,12 +1686,8 @@ include::requirements/REQ099.adoc[]
 
 include::requirements/REQ100.adoc[]
 
-
-
 [[JPEG2000XMLExample]]
 ====== JPEG 2000 XML Example
-
-
 
 [#table_XMLTagsfortheJPEG 2000Metadata,reftext='{table-caption} {counter:table-num}']
 *Table 5-14: XML Tags for the JPEG 2000 Metadata*
@@ -1804,8 +1796,6 @@ c.  Default_VSTI_Y_Green
 d.  Default_VSTI_Y_Blue
 
 The above conventions are summarized in Table 5-16.
-
-
 
 [#table_VSTIDefaultReadValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-16: VSTI Default Read Values*
@@ -2818,8 +2808,6 @@ Description: A precision value used to quantify the relative precision of the Lo
 * Default: 0
 * Compatibility: OGC CDB 1.0
 
-
-
 [#table_LocationAccuracyEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-20: Location Accuracy Enumeration Values*
 [cols=",",]
@@ -2836,7 +2824,6 @@ Description: A precision value used to quantify the relative precision of the Lo
 |998 |Not Applicable
 |999 |Other
 |=============================
-
 
 [[LengthofLinealLENL]]
 ====== Length of Lineal (LENL)
@@ -2893,7 +2880,6 @@ Description: A value that uniquely attributes a location feature according to th
 * Compatibility: OGC CDB 1.0.
 
 
-
 [#table_LocationTypeEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-21: Location Type Enumeration Values*
 [cols=",",]
@@ -2911,7 +2897,6 @@ Description: A value that uniquely attributes a location feature according to th
 |998 |Not Applicable
 |999 |Other
 |==========================
-
 
 [[LightPhaseLPH]]
 ====== Light Phase (LPH)
@@ -2940,7 +2925,7 @@ Description: A priority number that establishes the relative priority of overlap
 * Length: 5 characters
 * Format: integer
 * Range: 0 to 32767
-* Usage Note: Mandatory for terrain constraint features that overlap one another. For all other features, it is optional. LPN is derived from priority information stored and maintained by the authoring tools.
+* Usage Note: Mandatory for terrain constraint features that overlap one another. For all other features, LPN is optional. LPN is derived from priority information stored and maintained by the authoring tools.
 * Unit: N/A
 * Default: None
 * Compatibility: OGC CDB 1.0
