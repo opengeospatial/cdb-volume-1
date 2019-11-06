@@ -208,41 +208,24 @@ The CDB standard provides the means to unambiguously tag any portions of a 3D mo
 
 The following shows a content sample of the model component definition file:
 
-[source,xml]
-----
+```
 <Model_Components>
-
-<Component name="Artillery_Gun">
-
-<Description>
-
-\1) Refers to any engine used for the discharge of large
-
-projectiles and served by a crew of men.
-
-\2) Cannon-like weapons operated by more than one person.
-
-</Description>
-
-</Component>
-
-<Component name="Windshield">
-
-<Description>
-
-A transparent screen located in front of the occupants of a
-
-vehicle to protect them from the wind and weather.
-
-</Description>
-
-</Component>
-
-... other components
-
+  <Component name="Artillery_Gun">
+    <Description>
+      1) Refers to any engine used for the discharge of large
+         projectiles and served by a crew of men.
+      2) Cannon-like weapons operated by more than one person.
+    </Description>
+  </Component>
+  <Component name="Windshield">
+    <Description>
+      A transparent screen located in front of the occupants of a
+      vehicle to protect them from the wind and weather.
+    </Description>
+  </Component>
+ ... other components
 </Model_Components>
-----
-
+```
 
 [[BaseMaterialsTable]]
 ==== Base Materials Table
@@ -251,40 +234,23 @@ CDB Base Materials are listed in \CDB\Metadata\Materials.xml and stored in an XM
 
 Here is an excerpt of the CDB Base Material Table showing the definitions of the first and the last base materials of the standard.
 
-[source,xml]
-----
+```
 <Base_Material_Table>
-
-<Base_Material>
-
-<Name>BM_ASH</Name>
-
-<Description>
-
-The solid remains of a fire
-
-</Description>
-
-</Base_Material>
-
+  <Base_Material>
+    <Name>BM_ASH</Name>
+    <Description>
+      The solid remains of a fire
+    </Description>
+  </Base_Material>
 ...
-
-<Base_Material>
-
-<Name>BM_WOOD-DECIDUOUS</Name>
-
-<Description>
-
-Trunks, branches of live deciduous trees
-
-</Description>
-
-</Base_Material>
-
+  <Base_Material>
+    <Name>BM_WOOD-DECIDUOUS</Name>
+    <Description>
+      Trunks, branches of live deciduous trees
+    </Description>
+  </Base_Material>
 </Base_Material_Table>
-----
-
-
+```
 
 [[DefaultValuesDefinitionTable]]
 ==== Default Values Definition Table
@@ -293,35 +259,19 @@ Default values for all datasets can be stored in the default values metadata fil
 
 The following is an excerpt of a “Defaults.xml” file containing the default terrain elevation value.
 
-[source,xml]
-----
+```
 <Default_Value_Table>
-
-<Default_Value>
-
-<Dataset>001_Elevation</Dataset>
-
-<Name>Default_Elevation-1</Name>
-
-<Description>Default Primary Terrain Elevation</Description>
-
-<Type>float</Type>
-
-<Value>0.0</Value>
-
-<R_W_Type>R</R_W_Type>
-
-</Default_Value>
-
-<!-- Insert other Default Values in accordance to the table above -->
-
+  <Default_Value>
+    <Dataset>001_Elevation</Dataset>
+    <Name>Default_Elevation-1</Name>
+    <Description>Default Primary Terrain Elevation</Description>
+    <Type>float</Type>
+    <Value>0.0</Value>
+    <R_W_Type>R</R_W_Type>
+  </Default_Value>
+  <!-- Insert other Default Values in accordance to the table above -->
 </Default_Value_Table>
-----
-
-
-[[Nocontent]]
-==== No content
-
+```
 
 [[VersionMetadata]]
 ==== Version Metadata
@@ -371,42 +321,25 @@ The CDB attributes are listed and described in section 5.7.1.3 CDB Attributes. T
 
 Its contents are as follows:
 
-[source,xml]
-----
+```
 <Vector_Attributes>
-
-<Attributes>
-
-<Attribute>...</Attributes>
-
-...
-
-<Attribute>...</Attributes>
-
-</Attributes>
-
-<Units>
-
-<Unit>...</Unit>
-
-...
-
-<Unit>...</Unit>
-
-</Units>
-
-<Scalers>
-
-<Scaler>...</Scaler>
-
-...
-
-<Scaler>...</Scaler>
-
-</Scalers>
-
+  <Attributes>
+    <Attribute>...</Attributes>
+    ...
+    <Attribute>...</Attributes>
+  </Attributes>
+  <Units>
+    <Unit>...</Unit>
+    ...
+    <Unit>...</Unit>
+  </Units>
+  <Scalers>
+    <Scaler>...</Scaler>
+    ...
+    <Scaler>...</Scaler>
+  </Scalers>
 </Version>
-----
+```
 
 The file is composed of three majors sections, the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by individual attribute.
 
@@ -430,107 +363,62 @@ In the case of a numeric datatype, the <Format> indicates if it is a _Floating-P
 
 include::requirements/REQ078.adoc[]
 
-
 [[DefinitionoftheScalerElement]]
 ===== Definition of the <Scaler> Element
 
 include::requirements/REQ079.adoc[]
-
 
 [[ExampleofCDB_Attributesxml]]
 ===== Example of CDB_Attributes.xml
 
 The following example illustrates how to define an attribute:
 
-[source,xml]
-----
+```
 <Vector_Attributes>
-
-<Attributes>
-
-<Attribute code="2" symbol="AO1">
-
-<Name>Angle of Orientation</Name>
-
-<Description>Angle of Orientation with greater than 1 degree resolution.
-
-The angular distance measured from true north (0 deg) clockwise to the
-
-major (Y) axis of the feature. If the feature is square, the axis 0
-
-through 89.999 deg shall be recorded. If the feature is circular, 360.000
-
-deg shall be recorded.
-
-</Description>
-
-<Level>
-
-<Instance>Preferred</Instance>
-
-<Extended>Supported</Extended>
-
-</Level>
-
-<Value>
-
-<Type>Numeric</Type>
-
-<Format>Floating-point</Format>
-
-<Precision>3.3</Precision>
-
-<Range interval="Right-Open">
-
-<Min>0</Min>
-
-<Max>360</Max>
-
-</Range>
-
-<Unit>2</Unit>
-
-</Value>
-
-</Attribute>
-
-</Attributes>
-
+ <Attributes>
+   <Attribute code="2" symbol="AO1">
+     <Name>Angle of Orientation</Name>
+     <Description>Angle of Orientation with greater than 1 degree resolution.
+       The angular distance measured from true north (0 deg) clockwise to the
+       major (Y) axis of the feature. If the feature is square, the axis 0
+       through 89.999 deg shall be recorded. If the feature is circular, 360.000
+       deg shall be recorded.
+     </Description>
+     <Level>
+       <Instance>Preferred</Instance>
+       <Extended>Supported</Extended>
+     </Level>
+     <Value>
+       <Type>Numeric</Type>
+       <Format>Floating-point</Format>
+       <Precision>3.3</Precision>
+       <Range interval="Right-Open">
+         <Min>0</Min>
+         <Max>360</Max>
+       </Range>
+       <Unit>2</Unit>
+     </Value>
+   </Attribute>
+ </Attributes>
 <Units>
-
-<Unit code="2" symbol="deg">
-
-<Name>degree</Name>
-
-<Description>To measure an angle</Description>
-
-</Unit>
-
-</Units>
-
-<Scalers>
-
-<Scaler code="2" symbol="k">
-
-<Name>kilo</Name>
-
-<Description>A multiplier: thousand</Description>
-
-<Multiplier>1000</Multiplier>
-
-</Scaler>
-
-</Scalers>
-
+   <Unit code="2" symbol="deg">
+     <Name>degree</Name>
+     <Description>To measure an angle</Description>
+   </Unit>
+ </Units>
+ <Scalers>
+   <Scaler code="2" symbol="k">
+     <Name>kilo</Name>
+     <Description>A multiplier: thousand</Description>
+     <Multiplier>1000</Multiplier>
+   </Scaler>
+ </Scalers>
 </Vector_Attributes>
-----
+```
 
 The schema explains the use of the interval attribute of the <Range> element.
 
-
-
 include::requirements/REQ080.adoc[]
-
 
 [[GeomaticsAttributesMetadata]]
 ==== Geomatics Attributes Metadata
@@ -605,30 +493,19 @@ Typically, local metadata files will be stored with the physical data. For GTMod
 
 The Configuration metadata file provides the means of defining CDB Configurations. The syntax of the file is given below. The complete XML schema is provided in /CDB/Metadata/Schema/Configuration.xsd delivered with the standard.
 
-[source,xml]
-----
+```
 <Configuration>
-
-<Comment> An optional comment describing this CDB Configuration. </Comment>
-
-<Version>
-
-<Folder path="..."/>
-
-<Comment> An optional comment describing this CDB Version. </Comment>
-
-<Specification version="..."authority="..."/>
-
-<Metadata standard=". . ."/>
-
-<Extension name="..." version="..."/>
-
-</Version>
-
-<!-- Other versions as needed -->
-
+  <Comment> An optional comment describing this CDB Configuration. </Comment>
+  <Version>
+    <Folder path="..."/>
+    <Comment> An optional comment describing this CDB Version. </Comment>
+    <Specification version="..."authority="..."/>
+    <Metadata standard=". . ."/>
+    <Extension name="..." version="..."/>
+  </Version>
+  <!-- Other versions as needed -->
 </Configuration>
-----
+```
 
 A <Configuration> is a list of one or more <Version> elements. A <Version> has a mandatory <Folder> element to provide the path to the CDB Version. The other four (4) elements have the same definitions as that of section 5.1.8, Version Metadata.
 
@@ -644,71 +521,44 @@ The use of a relative path to a CDB Version ensures a greater form of interopera
 
 Assume that we want to assemble two CDB Versions into a single CDB Configuration. The first CDB Version is located in /CDB/myVersion and has the following Version.xml file.
 
-[source,xml]
-----
+```
 <Version>
-
-<PreviousIncrementalRootDirectory name="/CDB/theVersion"/>
-
-<Comment> This is the comment describing myVersion. </Comment>
-
-<Specification version="1.1"authority="OGC"/>
-
-<Metadata standard="ISO-19115:2014"/>
-
+  <PreviousIncrementalRootDirectory name="/CDB/theVersion"/>
+  <Comment> This is the comment describing myVersion. </Comment>
+  <Specification version="1.1"authority="OGC"/>
+   <Metadata standard="ISO-19115:2014"/>
 </Version>
-----
-
+```
 
 The second CDB Version complies with version 3.0 of the original CDB Specification (prior to submission to the OGC) and is located in /CDB/theVersion and has the following Version.xml file.
 
-[source,xml]
-----
+```
 <Version>
-
-<Comment> This is the comment describing theVersion. </Comment>
-
+  <Comment> This is the comment describing theVersion. </Comment>
 </Version>
-----
+```
 
 The resulting CDB Configuration is stored in /CDB/myConfiguration and its Configuration.xml file could look like this:
 
-[source,xml]
-----
+```
 <Configuration>
-
-<Comment>
-
-This is an example of a CDB Configuration referring to two CDB Versions.
-
-</Comment>
-
-<Version>
-
-<Folder path="../myVersion"/>
-
-<Comment> This is the comment describing myVersion. </Comment>
-
-<Specification version="1.1"authority="OGC"/>
-
-<Metadata standard="ISO-19115:2014"/>
-
-</Version>
-
-<Version>
-
-<Folder path="../theVersion"/>
-
-<Comment> This is the comment describing theVersion. Notice that the version number is for a pre-OGC version of the CDB specification. </Comment>
-
-<Specification version="3.0"/>
-
-<Metadata standard="NoMetadata"/5-37>
-
-</Version>
-
+  <Comment>
+    This is an example of a CDB Configuration referring to two CDB Versions.
+  </Comment>
+  <Version>
+    <Folder path="../myVersion"/>
+    <Comment> This is the comment describing myVersion. </Comment>
+    <Specification version="1.1"authority="OGC"/>
+    <Metadata standard="ISO-19115:2014"/>
+  </Version>
+  <Version>
+    <Folder path="../theVersion"/>
+    <Comment> This is the comment describing theVersion. Notice that the version number is for a pre-OGC version of the CDB specification. </Comment>
+    <Specification version="3.0"/>
+    <Metadata standard="NoMetadata"/5-37>
+  </Version>
 </Configuration>
-----
+```
 
 Notice the use of relative paths to refer to the CDB Versions. Also notice the addition of the <Specification> element to the second <Version> to explicitly state that it contains data complying with version 3.0 footnote:[Was Version 3.0 in the OGC Best Practice.] of the specification.
 
@@ -822,7 +672,6 @@ include::requirements/REQ081.adoc[]
 
 The schema file lists the data attributes for the given NavData component. It contains the following columns:
 
-
 [#table_ListofNavigationSchemaAttributes,reftext='{table-caption} {counter:table-num}']
 *Table 5-4: List of Navigation Schema Attributes*
 [cols=",,,",]
@@ -833,17 +682,14 @@ The schema file lists the data attributes for the given NavData component. It co
 |KeyId |Int |4 |Index key for the attribute, used when performing a query. Not all attributes have an assigned index key, as only a few attributes can be used to perform a query. For each attribute with an index key, an index key dataset will be created.
 |=====================================================================================================================================================================================================================================================================================
 
-
 include::requirements/REQ082.adoc[]
 
 Each attribute with an index Key (KeyId) has an index key dataset created. The index key dataset includes the last three characters of the KeyId inside the component selector 2 (ex. KeyId 2101 would be dataset component selector 2 – T101).
-
 
 [[Example_0]]
 ===== Example
 
 Here is the data content of the schema file for the Airport dataset (D400_S001_T002.dbf):
-
 
 [#table_ExampleofaNavigationSchema,reftext='{table-caption} {counter:table-num}']
 *Table 5-5: Example of a Navigation Schema*
@@ -906,10 +752,7 @@ As per this example, four Airport attributes can be used to perform queries:
 
 The index Key Datasets are sorted lists used to perform queries within the NavData.
 
-
 include::requirements/REQ083.adoc[]
-
-
 
 [#table_ListofNavigationKeyAttributes,reftext='{table-caption} {counter:table-num}']
 *Table 5-6: List of Navigation Key Attributes*
@@ -926,15 +769,12 @@ This information can then be used to rapidly lookup which CDB Tile contain the d
 
 The Storage number is a Primary Surrogate key that uniquely identifies each record within each NAV dataset sub components.
 
-
 [[Example_1]]
 ===== Example
 
 include::requirements/REQ084.adoc[]
 
-
 The following is an excerpt from the D400_S001_T102.dbf file (Key Dataset for the Ident attribute):
-
 
 [#table_ExampleofNavigationKeys,reftext='{table-caption} {counter:table-num}']
 *Table 5-7: Example of Navigation Keys*
@@ -986,8 +826,6 @@ The following table provides the Component Selectors associated with all kinds o
 
 In the context of CDB model textures, the first component selector is known as the “Texture Kind” and the second component selector is simply called the “Texture Index”. Column 1 lists all texture kinds supported by the CDB standard. The second column gives the range of indices allowed for each kind.
 
-
-
 [#table_ComponentSelectorsforCDBModelTextures,reftext='{table-caption} {counter:table-num}']
 *Table 5-8: Component Selectors for CDB Model Textures*
 [cols=",,,",]
@@ -1023,12 +861,10 @@ footnote:[Annex O can be found in Volume 2 CDB Core Model and Physical Structure
 
 Annex O enumerates all textures allocated to kind 002, 003, 004, 005, 006, and 055 (See footnote 32).
 
-
 [[GTModelLibraryDatasets]]
 === GTModel Library Datasets
 
 Table 5-9 provides the component selector values associated with all GTModel datasets.
-
 
 [#table_ComponentSelectorsforGTModelDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-9: Component Selectors for GTModel Datasets*
@@ -1085,7 +921,7 @@ Dataset 513, GTModelInteriorCMT
 
 *.dbf
 
- |RCS Signature |The Radar Cross Section of a geotypical mode liss described in Volume 5 of this standard.
+ |RCS Signature |The Radar Cross Section of a geotypical model is described in Volume 5 of this standard.
 | |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
 |==========================================================================================================================================================================================================================================================================================================
 
@@ -1227,7 +1063,6 @@ Conceptually, the raster dataset tile’s internal grid structure uniformly subd
 
 include::requirements/REQ085.adoc[]
 
-
 The CDB standard accommodates for data elements that can be aligned either to the centers or to the corners of the internal tile grid structure. In both cases, the number of data elements in the tile is a power of two. Furthermore, data elements can either represent values representative of samples on the earth surface (e.g., altitude at a point) or values representative of a surface area on the earth surface (average altitude over square area).
 
 Figure 5-1: Center Grid Data Elements, illustrates a CDB tile with a grid of “center grid data elements” overlaid onto the tile’s grid structure with the addressing conventions and the alignment of the samples and areas assigned to each of the data elements.
@@ -1235,7 +1070,6 @@ Figure 5-1: Center Grid Data Elements, illustrates a CDB tile with a grid of “
 image::images/image41.jpeg[image,width=320,height=300]
 [#img_CenterGridDataElements,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Center Grid Data Elements_*
-
 
 Figure 5-2: Corner Grid Data Elements, illustrates a CDB tile with a grid of “corner grid data elements” overlaid onto the tile’s grid structure with the addressing conventions and the alignment of the samples and areas corresponding to the data elements.
 
@@ -1262,10 +1096,7 @@ Sections 5.6.1, 5.6.2, and 5.6.3 describe all of the raster datasets, namely the
 
 include::requirements/REQ086.adoc[]
 
-
 include::requirements/REQ087.adoc[]
-
-
 
 [[TiledElevationDataset]]
 ==== Tiled Elevation Dataset
@@ -1280,7 +1111,6 @@ The (_x_, _y_) coordinates of each grid element are its longitude and latitude, 
 
 include::requirements/requirements_class015.adoc[]
 
-
 image::images/image48.jpeg[image,width=491,height=295]
 [#img_DEMDepictedasaGridofElevationsatRegularSamplePoints,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. DEM Depicted as a Grid of Elevations at Regular Sample Points_*
@@ -1290,7 +1120,6 @@ The CDB LOD structure lends itself to variable levels of terrain elevation fidel
 Negative elevation values do not imply that the elevation point is submerged; rather, a negative value merely indicates that its altitude is below the WGS-84 reference ellipsoid.
 
 The CDB standard defines a number of subordinate elevation components that are used in combination with the primary component of the Elevation Dataset.
-
 
 [[TerrainMeshTypes]]
 ===== Terrain Mesh Types
@@ -1304,25 +1133,20 @@ image::images/image49.png[image,width=388,height=186]
 
 Mesh type 0 connects the southwest grid post to its northeast neighbor while mesh type 1 does the same for the northwest and southeast posts.
 
-
 [[DataType]]
 ====== Data Type
 
 The mesh type is represented by an unsigned integer of a size that is large enough to accommodate the range of mesh types. Currently, there are only two values defined; as such, an 8-bit unsigned integer is sufficient and appropriate to store the mesh type.
-
 
 [[DefaultValue]]
 ====== Default Value
 
 By default, when the mesh type is not specified or not available, a value of zero is assumed.
 
-
 [[ListofallElevationDatasetComponents]]
 ===== List of all Elevation Dataset Components
 
 The Elevation Dataset is comprised of several components listed here and detailed in the subsequent sections.
-
-
 
 [#table_ElevationDatasetComponents,reftext='{table-caption} {counter:table-num}']
 *Table 5-11: Elevation Dataset Components*
@@ -1348,7 +1172,6 @@ Description*
 |001 |001 |*.tif |Primary Maximum Culture Elevation |Maximum height (on a per tile LOD basis) of the bounding boxes of all cultural features held in the vector tiled datasets within the geographic footprint of the area represented by the sample value.
 |=====================================================================================================================================================================================================================================================================
 
-
 [[PrimaryTerrainElevationComponent]]
 ===== Primary Terrain Elevation Component
 
@@ -1368,7 +1191,6 @@ image::images/image51.jpeg[image,width=539,height=302]
 
 Model cutouts are explained in section 6.5.6.3, Model Cutout Zones and model conforming modes are described in section 6.7, Model Conforming.
 
-
 [[DataType_2]]
 ====== Data Type
 
@@ -1387,7 +1209,6 @@ Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
 
 The _Mesh Type_ is stored as an unsigned 8-bit integer.
 
-
 [[DefaultReadValue]]
 ====== Default Read Value
 
@@ -1401,12 +1222,10 @@ If the TIFF file has a single channel image, client devices assume a _Mesh Type_
 
 The files associated with the Primary Terrain Elevation component for area covered by a tile at a given LOD need not be created if the source data is not available. Tiles partially populated with data are not permitted. If the tool generating the Primary Terrain Elevation does not support the optional Mesh Type, the optional second channel of the file need not be created; in which case the TIFF file becomes a single channel image.
 
-
 [[SupportedCompressionAlgorithm]]
 ====== Supported Compression Algorithm
 
 The CDB standard supports the LZW compression algorithm for the Primary Terrain Elevation component. Consider compressing the file if its content is not of type floating-point.
-
 
 [[PrimaryAlternateTerrainElevationComponent]]
 ===== Primary Alternate Terrain Elevation Component
@@ -1423,7 +1242,6 @@ image::images/image52.jpeg[image,width=448,height=355]
 [#img_EncodingofLatLongOffsets,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Encoding of Lat/Long Offsets_*
 
-
 Figure 5-11 illustrates the coverage of grid elements inside a CDB tile. It shows that a grid post is allowed to move inside the area covered by its grid element.
 
 image::images/image53.jpeg[image,width=437,height=308]
@@ -1434,18 +1252,14 @@ The _Latitude Offset_ is expressed as an 8-bit unsigned integer value ranging fr
 
 The _Longitude Offset_ is expressed as an 8-bit unsigned integer value ranging from 0 to 255. The value is scaled so that each grid element is fragmented in 256 equal parts in the longitude direction. Thus, the elevation point cannot be positioned on the longitude of the next grid element directly east of the current grid element.
 
-
 [[DataType_3]]
 ====== Data Type
 
 include::requirements/REQ089.adoc[]
 
-
 Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
 
 include::requirements/REQ090.adoc[]
-
-
 
 [[DefaultReadValue_4]]
 ====== Default Read Value
@@ -1454,12 +1268,10 @@ Simulator client-devices should assume an _Elevation_ value of _Default_Elevatio
 
 The default _Mesh Type_, _Latitude_ and _Longitude Offsets_ are zero.
 
-
 [[DefaultWriteValue_5]]
 ====== Default Write Value
 
 The files associated with the Primary Alternate Terrain Elevation component for an area covered by a tile at a given LOD need not be created if the source data is not available. Tiles partially populated with data are not permitted.
-
 
 [[SupportedCompressionAlgorithm_6]]
 ====== Supported Compression Algorithm
@@ -1471,9 +1283,6 @@ The CDB standard supports the LZW compression algorithm for the Primary Alternat
 ===== Terrain Constraints
 
 There are many instances where modelers may wish to take advantage of the availability of position and altitude of cultural features in order to locally control the terrain elevation data at a point, along a specified contour line or within a given area. This operation is usually performed off-line by the modeler and requires that the Elevation dataset be edited and re-generated offline.
-
-
-
 
 [#table_PartialListofHypsographyFeatureCodesforOfflineTerrainConstraining,reftext='{table-caption} {counter:table-num}']
 *Table 5-12: Partial List of Hypsography Feature Codes (for Offline Terrain Constraining)*
@@ -1487,7 +1296,6 @@ The Data Dictionary of CDB standard makes provision for the representation of ma
 
 include::requirements/REQ091.adoc[]
 
-
 While these hypsography features can be used by the off-line SE tools to control the terrain skinning process, these features can be instead converted into Constraint Features, thereby deferring the terrain constraining process to runtime client-devices.
 
 Constraint Features are features that instruct client-devices to runtime-constrain the terrain Elevation Dataset to a set of prescribed elevation values. This provides modelers the ability to accurately control terrain elevation profiles even if the Terrain Elevation Dataset is of modest resolution and is regularly-gridded; furthermore, the original Elevation Dataset remains unaffected. In effect, the Constraint Features provides a storage-efficient means of capturing terrain contours without having to re-generate / reskin the terrain to a higher-resolution.
@@ -1497,7 +1305,6 @@ Note that this operation is performed on Elevation Datasets that are regularly-g
 The following Constraint Features are used for Online Terrain Constraining:
 
 include::requirements/REQ092.adoc[]
-
 
 [#table_ListofHypsographyFeatureCodesforOnlineTerrainConstraining,reftext='{table-caption} {counter:table-num}']
 *Table 5-13: List of Hypsography Feature Codes (for Online Terrain Constraining)*
@@ -1513,7 +1320,6 @@ image::images/image57.jpeg[image,width=395,height=235]
 [#img_StorageTankPoint-Feature,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Storage Tank Point-Feature_*
 
-
 A second example of this principle illustrated in Figure 5-13, this time applied to a road lineal-feature. This picture shows a divided highway running alongside a mountainous area. Given the high terrain relief in this area, the modeler is concerned that the terrain may slope significantly in the immediate vicinity of the road, particularly at the coarser LODs of the uniform-sampled terrain elevation grid. As a result, he defines a PolyLineZ Constraint Lineal feature that coincides with the centerline of the road; AHGT set to True so that the client-device will constrain the Terrain Elevation dataset to the supplied coordinates of the lineal feature.
 
 The CDB standard has well over 50 feature codes whose semantics are related to abstract elevation-related features (such as CA010 Contour line; CA020 Ridge line; CA025 Valley line; CA026 Breakline …) With the exception of VG018, all of them have semantics that imply a single elevation value. The Feature “Variable Displacement Line”, feature code VG018, is an exception; it allows for a (relative) elevation value for each of the vertices of the “Variable Displacement Line.”
@@ -1522,11 +1328,9 @@ image::images/image58.jpeg[image,width=551,height=275]
 [#img_RoadLinealFeature,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Road Lineal Feature_*
 
-
 include::requirements/REQ093.adoc[]
 
 The LPN attribute is a number in the 0-32767; low numeric values correspond to low priority. The LPN attribute is used to control the order in which the features are applied to (e.g. rendered into) the Elevation dataset. Features are applied in succession in low-to-high priority order into the Terrain Elevation dataset.
-
 
 [[MinElevationandMaxElevationComponents]]
 ===== MinElevation and MaxElevation Components
@@ -1539,7 +1343,6 @@ The generation of the MinMaxElevation dataset is quite simple. In essence, each 
 
 The MinMaxElevation dataset components are derived from the Primary Terrain Elevation and Primary Alternate Terrain Elevation components. As a result, the MinMaxElevation dataset cannot have more LODs than the Terrain Elevation component it is based on.
 
-
 [[LevelofDetails]]
 ====== Level of Details
 
@@ -1548,8 +1351,6 @@ As can be seen in Figure 5-14: LOD Structure of Raster Datasets, the MinMaxEleva
 image::images/image59.png[image,width=338,height=349]
 [#img_LODStructureofRasterDatasets,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. LOD Structure of Raster Datasets_*
-
-
 
 The generation of each successive LOD of the MinElevation and MaxElevation components is illustrated in Figure 5-15: Generation of LODs for the MinMaxElevation Dataset (1D) and again in more detail in Figure 5-16: Generation of LODs for the MinMaxElevation Dataset (2D).
 
@@ -1592,7 +1393,6 @@ image::images/image63.png[image,width=561,height=283]
 [#img_AvailabilityofLODsforElevationandMinMaxElevationDatasets,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Availability of LODs for Elevation and MinMaxElevation Datasets_*
 
-
 The CDB standard does not require that the entire LOD hierarchy be stored for the MinMaxElevation dataset. In fact, it is possible to omit some of the finest levels-of-detail from the hierarchy. The CDB Standard recommends that the MinElevation and MaxElevation need only be stored to LOD = _n_ - 4 and coarser (where _n_ is the finest available LOD of the Primary Terrain Elevation component in a geocell). For example, if Primary Terrain Elevation data is available for LOD = 15, then the MinMaxElevation hierarchy need only be provided for LOD = -10 to LOD = 11. Note, that LOD = -10 to LOD = 0 are always required subject to the availability of Primary Terrain Elevation data (these guidelines are explained in more detail in section 5.6.1.6.4, Default Write Value).
 
 Note that the presence of the MinMaxElevation dataset has a negligible effect on the size of the CDB. In fact, the dataset adds only 1% of additional storage over and above that required by the Primary Terrain Elevation component. This is a small price to pay in order to provide the means to significantly speed-up line-of-sight computations in applications requiring the utmost in determinism and real-time.
@@ -1602,7 +1402,6 @@ Note that the presence of the MinMaxElevation dataset has a negligible effect on
 ====== Data Type
 
 include::requirements/REQ094.adoc[]
-
 
 [[DefaultReadValue_8]]
 ====== Default Read Value
@@ -1616,7 +1415,6 @@ If none of the LODs of the MinMaxElevation dataset are provided, then simulator 
 
 Similarly, when MaxElevation is missing and the Primary Terrain Elevation is not missing, the CDB standard recommends a default setting of Default_MaxElevation_CaseII = as supplied in Defaults.xml. In the event this default value is not supplied, the CDB standard recommends that client-devices use a default value of 8846 m (corresponding to the peak of Mount Everest) for MaxElevation.
 
-
 [[DefaultWriteValue_9]]
 ====== Default Write Value
 
@@ -1629,12 +1427,9 @@ The CDB standard recommends that the MinElevation and MaxElevation components be
 
 In the event where parts of a MinElevation tile cannot be determined due to missing primary elevation tiles, the CDB standard recommends to use a default value of Default_MinElevation_CaseIII, -400 m (corresponding to the shore of the Dead Sea) for MinElevation. Similarly, in the event where parts of a MaxElevation tile cannot be determined due to missing primary elevation tiles, the CDB Specification recommends to use a default value of Default_MaxElevation_CaseIII, 8846 m (corresponding to the peak of Mount Everest) for MaxElevation. Figure 5-19: Missing MinMaxElevation Datasets shows this case:
 
-
 image::images/image64.png[image,width=551,height=508]
 [#img_MissingMinMaxElevationDatasets,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Missing MinMaxElevation Datasets_*
-
-
 
 [[SupportedCompressionAlgorithm_10]]
 ====== Supported Compression Algorithm
@@ -1661,12 +1456,10 @@ The coarser LODs of the MaxCulture component are iteratively derived from the fi
 
 Since the MaxCulture component is intended to be used in conjunction with the MaxElevation component, it is recommended that the number of LODs for the MaxCulture component be equal or greater than the MaxElevation component.
 
-
 [[DataType_12]]
 ====== Data Type
 
 include::requirements/REQ095.adoc[]
-
 
 [[DefaultReadValue_13]]
 ====== Default Read Value
@@ -1687,12 +1480,10 @@ The CDB standard strongly recommends that the MaxCulture dataset be generated in
 +
 If the finest LOD of any vector tiled datasets is available at LOD ≤ 5, then all LODs ranging from -10 ≤ LOD ≤ 0 of the MaxCulture dataset should be generated (where _n_ is the finest available LOD of any vector tiled datasets). The technique illustrated in Figure 5-15: Generation of LODs for the MinMaxElevation Dataset (1D) should be used to populate the LOD hierarchy. Gaps (i.e., missing levels) in the MIP-MAP hierarchy are not permitted. MaxCulture dataset tiles that are partially populated with data should not be used.
 
-
 [[SupportedCompressionAlgorithm_15]]
 ====== Supported Compression Algorithm
 
 The CDB standard supports the LZW compression algorithm for the MaxCulture component. Consider compressing the file if its content is not of type floating-point.
-
 
 [[SubordinateBathymetryComponent]]
 ===== Subordinate Bathymetry Component
@@ -1700,7 +1491,6 @@ The CDB standard supports the LZW compression algorithm for the MaxCulture compo
 The Subordinate Bathymetry component consists of a grid of data values that represent the depth of water (be it of fresh water bodies or of the ocean) with respect to the corresponding data values of the Terrain Elevation (be it the Primary Terrain Elevation or Primary Alternate Terrain Elevation components). The Subordinate Bathymetry component follows the corner grid element conventions.
 
 The generation of Bathymetry values is best explained by the illustration found in Figure 5-20: Primary Terrain Elevation and Subordinate Bathymetry Components. In areas where Primary Terrain Elevation values correspond to the surface of a body of water, each Bathymetry value represents the height difference between the corresponding Primary Terrain Elevation value (the reference) and the Earth’s Crust. In all other areas, the Bathymetry values represent No Data footnote:[No Data is defined by a tag in the TIFF header; default is zero.]. Section 6.8 of Volume 7: OGC CDB Data Model Guidance (formerly Appendix A) provides the mandated behavior of client-devices when reading a LOD of a primary component and combining it with another LOD of a subordinate component such as the Bathymetry.
-
 
 image::images/image65.png[image,width=528,height=192]
 [#img_PrimaryTerrainElevationandSubordinateBathymetryComponents,reftext='{figure-caption} {counter:figure-num}']
@@ -1736,7 +1526,6 @@ image::images/image67.jpeg[cid:image004.jpg@01CEFB11.A465BDB0,width=528,height=2
 
 include::requirements/requirements_class016.adoc[]
 
-
 [[DataType_16]]
 ====== Data Type
 
@@ -1752,7 +1541,6 @@ Simulator client-devices should assume a _Depth_ value of _Default_Bathymetry_ i
 
 The files associated with the Subordinate Bathymetry component for area covered by a tile at a given LOD need not be created if the source data is not available. Tiles partially populated with data are not permitted. If the tool generating the Subordinate Bathymetry component does not support the optional Mesh Type, the optional second channel of the file need not be created; in which case the TIFF file becomes a single channel image.
 
-
 [[SupportedCompressionAlgorithm_19]]
 ====== Supported Compression Algorithm
 
@@ -1765,13 +1553,10 @@ The Subordinate Alternate Bathymetry component is similar to the Primary Alterna
 
 The constituents of the Subordinate Alternate Bathymetry are the depth and mesh type at the specified latitude and longitude offsets inside each grid element. These four constituents are represented as 4 channels of a TIFF image.
 
-
 [[DataType_20]]
 ====== Data Type
 
 include::requirements/REQ097.adoc[]
-
-
 
 [[DefaultReadValue_21]]
 ====== Default Read Value
@@ -1790,7 +1575,6 @@ The files associated with the Subordinate Alternate Bathymetry component for an 
 
 The CDB standard supports the LZW compression algorithm for the Subordinate Alternate Bathymetry component. *Consider compressing the file if its content is not of type floating-point.*
 
-
 [[SubordinateTideComponent]]
 ===== Subordinate Tide Component
 
@@ -1803,7 +1587,6 @@ The Tide component also permits simulation of tides that varies with location. I
 With the CDB Tide component, simulator client-devices can readily determine the height of the ocean (or any water surface whose height varies) at any point and as a result can derive the geometry of the shoreline footnote:[While a stored vector shoreline representation might have provided a more straightforward means of representing the shoreline geometry for some client-devices, that representation was rejected because it would not lend itself to determining the variation of the shoreline geometry with varying tides.]. While a stored vector shoreline representation might provide a more straightforward means of representing the shoreline geometry for some client-devices, that representation would not lend itself to determining the variation of the shoreline geometry with varying tides. Furthermore, a vector representation of the shoreline geometry would essentially be a single-level of detail of the shoreline geometry; as a result, it would need to be generated at a resolution designed to match the highest LOD Terrain Elevation data. Coarser shoreline LODs would essentially be samples of the shoreline vector geometry at progressively greater spatial intervals.
 
 The CDB Tide component represents the height variation of water surfaces anywhere on the Earth’s surface. The variation need not be limited to the effect of tides footnote:[For instance, it could represent the nominal seasonal variations of water level of lakes and rivers.]. The Tide component represents the height variation of the water surface above and below the mean water surface level.
-
 
 image::images/image70.jpeg[image,width=540,height=223][[h.4hae2tp]]
 [#img_TerrainElevationBathymetryandTideComponents,reftext='{figure-caption} {counter:figure-num}']
@@ -1858,8 +1641,6 @@ Finally, client devices interested in determining the depth of water _D_, can us
 
 include::requirements/REQ098.adoc[]
 
-
-
 [[DefaultReadValue_25]]
 ====== Default Read Value
 
@@ -1867,18 +1648,15 @@ Simulator client-devices should assume default Tide values if the data values ar
 
 Simulator client-devices should assume a default Tide value of Default_Tide if the data values are not available (files associated with the Tide component for the area covered by a tile, at a given LOD or coarser, are either missing or cannot be accessed). The default value can be found in \CDB\Metadata\Defaults.xml and can be provided to the client-devices on demand. In the case where the default value cannot be found, the CDB standard recommends that client-devices use a default tide value of 2.5m (average magnitude of tides worldwide).
 
-
 [[DefaultWriteValue_26]]
 ====== Default Write Value
 
 The files associated with the Tide component for area covered by a tile at a given LOD need not be created if the source data is not available. Tiles partially populated with data are not permitted.
 
-
 [[SupportedCompressionAlgorithm_27]]
 ====== Supported Compression Algorithm
 
 The CDB standard supports the LZW compression algorithm for the Tide component. Consider compressing the file if its content is not of type floating-point.
-
 
 [[TiledImageryDataset]]
 ==== Tiled Imagery Dataset
@@ -1888,7 +1666,6 @@ In a CDB compliant data store, the terrain imagery is depicted on a grid at regu
 The CDB standard defines a set of alternate terrain imagery representations corresponding to the visible spectrum terrain imagery at different periods of the year. Together, these representations are stored in a set of Visible Spectrum Terrain Imagery (VSTI) components. Each of these representations can be either monochrome or color.
 
 In addition, the CDB standard defines a subordinate light map representation that can be applied to the selected VSTI component for a night-time representation of lighting patterns created by the projection of light-sources onto the terrain surface. The light-map can be either monochrome or color.
-
 
 [[RasterBasedImageryFileStorageExtensionNaming]]
 ===== Raster-Based Imagery File Storage Extension Naming
@@ -1903,14 +1680,10 @@ In addition to the compressed image data, the JPEG 2000 files may contain metad
 
 include::requirements/requirements_class017.adoc[]
 
-
-
 [[Originofdata]]
 ====== Origin of data
 
 include::requirements/REQ099.adoc[]
-
-
 
 [[Security]]
 ====== Security
@@ -1926,90 +1699,50 @@ include::requirements/REQ100.adoc[]
 
 [#table_XMLTagsfortheJPEG 2000Metadata,reftext='{table-caption} {counter:table-num}']
 *Table 5-14: XML Tags for the JPEG 2000 Metadata*
-[source,xml]
-----
-<?xml version="1.0" encoding="UTF-8"?>
 
+
+```<?xml version="1.0" encoding="UTF-8"?>
 <JP2METADATA name="JPEG2000XML"
-
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance[http://www.w3.org/2001/XMLSchema-instance]"
-
-xsi:noNamespaceSchemaLocation="JP2MetaData.xsd">
-
-<ORIGIN>
-
-<datetime> </datetime>
-
-<originatingstationid> </originatingstationid>
-
-<originatorname> </originatorname>
-
-<originatorphone> </originatorphone>
-
-<originatororganization> </originatororganization>
-
-<originatoraddress> </originatoraddress>
-
-<originatoremail> </originatoremail>
-
-<originatorwebsite> </originatorwebsite>
-
-<originatorremark> </originatorremark>
-
-</ORIGIN>
-
-<SECURITY>
-
-<classificationlevel> </classificationlevel>
-
-<system> </system>
-
-<codewords> </codewords>
-
-<controlhandling> </controlhandling>
-
-<releaseinstructions> </releaseinstructions>
-
-<declassificationtype> </declassificationtype>
-
-<declassificationdate> </declassificationdate>
-
-<declassificationexemption> </declassificationexemption>
-
-<filedowngrade> </filedowngrade>
-
-<filedowngradedate> </filedowngradedate>
-
-<classificationtext> </classificationtext>
-
-<classificationauthoritytype> </classificationauthoritytype>
-
-<classificationauthority> </classificationauthority>
-
-<classificationreason> </classificationreason>
-
-<securitysourcedate> </securitysourcedate>
-
-<controlnumber> </controlnumber>
-
-<filecopynumber> </filecopynumber>
-
-<numberofcopies> </numberofcopies>
-
-</SECURITY>
-
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="JP2MetaData.xsd">
+	<ORIGIN>
+		<datetime>			</datetime>
+		<originatingstationid>		</originatingstationid>
+		<originatorname>		</originatorname>
+		<originatorphone>		</originatorphone>
+		<originatororganization>	</originatororganization>
+		<originatoraddress>		</originatoraddress>
+		<originatoremail>		</originatoremail>
+		<originatorwebsite>		</originatorwebsite>
+		<originatorremark>		</originatorremark>
+	</ORIGIN>
+	<SECURITY>
+		<classificationlevel>		</classificationlevel>
+		<system>			</system>
+		<codewords>			</codewords>
+		<controlhandling>		</controlhandling>
+		<releaseinstructions>		</releaseinstructions>
+		<declassificationtype>		</declassificationtype>
+		<declassificationdate>		</declassificationdate>
+		<declassificationexemption>	</declassificationexemption>
+		<filedowngrade>		</filedowngrade>
+		<filedowngradedate>		</filedowngradedate>
+		<classificationtext>		</classificationtext>
+		<classificationauthoritytype>	</classificationauthoritytype>
+		<classificationauthority>	</classificationauthority>
+		<classificationreason>		</classificationreason>
+		<securitysourcedate>		</securitysourcedate>
+		<controlnumber>		</controlnumber>
+		<filecopynumber>		</filecopynumber>
+		<numberofcopies>		</numberofcopies>
+	</SECURITY>
 </JP2METADATA>
-----
-
-
-
+```
 
 [[ListofallImageryDatasetComponents]]
 ===== List of all Imagery Dataset Components
 
 The Imagery Dataset is comprised of several components listed here and detailed in the subsequent sections.
-
-
 
 [#table_ImageryDatasetComponents,reftext='{table-caption} {counter:table-num}']
 *Table 5-15: Imagery Dataset Components*
