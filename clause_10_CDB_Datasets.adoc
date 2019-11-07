@@ -1160,7 +1160,7 @@ Description*
 |001 |001 |*.tif |Primary Terrain Elevation |A grid of data representing the Elevation at the surface of the Earth. Stored as a 1 or 2-channel TIFF image. When present, the second channel provides the mesh type of each grid element.
 |001 |002 |*.tif |Primary Terrain Elevation Control |Deprecated
 |001 |003 |*.tif |Primary Alternate Terrain Elevation |A grid of data representing the Elevation of the surface of the Earth at specified Latitude and Longitude offsets inside each grid element. Stored as a 4-channel TIFF image.
-|001 |004 |*.tif |Primary Alternate Terrain Elevation |A grid of data representing the Elevation of the surface of the Earth at specified Latitude and Longitude offsets inside each grid element. Stored as 3 individual raster grids within a single TIFF image.  _Preferred alternate to the 4-channel TIFF option._
+|001 |004 |*.tif |Primary Alternate Terrain Elevation |A grid of data representing the Elevation of the surface of the Earth at specified Latitude and Longitude offsets inside each grid element. Stored as 3 subfiles within a single TIFF image.  _Preferred alternate to the 4-channel TIFF option._
 |002..099 |001 |*.tif |Subordinate Terrain Elevation |Deprecated
 |002..099 |002 |*.tif |Subordinate Terrain Elevation Control |Deprecated
 |100 |001 |*.tif |Subordinate Bathymetry |A grid of data representing the Depth of water with respect to the selected Terrain Elevation component. Store as a 1 or 2-channel TIFF image. When present, the second channel provides the mesh type of each grid element.
@@ -1211,8 +1211,6 @@ include::requirements/REQ089.adoc[]
 Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
 
 include::requirements/REQ090.adoc[]
-
-The _Mesh Type_ is stored as an unsigned 8-bit integer.
 
 [[DefaultReadValue]]
 ====== Default Read Value
