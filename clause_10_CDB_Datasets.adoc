@@ -1752,7 +1752,6 @@ Description*
 |005 |001 |*.jp2 |Subordinate VSTLM |Corresponds to the terrain light maps draped (orthographically) over the terrain skin derived from the Primary Terrain Elevation Dataset. It may be single-channel monochrome or 3-channel color image. This Dataset Component follows the center grid conventions.
 |===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
-
 [[VisibleSpectrumTerrainImageryVSTIComponents]]
 ===== Visible Spectrum Terrain Imagery (VSTI) Components
 
@@ -1825,18 +1824,15 @@ Default_VSTI_Y_Blue
 
 The default gamma correction is defined by Default_Imagery_Gamma found in the Defaults.xml metadata file. If Default_Imagery_Gamma is not found in Defaults.xml, or if Defaults.xml is not found in the metadata directory, assume a default gamma correction of 1.0.
 
-
 [[DefaultWriteValue_30]]
 ====== Default Write Value
 
 The files associated with the VSTI component for area covered by a tile at a given LOD need not be created if the source data is not available. Tiles partially populated with data are not permitted.
 
-
 [[SupportedCompressionAlgorithm_31]]
 ====== Supported Compression Algorithm
 
 The CDB standard supports a compressed form using the JPEG 2000 format.
-
 
 [[VisibleSpectrumTerrainLightMapVSTLMComponent]]
 ===== Visible Spectrum Terrain Light Map (VSTLM) Component
@@ -1853,7 +1849,6 @@ include::requirements/requirements_class019.adoc[]
 ====== Data Type
 
 include::requirements/REQ103.adoc[]
-
 
 [[DefaultReadValue_33]]
 ====== Default Read Value
@@ -1911,13 +1906,10 @@ NOTE: The numeric value for Default_Material_Layer is zero (“0”) and is rese
 
 Mixture Layers represent the percentage area coverage of each material within each pixel of each mixture. Since all layers must add to 100%, it is possible to represent “_n_” Material Layers with a set of “_n-1_” Mixture Layers. The last layer is implicit, and it is set to (100% - Sum of areas from previous layers). In the case where there is a single Material Layer, there is no need to store the (implicit) Mixture Layer. When there are two or more Material Layers, the Mixture Layer(s) should be generated.
 
-
 [[ListofallRasterMaterialDatasetComponents]]
 ===== List of all Raster Material Dataset Components
 
 The Raster Material Dataset is comprised of several components listed here and detailed in the subsequent sections.
-
-
 
 [#table_RasterMaterialDatasetComponents,reftext='{table-caption} {counter:table-num}']
 *Table 5-17: Raster Material Dataset Components*
@@ -1946,15 +1938,10 @@ Each pixel of the first Material Layer (e.g., layer “1”) consists of a code 
 
 include::requirements/requirements_class020.adoc[]
 
-
-
 [[DataType_37]]
 ====== Data Type
 
-
 include::requirements/REQ104.adoc[]
-
-
 
 [[DefaultReadValue_38]]
 ====== Default Read Value
@@ -2106,12 +2093,10 @@ The Vector dataset concept and the feature concepts overlap somewhat; some of th
 |020 |Polygon Figure Point extended-level attributes |N/A
 |===============================================================================================
 
-
 [[VectorTypeUsageandConventions]]
 ===== Vector Type Usage and Conventions
 
 This section establishes conventions globally applicable to the usage of all vector features.
-
 
 [[Forexplicitlymodeledpointculturalfeatures]]
 ====== For explicitly modeled point cultural features:
@@ -2125,7 +2110,6 @@ Each point-feature of a CDB dtabase can be optionally associated with a GSModel,
 * _MMDC_: Moving Model DIS Code
 
 include::requirements/REQ108.adoc[]
-
 
 [[Formodeledlightpoints]]
 ====== For modeled light points:
@@ -2160,28 +2144,22 @@ The bounding box coordinates Xmin, Ymin, Xmax, Ymax required by some vector data
 
 The value of M and Mrange found in some of the vector types (PointM, MultiPointM, PolygonM, and PolyLineM) is ignored by client-devices.
 
-
 [[CDBAttribution]]
 ===== CDB Attribution
 
 Attributes are used to describe one or more real or virtual characteristics of a feature. Features can be assigned a variable number of attributes.
 
-
 include::requirements/requirements_class022.adoc[]
-
-
 
 [[AttributeCode]]
 ====== Attribute Code
 
 A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
 
-
 [[AttributeIdentifier]]
 ====== Attribute Identifier
 
 A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
-
 
 [[AttributeSemantics]]
 ====== Attribute Semantics
@@ -2224,18 +2202,15 @@ The CDB standard provides a flexible means to tag features with attribution data
 
 CDB attributes are attributes whose semantics, data type, length, format, range, usage, units, compatibility and schema are entirely governed by the CDB standard. Most of these attributes are unique to the CDB standard, i.e., these attributes are not found in source data that conforms to various (US) governmental standards and specifications. As a result, this attribution data must be derived via CDB tool automation or provided directly by the user.
 
-
 [[GeomaticsAttributes]]
 *Geomatics Attributes*
 
 Geomatics attributes are attributes whose semantics, data type, length, format, range, usage, and units, are governed by various governmental/industrial specifications and standards. Such attributes are generally found in source data that conforms to such standards and specifications. While the CDB standard itself does not define and govern the usage of these attributes, it nonetheless accommodates their storage within the repository structure of a CDB compliant dataset/data store. Please see section 5.7.1.2.7.3 for more information on extended level schemas and how Geomatics Attributes are used.
 
-
 [[VendorAttributes]]
 *Vendor Attributes*
 
 Vendor attributes are attributes whose semantics, data type, length, format, range, usage, and units are governed by one or more vendors. In general, such attributes cannot be used by other vendors since they are often proprietary. Such attributes exclude the above two types of attributes and are generally unique to each vendor. While the CDB standard itself does not define and govern the usage of these attributes, it nonetheless accommodates their storage within a CDB compliant data store/dataset. Please see section 5.7.1.2.7.3 for more information on extended level schemas and how Vendor Attributes are used.
-
 
 [[AttributionSchemas]]
 ====== Attribution Schemas
@@ -2266,8 +2241,6 @@ Each row of this instance-level file (or table) contains the instance-level attr
 image::images/image77.jpeg[untitled1,width=514,height=244]
 [#img_InstancelevelAttributionSchema,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Instance-level Attribution Schema_*
-
-
 
 [[ClasslevelSchema]]
 *Class-level Schema*
