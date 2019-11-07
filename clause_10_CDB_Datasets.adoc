@@ -1268,7 +1268,7 @@ The second method stores the data elements as a single TIFF image with 3 subfile
 
 The _Elevation_ and _Mesh Type_ components follow Requirements 89 and 90.
 
-include::requirements/REQ129.adoc[]
+include::requirements/REQ130.adoc[]
 
 [[DefaultReadValue_4]]
 ====== Default Read Value
