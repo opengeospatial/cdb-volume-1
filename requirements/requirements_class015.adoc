@@ -1,6 +1,6 @@
 [cols="1,4",width="90%"]
 |=================================================================================================================================================================================================================================
-2+|Requirements Class - Tiled Raster Elevation/Terrain (88-95) {set:cellbgcolor:#CACCCE}
+2+|Requirements Class - Tiled Raster Elevation/Terrain (88-95,130) {set:cellbgcolor:#CACCCE}
 2+|/req/core/tiled-raster-elevation-terrain {set:cellbgcolor:#FFFFFF}
 |Target type |Operations
 |Dependency |Various XML schema
