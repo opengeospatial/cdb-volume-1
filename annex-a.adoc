@@ -291,3 +291,11 @@ include::abstract_tests/TEST127.adoc[]
 The following conformance class is designed to determine if the CDB geocells have at least one VCMT.xml file with the required list of attributes for the composite materials of vector datasets.
 
 include::abstract_tests/TEST128.adoc[]
+
+
+//**A.1.37 GeoSpecific Model Descriptor**
+==== GeoSpecific Model Descriptor
+
+The following conformance class is designed to determine if the CDB geocells have one GeoSpecific Model Descriptor placed at the correct LOD for each GeoSpecific Model's level of detail.
+
+include::abstract_tests/TEST129.adoc[]

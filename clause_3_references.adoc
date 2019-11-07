@@ -2,4 +2,7 @@
 [[References]]
 === References
 
-Please see Annex B in Volume 0: Primer for the OGC CDB Standard: Model and Physical Data Store Structure for a complete list of all normative and informative references.
+Normative References
+
+
+Please see the link:annex-bibliography.adoc[Bibliography] in this CDB volume for a complete list of all normative and informative references.
