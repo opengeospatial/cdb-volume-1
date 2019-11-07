@@ -7,7 +7,7 @@
 |Requirement 88 {set:cellbgcolor:#CACCCE} |/req/core/primary-terrain-component {set:cellbgcolor:#FFFFFF}
 |Requirement 89 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-channel1 {set:cellbgcolor:#FFFFFF}
 |Requirement 90 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-channel2 {set:cellbgcolor:#FFFFFF}
-|Requirement 129 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-channel3 {set:cellbgcolor:#FFFFFF}
+|Requirement 130 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-channel3 {set:cellbgcolor:#FFFFFF}
 |Requirement 91 {set:cellbgcolor:#CACCCE} |/req/core/terrain-hyspography-offline {set:cellbgcolor:#FFFFFF}
 |Requirement 92 {set:cellbgcolor:#CACCCE} |/req/core/terrain-online-terrain-constraints {set:cellbgcolor:#FFFFFF}
 |Requirement 93 {set:cellbgcolor:#CACCCE} |/req/core/terrain-lpn-use {set:cellbgcolor:#FFFFFF}
