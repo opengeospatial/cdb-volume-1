@@ -2300,23 +2300,17 @@ image::images/image79.png[image,width=605,height=642]
 [#img_RelationbetweenShapesandAttributes,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Relation between Shapes and Attributes_*
 
-
 Note that it is possible to simultaneously extend a record (instance and class) with CDB, Geomatics, and vendor attributes. The example does not illustrate this situation to keep it (relatively) simple.
-
 
 [[CDBAttributes]]
 ===== CDB Attributes
 
 This section provides a list and description of the attributes that are governed by the CDB standard. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
 
-
 [[ATARSExtendedAttributeCodeAEACDeprecated]]
 ====== ATARS Extended Attribute Code (AEAC) – Deprecated
 
-
 Description: See OGC CDB Best Practice
-
-
 
 [[AbsoluteHeightFlagAHGT]]
 ====== Absolute Height Flag (AHGT)
@@ -2339,7 +2333,6 @@ NOTE: It is recommended that the AHGT flag be set to false because it facilitate
 CAUTION: When the AHGT flag is set to true, the feature will be at a fixed WGS-84 elevation independently of the terrain LOD selected by the client-device. As a result, there is no guarantee that the feature (and its modeled representation) will remain above the terrain across all terrain LODs.
 
 RECOMMENDATION: Limit the use of AHGT=TRUE to data whose source is inherently absolute. Such source data include geodetic marks or survey marks that provide a known position in terms of latitude, longitude, and altitude. Good examples of such markers are boundary markers between countries.
-
 
 [[AngleofOrientationAO1]]
 ====== Angle of Orientation (AO1)
@@ -2486,7 +2479,6 @@ Description: An index that points to a row entry of a CDB Extended Attribution f
 ====== CDB Extended Attribute Code (CEAC) – Deprecated
 
 Description: See OGC CDB Best Practice.
-
 
 [[CompositeMaterialIndexCMIX]]
 ====== Composite Material Index (CMIX)
@@ -3126,7 +3118,6 @@ Description: A value that uniquely represents the Populated Place Attribution Ty
 |999 |Other
 |=======================================================
 
-
 [[RelativeTActicalImportanceRTAI]]
 ====== Relative TActical Importance (RTAI)
 
@@ -3607,7 +3598,7 @@ The CDB Topological networks are used for the following purposes.
 
 The CDB Topological networks are optimized to facilitate road/river/railroad following tasks. They support the notion of directionality such as one-way roads or both ways for two-way roads, rivers. The vertex positions are physically positioned along the center of the feature’s longitudinal axis. For example, a road such as a dual-lane undivided highway, the vertex data lies along the stripes dividing the two lanes.
 
-Features within the same or different network datasets are connected together using the junction identifier attributes <<StartJunctionIDSJID>>SJID, <<EndJunctionIDRJID>>EJID or <<JunctionIDJID>>JID. Two or more features having the same identifier values are considered virtually connected. This junction identifier allows, for instance, a primary road to connect to a secondary road, or a river to connect a lake (in same network datasets), or to connect a road and a river (in different network dataset).
+Features within the same or different network datasets are connected together using the junction identifier attributes <<StartJunctionIDSJID>>SJID, <<EndJunctionIDEJID>>EJID or <<JunctionIDJID>>JID. Two or more features having the same identifier values are considered virtually connected. This junction identifier allows, for instance, a primary road to connect to a secondary road, or a river to connect a lake (in same network datasets), or to connect a road and a river (in different network dataset).
 
 include::requirements/requirements_class023.adoc[]
 
@@ -4128,25 +4119,20 @@ Table 5-34: Component Selectors for PowerLineNetwork Dataset, lists all of the P
 | |019 |PowerLineNetwork lineal figure point extended-level attribute
 |====================================================================
 
-
 [[DefaultReadValue_62]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
-
 
 [[DefaultWriteValue_63]]
 ===== Default Write Value
 
 The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
 
-
 [[TiledHydrographyNetworkDataset]]
 ==== Tiled HydrographyNetwork Dataset
 
-
 include::requirements/requirements_class028.adoc[]
-
 
 include::requirements/REQ127.adoc[]
 
@@ -4155,8 +4141,6 @@ The points that make up the HydrographyNetwork lineals are primarily used to est
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each HydrographyNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the HydrographyNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the HydrographyNetwork lineal feature by assigning a distinct a HydrographyNetwork Figure Point to each point of the HydrographyNetwork lineal feature. Allowed model representations are as per Section 5.3.1.4, Explicitly Modeled Representations.
 
 Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dastaset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
-
-
 
 [#table_ComponentSelectorsforHydrographyNetworkDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-35: Component Selectors for HydrographyNetwork Dataset*
@@ -4179,29 +4163,22 @@ Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the 
 | |020 |HydrographyNetwork polygon figure point extended-level attribute
 |=======================================================================
 
-
 [[DefaultReadValue_64]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
-
 
 [[DefaultWriteValue_65]]
 ===== Default Write Value
 
 The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
 
-
 [[TiledVectorCompositeMaterialTableVCMT]]
 ==== Tiled Vector Composite Material Table (VCMT)
 
-
 include::requirements/requirements_class029.adoc[]
 
-
 include::requirements/REQ128.adoc[]
-
-
 
 [#table_VectorCompositeMaterialTableComponent,reftext='{table-caption} {counter:table-num}']
 *Table 5-36: Vector Composite Material Table Component*
@@ -4240,7 +4217,6 @@ The Vector Composite Material Table follows the XML syntax described in Section 
 
 The default values for the Vector Composite Material Table (Default_Material_Layer) can be found in \CDB\Metadata\Defaults.xml and can be provided to the client-devices on demand. If the default information cannot be found within the \CDB\Metadata\Defaults.xml file, the CDB Specification recommends defaulting to single substrate composite material whose base material is Default_Base_Material (BM_LAND-MOOR).
 
-
 [[DefaultWriteValue_68]]
 ===== Default Write Value
 
@@ -4254,8 +4230,6 @@ The files associated with the Vector Composite Material Table for the area cover
 ==== Tiled GSModel Datasets
 
 Table 5-37, Component Selectors for GSModel Datasets, provides the dataset codes, the file extension types and associated component selector values of GSModels geometry, GSModelInteriors geometry and their associated Composite Material Tables (CMT).
-
-
 
 [#table_ComponentSelectorsforGSModelDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-37: Component Selectors for GSModel Datasets*
@@ -4353,7 +4327,6 @@ include::requirements/REQ129.adoc[]
 ==== Tiled T2DModel Datasets
 
 Table 5-38 provides the component selectors for the T2DModel datasets.
-
 
 [#table_ComponentSelectorsforT2DModelDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-38: Component Selectors for T2DModel Datasets*
