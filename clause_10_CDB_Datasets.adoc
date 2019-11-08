@@ -2257,8 +2257,6 @@ image::images/image78.jpeg[untitled1,width=580,height=156]
 [#img_Class-levelAttributionSchema,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Class-level Attribution Schema_*
 
-
-
 [[ExtendedlevelSchema]]
 *Extended-level Schema*
 
@@ -2819,7 +2817,6 @@ Description: The length of a lineal. If the feature has been clipped to a tile b
 
 Description: Please see the OGC CDB Best Practice
 
-
 [[FeatureorLocationNameLNAM]]
 ====== Feature (or Location) Name (LNAM)
 
@@ -2851,7 +2848,6 @@ Description: A value that uniquely attributes a location feature according to th
 * Unit: In cases where the location represents a bounded area, the approximate geometric center is assumed.
 * Default: 0
 * Compatibility: OGC CDB 1.0.
-
 
 [#table_LocationTypeEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-21: Location Type Enumeration Values*
@@ -3054,36 +3050,30 @@ Description: Code that is used to identify the dataset code file which contain t
 
 Description: Please see OGC CDB Best Practice
 
-
 [[NumberofIndicesNIXDeprecated]]
 ====== Number of Indices (NIX) – Deprecated
 
 Description: Please see OGC CDB Best Practice
-
 
 [[NumberofNormalsNNLDeprecated]]
 ====== Number of Normals (NNL) – Deprecated
 
 Description: Please see OGC CDB Best Practice
 
-
 [[NumberofTextureCoordinatesNTCDeprecated]]
 ====== Number of Texture Coordinates (NTC) – Deprecated
 
 Description: Please see OGC CDB Best Practice
-
 
 [[NumberofTexelNTXDeprecated]]
 ====== Number of Texel (NTX) – Deprecated
 
 Description: Please see OGC CDB Best Practice
 
-
 [[NumberofVerticesNVTDeprecated]]
 ====== Number of Vertices (NVT) – Deprecated
 
 Description: Please see OGC CDB Best Practice
-
 
 [[PopulationDensityPOPD]]
 ====== Population Density (POPD)
@@ -3591,7 +3581,6 @@ A feature can point to an explicitly modeled representation of that feature that
 
 Natural vector features (such as trees, bushes) are usually represented by geotypical models. The majority of man-made features can also be geotypical in nature. For instance, power pylons, telephone poles, or residential houses can all be represented with generic models that are typical in appearance to the real-world objects they represent. The modeler need only resort to a geospecific model if the application requires a model with the unique shape, appearance and/or properties of the real-world object.
 
-
 [[ImplicitlyModeledRepresentations]]
 ===== Implicitly Modeled Representations
 
@@ -3601,15 +3590,13 @@ An implicitly modeled representation is one that is defined completely by the su
 [[HandlingofTopologicalNetworks]]
 ===== Handling of Topological Networks
 
-The CDB standard provides several interconnected topological networks consisting of multiple datasets. Each network dataset can be made of separate point features and or a series of points connected together using lineal and polygon features. Each lineal feature has a start and end nodes, which correspond to intersections when connected to two or more other lineal features, or connections when connected to an polygon; the other intermediate points are used to accommodate deviation from a straight line. Typically, network datasets (such as roads, railroads) conform to the ground; consequently, when the optional AHGT attribute is present, its value is set to false. Each network dataset is stored as a distinct vector dataset footnote:[Shapefile if Shapefiles are being used] .
-
+The CDB standard provides several interconnected topological networks consisting of multiple datasets. Each network dataset can be made of separate point features and or a series of points connected together using lineal and polygon features. Each lineal feature has a start and end nodes, which correspond to intersections when connected to two or more other lineal features, or connections when connected to a polygon. The other intermediate points are used to accommodate deviation from a straight line. Typically, network datasets, such as roads, streams, and railroads, conform to the ground. Consequently, when the optional AHGT attribute is present, its value is set to false. Each network dataset is stored as a distinct vector dataset Version metadata rule for the vector encoding being used.
 
 image::images/image81.png[image,width=300,height=163]
 [#img_ExampleofaTopologicalNetwork,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Example of a Topological Network_*
 
-
-The CDB Topological networks are useful when one needs to determine the shortest path between two arbitrary nodes in the entire network; alternately, algorithms can use the network topology in combination with a “cost” parameter based on length (in the case of shortest path), traffic speed (in the case of fastest path), or some other criteria that can be derived from the attribution information associated with the network datasets.
+The CDB Topological networks are useful when one needs to determine the shortest path between two arbitrary nodes in the entire network. Alternately, algorithms can use the network topology in combination with a “cost” parameter based on length (in the case of shortest path), traffic speed (in the case of fastest path), or some other criteria that can be derived from the attribution information associated with the network datasets.
 
 The CDB Topological networks are used for the following purposes.
 
@@ -3618,46 +3605,43 @@ The CDB Topological networks are used for the following purposes.
 * To avoid an obstacle; for example a tank may not be able to cross a river or be able to go over or under a pipeline.
 * To efficiently process a “feature” for devices (such as radar) that do not require a high definition of the geometrical representation or do not need to represent more than one dimension.
 
-The CDB Topological networks are optimized to facilitate road/river/railroad following tasks. They support the notion of directionality such as one-way roads or both ways for two-way roads, rivers. The vertex positions are physically positioned along the center of the feature’s longitudinal axis; for example, a road such as a dual-lane undivided highway, the vertex data lies along the stripes dividing the two lanes.
+The CDB Topological networks are optimized to facilitate road/river/railroad following tasks. They support the notion of directionality such as one-way roads or both ways for two-way roads, rivers. The vertex positions are physically positioned along the center of the feature’s longitudinal axis. For example, a road such as a dual-lane undivided highway, the vertex data lies along the stripes dividing the two lanes.
 
-Features within the same or different network datasets are connected together using the junction identifier attributes SJID, EJID or JID. Two or more features having the same identifier values are considered virtually connected. This junction identifier allows, for instance, a primary road to connect to a secondary road, or a river to connect a lake (in same network datasets), or to connect a road and a river (in different network dataset).
+Features within the same or different network datasets are connected together using the junction identifier attributes <<StartJunctionIDSJID>>SJID, <<EndJunctionIDRJID>>EJID or <<JunctionIDJID>>JID. Two or more features having the same identifier values are considered virtually connected. This junction identifier allows, for instance, a primary road to connect to a secondary road, or a river to connect a lake (in same network datasets), or to connect a road and a river (in different network dataset).
 
 include::requirements/requirements_class023.adoc[]
-
 
 include::requirements/REQ117.adoc[]
 
 When not specified (i.e., blank), the feature is not connected to any other features. Volume 7: CDB Data Model Guidance (formerly Appendix A) provides guidelines on how to generate the junction identifiers.
 
-Since the junction identifier is associated with a shape type feature, the following combinations are supported:
+Since the junction identifier is associated with a feature's geometry type, the following combinations are supported:
 
 * Any point feature can be connected to any start or end point of a linear feature (point to linear connection), or to any start point of a polygon feature (point to polygon connection), using its JID attribute.
 * Any start point of a linear feature can be connected to any point feature (point to lineal connection), or to any start or end point of a linear feature (linear to linear connection), or to any start point of a polygon feature (linear to polygon connection), using its SJID attribute.
 * Any end point of a linear feature can be connected to any point feature (point to linear connection), or to any start or end point of a lineal feature (linear to linear connection), or to any start point of a polygon feature (linear to polygon connection), using its EJID attribute.
 * Any start point of a polygon feature can be connected to any point feature (point to polygon connection), or to any start or end point of a linear feature (linear to polygon connection), using its JID attribute.
 
-Connection information between two features located in two separate vector datasets  footnote:[Shapefiles if Shapefiles are being used.] are explicitly listed in 2D relationship files. This standard currently specifies two types of 2D relationship files: the 2D relationship tile connection file which specifies connections of the same dataset feature between two adjacent tiles, and the 2D relationship dataset connection file which specifies connection of 2 or more different dataset and sub-dataset features within the same tile.
-
+Connection information between two features located in two separate vector datasets  footnote:[Must be of the same vector encoding type.] are explicitly listed in 2D relationship files. This standard currently specifies two types of 2D relationship files: the 2D relationship tile connection file which specifies connections of the same dataset feature between two adjacent tiles, and the 2D relationship dataset connection file which specifies connection of 2 or more different dataset and sub-dataset features within the same tile.
 
 [[TwoDimensionalRelationshipTileConnectionFile]]
 ====== 2D Relationship Tile Connection File
 
 include::requirements/REQ118.adoc[]
 
-This clipping point potentially exists in several Tile-LODs having a common boundary; in which case, all points representing the same clipping point share the same JID. Doing so ensures that connectivity between geocells and tiles is preserved. A clipping point can be identified by the application by checking the 2D relationship tile connection file. There is a 2D relationship tile connection file per network dataset tile. When the file is missing, it indicates there is no clipping point for the lineals belonging to the tile. The 2D relationship file is a dBASE file that contains a list of records made of 2 attributes; the Junction ID (JID) that identifies the start or end point of the clipped linear and the Network Component Selector 1 (NCS1) that identifies the network dataset lineal file. The dataset code file is implicit to the network dataset tile directory and the Network Component Selector 2 always represents a linear feature vector features (code 003) thus do not require to be included in the record. The coordinate of the tile adjacent to a clipping point can be determined using the latitude and longitude of that point.
+This clipping point potentially exists in several Tile-LODs having a common boundary. In which case, all points representing the same clipping point share the same JID. Doing so ensures that connectivity between geocells and tiles is preserved. A clipping point can be identified by the application by checking the 2D relationship tile connection file. There is a 2D relationship tile connection file per network dataset tile. When the file is missing, it indicates there is no clipping point for the lineals belonging to the tile. The 2D relationship file is a file or table that contains a list of records made of 2 attributes: The Junction ID (JID) that identifies the start or end point of the clipped linear and the Network Component Selector 1 (NCS1) that identifies the network dataset lineal file. The dataset code file is implicit to the network dataset tile directory and the Network Component Selector 2 always represents a linear feature vector features (code 003) thus do not require to be included in the record. The coordinate of the tile adjacent to a clipping point can be determined using the latitude and longitude of that point.
 
 If a connection between two linear features happens to be located exactly at a tile boundary, the lineal is obviously not clipped but a junction ID is allocated and included in the 2D relationship tile connection file.
 
-In a 2D relationship tile connection file, no two records are identical; however, JIDs may appear more than once with different NCS1, indicating a connection between network subdatasets.
+In a 2D relationship tile connection file, no two records are identical. However, JIDs may appear more than once with different NCS1, indicating a connection between network subdatasets.
 
 
 [[TwoDimensionalRelationshipDatasetConnectionFile]]
 ====== 2D Relationship Dataset Connection File
 
-The CDB Topological network is made of several network datasets that in turn are made of several vector files (such as ShapeFiles). By specifying a junction identifier per feature, any features in any of these several vector files can in theory be connected to any other features located in a separate files (such as Shapefiles). A connection within a tile, which includes the tile boundaries, can be identified by the application by checking the 2D relationship dataset connection file. There is a 2D relationship dataset connection file per network dataset tile. This file contains all the connections between the sub-datasets of the corresponding network dataset with other network datasets. When the file is missing, it indicates there are no connections within the tile. The 2D relationship file is a database or other file that contains a list of records made of 4 attributes; the Junction ID (JID) that identifies the connected point, lineal or polygon features, the Network Dataset Code (NDSC) that identifies the network dataset the feature belongs to, and the Network Component Selectors (NCS1 and NCS2) that identify the network sub-dataset and the shape type. The tile coordinate and tile LOD is implicit to the Network Dataset tile directory.
+The CDB Topological network is made of several network datasets that in turn are made of several vector files of the same encoding format GeoPackage or Shapefiles). By specifying a junction identifier per feature, any features in any of these several vector files can in theory be connected to any other features located in a separate files of the same encoding format. A connection within a tile, which includes the tile boundaries, can be identified by the application by checking the 2D relationship dataset connection file. There is a 2D relationship dataset connection file per network dataset tile. This file contains all the connections between the sub-datasets of the corresponding network dataset with other network datasets. When the file is missing, it indicates there are no connections within the tile. The 2D relationship file is a database or other file that contains a list of records made of 4 attributes; the Junction ID (JID) that identifies the connected point, lineal or polygon features, the Network Dataset Code (NDSC) that identifies the network dataset the feature belongs to, and the Network Component Selectors (NCS1 and NCS2) that identify the network sub-dataset and the shape type. The tile coordinate and tile LOD is implicit to the Network Dataset tile directory.
 
-All the records in the 2D relationship file are sorted per ascending JID. This has two advantages; it speeds up the search process when looking for a specific JID and it groups all the features that are connected together. In effect, there is always a minimum of two consecutive records with the same JID; the record belonging to the corresponding file dataset (or sub-dataset) and the record identifying the feature it connects to. Note that when a 2D relationship file specifies a connection to a feature belonging to different network dataset, the corresponding LOD file of this dataset may or may not exist. If the corresponding LOD file of the target dataset is missing, the application must look for the feature in the coarser LOD file of the target dataset. If the corresponding LOD file of the target dataset exists, the feature may be missing because it has been removed by the off-line tool decimation process; when this is the case, the application must look for the feature in the finer LOD file of the target dataset.
-
+All the records in the 2D relationship file are sorted per ascending JID. This has two advantages; it speeds up the search process when looking for a specific JID and it groups all the features that are connected together. In effect, there is always a minimum of two consecutive records with the same JID; the record belonging to the corresponding file dataset (or sub-dataset) and the record identifying the feature it connects to. Note that when a 2D relationship file specifies a connection to a feature belonging to different network dataset, the corresponding LOD file of this dataset may or may not exist. If the corresponding LOD file of the target dataset is missing, the application must look for the feature in the coarser LOD file of the target dataset. If the corresponding LOD file of the target dataset exists, the feature may be missing because it has been removed by the off-line tool decimation process. When this is the case, the application must look for the feature in the finer LOD file of the target dataset.
 
 [[JunctionIdentifierSJIDEJIDandJIDRange]]
 ====== Junction Identifier (SJID, EJID, and JID) Range
@@ -3667,7 +3651,6 @@ include::requirements/REQ119.adoc[]
 With a 64-bit range, it is practically impossible to run out of ID numbers. In the process of creating the unique identifier, special care must be taken by the off-line tool in order to avoid duplicating the identifier at the geocell boundary for the clipping points when the modified or added features overlap two or more geocells.
 
 Table 3-27, CDB LOD versus Feature Density, specifies the maximum number of elements in a tile for vector datasets. This maximum number is not affected by the number of added clipping point in a lineal feature. Although, this appears to lead to an unbounded number of points in a file, it is clamped to the geocell size. In practice, for a relative constant density, the number of clipping points diminishes as the LOD number increases.
-
 
 [[NetworkVectorPriority]]
 ====== Network Vector Priority
@@ -3685,14 +3668,12 @@ The default vector priority values can be found in the default Feature Data Dict
 
 Areal network datasets are not covered by vector priority. They should be simplified into Tile-LODs using each feature’s significant size and applying spatial significance criteria to each vertex.
 
-
 [[HandlingofLightPoints]]
 ===== Handling of Light Points
 
 All of the information that is needed to instantiate the light point features is organized in accordance to the CDB terrain tile structure. Each instance of a light point feature refers to a light type defined by the CDB Standard via its shape attribution (LTYP). As a result, the entire definition of the light (i.e., its location, orientation and attributions) is self-contained within the vector data files.
 
 The CDB standard defines a collection of CDB Light Types that includes airport/runway lighting systems, cultural lights, aircraft refueling systems, etc. The light types currently supported by the CDB standard are listed in Annex J of this standard; they are also listed in Lights.xml as specified in Section 2.3, Light Naming. While the CDB standard provides a rigorous definition for each type of light, its representation is entirely determined by the fidelity and the capabilities of client-devices.
-
 
 [[AllocationofCDBAttributesToVectorDatasets]]
 ===== Allocation of CDB Attributes To Vector Datasets
@@ -3701,19 +3682,15 @@ The CDB standard limits the applicability of each of the CDB attributes to certa
 
 The allocation of CDB attributes to each of the Vector datasets is prescribed by Table 5-27 below.
 
-
-
 [#table_AllocationofCDBAttributestoVectorDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-27: Allocation of CDB Attributes to Vector Dataset*
 
 image::images/image82.png[image,width=624,height=558]
 
-
 [[VectorSignificantSizeandSpatialSignificanceCriteria]]
 ===== Vector Significant Size and Spatial Significance Criteria
 
 All vector features have an implicit or explicit significant size, which must be used when creating coarser Tile-LODs. In addition, as Tile-LODs are created, individual vertices within the vector also have a spatial significance within the feature itself.
-
 
 [[VectorSignificantSize]]
 ====== Vector Significant Size
@@ -3722,19 +3699,15 @@ The significant size for point features is defined by the significant size of th
 
 Areal feature significant size is proportional to the diagonal of the feature’s bounding box. If the feature is a box of equal length and width, its significant size is exactly the bounding box diagonal. As the shape of the feature’s bounding box becomes more rectangular, and as the amount of negative space within the bounding box increases, the feature’s significant size should be proportionally decreased relative to the departure from an equal length sided bounding box. This definition is similar to the one of a 3D model as specified in Section 6.8.3.2 in CDB Volume 6: OpenFlight.
 
-
 [[LevelsofDetailandSpatialSignificanceCriteria]]
 ====== Levels of Detail and Spatial Significance Criteria
 
 As coarser Tile-LODs of the lineal and areal datasets are created, the individual vertices of lineal and areal features must conform to the vector spatial significance criteria. Vertices must be moved or removed during coarser Tile-LOD creation such that, no part of the feature can be defined or changed by more than ½ of a raster cell size, as indicated by column 4 (Approximate Grid Spacing) of Table 2-4. For example, when creating the Tile-LOD 1 of a network dataset, all parts of each feature must be within 27 meters of the original feature (54.355 meters per Tile-LOD1 grid / 2 = 27.1775 meters). The spatial significance criterion is relaxed for the finest Tile-LOD, which is only limited by the feature vertex count.
 
-
 [[TiledNavigationDataset]]
 ==== Tiled Navigation Dataset
 
 As described in section 5.2, the global navigation dataset is complemented by a tiled-based dataset of basic navigation information that refers to the corresponding geocell. Those are found in the \401_Navigation dataset which is subdivided into several components as listed in the next table.
-
-
 
 [#table_TiledNavigationDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-28: Tiled Navigation Dataset*
@@ -3801,12 +3774,10 @@ Refer to Table below, List of Navigation Components, for a complete description 
 |Waypoint |46 |Point |Predetermined geographical position, used for route or instrument approach definition or progress reporting purposes
 |=====================================================================================================================================================================================================================================================================================================
 
-
 [[DefaultReadValue_50]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
-
 
 [[DefaultWriteValue_51]]
 ===== Default Write Value
@@ -3874,18 +3845,15 @@ The modeling of geospecific trees is permitted when required to represent a spec
 | |016 |Environmental light point extended-level attributes
 |================================================================
 
-
 [[DefaultReadValue_52]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
 
-
 [[DefaultWriteValue_53]]
 ===== Default Write Value
 
 The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
-
 
 [[TiledGTFeatureDataset]]
 ==== Tiled GTFeature Dataset
@@ -3901,7 +3869,6 @@ The GTFeature Dataset provides the position, size, orientation (points), shape (
 Table 5-30: Component Selectors for GTFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
 
 The Moving model location features component is used to permanently position moving models (e.g., position a row of parked tanks or aircrafts on a runway). When referenced and positioned in this manner, these models cannot be moved and articulated during the simulation.
-
 
 [#table_ComponentSelectorsforGTFeatureDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-30: Component Selectors for GTFeature Dataset*
@@ -3931,18 +3898,15 @@ The Moving model location features component is used to permanently position mov
 | |016 |Moving Model location features extended-level attributes
 |===============================================================
 
-
 [[DefaultReadValue_54]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
 
-
 [[DefaultWriteValue_55]]
 ===== Default Write Value
 
 The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
-
 
 [[TiledGeoPoliticalFeatureDataset]]
 ==== Tiled GeoPolitical Feature Dataset
@@ -3950,8 +3914,6 @@ The files associated with this dataset for area covered by tile at a given LOD n
 The GeoPolitical Feature dataset is used to provide information on the location, size and shape of abstract locations, lines and areas with respect to the surface of the earth. Generally speaking, the objects found in this dataset have no real-world physical representation (e.g., no physical characteristics such as mass) and correspond to abstract concepts (such as airspace, country boundary, danger zone).
 
 The GeoPolitical Feature dataset is subdivided into the following components.
-
-
 
 [#table_ComponentSelectorsforGeoPoliticalFeatureDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-31: Component Selectors for GeoPolitical Feature Dataset*
@@ -4009,15 +3971,12 @@ image::images/image85.png[image,width=558,height=301]
 [#img_ExampleofMajorCityLocationsandTimeZoneBoundaries,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Example of Major City Locations and Time Zone Boundaries_*
 
-
-
 [[ElevationConstraintFeatures]]
 ===== Elevation Constraint Features
 
 There are many instances where modelers may wish to take advantage of the availability of position and altitude of cultural features in order to locally control the terrain elevation data at a point, along a specified contour line or within a given area. This operation is usually performed off-line by the modeler and requires that the Elevation dataset be edited and re-generated offline.
 
 include::requirements/requirements_class024.adoc[]
-
 
 In addition to this approach, the CDB standard provides a Constraint Features component to the GeoPolitical Feature dataset, whose vector data is designed to instruct client-devices to _runtime-constrain_ the Elevation dataset to a set of prescribed elevation values (thereby obviating the need to offline re-generate the Elevation dataset).
 
@@ -4029,7 +3988,6 @@ The Constraint Features component provides modelers the ability to accurately co
 
 include::requirements/REQ121.adoc[]
 
-
 The Data Dictionary of the CDB standard also makes provision for the representation of many hypsography features within the Geopolitical Dataset (e.g., contour lines, ridge lines, valley lines, spot elevation). By virtue of their semantics, these features have no associated modeled representation. The modeler can use these hypsography features to control the generation of the Terrain Elevation grid during the off-line CDB compilation process. This terrain constraining operation can be performed as the CDB is “assembled and compiled” by the SE tools. Note that runtime client-devices are not required to constrain the Terrain Elevation Dataset to hypsography features.
 
 include::requirements/REQ122.adoc[]
@@ -4040,34 +3998,28 @@ While hypsography features can be used by the off-line tools to control the terr
 
 The application of constraint features to uniform and non-uniform gridded terrain elevation dataset is discussed in Volume 7: CDB Data Model Guidance (formerly Appendix A). See sections 6.6 and 6.7.
 
-
 [[DefaultReadValue_56]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
-
 
 [[DefaultWriteValue_57]]
 ===== Default Write Value
 
 The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
 
-
 [[TiledRoadNetworkDataset]]
 ==== Tiled RoadNetwork Dataset
 
 include::requirements/requirements_class025.adoc[]
 
-
 include::requirements/REQ124.adoc[]
-
 
 The points that make up the RoadNetwork lineals are primarily used to establish the road network topology. However, additional points can be used to more accurately define the actual path of the RoadNetwork lineals between each of the junction points of the network; alternately, points can be used to precisely specify the position of features along the RoadNetwork lineal. The altitude of each point is optional and specifies the ground level when present.
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RoadNetwork lineal. When provided, client-devices should instantiate the modeled representation for each point along the RoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the RoadNetwork lineal feature by assigning a distinct RoadNetwork Figure Point to each point of the RoadNetwork lineal feature.
 
 Table 5-32: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
-
 
 [#table_ComponentSelectorsforRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-32: Component Selectors for RoadNetwork Dataset*
@@ -4090,18 +4042,15 @@ Table 5-32: Component Selectors for RoadNetwork Dataset lists all of the RoadNet
 | |018 |Airport Network polygon features extended-level attributes
 |=================================================================
 
-
 [[DefaultReadValue_58]]
 ===== Default Read Value
 
 Simulator client-devices should assume an empty tile when data is not available.
 
-
 [[DefaultWriteValue_59]]
 ===== Default Write Value
 
 The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
-
 
 [[TiledRailRoadNetworkDataset]]
 ==== Tiled RailRoadNetwork Dataset
