@@ -278,7 +278,6 @@ The following is an excerpt of a “Defaults.xml” file containing the default 
 
 include::requirements/REQ074.adoc[]
 
-
 The complete XML schema can be found in \CDB\Metadata\Schema\Version.xsd delivered with the standard. The entries are now described.
 
 The optional _<PreviousIncrementalRootDirectory>_ element is used to refer to another CDB Version. This is the mechanism to use to chain together two CDB versions.
@@ -290,7 +289,7 @@ The mandatory _<Specification>_ element indicates the version of the CDB standar
 The optional _<Metadata standard="metadata-standard-name">_ element specifies the metadata standard used in a CDB data store. The metadata standard specifically refers to traditional resource metadata, such as “title”, “author” and “geographic bounding box”. “metadata-standard-name” is the acronym of the standard being used. Currently allowed metadata standards and their acronym names are provided below:
 
 [cols=",",options="header",]
-|=============================================================================================================================================================================================================================================================================================
+|===
 |*Acronym* |*Full Title*
 |_ISO-http://ogc.standardstracker.org/show_bug.cgi?id=439#c19115[19115]:http://ogc.standardstracker.org/show_bug.cgi?id=439#c2014[2014]_ |Geographic information -- Metadata -- Part 1: Fundamentals footnote:[https://www.iso.org/standard/53798.html]
 |_ISO-http://ogc.standardstracker.org/show_bug.cgi?id=439#c19115[19115]:http://ogc.standardstracker.org/show_bug.cgi?id=439#c2003[2003]_ |Geographic information -- Metadata footnote:[https://www.iso.org/standard/26020.html]
@@ -301,7 +300,7 @@ The optional _<Metadata standard="metadata-standard-name">_ element specifies th
 |GeoDCAT-AP footnote:[https://joinup.ec.europa.eu/node/139283] |https://joinup.ec.europa.eu/release/geodcat-ap-v10#download-links[GeoDCAT-AP] is an extension of https://joinup.ec.europa.eu/release/dcat-ap-v11[DCAT-AP] for describing geospatial datasets, dataset series, and services.
 |NGCMP footnote:[National System for Geospatial Intelligence (NSG) Geospatial Core Metadata Profile _www.gwg.nga.mil/documents/NSG_Geo_Core_MD_Profile.doc_] |National System for Geospatial Intelligence (NSG) Geospatial Core Metadata Profile
 |_NoMetadata_ |
-|=============================================================================================================================================================================================================================================================================================
+|===
 
 NOTE: In a CDB data store, there are two categories of metadata: Global and Local. _Global_ metadata is comprised of metadata that describes an entire CDB data store. _Local_ refers to metadata specific to a given dataset within a CDB data store. Dataset level metadata is stored at the tile or model definition level. While all tiles for a given layer may have the same dataset level metadata, discovery and indexing is facilitated by having the metadata stored at the tile level. For example, if there is a buildings layer in the CDB datastore, each tiles for this layer could include metadata specific to the buildings layer.
 
@@ -425,12 +424,10 @@ include::requirements/REQ080.adoc[]
 
 This is an optional metadata XML file. This XML file is not included with the CDB distribution schema package. This file is necessary only if Geomatics attributes are used to create Extended Attributes (see 5.7.1.2.7.3 of Volume 1). Geomatics_Attributes.xml and Vendor_Attributes.xml define the attributes that are referenced in the EAC column of the Extended Attributes tables (see 5.7.1.2.7.4). The intent behind those XML Attribute files is to provide the data necessary to interpret Environment Attribute Codes (EAC) and Environment Attribute Values (EAV). Geomatics attributes (section 5.7.1.2.6.2), are listed in “*Geomatics_Attributes.xml*” (section 3.1.1). The file uses the Geomatics_Attributes.xsd schema.
 
-
 [[VendorAttributesMetadata]]
 ==== Vendor Attributes Metadata
 
 This is an optional metadata XML file. This XML file is not included with the CDB distribution schema package. This file is necessary only if Vendor attributes are used to create Extended Attributes (see 5.7.1.2.7.3 of Volume 1). Geomatics_Attributes.xml and Vendor_Attributes.xml define the attributes that are referenced in the EAC column of the Extended Attributes tables (see 5.7.1.2.7.4). The intent behind those XML Attribute files is to provide the data necessary to interpret Environment Attribute Codes (EAC) and Environment Attribute Values (EAV). Vendor attributes (section 5.7.1.2.6.3), are listed in “*Vendor_Attributes.xml*” (section 3.1.1). The file uses the Vendor_Attributes.xsd schema.
-
 
 [[GeospatialMetadataGuidance]]
 ==== Geospatial Metadata – Guidance
@@ -486,7 +483,6 @@ _Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolu
 ===== Where are local metadata files stored?
 
 Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.
-
 
 [[ConfigurationMetadata]]
 ==== Configuration Metadata
@@ -562,22 +558,21 @@ The resulting CDB Configuration is stored in /CDB/myConfiguration and its Config
 
 Notice the use of relative paths to refer to the CDB Versions. Also notice the addition of the <Specification> element to the second <Version> to explicitly state that it contains data complying with version 3.0 footnote:[Was Version 3.0 in the OGC Best Practice.] of the specification.
 
-
 [[NavigationLibraryDatasets]]
 === Navigation Library Datasets
 
-The NavData dataset represents the navigation portion of a CDB. It supports several simulation subsystems such as the Instrument Landing System (ILS), Inertial Navigation/Global Positioning System, and Microwave Landing System Communications. The dataset also provides descriptions of airspaces, airways, heliports, helipads, gates, runways, approaches, and terminals. The dataset also provides information regarding climb procedures out of airports.
+The NavData dataset represents the navigation portion of a CDB. NavData supports several simulation subsystems such as the Instrument Landing System (ILS), Inertial Navigation/Global Positioning System, and Microwave Landing System Communications. The dataset also provides descriptions of airspaces, airways, heliports, helipads, gates, runways, approaches, and terminals. The dataset also provides information regarding climb procedures out of airports.
+
+`*Important note for version 1.2 and later*: In the https://docs.opengeospatial.org/per/19-007.html[OGC CDB Vector Data in GeoPackage Interoperability Experiment], OGC Members collaborated and tested the ability to use a variety of tools to convert CDB structured vector Shapefiles into CDB structured GeoPackages. The conversion tests were successful in that not conversion errors were encountered. However, the experiment did not include validating that the resulting GeoPackages could be successfully used in existing operational CDB deployments. Therefore the NavData clause in the CDB standard does not provide guidance on the use of GeoPackage and as such is still Shapefile specific. Future work will address this issue and make the ncessary changes to the CDB standard.`
 
 include::requirements/requirements_class013.adoc[]
-
 
 The NavData dataset is broken down into a collection of 46 (forty-six) components related to the Flight Navigation. Together, these 46 components combine all of the information currently provided by the following two organizations:
 
 * Navigation System DataBase (produced by Jeppesen) around the ARINC Standard 424-16
 * Product Standard for the Digital Aeronautical Flight Information File (DAFIF) produced by the National Geospatial Intelligence Agency (NGA)
 
-The component selector 2 is set to 001 for basic navigation records and these files are located in the tiled Navigation dataset directories. The component selector 2 is set to 002 for schema files and a value between 101 and 126 for key datasets. Schema and key datasets are located in the global Navigation directory. Component selector 1 and the file type are as per Table 5-2: Tiled Navigation Dataset. It provides a list of all CDB Navigation components with their designated names and description.
-
+The component selector 2 is set to 001 for basic navigation records and these files are located in the tiled Navigation dataset directories. The component selector 2 is set to 002 for schema files and a value between 101 and 126 for key datasets. Schema and key datasets are located in the global Navigation directory. Component selector 1 and the file type are as per Table 5-2: Tiled Navigation Dataset. This table provides a list of all CDB Navigation components with their designated names and description.
 
 [#table_ComponentSelectorsforNavigationDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-2: Component Selectors for Navigation Dataset*
@@ -611,13 +606,12 @@ The component selector 2 is set to 001 for basic navigation records and these fi
 - T123: Additional ICAO 2 search Key +
 - T126: Additional Ident 4 search Key
 
-
 include::requirements/REQ081.adoc[]
 
 [#table_ListofNavigationComponents,reftext='{table-caption} {counter:table-num}']
 *Table 5-3: List of Navigation Components*
 [cols=",,,",]
-|=====================================================================================================================================================================================================================================================================================
+|===
 |*Component Name* |*CS1* |*Shape Type* |*Component Description*
 |Airport |1 |Point |Area or land that is used (or intended for use) for the landing and take-off of aircraft.
 |AirRefueling |2 |Point |A specifically designated airspace where air-to-air refueling operations are normally conducted.
@@ -665,7 +659,7 @@ include::requirements/REQ081.adoc[]
 |VFRRoute |44 |Multipoint |Preplanned arrival or departure routes for helicopters or light fixed wing aircraft to specified airports or heliports using/in Visual Flight Rules (VFR
 |VFRRouteSegment |45 |Multipoint |Segment of a VFR Route
 |Waypoint |46 |Point |Predetermined geographical position, used for route or instrument approach definition or progress reporting purposes
-|=====================================================================================================================================================================================================================================================================================
+|===
 
 [[SchemaFiles]]
 ==== Schema Files
@@ -675,12 +669,12 @@ The schema file lists the data attributes for the given NavData component. It co
 [#table_ListofNavigationSchemaAttributes,reftext='{table-caption} {counter:table-num}']
 *Table 5-4: List of Navigation Schema Attributes*
 [cols=",,,",]
-|=====================================================================================================================================================================================================================================================================================
+|===
 |*Attribute* |*Type* |*Length* |*Definition*
 |ShortName |String |11 |A null-terminated string (ten characters or less). Short-hand name of the attribute used in the tiled vector datasets, (this restriction is for backwards compatibility with the dBASE III+ .dbf format which limits the field names to 10 characters or less)
 |DataType |String |255 |The data type for the attribute
 |KeyId |Int |4 |Index key for the attribute, used when performing a query. Not all attributes have an assigned index key, as only a few attributes can be used to perform a query. For each attribute with an index key, an index key dataset will be created.
-|=====================================================================================================================================================================================================================================================================================
+|===
 
 include::requirements/REQ082.adoc[]
 
@@ -829,7 +823,7 @@ In the context of CDB model textures, the first component selector is known as t
 [#table_ComponentSelectorsforCDBModelTextures,reftext='{table-caption} {counter:table-num}']
 *Table 5-8: Component Selectors for CDB Model Textures*
 [cols=",,,",]
-|===========================================================================================================================================================================================================================================
+|===
 |*CS1 +
 (Kind)* |*CS2 +
 (Index)* |*Component +
@@ -855,7 +849,7 @@ Description*
 |099 |001 |Night Map |Deprecated – Replaced with kind 051
 | |002 |Bump Map |Deprecated – Replaced with kind 052
 | |003 |Light Map |Deprecated – Replaced with kind 053
-|===========================================================================================================================================================================================================================================
+|===
 
 footnote:[Annex O can be found in Volume 2 CDB Core Model and Physical Structure Annexes]
 
@@ -869,7 +863,7 @@ Table 5-9 provides the component selector values associated with all GTModel dat
 [#table_ComponentSelectorsforGTModelDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-9: Component Selectors for GTModel Datasets*
 [cols=",,,,",]
-|==========================================================================================================================================================================================================================================================================================================
+|===
 |*CS1* |*CS2* |*File +
 Extension* |*Component +
 Name* |*Component +
@@ -923,7 +917,7 @@ Dataset 513, GTModelInteriorCMT
 
  |RCS Signature |The Radar Cross Section of a geotypical model is described in Volume 5 of this standard.
 | |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
-|==========================================================================================================================================================================================================================================================================================================
+|===
 
 Note 1: For GTModelSignature dataset, CS1 refers to the “RCS Frequency” and is used to indicate at which frequency (in MegaHertz) the dataset was generated for. The value of CS1 represents a power of 10 of the frequency and ranges from 1 to 999. The range of frequencies that can be represented is from 10^1^ MHz to 10^999^ MHz.
 
