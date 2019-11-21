@@ -5,9 +5,11 @@
 | |*Requirement* |/req/core/elevation-constraint-ahgt
 | |*Test purpose* |Verify that the Constraint Features component has the required attributes as mentioned in the Req. 121.
 | |*Test method* a|
-Pass if in the case of PointZ, MultiPointZ, PolyLineZ, PolygonZ and MultiPatch feature, the AHGT attribute is set to TRUE.
+Pass if in the case of PointZ, MultiPointZ, PolyLineZ, PolygonZ and `MultiPatch (see note)` feature, the AHGT attribute is set to TRUE.
 
 Vector feature types implemented as Point, PointM, MultiPoint, MultiPointM, PolyLine, PolyLineM, Polygon and PolygonM are ignored.
+
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
 
 | |*Test type* |Conformance
 |*Test 122* |/conf/core/tiled-elevation-constraints/hypsography-elevation-offline |
@@ -17,7 +19,8 @@ Vector feature types implemented as Point, PointM, MultiPoint, MultiPointM, Poly
 | |*Test type* |Conformance
 |*Test 123* |/conf/core/tiled-elevation-constraints/hyspograph-vector-types |
 | |*Requirement* |/req/core/hyspograph-vector-types
-| |*Test purpose* |Verify that vector features are of type PointZ, MultiPointZ, PolyLineZ, PolygonZ, or MultiPatch.
+| |*Test purpose* |Verify that vector features are of type PointZ, MultiPointZ, PolyLineZ, PolygonZ, or `MultiPatch (see note)`. +
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
 | |*Test method* |Visual
 | |*Test type* |Conformance
 |=========================================================================================================================================================================================
