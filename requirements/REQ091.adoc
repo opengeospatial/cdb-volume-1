@@ -3,5 +3,5 @@
 |*Requirement 91*{set:cellbgcolor:#CACCCE}
 |http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]terrain-hyspography-offline{set:cellbgcolor:#FFFFFF} +
 
-When terrain constraining is performed off-line, hypsography features _SHALL_ have AHGT set to True, thereby instructing the SE Tools to constrain the terrain elevation using the supplied (lat-long-elev) coordinates. The vector feature, currently stored in a vector format, _SHALL_ be a PointZ, a MultiPointZ, a PolyLineZ, a PolygonZ or a MultiPatch.{set:cellbgcolor:#FFFFFF}
+When terrain constraining is performed off-line, hypsography features _SHALL_ have AHGT set to True, thereby instructing the SE Tools to constrain the terrain elevation using the supplied (lat-long-elev) coordinates. The vector feature, currently stored in a vector format, _SHALL_ be a PointZ, a MultiPointZ, a PolyLineZ, or a PolygonZ. {set:cellbgcolor:#FFFFFF}
 |===
