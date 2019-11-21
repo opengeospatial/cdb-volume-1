@@ -2059,6 +2059,7 @@ Geometry data features types used in a CDB data store are as follows <Note - rem
 |25 | Polygon | PolygonM a| _Mandatory_: MBR, Number of parts, Number of points, Parts, Points _Optional_: M range, M array
 |28 |MultiPoint | MultiPointM a| _Mandatory_: MBR, Number of points, Points _Optional Fields_: M range, M array
 |===============================================================================================
+`Note: Geometry type multi-patch (Value 31) was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
 
 include::requirements/REQ107.adoc[]
 
@@ -2075,7 +2076,7 @@ The Vector dataset concept and the feature concepts overlap somewhat; some of th
 |002 |Point feature class-level attributes |N/A
 |003 |Lineal features |PolyLine, PolyLineZ, PolyLineM
 |004 |Lineal feature class-level attributes |N/A
-|005 |Polygon features |Polygon, PolygonZ, PolygonM, Multipatch
+|005 |Polygon features |Polygon, PolygonZ, PolygonM, `Multipatch (see note)`
 |006 |Polygon feature class-level attributes |N/A
 |007 |Lineal figure point features |Point, PointZ, PointM, MultiPoint, MultiPointZ, MultiPointM
 |008 |Lineal figure point feature class-level attributes |N/A
@@ -2092,6 +2093,8 @@ The Vector dataset concept and the feature concepts overlap somewhat; some of th
 |019 |Lineal Figure Point extended-level attributes |N/A
 |020 |Polygon Figure Point extended-level attributes |N/A
 |===============================================================================================
+
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
 
 [[VectorTypeUsageandConventions]]
 ===== Vector Type Usage and Conventions
