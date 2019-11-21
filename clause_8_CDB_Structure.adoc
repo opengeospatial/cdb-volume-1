@@ -569,16 +569,12 @@ The following table defines each field of the file name and Table 5-9 provides t
 |ext |The file type associated with the dataset (For an OpenFlight file this is “.flt”)
 |=================================================================================================
 
-
 [[GTModelDescriptorNamingConvention]]
 ===== GTModelDescriptor Naming Convention
 
 include::requirements/REQ048.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelDescriptorNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-5: GTModelDescriptor Naming Convention*
@@ -594,20 +590,16 @@ The following table defines each field of the file name and Table 5-9 provides t
 |xml |The file type associated with the dataset
 |==========================================================================================
 
-
 [[Examples]]
 ===== Examples
 
 The following example illustrates the directory structure that would store the entry file of all geotypical buildings with a feature code of AL015:
 
-
 `\CDB\GTModel\500_GTModelGeometry\A_Culture\L_Misc_Feature\015_Building\`
-
 
 Where \CDB\GTModel is the root of all geotypical model datasets, \500_GTModelGeometry is the directory containing all feature code categories, \A_Culture is the directory containing all feature code subcategories of category A (named Culture), \L_Misc_Feature is the directory containing all feature types of category A and subcategory L (named Misc_Feature), \015_Building is the directory containing all OpenFlight files representing geotypical buildings whose feature types are 015 (named Building).
 
 Assuming the use of OpenFlight, examples of files found in the above directory are:
-
 
 `.\D500_S001_T001_AL015_004_Castle.flt`
 
@@ -619,11 +611,9 @@ Assuming the use of OpenFlight, examples of files found in the above directory a
 
 `.\D500_S001_T001_AL015_050_Church.flt`
 
-
 Note that all filenames start with a common portion (D500_S001_T001_AL015) and that only their FSC and MODL portions vary.
 
 If the castle above (AL015_004_Castle) is represented with 3 levels of details, say LOD 3, 5 and 8, they would be stored in .\L03\, .\L05\, and .\L08\ giving file names such as these:
-
 
 `.\L03\D510_S001_T001_L03_AL015_004_Castle.flt`
 
@@ -631,12 +621,9 @@ If the castle above (AL015_004_Castle) is represented with 3 levels of details, 
 
 `.\L08\D510_S001_T001_L08_AL015_004_Castle.flt`
 
-
 Again, the descriptor associated with the same castle (AL015_004_Castle) would be found in this file:
 
 `.\D503_S001_T001_AL015_004_Castle.xml`
-
-
 
 [[GTModelDirectoryStructure2:Texture,Material,andCMT]]
 ==== GTModel Directory Structure 2: Texture, Material, and CMT
@@ -651,9 +638,6 @@ This directory structure holds the texture-related datasets of the GTModel Libra
 
 The directory structure has 4 levels and is based on the texture name.
 
-
-
-
 [#table_GTModelTextureDirectoryStructure,reftext='{table-caption} {counter:table-num}']
 *Table 3-6: GTModelTexture Directory Structure*
 [cols=",,",]
@@ -667,17 +651,12 @@ Name* |*Description*
 |Level 4 |TNAM |The texture name is between 2 and 32 characters in length. The first two characters are alphanumeric.
 |======================================================================================================================================
 
-
 [[GTModelTextureNamingConvention]]
 ===== GTModelTexture Naming Convention
 
 include::requirements/REQ049.adoc[]
 
 The following table defines each field of the file name and Table 5-8 provides the values of the Component Selectors to complete the name.
-
-
-
-
 
 [#table_GTModelTextureNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-7: GTModelTexture Naming Convention*
@@ -692,16 +671,12 @@ The following table defines each field of the file name and Table 5-8 provides t
 |ext |The file type associated with the dataset (For CDB Version 1.0 this is a SGI Image with file extension rgb.)
 |=================================================================================================================
 
-
 [[GTModelMaterialNamingConvention]]
 ===== GTModelMaterial Naming Convention
 
 include::requirements/REQ050.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelMaterialNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-8: GTModelMaterial Naming Convention*
@@ -716,16 +691,12 @@ The following table defines each field of the file name and Table 5-9 provides t
 |ext |The file type associated with the dataset (In CDB Version 1 specified as a TIFF file <.tif>)
 |========================================================================================================
 
-
 [[GTModelCMTNamingConvention]]
 ===== GTModelCMT Naming Convention
 
 include::requirements/REQ051.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelCMTNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-9: GTModelMaterial Naming Convention*
@@ -739,20 +710,16 @@ The following table defines each field of the file name and Table 5-9 provides t
 |xml |The file type associated with the dataset
 |=================================================================================================
 
-
 [[Examples_70]]
 ===== Examples
 
 The following example illustrates the directory structure that would store all files associated with a texture named ‘Brick’:
 
-
 `\CDB\GTModel\501_GTModelTexture\B\R\Brick\`
-
 
 Where \CDB\GTModel is the root of all geotypical model datasets, \501_GTModelTexture is the directory containing all geotypical textures, \B is the directory containing all textures whose name start with the letter ‘B’ or ‘b’, \R is the directory containing all textures whose name have the letter ‘R’ or ‘r’ in the second position, and \Brick is the directory containing all texture-related files whose name is ‘Brick’. Note that the second letter of the texture name is a lowercase ‘r’ but the corresponding directory name is an uppercase ‘R.’
 
 If the Brick texture has a resolution of 1 cm and a dimension of 256 x 256 pixels, Table 3-1 tells us that the finest LOD will be 10 (TS = 0.01 m) and the coarsest will be 2 (TS = 2.56 m), and assuming SGI rgb based textures, and the following files would be found in the above directory:
-
 
 `.\D511_S001_T001_L02_Brick.rgb`
 
@@ -772,9 +739,7 @@ If the Brick texture has a resolution of 1 cm and a dimension of 256 x 256 pixel
 
 `.\D511_S001_T001_L10_Brick.rgb`
 
-
 The metadata (if provided) associated with the above material textures would reside in the same directory and be named:
-
 
 `.\D511_S001_T001_Church-Gothic_mtd.xml`
 
@@ -785,7 +750,6 @@ The following example illustrates the directory structure that would store all L
 Again, note that the second letter of the material texture name is a lowercase ‘u’ but the corresponding directory name is an uppercase ‘U.’
 
 If the material texture has a resolution of 15 cm and a dimension of 256 x 256 pixels, the finest LOD will be 6 and the coarsest will be −2, and assuming images as TIFF files, the following files would be found in the above directory:
-
 
 .\D504_Snnn_Tnnn_LC02_Church-Gothic.tif
 
@@ -814,7 +778,6 @@ The metadata (if provided) associated with the above material textures would res
 
 .\D505_Snnn_Tnnn_Church-Gothic_mtd.xml
 
-
 [[GTModelDirectoryStructure3:InteriorGeometryandDescriptor]]
 ==== GTModel Directory Structure 3: Interior Geometry and Descriptor
 
@@ -824,9 +787,6 @@ This directory structure holds the datasets related to the geometry of the inter
 2.  Dataset 508, GTModelInteriorDescriptor
 
 The directory structure has 5 levels and is based on the feature code of the model (see section 3.3.8.1).
-
-
-
 
 [#table_GTModelInteriorGeometryDirectoryStructure,reftext='{table-caption} {counter:table-num}']
 *Table 3-10: GTModelInteriorGeometry Directory Structure*
@@ -842,16 +802,12 @@ Name* |*Description*
 |Level 5 |LOD |The Level of Detail corresponding to the Significant Size of the model as explained in section 3.3.8.5.
 |==================================================================================================================================================================================================================================
 
-
 [[GTModelInteriorGeometryNamingConvention]]
 ===== GTModelInteriorGeometry Naming Convention
 
 include::requirements/REQ052.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelInteriorGeometryNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-11: GTModelInteriorGeometry Naming Convention*
@@ -868,16 +824,12 @@ The following table defines each field of the file name and Table 5-9 provides t
 |ext |The file type associated with the dataset (For an OpenFlight file the extension is “.flt”)
 |=================================================================================================
 
-
 [[GTModelInteriorDescriptorNamingConvention]]
 ===== GTModelInteriorDescriptor Naming Convention
 
 include::requirements/REQ053.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelInteriorDescriptorNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-12: GTModelInteriorDescriptor Naming Convention*
@@ -893,16 +845,13 @@ The following table defines each field of the file name and Table 5-9 provides t
 |xml |The file type associated with the dataset.
 |==========================================================================================
 
-
 [[Examples_71]]
 ===== Examples
 
 The following example illustrates the directory structure that would store the interior of all geotypical buildings represented at LOD 3 and whose feature code is AL015:
 
-
 \CDB\GTModel\506_GTModelInteriorGeometry\A_Culture\ +
 L_Misc_Feature\015_Building\L03\
-
 
 Where \CDB\GTModel is the root of all geotypical model datasets, \505_GTModelInteriorGeometry is the directory containing all feature categories, \A_Culture is the directory containing all feature subcategories of category A (named Culture), \L_Misc_Feature is the directory containing all feature types of category A and subcategory L (named Misc_Feature), \015_Building is the directory containing all level of details representing geotypical buildings whose feature types are 015 (named Building), and \L03 is the directory containing the model files footnote:[Currently OpenFlight] representing LOD 3 of these buildings.
 
@@ -914,11 +863,9 @@ Assuming the use of OpenFlight, examples of files found in the above directory a
 * .\D506_S001_T001_L03_AL015_037_Fire_Station.flt
 * .\D506_S001_T001_L03_AL015_050_Church.flt
 
-
 Note that all filenames start with a common portion (D506_S001_T001_L03_AL015) and that only their FSC and MODL portions vary.
 
 The descriptors associated with the interior of these models would be found in level 4 of the directory structure in the following files:
-
 __
 \CDB\GTModel\506_GTModelInteriorGeometry\A_Culture\ +
 L_Misc_Feature\015_Building\ +
@@ -943,7 +890,6 @@ __
 
 Note that any one of the models may have additional metadata or all may have additional metadata.
 
-
 [[GTModelDirectoryStructure4:InteriorTexture,Material,andCMT]]
 ==== GTModel Directory Structure 4: Interior Texture, Material, and CMT
 
@@ -955,9 +901,6 @@ This directory structure holds the datasets related to the textures of the inter
 .  Dataset 513, GTModelInteriorCMT
 
 The directory structure has 4 levels and is based on the texture name.
-
-
-
 
 [#table_GTModelInteriorTextureDirectoryStructure,reftext='{table-caption} {counter:table-num}']
 *Table 3-13: GTModelInteriorTexture Directory Structure*
@@ -972,16 +915,12 @@ Name* |*Description*
 |Level 4 |TNAM |The texture name has from 2 to 32 characters. The first two characters are alphanumeric.
 |==============================================================================================================================================
 
-
 [[GTModelInteriorTextureNamingConvention]]
 ===== GTModelInteriorTexture Naming Convention
 
 include::requirements/REQ054.adoc[]
 
 The following table defines each field of the file name and Table 5-8 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelInteriorTextureNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-14: GTModelInteriorTexture Naming Convention*
@@ -996,16 +935,12 @@ The following table defines each field of the file name and Table 5-8 provides t
 |<ext> |The file type associated with the dataset (In CDB version 1.0 this is an SGI Image with a rgb file extension)
 |====================================================================================================================
 
-
 [[GTModelInteriorMaterialNamingConvention]]
 ===== GTModelInteriorMaterial Naming Convention
 
 include::requirements/REQ055.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_GTModelInteriorMaterialNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-15: GTModelInteriorMaterial Naming Convention*
@@ -1019,7 +954,6 @@ The following table defines each field of the file name and Table 5-9 provides t
 |TNAM |The material texture name; identical to the folder name where the material texture resides.
 |ext |The file type associated with the dataset (In CDB Version 1.0 specified as a TIFF file - tif)
 |========================================================================================================
-
 
 [[Example1_72]]
 ===== Example 1
@@ -1042,7 +976,6 @@ If the texture has a resolution of 1 cm and a dimension of 256 x 256 pixels, the
 * D507_S001_T001_L09_BeigeGypseWall.rgb
 * D507_S001_T001_L10_BeigeGypseWall.rgb
 
-
 [[Example2_73]]
 ===== Example 2
 
@@ -1056,28 +989,18 @@ If the material texture has a resolution of 1 cm and a dimension of 256 x 256 pi
 
 
 D509_Snnn_Tnnn_L02_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L03_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L04_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L05_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L06_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L07_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L08_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L09_Church-Gothic.tif
-
 D509_Snnn_Tnnn_L10_Church-Gothic.tif
-
 
 The metadata (if provided) associated with the above material textures would reside in the same directory and be named:
 
 `.\D509_Snnn_Tnnn_Church-Gothic_mtd.xml`
-
 
 [[GTModelDirectoryStructure5:Signature]]
 ==== GTModel Directory Structure 5: Signature
@@ -1090,14 +1013,10 @@ This directory structure holds the datasets related to the radar signature of a 
 
 The directory structure has 5 levels and is based on the feature code of the model (see section 3.3.8.1).
 
-
-
-
-
 [#table_GTModelSignatureDirectoryStructure,reftext='{table-caption} {counter:table-num}']
 *Table 3-16: GTModelSignature Directory Structure*
 [cols=",,",]
-|===================================================================================================================================================================================================================================================================================================
+|===
 |*Directory +
 Level* |*Directory +
 Name* |*Description*
@@ -1106,10 +1025,9 @@ Name* |*Description*
 |Level 3 |B_Subcategory |The second character of the feature code is called the “Feature Subcategory”. The name of the directory is composed of the first character (denoted B) of the subcategory name followed by an underscore and the subcategory name (denoted Subcategory) as per Section 1.5.
 |Level 4 |999_Type |The 3^rd^, 4^th^, and 5^th^ characters of the feature code are called the “Feature Type”. The name of the directory is composed of the feature type (denoted 999) followed by an underscore and the name (denoted Type) associated with the feature type as per Section 1.5.
 |Level 5 |LOD |Character L followed by the LOD number corresponding to the Significant Size for positive levels of detail. Characters LC followed by the LOD number corresponding to the Significant Size for negative levels of detail.
-|===================================================================================================================================================================================================================================================================================================
+|===
 
 Note that for compatibility with version 3.0 of the standard, the name of the directory at level 1 is kept to 502_GTModelSignature even though dataset 502 has been deprecated and replaced with dataset 512 in version 3.1 of the standard.
-
 
 [[GTModelSignatureNamingConvention]]
 ===== GTModelSignature Naming Convention
@@ -1118,13 +1036,10 @@ include::requirements/REQ056.adoc[]
 
 The following table defines each field of the file name and Table 5-9 provides the values of the Component Selectors to complete the name.
 
-
-
-
 [#table_GTModelSignatureNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-17: GTModelSignature Naming Convention*
 [cols=",",]
-|=================================================================================================================================================================
+|===
 |*Field* |*Description*
 |D512 |Character D followed by the 3-digit code assigned to the dataset
 |Snnn |Character S followed by the 3-digit Component Selector 1
@@ -1133,23 +1048,19 @@ The following table defines each field of the file name and Table 5-9 provides t
 |FeatureCode |Five-character feature code as defined in Section 1.5
 |FSC |Three-digit integer representing the feature sub-code (FSC) as defined in Section 1.5
 |MODL |32-character Model Name String
-|ext |The file type associated with the dataset. This is designated by the file extension: e.g. .tif for TIFF, .flt for OpenFlight, .shp for ShapeFiles and so on.
-|=================================================================================================================================================================
-
+|ext |The file type associated with the dataset. This is designated by the file extension: e.g. .tif for TIFF, .flt for OpenFlight, .shp for ShapeFiles, .gkpg for GeoPackage and so on.
+|===
 
 [[Examples_74]]
 ===== Examples
 
 The following example illustrates the directory structure that would store the signature of all geotypical buildings represented at LOD 3 and whose feature code is AL015:
 
-
 `\CDB\GTModel\502_GTModelSignature\A_Culture\L_Misc_Feature\015_Building\L03\`
-
 
 Where \CDB\GTModel is the root of all geotypical model datasets, \502_GTModelSignature is the directory containing all feature categories, \A_Culture is the directory containing all feature subcategories of category A (named Culture), \L_Misc_Feature is the directory containing all feature types of category A and subcategory L (named Misc_Feature), \015_Building is the directory containing all level of details representing the signature of geotypical buildings whose feature types are 015 (named Building), and \L03 is the directory containing the vector data sets representing LOD 3 of these buildings footnote:[Currently encoded as ShapeFiles but additional formats will be defined in a future CDB version.].
 
 Examples of files that could be found in the above directory are:
-
 
 * .\D512_S001_T001_L03_AL015_004_Castle.shp
 * .\D512_S001_T001_L03_AL015_004_Castle.shx
@@ -1159,16 +1070,12 @@ Examples of files that could be found in the above directory are:
 
 If there is metadata for this file and the metadata is encoded in XML, the above directory would also include:
 
-
 .\D512_S001_T017_L03_AL015_004_Castle_mtd.xml
-
-
 
 [[GTModelCompleteExamples]]
 ==== GTModel Complete Examples
 
 Assuming the use of ShapeFiles, OpenFlight, rgb texture files, and TIFF the following examples illustrate the locations and names of all files of the GTModel Library.
-
 
 \CDB\GTModel\500_GTModelGeometry\A_Culture\L_Misc_Feature\ +
 015_Building\ +
@@ -1198,8 +1105,6 @@ D507_Snnn_Tnnn_Lnn_Castle.rgb (Texture) +
 D509_Snnn_Tnnn_Lnn_Castle.tif (Material) +
 D513_Snnn_Tnnn_Castle.xml (CMT)
 
-
-
 [[MModelLibraryDatasets_75]]
 === MModel Library Datasets
 
@@ -1207,19 +1112,14 @@ The following is the requirements class for MModel Library datasets.
 
 include::requirements/requirements_class009.adoc[]
 
-
 include::requirements/REQ057.adoc[]
 
 These datasets are stored in three (3) different directory structures described in the subsections below.
-
 
 [[MModelDirectoryStructure1:GeometryandDescriptor]]
 ==== MModel Directory Structure 1: Geometry and Descriptor
 
 This directory structure is owned by the MModelGeometry dataset that is assigned dataset code 600. The structure has 6 levels and is based on the DIS Entity Type (see section 3.3.8.3). The same directory structure is used to store the files of the MModelDescriptor dataset.
-
-
-
 
 [#table_MModelGeometryDirectoryStructure,reftext='{table-caption} {counter:table-num}']
 *Table 3-18: MModelGeometry Directory Structure*
@@ -1236,16 +1136,12 @@ Name* |*Description*
 |Level 6 |9_9_9_9_9_9_9 |All 7 fields of the DIS Entity type concatenated and separated by an underscore.
 |===================================================================================================================================================================================================================
 
-
 [[MModelGeometryNamingConvention]]
 ===== MModelGeometry Naming Convention
 
 include::requirements/REQ058.adoc[]
 
 The following table defines each field of the file names and Table 5-10 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_MModelGeometryNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-19: MModelGeometry Naming Convention*
@@ -1259,16 +1155,12 @@ The following table defines each field of the file names and Table 5-10 provides
 |ext |The file type associated with the dataset (In Version 1 this was anOpenFlight file with the extension is “.flt”)
 |=====================================================================================================================
 
-
 [[MModelDescriptorNamingConvention]]
 ===== MModelDescriptor Naming Convention
 
 include::requirements/REQ059.adoc[]
 
 The following table defines each field of the file names and Table 5-10 provides the values of the Component Selectors to complete the name.
-
-
-
 
 [#table_MModelDescriptorNamingConvention,reftext='{table-caption} {counter:table-num}']
 *Table 3-20: MModelDescriptor Naming Convention*
