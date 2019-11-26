@@ -15,7 +15,12 @@
 | |*Test type* |Conformance
 |*Test 90* |/conf/core/tiled-raster-elevation-terrain/terrain-tiff-channel2 |
 | |*Requirement* |/req/core/terrain-tiff-channel2
-| |*Test purpose* |Verify that the second channel, third and fourth channels of the TIFF image contains the necessary components and _are_ stored in correct format.
+| |*Test purpose* |Verify that the _Mesh Type_ channel of the TIFF image contains the necessary components and _are_ stored in correct format.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 130* |/conf/core/tiled-raster-elevation-terrain/terrain-tiff-channel3 |
+| |*Requirement* |/req/core/terrain-tiff-channel3
+| |*Test purpose* |Verify that the _Latitude Offset_ and _Longitude Offset_ channels of the TIFF image contains the necessary components and _are_ stored in correct format.
 | |*Test method* |Visual
 | |*Test type* |Conformance
 |*Test 91* |/conf/core/tiled-raster-elevation-terrain/terrain-hyspography-offline |
