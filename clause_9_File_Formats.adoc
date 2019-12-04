@@ -32,7 +32,9 @@ For all other formats (used by this standard), CDB readers should be fully compl
 |OpenFlight|16.0
 |Shapefile|Esri White Paper, July 98
 |dBASE|III+
-|XML|1.0
-|ZIP|6.3.1
-|GeoPackage|1.1
+|XML|1.0 and later
+|ZIP|6.3.1 and later
+|GeoPackage|1.1 and later
 |===
+
+Previous version sf the above table had a column labeled: _CDB Client-device Behavior for Prior Versions". All rows had the label _Ignores data_. The column has been removed but the value is still valid.
