@@ -1,0 +1,257 @@
+:figure-caption: Figure 5-
+:figure-num: 0
+
+
+[[NavigationLibraryDatasets]]
+=== Navigation Library Datasets
+
+The NavData dataset represents the navigation portion of a CDB. NavData supports several simulation subsystems such as the Instrument Landing System (ILS), Inertial Navigation/Global Positioning System, and Microwave Landing System Communications. The dataset also provides descriptions of airspaces, airways, heliports, helipads, gates, runways, approaches, and terminals. The dataset also provides information regarding climb procedures out of airports.
+
+`*Important note for version 1.2 and later*: In the https://docs.opengeospatial.org/per/19-007.html[OGC CDB Vector Data in GeoPackage Interoperability Experiment], OGC Members collaborated and tested the ability to use a variety of tools to convert CDB structured vector Shapefiles into CDB structured GeoPackages. The conversion tests were successful in that not conversion errors were encountered. However, the experiment did not include validating that the resulting GeoPackages could be successfully used in existing operational CDB deployments. Therefore the NavData clause in the CDB standard does not provide guidance on the use of GeoPackage and as such is still Shapefile specific. Future work will address this issue and make the ncessary changes to the CDB standard.`
+
+include::requirements/requirements_class013.adoc[]
+
+The NavData dataset is broken down into a collection of 46 (forty-six) components related to the Flight Navigation. Together, these 46 components combine all of the information currently provided by the following two organizations:
+
+* Navigation System DataBase (produced by Jeppesen) around the ARINC Standard 424-16
+* Product Standard for the Digital Aeronautical Flight Information File (DAFIF) produced by the National Geospatial Intelligence Agency (NGA)
+
+The component selector 2 is set to 001 for basic navigation records and these files are located in the tiled Navigation dataset directories. The component selector 2 is set to 002 for schema files and a value between 101 and 126 for key datasets. Schema and key datasets are located in the global Navigation directory. Component selector 1 and the file type are as per Table 5-2: Tiled Navigation Dataset. This table provides a list of all CDB Navigation components with their designated names and description.
+
+[#table_ComponentSelectorsforNavigationDataset,reftext='{table-caption} {counter:table-num}']
+*Table 5-2: Component Selectors for Navigation Dataset*
+[cols=",,,,",]
+|===============================================================================================
+|*CS1* |*CS2* |*File Extension* |*Component Name* |*Component Description*
+|Dataset 400, NavData | | | |
+|001-046 |002 |As appropriate |Schema |Lists the data attributes for the given component
+| |101-126 |As appropriate |Key Dataset |Sorted lists used to perform queries within the NavData
+|===============================================================================================
+
+- T002: Schema file +
+- T101: Storage number search key +
+- T102: Ident search Key +
+- T103: ICAO search Key +
+- T104: Frequency search Key +
+- T106: IATA search Key +
+- T107: Type search Key +
+- T108: Additional Ident 1 search Key +
+- T109: Additional ICAO 1 search Key +
+- T110: Channel search Key +
+- T111: Additional Ident 2 search Key +
+- T114: Range search Key +
+- T115: Sequence search Key +
+- T116: Country search Key +
+- T117: Boundary search Key +
+- T118: Code search Key +
+- T120: Additional Ident 3 search Key +
+- T121: Reserved +
+- T122: Additional Type 1 search Key +
+- T123: Additional ICAO 2 search Key +
+- T126: Additional Ident 4 search Key
+
+include::requirements/REQ081.adoc[]
+
+[#table_ListofNavigationComponents,reftext='{table-caption} {counter:table-num}']
+*Table 5-3: List of Navigation Components*
+[cols=",,,",]
+|===
+|*Component Name* |*CS1* |*Shape Type* |*Component Description*
+|Airport |1 |Point |Area or land that is used (or intended for use) for the landing and take-off of aircraft.
+|AirRefueling |2 |Point |A specifically designated airspace where air-to-air refueling operations are normally conducted.
+|AirRefuelingControl |3 |Point |Information regarding the Air Traffic Control Center that controls the airspace within which the refueling track or anchor is located.
+|AirRefuelingFootnote |4 |Point |Supplemental notes defining an Air Refueling component
+|AirRefuelingPoint |5 |Point |Single Point from an Air Refueling structure
+|AirRefuelingSegment |6 |Multipoint |Segment from an Air Refueling structure
+|AirspaceBoundary |7 |Point |Designated airspace within which some or all aircraft may be subject to air traffic control.
+|AirwayRestriction |8 |Point |Altitude and time restrictions for airways, airway segments, or sequences of airway segments
+|Approach |9 |Multipoint |Preplanned instrument flight rule (IFR) for air traffic control approach procedures.
+|ArrestingGear |10 |Point |Safety device consisting of engaging or catching devices, and energy absorption devices for the purpose of arresting both tail hook and/or non-tail hook equipped aircraft
+|COMMS |11 |Point |Voice, radio communications, and facility call sign and frequenciesavailable for same operations between the airport environment and aircraft.
+|ControlAirspace |12 |Multipoint |Sequential listing of vertical and lateral limits, defining airspaces of different classifications, within which air traffic control service is provided
+|EnrouteAirway |13 |Point |A specified route designed for channeling the flow of traffic as necessary for the provision of air traffic services
+|FirUir |14 |Multipoint |Flight Information region – Upper Information Region. Designated airspace within which some or all aircraft may be subject to air traffic control.
+|Gate |15 |Point |Passenger gate at an airport
+|GLS |16 |Point |GNSS Landing System
+|Helipad |17 |Line |Designated area usually with a prepared surface used for take-off and landing of helicopters
+|Heliport |18 |Point |Area or land intended to be used for landing and takeoff of helicopters
+|HoldingPattern |19 |Point |Flight path maintained by an aircraft that is awaiting permission to land
+|ILS |20 |Multipoint |Instrument landing system – Precision instrument approach system normally consisting of electronic components and visual aids
+|Marker |21 |Point |Transmitter that radiates vertically a distinctive pattern for providing position information to aircrafts
+|MilitaryTrainingRoute |22 |Point |Routes used by the Department of Defense and associated Reserve and Air Guard Units for the purpose of conducting low altitude navigation and tactical training in both IFR and VFR weather conditions below 10,000 feet MSL at airspeeds in excess of 250 KTS IAS.
+|MilitaryTrainingRouteAirspace |23 |Point |Special use airspace or military operations area associated with a Military Training Route
+|MilitaryTrainingRouteDescription |24 |Point |Supplemental information regarding a Military Training Route
+|MilitaryTrainingRouteOverlay |25 |Multipoint |The width left and right of centerline based on a set of widths at Point Ident and another set of width at the Next Point Ident in one segment record.
+|MLS |26 |Multipoint |Microwave Landing System – precision instrument approach system normally consisting of electronic components and visual aids
+|MSA |27 |Point |Minimum Safe Altitude - altitude below which it is hazardous to fly owing to presence of high ground or other obstacles
+|Navaid |28 |Multipoint |Electronic device on the surface, which provides point-to-point guidance information or position data to aircraft in flight
+|OffRouteTerrainClrAltitude |29 |Polygon |Off-Route Terrain Clearance Altitude - Clearance altitudes in non-mountainous and in mountainous areas
+|ParachuteJumpArea |30 |Point |An area designated for parachute jumping activities.
+|ParachuteJumpAreaBoundary |31 |Multipoint |Boundary of a Parachute Jump Area
+|PathPoint |32 |Point |No description
+|PreferredRoute |33 |Point |A system of routes designed to minimize route changes during the operational phase of flight and to aid in the efficient management of air traffic.
+|PresetSite |34 |Point |Preset Site
+|RestrictiveAirspace |35 |Multipoint |Airspace of defined dimensions identified by an area on the surface of the earth wherein activities must be confined
+|Runway |36 |Line |Rectangular area on a land airport prepared for the landing and takeoff runs of aircraft along its length
+|SID |37 |Multipoint |Standard Instrument Departure - preplanned instrument flight rule (IFR) for air traffic control departure procedure
+|SpecialUse Airspace |38 |Point |Airspace of defined dimensions wherein activities must be confined because of their nature and/or wherein limitations may be imposed upon aircraft operations that are not a part of those activities.
+|STAR |39 |Multipoint |Standard Terminal Arrival – preplanned instrument flight rule (IFR) air traffic control arrival procedure
+|SupplTerminalData |40 |Point |Supplemental terminal data
+|TerminalProcClimb |41 |Point |Terminal Procedure Climb - Min or ATC Climb rates
+|TerminalProcFeedRoute |42 |Multipoint |Terminal Procedure Feeder Route – A route depicted on Instrument Approach Procedures to designate routes for aircraft to proceed from the en route structure to the Initial Approach Fix
+|TerminalProcMin |43 |Point |Terminal Procedure Minima – Height minima data for Terminal Procedure
+|VFRRoute |44 |Multipoint |Preplanned arrival or departure routes for helicopters or light fixed wing aircraft to specified airports or heliports using/in Visual Flight Rules (VFR
+|VFRRouteSegment |45 |Multipoint |Segment of a VFR Route
+|Waypoint |46 |Point |Predetermined geographical position, used for route or instrument approach definition or progress reporting purposes
+|===
+
+[[SchemaFiles]]
+==== Schema Files
+
+The schema file lists the data attributes for the given NavData component. It contains the following columns:
+
+[#table_ListofNavigationSchemaAttributes,reftext='{table-caption} {counter:table-num}']
+*Table 5-4: List of Navigation Schema Attributes*
+[cols=",,,",]
+|===
+|*Attribute* |*Type* |*Length* |*Definition*
+|ShortName |String |11 |A null-terminated string (ten characters or less). Short-hand name of the attribute used in the tiled vector datasets, (this restriction is for backwards compatibility with the dBASE III+ .dbf format which limits the field names to 10 characters or less)
+|DataType |String |255 |The data type for the attribute
+|KeyId |Int |4 |Index key for the attribute, used when performing a query. Not all attributes have an assigned index key, as only a few attributes can be used to perform a query. For each attribute with an index key, an index key dataset will be created.
+|===
+
+include::requirements/REQ082.adoc[]
+
+Each attribute with an index Key (KeyId) has an index key dataset created. The index key dataset includes the last three characters of the KeyId inside the component selector 2 (ex. KeyId 2101 would be dataset component selector 2 – T101).
+
+[[Example_0]]
+===== Example
+
+Here is the data content of the schema file for the Airport dataset (D400_S001_T002.dbf):
+
+[#table_ExampleofaNavigationSchema,reftext='{table-caption} {counter:table-num}']
+*Table 5-5: Example of a Navigation Schema*
+[cols=",,",]
+|====================================
+|*ShortName* |*DataType* |*KeyId*
+|StoraNumbe |Uint64 |2101
+|AlterNam |String |
+|AsCoStNumb |Uint64 |
+|BeacoAvail |Bool32 |
+|City |String |
+|CivMilTyp |CivilMilitaryType |
+|ClearStatu |ClearanceStatus |
+|Country |CountryEntry |2116
+|DayliTim |Float32 |
+|DayTimFram |String |
+|FlipPage |String |
+|FuelType |String |
+|HydElePres |Bool32 |
+|IataCode |String |
+|IcaoCode |String |2103
+|Ident |String |2102
+|IfrCapabil |Bool32 |
+|IslanGrou |String |
+|Jasu |String |
+|LonRunLeng |Uint32 |
+|LonRunSurf |PavementType |
+|MagTruIndi |MagneticTrueIndication |
+|MagneVaria |Float32 |
+|MgrsPositi |String |
+|Name |String |
+|NavIcaCod |String |
+|NavaiIden |String |
+|Notam |NotamSystem |
+|OilType |String |
+|OperaAgenc |String |
+|OperaHour |OperatingHours |
+|Point1 |GeoCoordinate |
+|Remark |String |
+|ServiRemar |String |
+|SpeedLimit |Uint32 |
+|SpeLimAlti |Sint32 |
+|StateName |StateEntry |
+|SupFluTyp |String |
+|TerraImpac |Bool32 |
+|Timezone |Float32 |
+|TransAltit |Sint32 |
+|TransLeve |Sint32 |
+|====================================
+
+As per this example, four Airport attributes can be used to perform queries:
+
+* StoraNumbe (key index 2101)
+* Ident (key index 2102)
+* IcaoCode (key index 2103)
+* Country (key index 2116)
+
+[[KeyDatasets]]
+==== Key Datasets
+
+The index Key Datasets are sorted lists used to perform queries within the NavData.
+
+include::requirements/REQ083.adoc[]
+
+[#table_ListofNavigationKeyAttributes,reftext='{table-caption} {counter:table-num}']
+*Table 5-6: List of Navigation Key Attributes*
+[cols=",,,",]
+|==================================================================================================
+|*Attribute* |*Type* |*Length* |*Definition*
+|Value |String |255 |Value of the data attribute sorted in increasing order (numbers or characters)
+|Lat ID |Signed Integer |3 |Latitude index of the Geocell which contains the data record
+|Lon ID |Signed Integer |4 |Longitude index of the Geocell which contains the data record
+|Row ID |Integer |4 |Index of the data record in the Geocell starting at 1.
+|==================================================================================================
+
+This information can then be used to rapidly lookup which CDB Tile contain the data in the pageable NAV dataset (401) and use the Object ID to access the data record in this dataset.
+
+The Storage number is a Primary Surrogate key that uniquely identifies each record within each NAV dataset sub components.
+
+[[Example_1]]
+===== Example
+
+include::requirements/REQ084.adoc[]
+
+The following is an excerpt from the D400_S001_T102.dbf file (Key Dataset for the Ident attribute):
+
+[#table_ExampleofNavigationKeys,reftext='{table-caption} {counter:table-num}']
+*Table 5-7: Example of Navigation Keys*
+[cols=",,,",]
+|========================================
+|*Value* |*Object ID* |*Lon ID* |*Lat ID*
+|00CA |2 |-117 |35
+|00UT |3 |-113 |37
+|00WI |6 |-90 |44
+|01LS |4 |-92 |30
+|01MT |3 |-115 |48
+|01WI |2 |-91 |44
+|02P |0 |-78 |40
+|03AZ |5 |-111 |31
+|03CO |3 |-105 |40
+|03GA |5 |-84 |31
+|04CA |10 |-118 |34
+|04MS |4 |-91 |32
+|04NV |1 |-116 |35
+|05CL |2 |-123 |38
+|05LS |2 |-93 |31
+|05UT |0 |-111 |37
+|06FA |0 |-81 |26
+|06MN |1 |-93 |47
+|06MO |7 |-95 |39
+|06TE |10 |-96 |30
+|07FA |7 |-81 |25
+|07MT |1 |-107 |48
+|========================================
+
+For example, the Airport with Ident 04CA will be found in the Geocell with southwest corner at N34:00:00/W118:00:00. NOTE: For Shapefile implementations this will be the 10th record in the corresponding Shapefile.
+
+Here is an example of the Storage number being used as a reference between Navigation types:
+
+* Type: Approach
+* _
+Attributions:
+_
+** StoraNumbe → Storage number (Approach)
+** AirStoNumb → Airport storage number (referenced)
+
+In this case, we see the Approach navigation type referencing the Airport navigation type by using the Airport Storage number.
