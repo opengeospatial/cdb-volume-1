@@ -255,3 +255,210 @@ _
 ** AirStoNumb → Airport storage number (referenced)
 
 In this case, we see the Approach navigation type referencing the Airport navigation type by using the Airport Storage number.
+
+
+[[CDBModelTextures]]
+=== CDB Model Textures
+
+The following table provides the Component Selectors associated with all kinds of textures that are usable on geotypical (GT), geospecific (GS), moving (MM), and tiled (T2D) models.
+
+In the context of CDB model textures, the first component selector is known as the “Texture Kind” and the second component selector is simply called the “Texture Index”. Column 1 lists all texture kinds supported by the CDB standard. The second column gives the range of indices allowed for each kind.
+
+[#table_ComponentSelectorsforCDBModelTextures,reftext='{table-caption} {counter:table-num}']
+*Table 5-8: Component Selectors for CDB Model Textures*
+[cols=",,,",]
+|===
+|*CS1 +
+(Kind)* |*CS2 +
+(Index)* |*Component +
+Name* |*Component +
+Description*
+|001 |001 |Year-Round Texture |Base textures for year-round usage on model shells or general base textures for model interiors.
+|002 |001..012 |Monthly Texture |Base textures for monthly usage on the shell of models (enumeration values in Annex O, details in section 6.13.5.2)
+|003 |001..004 |Seasonal Texture |Deprecated – Replaced with kind 009
+|004 |001..999 |Uniform Paint Scheme |Base textures for Moving Models with Uniform Paint Schemes (enumeration values in Annex O, details in section 6.13.5.2)
+|005 |001..999 |Camouflage Paint Scheme |Base textures for Moving Models with Camouflage Paint Schemes (enumeration values in Annex O, details in section 6.13.5.2)
+|006 |001..999 |Airline Paint Scheme |Base textures for Moving Models with Airline Paint Schemes (enumeration values in Annex O, details in section 6.13.5.2)
+|007 |001..999 |Shadow Map |Base textures of Moving Models Shadows to be projected onto terrain and/or culture (details in section 6.13.5.1.2)
+|008 |001..999 |Motion Blur Texture |Base textures for use with rotating parts (details in section 6.9.2.3)
+|009 |001..004 |Quarterly Texture |Base textures for quarterly usage on the shell of models (enumeration values in Annex O, details in section 6.13.5.2)
+|051 |001..999 |Night Map |Subordinate textures to simulate the effect of lights inside 3D model shells (details in section 6.13.5.3)
+|052 |001..999 |Tangent-Space Normal Map |Subordinate textures used to simulate the effect of irregular surfaces (details in section 6.13.5.5)
+|053 |001..999 |Light Map |Subordinate textures to simulate the effect of lights on surrounding surfaces (detail in section 6.13.5.4)
+|054 |001..999 |Contaminant |Subordinate textures to represent the presence of particules on runways, taxiways, and roads in general (enumeration values in Annex O, details in section 6.13.5.7)
+|055 |001..999 |Skid Mark |Subordinate textures to represent the visible mark left by any solid which moves against another one; especially marks of tires on roads and runways (enumeration values in Annex O, details in section 6.13.5.7)
+|056 |001..999 |Detail Texture |Subordinate texture used to add detail to the surface. In most cases, modelers use detail textures to add a finer scaled texture to the base texture (details in section 6.13.5.6)
+|057 |001..999 |Cubic Reflection Map |Subordinate textures to simulate reflective surfaces (details in section 6.13.5.8)
+|058 |001..999 |Gloss Map |Subordinate textures providing the glossiness of a surface on a per-pixel basis (details in section 6.13.5.9)
+|099 |001 |Night Map |Deprecated – Replaced with kind 051
+| |002 |Bump Map |Deprecated – Replaced with kind 052
+| |003 |Light Map |Deprecated – Replaced with kind 053
+|===
+
+footnote:[Annex O can be found in Volume 2 CDB Core Model and Physical Structure Annexes]
+
+Annex O enumerates all textures allocated to kind 002, 003, 004, 005, 006, and 055 (See footnote 32).
+
+[[GTModelLibraryDatasets]]
+=== GTModel Library Datasets
+
+Table 5-9 provides the component selector values associated with all GTModel datasets.
+
+[#table_ComponentSelectorsforGTModelDatasets,reftext='{table-caption} {counter:table-num}']
+*Table 5-9: Component Selectors for GTModel Datasets*
+[cols=",,,,",]
+|===
+|*CS1* |*CS2* |*File +
+Extension* |*Component +
+Name* |*Component +
+Description*
+|Dataset 500, GTModelGeometry | | | |
+|001 |001 |*.flt |Geometry Entry File |Files containing the references to both the shell and interiors of all levels of detail of geotypical models.
+|Dataset 510, GTModelGeometry | | | |
+|001 |001 |*.flt |Geometry Level of Detail |Files containing the geometry of the shell of geotypical models for a given level of detail.
+|Dataset 506, GTModelInteriorGeometry | | | |
+|001 |001..999 |*.flt |Interior Geometry |Files describing the geometry of the interior of geotypical models for a given level of detail. The value of Component Selector 2 is the file number. Multiple files are used when the complexity of the interior justifies using more than one file.
+a|
+Dataset 503, GTModelDescriptor
+
+Dataset 508, GTModelInteriorDescriptor
+
+ | | | |
+|001 |001 |.xml |Descriptor a|
+Provides additional metadata associated with a GTModel. See Volume 6: OGC CDB Rules for Encoding Data using OpenFlight section 6.14, Metadata, for a description of the content. This metadata is in addition to optional additional local metadata as per Clause 5.1.2)
+
+NOTE: A model descriptor includes a Composite Material Table for the exclusive use by its corresponding model geometry datasets above. This CMT is not to be confused with the GTModelCMT and GTModelInteriorCMT datasets below.
+
+a|
+Dataset 511, GTModelTexture
+
+Dataset 507, GTModelInteriorTexture
+
+ | | | |
+|- |- |*.rgb |Texture |Individual base and subordinate textures applied on model geometry, see the complete list in section 5.3, CDB Model Textures.
+a|
+Dataset 504, GTModelMaterial
+
+Dataset 509, GTModelInteriorMaterial
+
+ | | | |
+|001 |001..255 |*.tif |Composite Material Index |Each texel is an index into the associated Composite Material Table (dataset 505 and 513 below). CS2 is the layer number.
+|002 |001..254 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. Component Selector 2 is the layer number. When the texels are of integral types, they are scaled to the range 0.0 to 1.0.
+a|
+Dataset 505, GTModelCMT
+
+Dataset 513, GTModelInteriorCMT
+
+ | | | |
+|001 |001 |*.xml |Composite Material Table |The Composite Material Table is associated with Material Textures; it contains the definition of the composite materials referenced by the model material datasets above. Its format is as specified in section 2.5.2.2, Composite Material Tables (CMT)
+|Dataset 512, GTModelSignature (See notes 1 and 2 below) | | | |
+|001..999 |001..016 a|
+*.shp
+
+*.shx
+
+*.dbf
+
+ |RCS Signature |The Radar Cross Section of a geotypical model is described in Volume 5 of this standard.
+| |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
+|===
+
+Note 1: For GTModelSignature dataset, CS1 refers to the “RCS Frequency” and is used to indicate at which frequency (in MegaHertz) the dataset was generated for. The value of CS1 represents a power of 10 of the frequency and ranges from 1 to 999. The range of frequencies that can be represented is from 10^1^ MHz to 10^999^ MHz.
+
+Note 2: For GTModelSignature dataset, CS2 refers to the “RCS Polarization Type” and is used to indicate how the electromagnetic field is polarized at transmission and reception by typical Radar. The value can range from 1 to 16 for the instanced-level attributes and from 17 to 32 for the class-level attributes.
+
+[cols=",,",]
+|==========================================
+|*Polarization Type (CS2)* |*Description* |
+|*Instance Attribute* |*Class Attribute* |
+|1 |17 |LINEAR Polarization
+|2 |18 |CIRCULAR Polarization
+|3 |19 |ELLIPTICAL Polarization
+|4 |20 |SINGLE HH Polarization
+|5 |21 |SINGLE HV Polarization
+|6 |22 |SINGLE VV Polarization
+|7 |23 |SINGLE VH Polarization
+|8 |24 |DUAL HH-HV Polarization
+|9 |25 |DUAL VV-VH Polarization
+|10 |26 |DUAL HH-VV Polarization
+|11 |27 |ALTERNATING HH-HV Polarization
+|12 |28 |ALTERNATING VV-VH Polarization
+|13 |29 |POLARIMETRIC HH Polarization
+|14 |30 |POLARIMETRIC VV Polarization
+|15 |31 |POLARIMETRIC HV Polarization
+|16 |32 |POLARIMETRIC VH Polarization
+|==========================================
+
+
+[[MModelLibraryDatasets]]
+=== MModel Library Datasets
+
+Table 5-10 provides provide the component selector values associated with all Mmodel datasets.
+
+
+[#table_ComponentSelectorsforMmodelDatasets,reftext='{table-caption} {counter:table-num}']
+*Table 5-10: Component Selectors for Mmodel Datasets*
+[cols=",,,,",]
+|==========================================================================================================================================================================================================================================================================================================
+|*CS1* |*CS2* |*File +
+Extension* |*Component +
+Name* |*Component +
+Description*
+|Dataset 600, MmodelGeometry (See note 1 below) | | | |
+|001..999 |001..999 |*.flt |Geometry |Files containing the geometry of Mmodels as described in Chapter 6.
+|Dataset 601, MmodelTexture | | | |
+|- |- |*.rgb |Texture |Individual base and subordinate textures applied on model geometry, see the complete list in section 5.3, CDB Model Textures.
+|Dataset 603, MmodelDescriptor | | | |
+|001 |001 |*.xml |Descriptor a|
+Provides the metadata associated with a Mmodel. See section 6.14, Metadata, for a description of the content.
+
+NOTE: The MmodelDescriptor includes a Composite Material Table for the exclusive use by the MmodelGeometry dataset. This CMT is not to be confused with the MModelCMT dataset below.
+
+|Dataset 604, MmodelMaterial | | | |
+|001 |001..255 |*.tif |Composite Material Index |Each texel is an index into the Composite Material Table (dataset 605). Component selector 2 is the layer number.
+|002 |001..254 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. Component Selector 2 is the layer number. When the texels are of integral types, they are scaled to the range 0.0 to 1.0.
+|Dataset 605, MModelCMT | | | |
+|001 |001 |*.xml |Composite Material Table |This is the composite material table for use with MmodelMaterial dataset. Its content is described in section 2.5.2.2, Composite Material Tables (CMT).
+|Dataset 606, MmodelSignature (See notes 2 and 3 below) | | | |
+|001..999 |001..016 a|
+*.shp
+
+*.shx
+
+*.dbf
+
+ |RCS Signature |The encoding of the Radar Cross Section of a moving model is described in Volume 5 of this standard.
+| |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
+|==========================================================================================================================================================================================================================================================================================================
+
+Note 1: For the MmodelGeometry dataset, the geometry of a moving model can be made of one or more parts, each stored in one or more files depending on how complex a part is.
+
+The value of CS1 represents the part number. A Moving Model has at least one part, the model itself that is also used as a master file for all the other parts when applicable. This is part number 1. Other parts are numbered sequentially. An example of an extra part is a removable external fuel tank.
+
+The value of CS2 is the file number. This number is used when the complexity of a part requires using more than one file. The file number starts with 1. NOTE: A part that references external files does it through OpenFlight Xref nodes.
+
+Note 2: For MmodelSignature dataset, CS1 refers to the “RCS Frequency” and is used to indicate the range of frequencies (in MegaHertz) the dataset was generated for. The range is the set of frequencies from 10^CS1-1^ MHz without exceeding 10^CS1^ MHz.
+
+Note 3: For MmodelSignature datasets, CS2 refers to the “RCS Polarization Type” and is used to indicate how the electromagnetic field is polarized at transmission and reception by typical Radar. The value can range from 1 to 16 for the instance-level attributes of polarizations and from 17 to 32 for the class-level attributes of polarizations.
+
+[cols=",,",]
+|==========================================
+|*Polarization Type (CS2)* |*Description* |
+|*Instance Attribute* |*Class Attribute* |
+|1 |17 |LINEAR Polarization
+|2 |18 |CIRCULAR Polarization
+|3 |19 |ELLIPTICAL Polarization
+|4 |20 |SINGLE HH Polarization
+|5 |21 |SINGLE HV Polarization
+|6 |22 |SINGLE VV Polarization
+|7 |23 |SINGLE VH Polarization
+|8 |24 |DUAL HH-HV Polarization
+|9 |25 |DUAL VV-VH Polarization
+|10 |26 |DUAL HH-VV Polarization
+|11 |27 |ALTERNATING HH-HV Polarization
+|12 |28 |ALTERNATING VV-VH Polarization
+|13 |29 |POLARIMETRIC HH Polarization
+|14 |30 |POLARIMETRIC VV Polarization
+|15 |31 |POLARIMETRIC HV Polarization
+|16 |32 |POLARIMETRIC VH Polarization
+|==========================================
