@@ -1,11 +1,10 @@
 :figure-caption: Figure 5-
 :figure-num: 0
 
-
 [[TiledRasterDatasets]]
 === Tiled Raster Datasets
 
-A raster dataset consist in an evenly spaced grid of data elements that are positioned (in geographic units) along the north-south and east-west axis. This concept is consistent with the definitions specified in the OGC Coverage Implementation Schema footnote:[OGC 09-146r6 _Coverage Implementation Schema_ September 15, 2017. http://docs.opengeospatial.org/is/09-146r6/09-146r6.html] (CIS). Specifically, a grid of values is a type of a regular gridded coverage (CIS:: GeneralGridCoverage, class grid-regular) that has a grid as their domain set describing the direct positions in multi-dimensional coordinate space, depending on the type of grid. In the class _grid-regular_, simple equidistant grids are established.
+A raster dataset consists of an evenly spaced grid of data elements that are positioned (in geographic units) along the north-south and east-west axis. This concept is consistent with the definitions specified in the http://docs.opengeospatial.org/is/09-146r6/09-146r6.html[OGC Coverage Implementation Schema]. Specifically, a grid of values is a type of a regular gridded coverage that has a grid as their domain set describing the direct positions in multi-dimensional coordinate space, depending on the type of grid. In the class _grid-regular_, simple equidistant grids are established.
 
 This section describes all of the CDB raster datasets.
 
