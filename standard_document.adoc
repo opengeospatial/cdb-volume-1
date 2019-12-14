@@ -104,9 +104,12 @@ include::clause_8_CDB_Structure.adoc[]
 include::clause_9_File_Formats.adoc[]
 
 include::clause_10_CDB_Datasets_metadata.adoc
-include::clause_10_CDB_Datasets.adoc[]
+include::clause_10_CDB_Datasets_nav_and_mode_texture.adoc
+include::clause_10_CDB_Datasets_tiled_raster_and_imagery.adoc
+include::clause_10_CDB_Datasets_Tiled_vector.adoc
 
 ////
+Future reference
 include::clause_10_Metadata_5.1_CDB_Datasets.adoc[]
 
 include::clause_10_Navigation_5.2_CDB_Datasets.adoc[]
