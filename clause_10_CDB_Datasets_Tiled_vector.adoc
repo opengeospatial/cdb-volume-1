@@ -1,5 +1,5 @@
 :figure-caption: Figure 5-
-:figure-num: 26
+:figure-num: 27
 
 [[TiledVectorDatasets]]
 === Tiled Vector Datasets
