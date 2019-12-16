@@ -37,4 +37,4 @@ For all other formats (used by this standard), CDB readers should be fully compl
 |GeoPackage|1.1 and later
 |===
 
-Previous version sf the above table had a column labeled: _CDB Client-device Behavior for Prior Versions". All rows had the label _Ignores data_. The column has been removed but the value is still valid.
+Previous version sf the above table had a column labeled: _CDB Client-device Behavior for Prior Versions"_. All rows had the label _Ignores data_. The column has been removed but the value is still valid.
