@@ -135,16 +135,19 @@ Together, these files provide all the information required to build the names of
 
 The following file extensions are used:
 
+[options="autowidth"]
 |===
-|File Format|Versions Currently Supported by CDB|CDB Client-device Behavior for Prior Versions
+|File Format|Minimal Version Number|Extension
 
-|*.tif |6.0 |Ignores data
-|*.rgb |1.0 |Ignores data
-|*.jp2 |1.0 |Ignores data
-|*.flt |16.0 |Ignores data
-|*.shp, *.shx |Esri White Paper, July 98 |Ignores data
-|*.dbf, *.dbt |dBASE III+ and above |Ignores data
-|*.xml |1.0 |Ignores data
-|*.zip |6.3.1 |Ignores data
-|*.gpkg|1.1 |Ignores data
+|TIFF|6.0|*.tif
+|SGI Image|1.0|*.rgb
+|JPEG 2000|1.0|*.jp2
+|OpenFlight|16.0|*.flt
+|Shapefile|Esri White Paper, July 98|*.shp, *.shx 
+|dBASE|III+|*.dbf, *.dbt
+|XML|1.0 and later|*.xml, *.xsd
+|ZIP|6.3.1 and later|*.zip
+|GeoPackage|1.1 and later|*.gpkg
 |===
+
+Previous version sf the above table had a column labeled: _CDB Client-device Behavior for Prior Versions"_. All rows had the label _Ignores data_. The column has been removed but the value is still valid.
