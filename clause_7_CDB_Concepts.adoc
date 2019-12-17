@@ -7,16 +7,13 @@
 
 This chapter presents basic CDB data store model concepts. These concepts are either reused by other concepts or used repeatedly throughout the Standard.
 
-The CDB core data model may be viewed as an instance of a Discrete Global Grid System as defined in OGC 15-104. Please note, however, that the CDB data model and structure predates the OGC DGGS activity by over a decade and as such should not be deemed compliant with the OGC DGGS standard.
+The CDB core data model may be viewed as an instance of a Discrete Global Grid System as defined in OGC 15-104. Please note however that the CDB data model and structure predates the OGC DGGS activity by over a decade and as such should not be deemed compliant with the OGC DGGS Abstract Specification (AS). From the DGGS AS:
 
 _A DGGS is a spatial reference system that uses a hierarchical tessellation of cells to partition and address the globe. DGGS are characterized by the properties of their cell structure, geo-encoding, quantization strategy and associated mathematical functions._
 
 The following sections detail the CDB tiling storage model.
 
 include::requirements/requirements_class003.adoc[]
-
-
-
 
 [[CharacteristicsoftheCDBtilingstoragemodel]]
 === Characteristics of the CDB tiling storage model
@@ -33,55 +30,43 @@ For performance, a CDB data store is tiled. Both raster and vector-based data se
 .  The number of units along the slice’s y-axis is constrained to a multiple of 2n in all slices.
 .  The number of units along the slice’s x-axis will vary depending on which zone the latitude of the slice belongs. For instance, in latitude zone 5, which goes from –50° to 50° of latitude, a CDB Geocell is 1° × 1°, in zone 4 and 6 which goes from latitude 50° to 70° the cell size is 1° × 2°. The main reason to introduce this concept is to maintain a reasonable eccentricity between the sides by trying to keep them as close to a square as possible. Variable CDB Geocell size reduces the simulator client-device processing overheads associated with the switching from one zone to another (due to small number of zones across the earth), reduces the variation of longitudinal dimensions (in meters) to a maximum of 50% and improves storage efficiency. Two requirements as defined below are used to define the size of a CDB Geocell
 
-
 [[Geocellextent]]
 *Geocell extent*
 
 include::requirements/REQ011.adoc[]
-
 
 [[Geocelllength]]
 *Geocell length*
 
 include::requirements/REQ012.adoc[]
 
-
 [[DetailsoftheTilingSystemintheCDBcoremodel]]
 ==== Details of the Tiling System in the CDB core model
 
 The CDB storage model represents the earth as a fixed number of slices divided equally along a latitude axis as illustrated in Figure 2-1: CDB Earth Slice Representation.
 
-
-
 image::images/image1.png[image,width=337,height=259]
 [#img_CDBEarthSliceRepresentation,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. CDB Earth Slice Representation_*
-
 
 The earth surface coordinate system conventions used for each slice consists of a regular two-dimensional grid where the _x_-axis is always pointing east, aligned to WGS-84 lines of latitude and where the _y_-axis is always pointing north, aligned with WGS-84 lines of longitude. The earth surface origin, reference point (lat:0, long:0) on the CDB earth representation, is defined by the intersection of the WGS-84 equator and the WGS-84 international 0° meridian footnote:[Specifically, the WGS 84 meridian of zero longitude is the IERS Reference Meridian, 5.31 arc seconds or 102.5 metres (336.3 ft) east of the Greenwich meridian at the latitude of the Royal Observatory.]. The __x__=0 and y=0 reference is at (lat:0, long:0) _x_ is positive going East and negative going West; _y_ is positive North of the equator and negative South.
 
 Every _x_ and _y_ unit corresponds to a fixed increment of longitude and latitude in arc-seconds. The _x_-axis and _y_-axis fixed increment units are hereafter referred to as _XUnit_ and _YUnit_. Since the _y_-axis of the slices is aligned with WGS-84 lines of longitude, _y_-axis coordinate units are uniformly distributed between the equator and the poles in both geodetic system terms (arc-second) and in Cartesian system terms (meters). This property naturally leads to defining the same number of YUnit per slice. This however is not the case with the x-axis. As illustrated in Figure 2-2: Variation of Longitudinal Dimensions versus Latitude, the Cartesian space distance between such x-axis values diminishes as we move towards the poles. In order to maintain size constancy, the CDB standard provides a piecewise solution similar to that used by NGA DTED data. The world is divided into eleven zones. All CDB Geocells within a slice are one degree of latitude high (the height of a slice) and of varying width in longitude depending on the zone to which they belong.
 
-
-
 image::images/image2.png[image,width=424,height=407]
 [#img_VariationofLongitudinalDimensionsversionLatitude,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Variation of Longitudinal Dimensions version Latitude_*
-
 
 In order to meet one of the previously mentioned real-time considerations, the number of y-axis units for one Geocell, _NbYUnitInCDBGeocell_, is set to a power of two. This has been chosen as 1024 to give a north-south grid post spacing of approximately 109 meters at the default Level of Detail (LOD 0); this spacing is the same for all earth slices.
 
 
 _NbYUnitInCDBGeocell=1024_ (2-1)
 
-
 The CDB standard also imposes an integer number of slices along latitude lines. _NbEarthSlice_ is the number of earth slice from South Pole to North Pole and is equal to 180 since each side is one degree.
 
 _NbEarthSlice = 180_ (2-2)
 
-
 Furthermore, the number of x-axis units, _NbXUnitInCDBGeocell,_ is also maintained to be the same as that of _NbYUnitInCDBGeocell_ for all CDB Geocells. As previously stated, the cell width in longitude is adjusted at specific latitudes to maintain a reasonable aspect ratio. As a consequence the area defined by the corner coordinates (_x_,_y_), (__x__+1, _y_) (_x_, __y__+1), (__x__+1, __y__+1), decreases when moving toward the poles in the same zone and increases when moving toward the equator.
-
 
 _NbXUnitInCDBGeocell=NbYUnitInCDBGeocell_ (2-3)
 
@@ -91,13 +76,9 @@ The geodetic dimension of a _YUnit_ is referred to as _ArcSecLatUnitInCDBGeocell
 image::images/image3.png[image,width=556,height=145]
 Equation (2-4)
 
-
 _ArcSecLatUnitInCDBGeocell_ is a constant defined by the CDB earth model and cannot be set to any other value.
 
 Similarly, the geodetic dimension of a _XUnit_ is referred to as _ArcSecLongUnitInCDBGeocell_; it varies at specific latitudes and is shown in Table 2-3: CDB Geocell Unit Size in Arc Seconds. As shown in the table, maintaining the _NbXUnitInCDBGeocell_ constant causes abrupt changes in _ArcSecLongUnitInCDBGeocell_ at specific latitudes. This is done, however, to achieve our objective of maintaining a reasonable aspect ratio across the earth model.
-
-
-
 
 [#table_CDBGeocellUnitSizeinArcSeconds,reftext='{table-caption} {counter:table-num}']
 *Table 2-3: CDB Geocell Unit Size in Arc Seconds*
@@ -131,7 +112,6 @@ Similarly, the geodetic dimension of a _XUnit_ is referred to as _ArcSecLongUnit
 |10 | 1 × 12 |3.515625 |42.187500
 |================================
 
-
 [[TileLevelsofDetailTileLoD]]
 ==== Tile Levels of Detail (Tile LoD)
 
@@ -144,20 +124,14 @@ The _x_-axis and _y_-axis fixed increment unit per LOD, _XUnit~LOD~_ and _YUnit~
 image::images/image4.png[image,width=205,height=130]
 Equation (2–5)
 
-
 Similarly, the number of units in the x-axis and y-axis and the total number of units in a CDB geocell, respectively defined by _NbXUnitInCDBGeocell~LOD~_, _NbYUnitInCDBGeocell~LOD~_, and _TotalNbUnitInSlice~LOD~_, are computed by Equation (2–6).
-
 
 image::images/image5.png[image,width=472,height=116]
 Equation (2–6)
 
-
 include::requirements/REQ013.adoc[]
 
 Thus, for positive LODs, every tile quadruples its geographic area coverage as the LOD decreases. Since each earth slice is limited to _NbYUnitInCDBGeocell_ (or 111319 m), tiles at LOD 0 have the same height as the height of an earth slice. For negative LODs, the same tile size is maintained. This imposes that the number of units in both x-axes and y-axes are recursively divided by two for every subsequent level until the total number of unit reaches one by one unit. LOD –10 is the coarsest LOD represented by a CDB slice. The finest available LOD number for a CDB structured data store is 23. Table 2-4 presents the complete list of CDB LODs with the corresponding grid size, tile size, and the resulting approximate grid spacing at the equator.
-
-
-
 
 [#table_CDBLODversusTileandGridSize,reftext='{table-caption} {counter:table-num}']
 *Table 2-4: CDB LOD versus Tile and Grid Size*
@@ -221,7 +195,6 @@ Consequently, tiles at a given LOD never overlap with others of the same LOD and
 
 Figure 2-4 illustrates how different Levels of Detail (LOD’s) can be combined within individual geocells. In the illustration, some CDB Geocells of the pictured earth slice are represented using five LODs, while others have only three or four LODs. Each Geocell included in a CDB data store shall represented by an instance of at least the coarsest tile supported, i.e., one tile at LOD −10. In addition, it is not necessary that the entire geocell be represented at the same level of resolution across the entire cell. However, if a tile is present at LOD _n_, it implies that a courser tile exists at LOD __n__−1 covering the area of the tile at LOD _n_, until LOD −10 is reached.
 
-
 image::images/image7.png[image,width=591,height=478]
 [#img_EarthSliceExample(FiveLevelsofDetail),reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Earth Slice Example (Five Levels of Detail)_*
@@ -231,7 +204,6 @@ image::images/image7.png[image,width=591,height=478]
 ==== Tile-LOD Hierarchy Rules
 
 include::requirements/REQ015.adoc[]
-
 
 [[TileLODReplacementRules]]
 ==== Tile-LOD Replacement Rules
@@ -250,18 +222,16 @@ For instance, one tile at LOD −1 is replaced by one tile at LOD 0 which is i
 
 Zones 0 and 10 (South and North Pole) are processed differently than the other zones. As per Table 2-2: Size of CDB Geocell per Zone, this corresponds to an earth slice of 1 × 30 CDB Geocells.
 
-As shown in Figure 2-2: Variation of Longitudinal Dimensions versus Latitude, a single CDB Geocell at the poles covers 12 degrees in longitude and 1 degree in latitude within a single slice. As a geographic position gets closer and closer to the poles in terms of latitude, fewer points are required in the data-grid. However the CDB Geocell still has a regular rectangular shape. Therefore, this implies that grid points will be progressively sampled in longitude in order to respect the grid format of the CDB.
+As shown in Figure 2-3: Variation of Longitudinal Dimensions versus Latitude, a single CDB Geocell at the poles covers 12 degrees in longitude and 1 degree in latitude within a single slice. As a geographic position gets closer and closer to the poles in terms of latitude, fewer points are required in the data-grid. However the CDB Geocell still has a regular rectangular shape. Therefore, this implies that grid points will be progressively sampled in longitude in order to respect the grid format of the CDB.
 
 In CDB Zone 0, the bottom edges of the 30 geocells of the zone all converge and collapse to a single point, the South Pole. However, the data that belong exactly to the South Pole is found in a single Geocell, the one whose lower left corner is at −90° of latitude and 0° of longitude. The redundant data representing the South Pole found in the other 29 geocells of zone 0 is ignored.
 
 Similarly, in CDB Zone 10, the top edges of the 30 geocells of the zone also converge and collapse to a single point, the North Pole. Again, the data that belong exactly to the North Pole is found in a single Geocell whose lower left corner is at +89° of latitude and 0° of longitude. The redundant data representing the North Pole found in the other 29 geocells of zone 10 is ignored. The case of raster datasets that make use of the corner grid conventions is an exception since the CDB does not provide the means of representing data at precisely the North Pole (+90° of latitude and 0° of longitude). In this case, it is recommended that client-devices use the average of the nearest grid elements in the immediate vicinity of the North Pole.
 
-
 [[FileSystemRequirements]]
 === File System Requirements
 
-See section 1.7.1.1
-
+Please refer to Clause 5 in Volume 10: OGC CDB Implementation Guidance (Best Practice).
 
 [[LightNaming]]
 === Light Naming
@@ -301,8 +271,6 @@ The hierarchy permits modelers to reference light types that are not defined by 
 
 include::requirements/requirements_class004.adoc[]
 
-
-
 The modeler or simulator vendor may optionally provide values for Description, Intensity, Color, Frequency, Duty_Cycle… in the Lights_xxx.xml files. If the new entry has no values for Description, Intensity, etc, the new light type will immediately inherit all of the properties and characteristics of CDB-native light types higher up in the light hierarchy. If the new entry requires one or more of the fields stated in Section 2.3.2, Light Type Modeler Tuning, it will be assigned those characteristics.
 
 Note that the level of rendering fidelity is a function of customer requirements and/or the vendor’s capabilities.
@@ -310,7 +278,6 @@ Note that the level of rendering fidelity is a function of customer requirements
 The user may also elect to propose his new light name for inclusion into subsequent versions of the CDB standard.
 
 Since the light type codes are global to a CDB structured data store, it is strongly recommended that none of the existing light type codes be modified when adding a new light type. Failure to do this would require a complete recompilation of the data store in order to map light point type name to their newly assigned light point type codes. For this reason, it is recommended that the CDB tools create new light type codes so that light relationships within the data store remain coherent.
-
 
 [[ModelComponentNaming]]
 === Model Component Naming
@@ -368,8 +335,6 @@ The following is the requirements class for CDB Materials
 
 include::requirements/requirements_class005.adoc[]
 
-
-
 include::requirements/REQ022.adoc[]
 
 The task of determining a definitive list of material properties that would accommodate all of the above requirements for the today’s sensor types, vendor implementations and SEMs would be a significant challenge. Instead, the CDB Standard publicly defines a list of materials that can be used in a CDB structured data store. It is the responsibility of vendors to (internally) define the properties (that satisfies the sensor type) for these CDB materials. Vendors are totally free to select material properties that satisfy the fidelity, functionality and precision requirements of the SEM for the sensor type of interest. _See section 6.4.7.1, Volume 10 OGC CDB Implementation Guidance for additional details._
@@ -379,9 +344,6 @@ The task of determining a definitive list of material properties that would acco
 ==== Base Materials
 
 A Base Material represents a basic (primitive) material such as water, vegetation, concrete, glass, steel. Each Base Material has a unique name. The components of a Base Material are listed in Table 2-6: Components of a Base Material.
-
-
-
 
 [#table_ComponentsofaBaseMaterial,reftext='{table-caption} {counter:table-num}']
 *Table 2-6: Components of a Base Material*
@@ -401,7 +363,6 @@ The description of a material class gives the essential nature of the basic mate
 
 A Base Material Table (BMT) is provided for run-time access by client applications. See section 5.1.3, Base Material Table for more details on the file format.
 
-
 [[CompositeMaterials]]
 ==== Composite Materials
 
@@ -410,7 +371,6 @@ This section provides additional description and details regarding the layered s
 Each Composite Material consists of a primary substrate component, an optional surface component and one or more optional secondary substrate components. Each of these components is in turn composed of one or more Base Materials described in the previous section. Components that are composed of two or more Base Materials are aggregates. Each Composite Material has a primary substrate as a minimum. The primary and secondary substrates can be optionally assigned a thickness (in meters). By definition, the surface substrate corresponds to the first micrometer (µm) to millimeter (mm) of a Composite Material. The surface substrate does not change the nature of the primary substrate; its purpose is to differentiate the object's primary substrate from its coating.
 
 Each substrate is defined by a variable-size structure that references one or more Base Materials. Each Base Material is assigned a weight ranging from 1% to 100%. **The sum of the weights assigned to the Base Materials of each component _SHALL_ sum to 100%** footnote:[This is a requirement. The editor missed this requirement in Version 1 of the standard. This sentence will be restated in the next version as an official requirement.]*.* For example, a mixture aggregate of 75% sand and 25% soil, would be constructed as a Composite Material with a primary substrate component with Base Materials BM_SAND (75% weight) and BM_SOIL (25% weight). In this example, there is no surface substrate and no secondary substrates.
-
 
 [[CompositeMaterialSubstrates]]
 ===== Composite Material Substrates
@@ -425,8 +385,6 @@ image::images/image9.jpeg[image,width=420,height=407]
 *_{figure-caption}{counter:figure-num}. Seabed Composite Material_*
 
 As a second example, consider a half-filled refinery oil tank (see Figure 2-7: Oil Tank Composite Materials).
-
-
 
 image::images/image10.jpeg[Core Figure 2.7 .jpg,width=348,height=192]
 [#img_OilTankCompositeMaterials,reftext='{figure-caption} {counter:figure-num}']
