@@ -14,7 +14,6 @@ The associated CDB Standard Best Practice documents provide a description of a d
 
 A CDB conformant data store contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features of a synthetic environment for the purposes of distributed simulation applications. The organization of the synthetic environmental data in a CDB compliant data store is specifically tailored for real-time applications.
 
-
 [big]*ii.    Keywords*
 
 The following are keywords to be used by search engines and document catalogues.
@@ -26,7 +25,6 @@ ogcdoc, OGC document, CDB, Common Data Base, simulation, synthetic environment, 
 The industry-maintained CDB model and data store structure has been discussed and demonstrated at OGC Technical Committee meetings beginning in September 2013.
 
 At the suggestion of several attendees at the first OGC CDB ad-hoc meeting in September 2014, the existing CDB standard was slightly reformatted and approved as an OGC Best Practice in May 2015.
-
 
 Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
 
@@ -63,20 +61,22 @@ All questions regarding this submission should be directed to the editor or the 
 
 The CDB community anticipates that additional standardization work will be required to prescribe content appropriate to targeted simulation applications, new use cases, and application in new domains. In its current form, the CDB standard does not mandate synthetic environmental richness, quality and resolution.
 
-Further, the OGC CDB Standards Working Group (SWG) members understand there is a requirement for eventual alignment of the CDB standard with the OGC/ISO standards baseline. In Version 1 of the CDB standard, effort was invested to begin aligning terminology and concepts, specifically in the coordinate reference system discussions and requirements.
+Further, the OGC CDB Standards Working Group (SWG) members understand there is a requirement for eventual alignment of the CDB standard with the OGC/ISO standards baseline. In CDB Version 1.0, effort was invested to begin aligning terminology and concepts with the OGC standards baseline, specifically in the coordinate reference system discussions and requirements. For version 1.1, the primary effort was focused on resolved several Chnage Requests and adding guidance on incorporating metadata into a CDB dta store.
 
-This version of the CDB standard is backwards compatible with version 1.0 of the OGC CDB standard with one exception.
+This version of the CDB standard is backwards compatible with versions 1.0 and 1.1 of the OGC CDB standard.
 
 The requirements for a CDB data store are focused on the ability to store, manage, and access extremely large volumes of geographic content and related model definitions. In this version of the standard, initial harmonization with the OGC and ISO standards baseline has begun. For example, where appropriate, the CDB simulation community terms and definitions have been replaced with OGC/ISO terms and definitions. Further, the standards documents have been reorganized and structured to be consistent with the OGC Modular Specification Policy. However, the CDB SWG and community recognize the need to further harmonize and align this standard with the OGC/ISO baseline and other IT best practices. There has already been considerable discussion in this regard.
 
-Based on such discussions and comments received during the public comment period, the following future work tasks are envisioned:
+Based on such discussions and comments received during the Version 1.0 and Version 1.1 public comment periods, the following future work tasks are envisioned:
 
 .  Describe explicitly how the CDB model may or may not align with the OGC DGGS standard;
 .  Provide best practice details on how to use WMS, WFS, and WCS to access existing CDB data stores. This work may require Interoperability Experiments to better understand the implications of these decisions;
-.  Extend the supported encodings and formats for a CDB structured data store to include the use of the OGC GeoPackage, CityGML, and InDoorGML standards as well as other broadly used community encoding standards, such as GeoTIFF. This work may require performing OGC Interoperability Experiments to better understand the implications of these decisions.
+.  Extend the supported encodings and formats for a CDB structured data store to include the use of the CityGML, and InDoorGML standards as well as other broadly used community encoding standards, such as GeoTIFF. This work may require performing OGC Interoperability Experiments to better understand the implications of these decisions.
 .  Further align CDB terminology to be fully consistent with OGC/ISO terminology.
 
-Making these enhancements will allow the use and implementation of a CDB structured data store for application areas other than aviation simulators.
+Making these enhancements may allow the use and implementation of a CDB structured data store for application areas other than aviation simulators.
+
+`NOTE`: For version 1.2 a major enhancement is the specification of using OGC GeoPackages in a CDB data store.
 
 [big]*vii.     A note on using a CDB Data Store with OGC Standards*
 
