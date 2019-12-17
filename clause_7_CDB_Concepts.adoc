@@ -422,68 +422,50 @@ There are several Composite Material Tables spread across the CDB hierarchy. Not
 
 Here is the XML notation for a Composite Material Table:
 
-[source,xml]
-----
+```
 <Composite_Material_Table>
+	<Composite_Material index="...">
+		<Name>...</Name>
+		<Surface_Substrate>
+			<Material>
+				<Name>...</Name>
+				<Weight>...</Weight>
+			</Material>
 
-<Composite_Material index="...">
+			<!-- Insert other Material as needed -->
 
-<Name>...</Name>
+		</Surface_Substrate>
 
-<Surface_Substrate>
+		<Primary_Substrate>
+			<Material>
+				<Name>...</Name>
+				<Weight>...</Weight>
+			</Material>
 
-<Material>
+			<!-- Insert other Material as needed -->
 
-<Name>...</Name>
+			<Thickness>...</Thickness>
+		</Primary_Substrate>
 
-<Weight>...</Weight>
+		<Secondary_Substrate>
+			<Material>
+				<Name>...</Name>
+				<Weight>...</Weight>
+			</Material>
 
-</Material>
+			<!-- Insert other Material as needed -->
 
-<!-- Insert other Material as needed -->
+			<Thickness>...</Thickness>
+		</Secondary_Substrate>
 
-</Surface_Substrate>
+		<!-- Insert other Secondary_Substrate as needed -->
 
-<Primary_Substrate>
+	</Composite_Material>
 
-<Material>
-
-<Name>...</Name>
-
-<Weight>...</Weight>
-
-</Material>
-
-<!-- Insert other Material as needed -->
-
-<Thickness>...</Thickness>
-
-</Primary_Substrate>
-
-<Secondary_Substrate>
-
-<Material>
-
-<Name>...</Name>
-
-<Weight>...</Weight>
-
-</Material>
-
-<!-- Insert other Material as needed -->
-
-<Thickness>...</Thickness>
-
-</Secondary_Substrate>
-
-<!-- Insert other Secondary_Substrate as needed -->
-
-</Composite_Material>
-
-<!-- Insert other Composite_Material as needed -->
+	<!-- Insert other Composite_Material as needed -->
 
 </Composite_Material_Table>
-----
+```
 
 include::requirements/REQ024.adoc[]
 
@@ -495,18 +477,15 @@ include::requirements/REQ026.adoc[]
 
 In addition, each composite material can be optionally tagged with a descriptive name. The CDB composite material table mechanism provides the means to tag each CDB composite material with a data store tool-specific or modeler-specific composite material name.
 
-
 [[Example1]]
 ===== Example 1
 
 Consider a linear feature in a CDB data store that corresponds to a painted stripe on a runway surface. The linear feature is stored in the Man-Made Lineal dataset; the linear feature references an entry into the Geocell’s Composite Material Table. That reference is the index of the Composite Material for painted asphalt. The entry pointed to describes a Composite Material whose Primary Substrate is 100% BM_ASPHALT and whose Surface Substrate is 100% BM_PAINT-ASPHALT.
 
-
 [[Example2]]
 ===== Example 2
 
 Consider a terrain polygon feature in the GSFeature dataset. The polygon feature covers a large wetland area that contains 4 Base Materials, namely BM_SOIL (21%), BM_WATER-FRESH (51%), BM_LAND-LOW_MEADOW (26%) and BM_SAND (2%). The polygon feature references an entry into the Geocell’s Composite Material Table. That reference is the name of the Composite Material for wetlands. The entry describes a Composite Material whose Primary Substrate is composed of four Base Materials, namely water (with 51% weight), low height vegetation (with 26% weight), soil (with 21% weight) and sand (with 2% weight).
-
 
 [[BringingitallTogether]]
 ==== Bringing it all Together
@@ -519,12 +498,9 @@ Likewise, zones and polygons within a 3d model, such as OpenFlight, can optional
 
 In turn, each of the entries in the Material Composite Table has one or more references to Base Materials entries of the Base Materials Table. The Base Materials Table is global to the CDB and its contents are defined and governed by this Standard.
 
-
-
 image::images/image12.png[image,width=595,height=443]
 [#img_FlowofMaterialAttributionData,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Flow of Material Attribution Data_*
-
 
 [[DeterminationofMaterialPropertiesbySensorEnvironmentalModelSEM]]
 ==== Determination of Material Properties by Sensor Environmental Model (SEM)
@@ -532,7 +508,6 @@ image::images/image12.png[image,width=595,height=443]
 Please refer to implementation guidance in Volume 10 OGC CDB Implementation Guidance, Sections 6.4.7.1 and 6.4.7.2.
 
 include::requirements/REQ027.adoc[]
-
 
 [[GenerationofMaterialsforInclusioninCDBDatasets]]
 ==== Generation of Materials for Inclusion in CDB Datasets
