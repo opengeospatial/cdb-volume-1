@@ -441,6 +441,8 @@ Note 2: For MmodelSignature dataset, CS1 refers to the “RCS Frequency” and i
 
 Note 3: For MmodelSignature datasets, CS2 refers to the “RCS Polarization Type” and is used to indicate how the electromagnetic field is polarized at transmission and reception by typical Radar. The value can range from 1 to 16 for the instance-level attributes of polarizations and from 17 to 32 for the class-level attributes of polarizations.
 
+Note 4: Please remember that the OGC Shapefile to GeoPackage Interoperability Experiment did not test and validate the results for conversion of RCS related Shapefiles into GeoPackages. If an implementation supports RCS vector encodings as Shapefiles, please continue to do so!
+
 [cols=",,",]
 |==========================================
 |*Polarization Type (CS2)* |*Description* |
