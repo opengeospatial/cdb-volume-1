@@ -5,9 +5,9 @@
 == CDB Concepts
 
 
-This chapter presents basic CDB data store model concepts. These concepts are either reused by other concepts or used repeatedly throughout the Standard.
+This chapter presents the core concepts underpinning the CDB data store model. These concepts are used throughout the CDB Standard.
 
-The CDB core data model may be viewed as an instance of a Discrete Global Grid System as defined in OGC 15-104. Please note however that the CDB data model and structure predates the OGC DGGS activity by over a decade and as such should not be deemed compliant with the OGC DGGS Abstract Specification (AS). From the DGGS AS:
+The CDB core data model may be thought of as an instance of a http://docs.opengeospatial.org/as/15-104r5/15-104r5.html[Discrete Global Grid System Abstract Specification (AS)]. Please note however that the CDB data model and structure predates the OGC DGGS activity by over a decade and as such should not be deemed compliant with the OGC DGGS Abstract Specification (AS). From the DGGS AS:
 
 _A DGGS is a spatial reference system that uses a hierarchical tessellation of cells to partition and address the globe. DGGS are characterized by the properties of their cell structure, geo-encoding, quantization strategy and associated mathematical functions._
 
@@ -199,7 +199,6 @@ image::images/image7.png[image,width=591,height=478]
 [#img_EarthSliceExample(FiveLevelsofDetail),reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Earth Slice Example (Five Levels of Detail)_*
 
-
 [[TileLODHierarchyRules]]
 ==== Tile-LOD Hierarchy Rules
 
@@ -215,7 +214,6 @@ include::requirements/REQ016.adoc[]
 In the case of positive LODs, note that it is not necessary that all 4 tiles from LOD n+1 exist; as long as one of the four tiles is present, the replacement of the tile at LOD n can take place.
 
 For instance, one tile at LOD −1 is replaced by one tile at LOD 0 which is in turn replaced by four tiles at LOD 1. The replacement of coarser tiles with finer tiles stops when no finer tiles exist.
-
 
 [[HandlingoftheNorthandSouthPole]]
 ==== Handling of the North and South Pole
@@ -339,7 +337,6 @@ include::requirements/REQ022.adoc[]
 
 The task of determining a definitive list of material properties that would accommodate all of the above requirements for the today’s sensor types, vendor implementations and SEMs would be a significant challenge. Instead, the CDB Standard publicly defines a list of materials that can be used in a CDB structured data store. It is the responsibility of vendors to (internally) define the properties (that satisfies the sensor type) for these CDB materials. Vendors are totally free to select material properties that satisfy the fidelity, functionality and precision requirements of the SEM for the sensor type of interest. _See section 6.4.7.1, Volume 10 OGC CDB Implementation Guidance for additional details._
 
-
 [[BaseMaterials]]
 ==== Base Materials
 
@@ -348,12 +345,12 @@ A Base Material represents a basic (primitive) material such as water, vegetatio
 [#table_ComponentsofaBaseMaterial,reftext='{table-caption} {counter:table-num}']
 *Table 2-6: Components of a Base Material*
 [cols=",",]
-|==============================================================================================================================================
+|===
 |*Component* |*Description*
 |*Name* |Name used to represent a Basic Material.
 |Description |Describes the essential nature of the basic material represented. A typical example can also be provided in the description field
 2+|* Uniquely identifies the Base Material. 
-|==============================================================================================================================================
+|===
 
 include::requirements/REQ023.adoc[]
 
@@ -379,7 +376,6 @@ A substrate provides a means to describe the material composition of “hidden�
 
 Consider a seabed consisting of a silt deposit (Figure 2-6: Seabed Composite Material). Such a deposit might have a thickness of a few centimeters. In our model, it is considered too thick to be considered the surface substrate of the seabed. In fact, below this silt deposit, there can be sand with a thickness of a few dozen centimeters, followed by rock of (essentially) infinite thickness. A sonar device can use the thickness information provided by the Seabed Composite Material, to generate multiple echoes, corresponding to each substrate.
 
-
 image::images/image9.jpeg[image,width=420,height=407]
 [#img_SeabedCompositeMaterial,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Seabed Composite Material_*
@@ -395,8 +391,6 @@ In order to capture different thermal signatures for the top and bottom portions
 For the top half of the tank, the modeler uses a Composite Material consisting of paint (surface substrate), metal (primary substrate) and air (secondary substrate).
 
 For the bottom half of the tank, the modeler uses a Composite Material consisting of paint (surface substrate), metal (primary substrate) and oil (secondary substrate).
-
-
 
 [cols=",",]
 |=====================================================================================
