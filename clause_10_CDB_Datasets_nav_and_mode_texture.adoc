@@ -7,7 +7,7 @@
 
 The NavData dataset represents the navigation portion of a CDB. NavData supports several simulation subsystems such as the Instrument Landing System (ILS), Inertial Navigation/Global Positioning System, and Microwave Landing System Communications. The dataset also provides descriptions of airspaces, airways, heliports, helipads, gates, runways, approaches, and terminals. The dataset also provides information regarding climb procedures out of airports.
 
-`*Important note for version 1.2: In the OGC CDB Vector Data in GeoPackage Interoperability Experiment, OGC members tested the ability to convert selected CDB Vector Datasets from Shapefile to GeoPackage. For the experiment, the Vector Data of interest included geo-specific (dataset 100) and geo-typical features (dataset 101) as well as road (dataset 201), railroad (dataset 202), powerline (dataset 203), and hydrography (dataset 204) networks. Other Shapefile-encoded CDB datasets such as the Navigation Data (datasets 400 and 401) and RCS Models (datasets 302, 512, and 606) were not tested during the experiment. Therefore version 1.2 of the CDB standard does not provide guidance on the use of GeoPackage to encode Navigation Data and RCS Models. As such they remain Shapefile specific. Future work may propose new encodings for CDB Navigation Data or RCS Models.`
+`*Important note for version 1.2: In the OGC CDB Vector Data in GeoPackage Interoperability Experiment, OGC members tested the ability to convert selected CDB Vector Datasets from Shapefiles to GeoPackages. For the experiment, the Vector Data of interest included geo-specific (dataset 100) and geo-typical features (dataset 101) as well as road (dataset 201), railroad (dataset 202), powerline (dataset 203), and hydrography (dataset 204) networks. Other Shapefile-encoded CDB datasets such as the Navigation Data (datasets 400 and 401) and RCS Models (datasets 302, 512, and 606) were not tested during the experiment. Therefore version 1.2 of the CDB standard does not provide guidance on the use of GeoPackage to encode Navigation Data and RCS Models. As such they remain Shapefile specific. Future work may propose new encodings for CDB Navigation Data or RCS Models.`
 
 include::requirements/requirements_class013.adoc[]
 
@@ -16,7 +16,7 @@ The NavData dataset is broken down into a collection of 46 (forty-six) component
 * Navigation System DataBase (produced by Jeppesen) around the ARINC Standard 424-16
 * Product Standard for the Digital Aeronautical Flight Information File (DAFIF) produced by the National Geospatial Intelligence Agency (NGA)
 
-The component selector 2 is set to 001 for basic navigation records and these files are located in the tiled Navigation dataset directories. The component selector 2 is set to 002 for schema files and a value between 101 and 126 for key datasets. Schema and key datasets are located in the global Navigation directory. Component selector 1 and the file type are as per Table 5-2: Tiled Navigation Dataset. This table provides a list of all CDB Navigation components with their designated names and description.
+The Component Selector 2 (CS2) is set to 001 for basic navigation records. These files are located in the tiled Navigation dataset directories. CS2 is set to 002 for schema files and a value between 101 and 126 for key datasets. Schema and key datasets are located in the global Navigation directory. Component selector 1 (CS1) and the file type are as defined in Table 5-2: Tiled Navigation Dataset. This table provides a list of all CDB Navigation components with their designated names and description.
 
 [#table_ComponentSelectorsforNavigationDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-2: Component Selectors for Navigation Dataset*
@@ -212,7 +212,7 @@ The Storage number is a Primary Surrogate key that uniquely identifies each reco
 
 include::requirements/REQ084.adoc[]
 
-The following is an excerpt from the D400_S001_T102.dbf file (Key Dataset for the Ident attribute):
+The following is an example from a Shapefile encoding and is an excerpt from the D400_S001_T102.dbf file (Key Dataset for the Ident attribute):
 
 [#table_ExampleofNavigationKeys,reftext='{table-caption} {counter:table-num}']
 *Table 5-7: Example of Navigation Keys*
@@ -243,7 +243,7 @@ The following is an excerpt from the D400_S001_T102.dbf file (Key Dataset for th
 |07MT |1 |-107 |48
 |========================================
 
-For example, the Airport with Ident 04CA will be found in the Geocell with southwest corner at N34:00:00/W118:00:00. NOTE: For Shapefile implementations this will be the 10th record in the corresponding Shapefile.
+For example, the Airport with Ident 04CA will be found in the Geocell with southwest corner at N34:00:00/W118:00:00. NOTE: For Shapefile implementations this will be the 10th record in the corresponding Shapefile. NOTE: Similar guidance will be specified for GeoPackages in a later version of the CDB Standard.
 
 Here is an example of the Storage number being used as a reference between Navigation types:
 
@@ -399,7 +399,7 @@ Table 5-10 provides provide the component selector values associated with all Mm
 [#table_ComponentSelectorsforMmodelDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-10: Component Selectors for Mmodel Datasets*
 [cols=",,,,",]
-|==========================================================================================================================================================================================================================================================================================================
+|===
 |*CS1* |*CS2* |*File +
 Extension* |*Component +
 Name* |*Component +
@@ -427,9 +427,9 @@ NOTE: The MmodelDescriptor includes a Composite Material Table for the exclusive
 
 *.dbf
 
- |RCS Signature |The encoding of the Radar Cross Section of a moving model is described in Volume 5 of this standard.
+ |RCS Signature |The encoding of the Radar Cross Section of a moving model is described in Volume 5 of the CDB standard.
 | |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
-|==========================================================================================================================================================================================================================================================================================================
+|===
 
 Note 1: For the MmodelGeometry dataset, the geometry of a moving model can be made of one or more parts, each stored in one or more files depending on how complex a part is.
 
