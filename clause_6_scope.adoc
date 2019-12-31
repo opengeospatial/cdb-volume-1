@@ -141,7 +141,7 @@ include::requirements/REQ005.adoc[]
 
 CDB structured data stores may be implemented on any modern operating systems whether they are Windows-like or Unix-like.
 
-Throughout this standard, the reader will notice that filenames and directory paths are specified using a mix of upper and lower cases. This choice is made to improve and ease the readability of those names.
+Throughout this standard, the reader will notice that filenames and directory paths are specified using a mix of upper and lower cases. This choice is made to improve and ease the readability of those names. However to ensure interoperability, the use of lower case for all extensions is strongly recommended.
 
 However, it is important to note that no two names are to differ only by their case. After all, a name is used to designate a single object or concept whether that name is spelled in lowercase or uppercase or even using mixed case. For instance, the terms house, House, and HOUSE (and even HoUsE) all convey the same idea of a residence where people live. And this stays true for all combination of cases.
 
