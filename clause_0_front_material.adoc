@@ -46,9 +46,7 @@ The following organizations submitted this Document to the Open Geospatial Conso
 
 Organization name(s)
 
-[big]*v.     Submitters*
-
-All questions regarding this submission should be directed to the editor or the submitters:
+[big]*v.     Submitting Comments*
 
 [cols=",",]
 |=================================
@@ -56,6 +54,8 @@ All questions regarding this submission should be directed to the editor or the 
 |Carl Reed |Carl Reed & Associates
 |David Graham |CAE Inc.
 |=================================
+
+Please submit your comments using the following requests@list.opengeospatial.org[link]. The link provided above should include a standard template in the message body. If the preloaded message body does not work properly using your mail client, please refer to the official http://portal.opengeospatial.org/files/?artifact_id=3239[template] for the message body. Please direct comments to the editors named above.
 
 [big]*vi.     Future work*
 
