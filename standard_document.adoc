@@ -19,7 +19,7 @@
 |===
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
-|Submission Date: 2019-xx-xx
+|Submission Date: 2020-01-21
 |Approval Date:      2020-xx-xx
 |Publication Date:      2020-xx-xx
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.2
