@@ -61,7 +61,7 @@ Please submit your comments using the following requests@list.opengeospatial.org
 
 The CDB community anticipates that additional standardization work will be required to prescribe content appropriate to targeted simulation applications, new use cases, and application in new domains. In its current form, the CDB standard does not mandate synthetic environmental richness, quality and resolution.
 
-Further, the OGC CDB Standards Working Group (SWG) members understand there is a requirement for eventual alignment of the CDB standard with the OGC/ISO standards baseline. In CDB Version 1.0, effort was invested to begin aligning terminology and concepts with the OGC standards baseline, specifically in the coordinate reference system discussions and requirements. For version 1.1, the primary effort was focused on resolved several Chnage Requests and adding guidance on incorporating metadata into a CDB dta store.
+Further, the OGC CDB Standards Working Group (SWG) members understand there is a requirement for eventual alignment of the CDB standard with the OGC/ISO standards baseline. In CDB Version 1.0, effort was invested to begin aligning terminology and concepts with the OGC standards baseline, specifically in the coordinate reference system discussions and requirements. For version 1.1, the primary effort was focused on resolved several Change Requests and adding guidance on incorporating metadata into a CDB data store.
 
 This version of the CDB standard is backwards compatible with versions 1.0 and 1.1 of the OGC CDB standard.
 
