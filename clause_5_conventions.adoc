@@ -61,11 +61,11 @@ Where the Name is identical to the filename portion of the file containing the s
 
 To illustrate how a target namespace is composed, here is the target namespace of the schema found in Version.xsd (item 12 in the list above):
 
-"http://schemas.opengis.net/cdb/Version/1.1"
+"http://schemas.opengis.net/cdb/Version/1.2"
 
 IMPORTANT NOTE: For brevity, the literal “CDB” in a schema path should be expanded to:
 
-http://schemas.opengis.net/cdb/[Name]/1.1
+http://schemas.opengis.net/cdb/[Name]/1.2
 
 in any implementation.
 
@@ -77,7 +77,7 @@ There are a number of CDB XML files that are stored and referenced from the CDB 
 [[Metadata]]
 ===== Metadata
 
-Metadata is "https://en.wikipedia.org/wiki/Data[data] [information] that provides information about other data”footnote:[http://www.merriam-webster.com/dictionary/metadata[http://www.merriam-webster.com/dictionary/metadata]]. In the geospatial community and the rapidly emerging spatial web community, metadata is critical to operations such as discovery and determining whether a resource is “fit for purpose”. Three distinct types of metadata exist: *descriptive metadata*, *structural metadata*, and **administrative metadata** footnote:[National Information Standards Organization (NISO)].
+http://www.merriam-webster.com/dictionary/metadata[Metadata] is data that provides information about other data. In the geospatial community and the rapidly emerging spatial web community, metadata is critical to operations such as discovery and determining whether a resource is “fit for purpose”. Three distinct types of metadata exist: *descriptive metadata*, *structural metadata*, and **administrative metadata** (https://www.niso.org/[National Information Standards Organization (NISO)]).
 
 * Descriptive metadata describes a resource for purposes such as discovery and identification. It can include elements such as title, abstract, author, and keywords.
 * Structural metadata is metadata about containers of metadata and indicates how compound objects are put together, for example, how pages are ordered to form chapters.
@@ -87,10 +87,10 @@ The geospatial community has a long and extensive history in defining and using 
 
 1.  Controlled Vocabulary
 +
-Controlled vocabularies provide a way to organize knowledge for subsequent retrieval and use. They are used in subject indexing schemes, subject headings, thesauri,^https://en.wikipedia.org/wiki/Controlledvocabulary#citenote-1[[1]]https://en.wikipedia.org/wiki/Controlledvocabulary#citenote-2[[2]]^ taxonomies and other forms of knowledge organization systems. Controlled vocabulary schemes mandate the use of predefined, authorized terms that have been preselected by the designers of the schemes, in contrast to natural language vocabularies, which have no such restriction. The use of controlled vocabularies in standards such as CDB can significantly increase interoperability and consistent understanding of the semantics. Controlled vocabularies typically are managed through formal processes and official governance.
+https://en.wikipedia.org/wiki/Controlled_vocabulary[Controlled vocabularies] provide a way to organize knowledge for subsequent retrieval and use. They are used in subject indexing schemes, subject headings, thesauri, taxonomies and other forms of knowledge organization systems. Controlled vocabulary schemes mandate the use of predefined, authorized terms that have been preselected by the designers of the schemes, in contrast to natural language vocabularies, which have no such restriction. The use of controlled vocabularies in standards such as CDB can significantly increase interoperability and consistent understanding of the semantics. Controlled vocabularies typically are managed through formal processes and official governance.
 2.  Enumerations
 +
-In computer programming, an enumerated type (also called enumeration) is a data type consisting of a set of named values called elements, members, enumeral, or enumerators of the type. The enumerator names are usually identifiers that behave as constants in the language.Similarily, in a database enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages. An example of an enum type might be the days of the week, or a set of status values for a piece of data.
+In computer programming, an enumerated type (also called an enumeration) is a data type consisting of a set of named values called elements, members, or enumerators of the type. The enumerator names are usually identifiers that behave as constants in the language. Similarily, in a database enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages. An example of an enum type might be the days of the week, or a set of status values for a piece of data.
 
 [[CDBmetadata,controlledvocabularies,andenumerationssummarytable]]
 ===== CDB metadata, controlled vocabularies, and enumerations summary table
@@ -98,7 +98,7 @@ In computer programming, an enumerated type (also called enumeration) is a data 
 The following is a list of these files. While the general term being used is “metadata” in terms of the file system structure, a number of these files are either controlled vocabularies or attribute files. Please read link:#cdb-structure[Clauses 1.4.4, 1.5, and 3.1.1 Metadata Directory] for more detailed information on the files maintained in that folder. The following table identifies the files stored in the metadata folder and whether they are metadata or controlled vocabularies.
 
 |===
-|Name|Location|Typefootnote:[CV = Controlled Vocabulary, M = Metadata, E = Enumeration]|Extension|M/Ofootnote:[M = Mandatory, O = Optional, C = Conditional]
+|Name|Location|Type|Extension|M/O
 
 |CDB_Attributes|\CDB\Metadata|CV|.xml|O
 |Configuration|\CDB\Metadata|M|.xml|O
@@ -112,9 +112,15 @@ The following is a list of these files. While the general term being used is “
 |Version|\CDB\Metadata|M|.xml|M
 |FeatureDataDictionary|\CDB\Metadata|CV|.xml|O
 |DISCountryCodes|\CDB\Metadata|E|.xml|O
-|Globalgeometadata|\CDB\Metadata|M|.<ext>footnote:[<ext> could be xml for XML, jsn for JSON, and other extensions based on the encoding technology used for the geospatial metadata]|O
+|Globalgeometadata|\CDB\Metadata|M|.<ext>|O
 |Localgeometadata|Determined by directory path rules|M|.<ext>|O
 |===
+
+NOTE: Type:  CV = Controlled Vocabulary, M = Metadata, E = Enumeration
+
+NOTE: M/O: [M = Mandatory, O = Optional, C = Conditional]
+
+NOTE: <ext> could be xml for XML, jsn for JSON, and other extensions based on the encoding technology used for the geospatial metadata 
 
 Each of these files is described in detail later in this document.
 
