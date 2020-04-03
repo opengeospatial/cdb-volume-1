@@ -675,7 +675,8 @@ include::requirements/REQ100.adoc[]
 *Table 5-14: XML Tags for the JPEG 2000 Metadata*
 
 
-```<?xml version="1.0" encoding="UTF-8"?>
+```
+<?xml version="1.0" encoding="UTF-8"?>
 <JP2METADATA name="JPEG2000XML"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:noNamespaceSchemaLocation="JP2MetaData.xsd">
