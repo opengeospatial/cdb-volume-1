@@ -5,7 +5,7 @@
 |*Dependency* 2+|Various XML schema
 |*Test 64* |/conf/core/tiled-data/vector-dataset-limit |
 | |*Requirement* |/req/core/vector-dataset-limit
-| |*Test purpose* |Verify that the \CDB\MModel\ folder is the root directory of the MModel library which is composed of the following datasets: MModelGeometry, MModelDescriptor, MModelTexture, MModelMaterial, MModelCMT, MModelSignature.
+| |*Test purpose* |For positive LODs, each Tile-LOD of the vector datasets SHALL have no more than 16,384 points to describe the features, whether the file contains point, lineal, or polygon features.  For negative LODs, this limit SHALL be recursively divided by 4 until it reaches the value 1
 | |*Test method* |Visual
 | |*Test type* |Conformance
 |*Test 65* |/conf/core/tiled-data/latitude-directory-name |
