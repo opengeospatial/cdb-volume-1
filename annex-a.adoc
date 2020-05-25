@@ -7,7 +7,7 @@
 
 This section describes conformance test for the OGC CDB Core Standard. These abstract test cases describe the conformance criteria for verifying the structure and content of any data store or database claiming conformance to the CDB 1.0 standard.
 
-The conformance class id is “http://www.opengis.net/spec/http://opengis.net/spec/CDB/1.2/core/conf/” and all of the other conformance tests URLs are created in this path. Another issue that the reader should pay attention to is the test method. When the test method is assigned with “Visual”, it means that the purpose of the test should be “visually” investigate the file contents, image, or other content.
+The conformance class base id is “http://www.opengis.net/spec/http://opengis.net/spec/CDB/1.2/” and all of the other conformance tests URLs are created in this path. Each conformace class then appends: "core/conf/" to this base ID. Another issue that the reader should pay attention to is the test method. When the test method is assigned with “Visual”, it means that the purpose of the test should be “visually” investigate the file contents, image, or other content.
 
 //**A.1.1 General CDB Data Store and Implementation**
 ==== General CDB Data Store and Implementation
