@@ -3,7 +3,7 @@
 
 The CDB Feature Data Dictionary (FDD) is provided with the CDB standard in the form of an XML file. An XML Stylesheet is provided to format and display the dictionary inside a standard Web browser. Furthermore, the XML Schema defining the format of the FDD can also be found in the Schema subdirectory of the CDB Schema Distribution Package.
 
-See /CDB/Metadata/Feature_Data_Dictionary.xml for the complete list of the supported codes footnote:[Currently, these are a mixture of FACC, SEDRIS, DGIWG, DO-272B, UHRB, and other codes, Future revisions of the CDB standard shall provide guidance on using other feature code lists.].
+See /CDB/Metadata/Feature_Data_Dictionary.xml for the complete list of the supported codes. Currently, these are a mixture of FACC, SEDRIS, DGIWG, DO-272B, UHRB, and other codes. Future revisions of the CDB standard will provide guidance on using other feature code lists.
 
 Please see section link:#FeatureClassification[3.3.8.1] for more detailed information on the use of feature codes and extensions to that codelist in the CDB standard.
 
@@ -34,12 +34,12 @@ Section 5: CDB Datasets provides a detailed description of all CDB datasets.
 
 The current CDB standard relies on established industry formats:
 
-* *TIFF*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance;
-* *OpenFlight*: The Best Practice use of the OpenFlight footnote:[Other 3d formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth.] format (Volume 6: OGC CDB Rules for Encoding Data using OpenFlight);
+* *TIFF*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance.
+* *OpenFlight*: The Best Practice use of the OpenFlight. In the future other 3D formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth. (See Volume 6: OGC CDB Rules for Encoding Data using OpenFlight).
 * *SGI Image*: A native raster graphics file format also known as RGB file format.
-* *Shapefile*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage;
-* *GeoPackage*: Using GeoPackages for use in a CDB data store. The GeoPackage content encoding rules are documented in the OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage standard;
-* *JPEG 2000*: JPEG 2000 file format (Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
+* *Shapefile*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. (See Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage).
+* *GeoPackage*: Using GeoPackages for use in a CDB data store. The GeoPackage content encoding rules are documented in the OGC Volume 13: OGC CDB Rules for Encoding CDB Vector Data using GeoPackage (Normative, Optional Extension).
+* *JPEG 2000*: JPEG 2000 file format (See Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
 
 Each of these documents has been annotated to reflect the conventions established by the CDB standard. The Best Practice conventions currently define how TIFF, OpenFlight, SGI Image, Shapefile, GeoPackage, and JPEG 2000 formatted files are to be interpreted by CDB-compliant simulator readers.
 
@@ -50,10 +50,10 @@ Annexes J and F of Volume 2 provide the CDB light type naming hierarchy and the 
 Other Annexes in Volume 2 further describe additional aspects of the CDB standard:
 
 * Providing the CDB Directory Naming and Structure (Annex M),
-* List of Texture Component Selectors (Annex O see footnote 32 footnote:[Annex O can be found in Volume 2 CDB Core Model and Physical Structure Annexes]),
+* List of Texture Component Selectors (See Annex O in Volume 2 CDB Core Model and Physical Structure Infomrative Annexes),
 * SGI Image File Format (http://paulbourke.net/dataformats/sgirgb/sgiversion.html),
-* Table of Dataset Codes (Annex Q footnote:[OGC CDB Core: Model and Physical Structure: Informative Annexes])
-* How some datasets are derived from others (Annex R see footnote 32).
+* Table of Dataset Codes (See Annex Q in Volume 2 OGC CDB Core: Model and Physical Structure: Informative Annexes)
+* How some datasets are derived from others (Annex R in Volume 2 OGC CDB Core: Model and Physical Structure: Informative Annexes).
 
 
 [[WhatistheCDBStandard:AnOverview]]
@@ -101,7 +101,7 @@ The CDB standard does not define requirements for the representations of celesti
 
 The CDB standard does not specify a mandatory “coverage completeness requirement”. This permits the generation of a CDB structured data store even when there is limited data availability.
 
-Given the requirement that the CDB standard be platform independent, the standard does not provide the implementation details of specific off-line data store compilers or runtime publishers attached to specific client-devices footnote:[Example client devices are: UAV simulators, mission planning simulators, , helicopter training simulators, and so fort]. Furthermore, since there is no standardization of the SE representation internal to client-devices (they vary by type footnote:[It is precisely the intent of the CDB standard to provide such standardization.], by vendors), it is unlikely that such information would completely satisfy the interests of all developers. More importantly, the structure and format of data ingested by each client-device is typically proprietary. Finally, this standard does not describe the effort required to develop CDB off-line compilers and/or CDB runtime publishers.
+Given the requirement that the CDB standard be platform independent, the standard does not provide the implementation details of specific off-line data store compilers or runtime publishers attached to specific client-devices Example client devices are: UAV simulators, mission planning simulators, helicopter training simulators, and so forth. Furthermore, since there is no standardization of the SE representation internal to client-devices (they vary by type), it is unlikely that such information would completely satisfy the interests of all developers. One of the goals of the CDB standard to provide such standardizationMore importantly, the structure and format of data ingested by each client-device is typically proprietary. Finally, this standard does not describe the effort required to develop CDB off-line compilers and/or CDB runtime publishers.
 
 [[GeneralCDBDataStoreandImplementationrequirements]]
 === General CDB Data Store and Implementation requirements

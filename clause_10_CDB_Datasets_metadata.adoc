@@ -419,15 +419,10 @@ The schema explains the use of the interval attribute of the <Range> element.
 
 include::requirements/REQ080.adoc[]
 
-[[GeomaticsAttributesMetadata]]
-==== Geomatics Attributes Metadata
+[[GeomaticsAndVendorAttributesMetadata]]
+==== Geomatics and Vendor Attributes Metadata
 
-This is an optional metadata XML file. This XML file is not included with the CDB distribution schema package. This file is necessary only if Geomatics attributes are used to create Extended Attributes (see 5.7.1.2.7.3 of Volume 1). Geomatics_Attributes.xml and Vendor_Attributes.xml define the attributes that are referenced in the EAC column of the Extended Attributes tables (see 5.7.1.2.7.4). The intent behind those XML Attribute files is to provide the data necessary to interpret Environment Attribute Codes (EAC) and Environment Attribute Values (EAV). Geomatics attributes (section 5.7.1.2.6.2), are listed in “*Geomatics_Attributes.xml*” (section 3.1.1). The file uses the Geomatics_Attributes.xsd schema.
-
-[[VendorAttributesMetadata]]
-==== Vendor Attributes Metadata
-
-This is an optional metadata XML file. This XML file is not included with the CDB distribution schema package. This file is necessary only if Vendor attributes are used to create Extended Attributes (see 5.7.1.2.7.3 of Volume 1). Geomatics_Attributes.xml and Vendor_Attributes.xml define the attributes that are referenced in the EAC column of the Extended Attributes tables (see 5.7.1.2.7.4). The intent behind those XML Attribute files is to provide the data necessary to interpret Environment Attribute Codes (EAC) and Environment Attribute Values (EAV). Vendor attributes (section 5.7.1.2.6.3), are listed in “*Vendor_Attributes.xml*” (section 3.1.1). The file uses the Vendor_Attributes.xsd schema.
+Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see 5.7.1.2.7.3 of Volume 1). The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the Vector_Attributes.xsd schema.
 
 [[GeospatialMetadataGuidance]]
 ==== Geospatial Metadata – Guidance

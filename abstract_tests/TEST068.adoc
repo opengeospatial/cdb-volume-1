@@ -3,7 +3,7 @@
 |*Conformance Class* 2+|*/conf/core/tiled-data*
 |*Requirements* 2+|/req/core/archive
 |*Dependency* 2+|Various XML schema
-|*Test 68* |/conf/core/core/archive/archive-names |
+|*Test 68* |/conf/core/archive/archive-names |
 | |*Requirement* |/req/core/archive-names
 | |*Test purpose* |Verify that the files inside those archives follow the naming conventions defined here: LatLon_Dnnn_Snnn_Tnnn_LOD_Un_Rn_"extra_tokens".<ext>
 | |*Test method* |Visual

@@ -25,10 +25,10 @@ For performance, a CDB data store is tiled. Both raster and vector-based data se
 .  The slice’s x-axis is aligned to WGS-84 lines of latitude.
 .  The slice’s y-axis is aligned to WGS-84 lines of longitude.
 .  The number of units along the slice’s y-axis for a given level of detail is the same for all slices. The earth surface geodetic dimension in arc-seconds of y-axis units within an earth slice is exactly the same, regardless of latitude.
-.  The geodetic dimension of an x-axis unit in arc-seconds is constant within a zone, but is re-defined at pre-selected latitudes to achieve a greater level of spatial sampling uniformity in all tiles; this overcomes the narrowing effect of increased latitudes on longitudinal distances footnote:[Note: The definition of zones in the CDB is the same as those in DTED (with the exception of the poles).].
+.  The geodetic dimension of an x-axis unit in arc-seconds is constant within a zone, but is re-defined at pre-selected latitudes to achieve a greater level of spatial sampling uniformity in all tiles. This overcomes the narrowing effect of increased latitudes on longitudinal distances. NOTE: The definition of zones in the CDB is the same as those in https://www.nga.mil/ProductsServices/TopographicalTerrestrial/Pages/DigitalTerrainElevationData.aspx[DTED] (with the exception of the poles).
 .  The number of units along the slice’s x-axis for a given level of detail is the same within each zone.
-.  The number of units along the slice’s y-axis is constrained to a multiple of 2n in all slices.
-.  The number of units along the slice’s x-axis will vary depending on which zone the latitude of the slice belongs. For instance, in latitude zone 5, which goes from –50° to 50° of latitude, a CDB Geocell is 1° × 1°, in zone 4 and 6 which goes from latitude 50° to 70° the cell size is 1° × 2°. The main reason to introduce this concept is to maintain a reasonable eccentricity between the sides by trying to keep them as close to a square as possible. Variable CDB Geocell size reduces the simulator client-device processing overheads associated with the switching from one zone to another (due to small number of zones across the earth), reduces the variation of longitudinal dimensions (in meters) to a maximum of 50% and improves storage efficiency. Two requirements as defined below are used to define the size of a CDB Geocell
+.  The number of units along the slice’s y-axis is constrained to a multiple of `2n` in all slices.
+.  The number of units along the slice’s x-axis will vary depending on which zone the latitude of the slice belongs. For instance, in latitude zone 5, which goes from –50° to 50° of latitude, a CDB Geocell is 1° × 1°, in zone 4 and 6 which goes from latitude 50° to 70° the cell size is 1° × 2°. The main reason for introducing this concept is to maintain a reasonable eccentricity between the sides by trying to keep them as close to a square as possible. Variable CDB Geocell size reduces the simulator client-device processing overheads associated with the switching from one zone to another (due to small number of zones across the earth), reduces the variation of longitudinal dimensions (in meters) to a maximum of 50% and improves storage efficiency. Two requirements as defined below are used to define the size of a CDB Geocell
 
 [[Geocellextent]]
 *Geocell extent*
@@ -49,7 +49,7 @@ image::images/image1.png[image,width=337,height=259]
 [#img_CDBEarthSliceRepresentation,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. CDB Earth Slice Representation_*
 
-The earth surface coordinate system conventions used for each slice consists of a regular two-dimensional grid where the _x_-axis is always pointing east, aligned to WGS-84 lines of latitude and where the _y_-axis is always pointing north, aligned with WGS-84 lines of longitude. The earth surface origin, reference point (lat:0, long:0) on the CDB earth representation, is defined by the intersection of the WGS-84 equator and the WGS-84 international 0° meridian footnote:[Specifically, the WGS 84 meridian of zero longitude is the IERS Reference Meridian, 5.31 arc seconds or 102.5 metres (336.3 ft) east of the Greenwich meridian at the latitude of the Royal Observatory.]. The __x__=0 and y=0 reference is at (lat:0, long:0) _x_ is positive going East and negative going West; _y_ is positive North of the equator and negative South.
+The earth surface coordinate system conventions used for each slice consists of a regular two-dimensional grid where the _x_-axis is always pointing east, aligned to WGS-84 lines of latitude and where the _y_-axis is always pointing north, aligned with WGS-84 lines of longitude. The earth surface origin, reference point (lat:0, long:0) on the CDB earth representation, is defined by the intersection of the WGS-84 equator and the WGS-84 international 0° meridian. Specifically, the WGS 84 meridian of zero longitude is the https://en.wikipedia.org/wiki/IERS_Reference_Meridian[IERS Reference Meridian], 5.31 arc seconds or 102.5 metres (336.3 ft) east of the Greenwich meridian at the latitude of the Royal Observatory. The __x__=0 and y=0 reference is at (lat:0, long:0) _x_ is positive going East and negative going West; _y_ is positive North of the equator and negative South.
 
 Every _x_ and _y_ unit corresponds to a fixed increment of longitude and latitude in arc-seconds. The _x_-axis and _y_-axis fixed increment units are hereafter referred to as _XUnit_ and _YUnit_. Since the _y_-axis of the slices is aligned with WGS-84 lines of longitude, _y_-axis coordinate units are uniformly distributed between the equator and the poles in both geodetic system terms (arc-second) and in Cartesian system terms (meters). This property naturally leads to defining the same number of YUnit per slice. This however is not the case with the x-axis. As illustrated in Figure 2-2: Variation of Longitudinal Dimensions versus Latitude, the Cartesian space distance between such x-axis values diminishes as we move towards the poles. In order to maintain size constancy, the CDB standard provides a piecewise solution similar to that used by NGA DTED data. The world is divided into eleven zones. All CDB Geocells within a slice are one degree of latitude high (the height of a slice) and of varying width in longitude depending on the zone to which they belong.
 
@@ -57,7 +57,7 @@ image::images/image2.png[image,width=424,height=407]
 [#img_VariationofLongitudinalDimensionsversionLatitude,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Variation of Longitudinal Dimensions versus Latitude_*
 
-In order to meet one of the previously mentioned real-time considerations, the number of y-axis units for one Geocell, _NbYUnitInCDBGeocell_, is set to a power of two. This has been chosen as 1024 to give a north-south grid post spacing of approximately 109 meters at the default Level of Detail (LOD 0); this spacing is the same for all earth slices.
+In order to meet one of the previously mentioned real-time considerations, the number of y-axis units for one Geocell, _NbYUnitInCDBGeocell_, is set to a power of two. This has been chosen as 1024 to give a north-south grid post spacing of approximately 109 meters at the default Level of Detail (LOD 0). This spacing is the same for all earth slices.
 
 
 _NbYUnitInCDBGeocell=1024_ (2-1)
@@ -78,7 +78,7 @@ Equation (2-4)
 
 _ArcSecLatUnitInCDBGeocell_ is a constant defined by the CDB earth model and cannot be set to any other value.
 
-Similarly, the geodetic dimension of a _XUnit_ is referred to as _ArcSecLongUnitInCDBGeocell_; it varies at specific latitudes and is shown in Table 2-3: CDB Geocell Unit Size in Arc Seconds. As shown in the table, maintaining the _NbXUnitInCDBGeocell_ constant causes abrupt changes in _ArcSecLongUnitInCDBGeocell_ at specific latitudes. This is done, however, to achieve our objective of maintaining a reasonable aspect ratio across the earth model.
+Similarly, the geodetic dimension of a _XUnit_ is referred to as _ArcSecLongUnitInCDBGeocell_; it varies at specific latitudes and is shown in Table 2-3: CDB Geocell Unit Size in Arc Seconds. As shown in the table, maintaining the _NbXUnitInCDBGeocell_ constant causes abrupt changes in _ArcSecLongUnitInCDBGeocell_ at specific latitudes. This is done, however, to achieve the objective of maintaining a reasonable aspect ratio across the earth model.
 
 [#table_CDBGeocellUnitSizeinArcSeconds,reftext='{table-caption} {counter:table-num}']
 *Table 2-3: CDB Geocell Unit Size in Arc Seconds*
@@ -234,7 +234,7 @@ Please refer to Clause 5 in Volume 10: OGC CDB Implementation Guidance (Best Pra
 [[LightNaming]]
 === Light Naming
 
-The CDB standard defines rules that unambiguously tag any modeled light point footnote:[The CDB standard does not distinguish between a light-point and a light-source. In the simulation industry, the term light-point refers to a point source of light that does not illuminate its immediate surroundings. Likewise, the term light-source refers to a point source of light capable of illuminating its immediate surroundings.] with a descriptive name. This provides client-devices with the information necessary to control all light points that have been tagged with a name that conforms to this standard.
+The CDB standard defines rules that unambiguously tag any modeled light point. The CDB standard does not distinguish between a light-point and a light-source with a descriptive name.. In the simulation industry, the term light-point refers to a point source of light that does not illuminate its immediate surroundings. Likewise, the term light-source refers to a point source of light capable of illuminating its immediate surroundings.  This provides client-devices with the information necessary to control all light points that have been tagged with a name that conforms to this standard.
 
 The CDB standard provides a comprehensive set of light types, particularly well suited to the needs of Visual simulation. Light types include those found on:
 
@@ -292,7 +292,9 @@ The CDB standard provides a comprehensive set of model components, particularly 
 .  surface (maritime) platforms
 .  pylons and posts
 
-Each model component defined by this standard corresponds to a real-world model component. The XML file containing the CDB Model Components footnote:[As of CDB Specification version 3.2, the list of CDB model components is no longer presented as an annex to avoid the risk of miscorrelation between the appendix and the metadata. The list is now exclusively found in the Metadata folder.] is part of the CDB standard distribution package and can be found in the following file: `\CDB\Metadata\Model_Components.xml`.
+Each model component defined by this standard corresponds to a real-world model component. The XML file containing the CDB Model Components  is part of the CDB standard distribution package and can be found in the following file: `\CDB\Metadata\Model_Components.xml`. 
+
+NOTE: Since submission of CDB Version 3.2 as OGC version 1.0, the list of CDB model components is no longer presented as an annex to avoid the risk of miscorrelation between the appendix and the metadata. The list is now exclusively found in the Metadata folder.
 
 The client-devices use the name as an index to provide the simulation software the needed control over the component in question.
 
@@ -300,12 +302,10 @@ Examples of model components are Cockpit, Turret, Rudder, Engine, Anchor, Flight
 
 Volume 6, OGC CDB Rules for Encoding Data using OpenFlight provides details on how to use one of these names to identify a particular model component.
 
-
 [[AddingNewModelComponents]]
 ==== Adding New Model Components
 
 The user may propose missing model component names for inclusion into subsequent versions of the CDB standard. In the meantime, the missing name can be used to tag a specific model component and a simulation client-device can use that name to detect and control the new component.
-
 
 [[Materials]]
 === Materials
@@ -325,9 +325,7 @@ The CDB standard provides the means to representthe following.
 
 The complete list of CDB Base Materials is part of the metadata provided with the CDB Schema Distribution Package and can be found in the following file:
 
-
 `\CDB\Metadata\Materials.xml`
-
 
 The following is the requirements class for CDB Materials
 
