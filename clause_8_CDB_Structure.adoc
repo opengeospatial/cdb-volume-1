@@ -1648,11 +1648,11 @@ The reason for “W162” instead of “W161” is that at latitudes between 50�
 
 <<img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong0>> and <<img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong180>> illustrate Directory Name latitude and longitude boundaries for CDB Zones in the Northern and Southern Hemispheres at Longitude 0 and Longitude 180.
 
-image::images/image86.png[image,width=800,height=481]
+image::images/image86.png[image,width=600,height=481]
 [#img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong0,reftext='{figure-caption} {counter:figure-num}']
 *{figure-caption}{counter:figure-num}. Directory Name latitude and longitude boundaries for CDB Zones at Zero Longitude*
 
-image::images/image87.png[image,width=800,height=481]
+image::images/image87.png[image,width=600,height=481]
 [#img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong180,reftext='{figure-caption} {counter:figure-num}']
 *{figure-caption}{counter:figure-num}. Directory Name latitude and longitude boundaries for CDB Zones at 180 Longitude*
 
