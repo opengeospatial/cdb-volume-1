@@ -1650,6 +1650,16 @@ Data elements located at latitude +62.3° and longitude –160.4° will be found
 
 The reason for “W162” instead of “W161” is that at latitudes between 50° and 70°, the CDB Geocells have a width of 2 degrees as indicated in Table 3-29: NbSliceIDIndex for every CDB Zones. “W162” corresponds to the southwest corner of the corresponding CDB Geocell.
 
+<<img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong0>> and <<img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong180>> illustrate Directory Name latitude and longitude boundaries for CDB Zones in the Northern and Southern Hemispheres at Longitude 0 and Longitude 180.
+
+image::images/image86.png[image,width=600,height=481]
+[#img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong0,reftext='{figure-caption} {counter:figure-num}']
+*{figure-caption}{counter:figure-num}. Directory Name latitude and longitude boundaries for CDB Zones at Zero Longitude*
+
+image::images/image87.png[image,width=600,height=481]
+[#img_DirectoryNamelatitudeandlongitudeboundariesforCDBZonesatLong180,reftext='{figure-caption} {counter:figure-num}']
+*{figure-caption}{counter:figure-num}. Directory Name latitude and longitude boundaries for CDB Zones at 180 Longitude*
+
 
 [[DirectoryLevel3DatasetDirectory]]
 ===== Directory Level 3 (Dataset Directory)

@@ -55,7 +55,7 @@ Every _x_ and _y_ unit corresponds to a fixed increment of longitude and latitud
 
 image::images/image2.png[image,width=424,height=407]
 [#img_VariationofLongitudinalDimensionsversionLatitude,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. Variation of Longitudinal Dimensions version Latitude_*
+*_{figure-caption}{counter:figure-num}. Variation of Longitudinal Dimensions versus Latitude_*
 
 In order to meet one of the previously mentioned real-time considerations, the number of y-axis units for one Geocell, _NbYUnitInCDBGeocell_, is set to a power of two. This has been chosen as 1024 to give a north-south grid post spacing of approximately 109 meters at the default Level of Detail (LOD 0). This spacing is the same for all earth slices.
 
@@ -347,7 +347,7 @@ A Base Material represents a basic (primitive) material such as water, vegetatio
 |*Component* |*Description*
 |*Name* |Name used to represent a Basic Material.
 |Description |Describes the essential nature of the basic material represented. A typical example can also be provided in the description field
-2+|* Uniquely identifies the Base Material. 
+2+|* Uniquely identifies the Base Material.
 |===
 
 include::requirements/REQ023.adoc[]
