@@ -1,10 +1,10 @@
 [cols="1,4",width="90%"]
-|=================================================================================================================================================================================================================================
+|================================================================================================================================================================================
 2+|Requirements Class - Tiled Raster Elevation/Terrain (88-95,130) {set:cellbgcolor:#CACCCE}
 2+|/req/core/tiled-raster-elevation-terrain {set:cellbgcolor:#FFFFFF}
 |Target type |Operations
 |Dependency |Various XML schema
-|Requirement 88 {set:cellbgcolor:#CACCCE} |/req/core/primary-terrain-component {set:cellbgcolor:#FFFFFF}
+|Requirement 88 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/1.2/core/primary-terrain-component {set:cellbgcolor:#FFFFFF}
 |Requirement 89 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-elevation {set:cellbgcolor:#FFFFFF}
 |Requirement 90 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-mesh-type {set:cellbgcolor:#FFFFFF}
 |Requirement 130 {set:cellbgcolor:#CACCCE} |/req/core/terrain-tiff-offsets {set:cellbgcolor:#FFFFFF}
@@ -13,4 +13,4 @@
 |Requirement 93 {set:cellbgcolor:#CACCCE} |/req/core/terrain-lpn-use {set:cellbgcolor:#FFFFFF}
 |Requirement 94 {set:cellbgcolor:#CACCCE} |/req/core/min-max-elevation-data-type {set:cellbgcolor:#FFFFFF}
 |Requirement 95 {set:cellbgcolor:#CACCCE} |/req/core/maxculture-data-type  {set:cellbgcolor:#FFFFFF}
-|=================================================================================================================================================================================================================================
+|================================================================================================================================================================================
