@@ -4,7 +4,7 @@
 2+|/req/core/metadata-datasets {set:cellbgcolor:#FFFFFF}
 |Target type |Operations
 |Dependency |Various XML schema
-|Requirement 74 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/1.2/core {set:cellbgcolor:#FFFFFF}
+|Requirement 74 {set:cellbgcolor:#CACCCE} |http://www.opengis.net/spec/cdb/1.2/core/version {set:cellbgcolor:#FFFFFF}
 |Requirement 75 {set:cellbgcolor:#CACCCE} |/req/core/attribute-definition {set:cellbgcolor:#FFFFFF}
 |Requirement 76 {set:cellbgcolor:#CACCCE} |/req/core/attribute-schema-level {set:cellbgcolor:#FFFFFF}
 |Requirement 77 {set:cellbgcolor:#CACCCE} |/req/core/attribute-value {set:cellbgcolor:#FFFFFF}
