@@ -31,9 +31,9 @@ Geometry data features types used in a CDB data store are as follows <Note - rem
 
 [options="header",]
 |===============================================================================================
-|*Value* | GeoPackage geometry type |* Shapefile Vector type* |*Fields*
-|0 ||Null shape |None
-|1 |Point | Point | |X, Y
+|*Value* | *GeoPackage geometry type* |*Shapefile Vector type* |*Fields*
+|0 |Null |shape |None
+|1 |Point | Point |X, Y
 |3 |Linestring | Polyline |MBR, Number of parts, Number of points, Parts, Points
 |5 |Polygon |Polygon |MBR, Number of parts, Number of points, Parts, Points
 |8 |MultiPoint |MultiPoint |MBR, Number of points, Points
