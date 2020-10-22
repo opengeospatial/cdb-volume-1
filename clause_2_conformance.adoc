@@ -1,6 +1,6 @@
 
 [[Conformance]]
-=== Conformance
+== Conformance
 
 This standard defines an Abstract Test Suite in Annex A.
 

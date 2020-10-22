@@ -20,7 +20,7 @@
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
 |Submission Date: 2020-01-21
-|Approval Date:      2020-xx-xx
+|Approval Date:      2020-08-24
 |Publication Date:      2020-xx-xx
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.2
 |Additional Formats (informative): image:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAAAXNSR0IArs4c6QAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAQhJREFUOBGdk7ESgjAMhoPnUEc2VpmECR5B3kIeEN8CHwEmccKVjVG22uRoDqiUYu96TdM/X0JaPDCHNF2rHm95YjiUQLbvdqmb7eMohs9lAK8m9y8GYFVOUyWTQggpE6A5xnHCo7aUYHOMFZHu9BK0CrUMw8CxDGSPg/FsnqwKzyHbaDBwmn2m2LnRQG4s9mdaAfKapiFsFEWb+MOmQgl834eqrlyk4ATs+55gulIb2QmI1WXXzKlK3cPVpF3XQZqkEAQBrcW9oHUtwApEWPkoCaA/F+G2fvLtTjLSr4cADESA7XbHd8gco4fq2dAz0VXYYJMi2DSAeKJh+S1n4d8GPmwVvHdyvi8MNmyvuUrCagAAAABJRU5ErkJggg==[link="https://portal.opengeospatial.org/files/15-113r5"]
@@ -56,7 +56,7 @@ provide supporting documentation.
 |===
 |Document type:   	    OGC® Standard
 |Document subtype:   
-|Document stage:   	Candidate
+|Document stage:   	Approved
 |Document language: 	English
 |===
 

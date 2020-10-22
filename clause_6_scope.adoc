@@ -1,5 +1,5 @@
 [[CDBFeatureDataDictionary]]
-=== CDB Feature Data Dictionary
+== CDB Feature Data Dictionary
 
 The CDB Feature Data Dictionary (FDD) is provided with the CDB standard in the form of an XML file. An XML Stylesheet is provided to format and display the dictionary inside a standard Web browser. Furthermore, the XML Schema defining the format of the FDD can also be found in the Schema subdirectory of the CDB Schema Distribution Package.
 
@@ -50,7 +50,7 @@ Annexes J and F of Volume 2 provide the CDB light type naming hierarchy and the 
 Other Annexes in Volume 2 further describe additional aspects of the CDB standard:
 
 * Providing the CDB Directory Naming and Structure (Annex M),
-* List of Texture Component Selectors (See Annex O in Volume 2 CDB Core Model and Physical Structure Infomrative Annexes),
+* List of Texture Component Selectors (See Annex O in Volume 2 CDB Core Model and Physical Structure Informative Annexes),
 * SGI Image File Format (http://paulbourke.net/dataformats/sgirgb/sgiversion.html),
 * Table of Dataset Codes (See Annex Q in Volume 2 OGC CDB Core: Model and Physical Structure: Informative Annexes)
 * How some datasets are derived from others (Annex R in Volume 2 OGC CDB Core: Model and Physical Structure: Informative Annexes).

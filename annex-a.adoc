@@ -146,7 +146,7 @@ include::abstract_tests/TEST068.adoc[]
 //**A.1.18 NavData Naming Convention**
 ==== NavData Naming Convention
 
-The following conformance class is designed to determine if each field of the NacData file name is correctly selected based on the table 3-32.
+The following conformance class is designed to determine if each field of the NavData file name is correctly selected based on the table 3-32.
 
 include::abstract_tests/TEST073.adoc[]
 

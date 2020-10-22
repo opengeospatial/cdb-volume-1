@@ -263,7 +263,7 @@ In this Standard, the following terms and expressions are used.
 
 ==== GTModel (Geotypical 3D Model)
 
-A feature is said to have a 3D geotypical modeled representation if it is associated with a 3D Model that is typical of the feature’s shape, size, textures, materials, and attributes. The use of geotypical models is appropriate if the modeler does not wish to fully replicate all of the unique characteristics (e.g., shape, size, texture) of a feature, as they are in the real-world. When a feature is represented by a geotypical model, the modeler is in effect stating that two or more features of the same type (i.e., samefeature code) have the same modeled representation.
+A feature is said to have a 3D geotypical modeled representation if it is associated with a 3D Model that is typical of the feature’s shape, size, textures, materials, and attributes. The use of geotypical models is appropriate if the modeler does not wish to fully replicate all of the unique characteristics (e.g., shape, size, texture) of a feature, as they are in the real-world. When a feature is represented by a geotypical model, the modeler is in effect stating that two or more features of the same type (i.e., same feature code) have the same modeled representation.
 
 
 [[GSModelGeospecific3DModel]]
@@ -632,7 +632,7 @@ Again, the descriptor associated with the same castle (AL015_004_Castle) would b
 [[GTModelDirectoryStructure2:Texture,Material,andCMT]]
 ==== GTModel Directory Structure 2: Texture, Material, and CMT
 
-This directory structure holds the texture-related datasets of the GTModel Libray; they are:
+This directory structure holds the texture-related datasets of the GTModel Library; they are:
 
 [start=1]
 .  Dataset 501, GTModelTexture (Deprecated)

@@ -25,7 +25,7 @@ Version 1.2 of the CDB standard specifies the use of either OGC GeoPackages or E
 
 * Refer to Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage for detailed information and requirements for using Shapefiles for storing vector data in a CDB data store.
 * Refer to Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage. for detailed information and requirements for using GeoPackages for storing vector data in a CDB data store.
-* Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages. 
+* Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages.
 
 Geometry data features types used in a CDB data store are as follows <Note - remove??>:
 
@@ -2130,7 +2130,7 @@ The points that make up the HydrographyNetwork lineals are primarily used to est
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each HydrographyNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the HydrographyNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the HydrographyNetwork lineal feature by assigning a distinct a HydrographyNetwork Figure Point to each point of the HydrographyNetwork lineal feature. Allowed model representations are as per Section 5.3.1.4, Explicitly Modeled Representations.
 
-Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dastaset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
 
 [#table_ComponentSelectorsforHydrographyNetworkDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-35: Component Selectors for HydrographyNetwork Dataset*
@@ -2328,4 +2328,3 @@ Table 5-38 provides the component selectors for the T2DModel datasets.
 |Dataset 312, T2DModelCMT | | | |
 |001 |001 |*.xml |Composite Material Table |Contains the definition of the composite materials referenced by the model geometry dataset above. Its format is as specified in section 2.5.2.2, Composite Material Tables (CMT)
 |===
-

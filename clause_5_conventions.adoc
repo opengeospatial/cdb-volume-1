@@ -1,10 +1,10 @@
 [[Conventions]]
-=== Conventions
+== Conventions
 
 This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
 [[Identifiers]]
-==== Identifiers
+=== Identifiers
 
 The normative provisions in this standard are denoted by the URI namespace
 
@@ -13,7 +13,7 @@ The normative provisions in this standard are denoted by the URI namespace
 All requirements that appear in this document are denoted by partial URIs which are relative to the namespace shown above.
 
 For the sake of brevity, the use of “req” in a requirement URI denotes:
-      
+
       http://www.opengis.net/spec/cdb/1.0/core/req
 
 An example might be:
@@ -24,10 +24,10 @@ All conformance tests that appear in this document are denoted by partial URIs w
 
 For the sake of brevity, the use of “conf” in a requirement URI denotes:
 
-        http://www.opengis.net/spec/cdb/1.0/core/conf   
+        http://www.opengis.net/spec/cdb/1.0/core/conf
 
 [[CDBXMLSchemaDefinitions]]
-==== CDB XML Schema Definitions
+=== CDB XML Schema Definitions
 
 NOTE: The content in this clause was originally in CDB Volume 2, Annex J.
 
@@ -51,12 +51,12 @@ The following XML Schemas can be found in the `\CDB\Metadata\Schema` subdirector
 Clause 1.4.3 and 1.4.4 provides more information on these files.
 
 [[TheCDBNamespace]]
-===== The CDB Namespace
+==== The CDB Namespace
 
 The CDB standard makes use of several XML namespaces to isolate the definitions of its schemas. The name of these namespaces is built around a base URL.
 
 [[SchemaConventions]]
-===== Schema Conventions
+==== Schema Conventions
 
 The target namespace of all CDB schemas follow this pattern:
 
@@ -75,12 +75,12 @@ http://schemas.opengis.net/cdb/[Name]/1.2
 in any implementation.
 
 [[CDBMetadata,ControlledVocabulary,andMetadataFiles]]
-==== CDB Metadata, Controlled Vocabulary, and Metadata Files
+=== CDB Metadata, Controlled Vocabulary, and Metadata Files
 
 There are a number of CDB XML files that are stored and referenced from the CDB metadata folder. First, some terms are defined
 
 [[Metadata]]
-===== Metadata
+==== Metadata
 
 http://www.merriam-webster.com/dictionary/metadata[Metadata] is data that provides information about other data. In the geospatial community and the rapidly emerging spatial web community, metadata is critical to operations such as discovery and determining whether a resource is “fit for purpose”. Three distinct types of metadata exist: *descriptive metadata*, *structural metadata*, and **administrative metadata** (https://www.niso.org/[National Information Standards Organization (NISO)]).
 
@@ -95,10 +95,11 @@ The geospatial community has a long and extensive history in defining and using 
 https://en.wikipedia.org/wiki/Controlled_vocabulary[Controlled vocabularies] provide a way to organize knowledge for subsequent retrieval and use. They are used in subject indexing schemes, subject headings, thesauri, taxonomies and other forms of knowledge organization systems. Controlled vocabulary schemes mandate the use of predefined, authorized terms that have been preselected by the designers of the schemes, in contrast to natural language vocabularies, which have no such restriction. The use of controlled vocabularies in standards such as CDB can significantly increase interoperability and consistent understanding of the semantics. Controlled vocabularies typically are managed through formal processes and official governance.
 2.  Enumerations
 +
-In computer programming, an enumerated type (also called an enumeration) is a data type consisting of a set of named values called elements, members, or enumerators of the type. The enumerator names are usually identifiers that behave as constants in the language. Similarily, in a database enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages. An example of an enum type might be the days of the week, or a set of status values for a piece of data.
+In computer programming, an enumerated type (also called an enumeration) is a data type consisting of a set of named values called elements, members, or enumerators of the type. The enumerator names are usually identifiers that behave as constants in the language. Similarly, in a database enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages. An example of an enum type might be the days of the week, or a set of status values for a piece of data.
 
 [[CDBmetadata,controlledvocabularies,andenumerationssummarytable]]
-===== CDB metadata, controlled vocabularies, and enumerations summary table
+
+==== CDB metadata, controlled vocabularies, and enumerations summary table
 
 The following is a list of these files. While the general term being used is “metadata” in terms of the file system structure, a number of these files are either controlled vocabularies or attribute files. Please read link:#cdb-structure[Clauses 1.4.4, 1.5, and 3.1.1 Metadata Directory] for more detailed information on the files maintained in that folder. The following table identifies the files stored in the metadata folder and whether they are metadata or controlled vocabularies.
 
@@ -125,14 +126,14 @@ NOTE: Type:  CV = Controlled Vocabulary, M = Metadata, E = Enumeration
 
 NOTE: M/O: [M = Mandatory, O = Optional, C = Conditional]
 
-NOTE: <ext> could be xml for XML, jsn for JSON, and other extensions based on the encoding technology used for the geospatial metadata 
+NOTE: <ext> could be xml for XML, jsn for JSON, and other extensions based on the encoding technology used for the geospatial metadata
 
 Each of these files is described in detail later in this document.
 
 In CDB version 1.1 and later, additional metadata requirements and elements are specified. These are traditional metadata including geospatial metadata. Specifically, the reader should reference clauses 3.1.1, 3.1.2, and 5.1 (special focus on 5.1.6). Also, make special note of the guidance in clause “3.2.3.2 How to handle the metadata directory.”
 
 [[CDBDirectoryFileNamingandStructure]]
-==== CDB Directory File Naming and Structure
+=== CDB Directory File Naming and Structure
 
 The CDB directory and folder structure is defined by a combination of folder hierarchy and metadata files delivered with the CDB Standard Distribution Package.
 
@@ -154,7 +155,7 @@ The following file extensions are used:
 |SGI Image|1.0|*.rgb
 |JPEG 2000|1.0|*.jp2
 |OpenFlight|16.0|*.flt
-|Shapefile|Esri White Paper, July 98|*.shp, *.shx 
+|Shapefile|Esri White Paper, July 98|*.shp, *.shx
 |dBASE|III+|*.dbf, *.dbt
 |XML|1.0 and later|*.xml, *.xsd
 |ZIP|6.3.1 and later|*.zip

@@ -4,7 +4,7 @@
 [[CDBDatasets]]
 == CDB Datasets
 
-This chapter provides the description of the content of datsets in a CDB data store, except OpenFlight and RCS models that are covered in separate documents (Volumes 5 and 6 of this standard). Chapter 5 also provides the Component Selectors necessary to complete the file names associated with all CDB datasets
+This chapter provides the description of the content of datasets in a CDB data store, except OpenFlight and RCS models that are covered in separate documents (Volumes 5 and 6 of this standard). Chapter 5 also provides the Component Selectors necessary to complete the file names associated with all CDB datasets
 
 [[ControlledVocabulariesandMetadataDatasetsusedbyCDB]]
 === Controlled Vocabularies and Metadata Datasets used by CDB
@@ -304,7 +304,7 @@ The optional _<Metadata standard="metadata-standard-name">_ element specifies th
 
 NOTE: In a CDB data store, there are two categories of metadata: Global and Local. _Global_ metadata is comprised of metadata that describes an entire CDB data store. _Local_ refers to metadata specific to a given dataset within a CDB data store. Dataset level metadata is stored at the tile or model definition level. While all tiles for a given layer may have the same dataset level metadata, discovery and indexing is facilitated by having the metadata stored at the tile level. For example, if there is a buildings layer in the CDB datastore, each tiles for this layer could include metadata specific to the buildings layer.
 
-Special NOTE: If there is a difference betweent the Global metadata and the dataset metadata, the dataset metadata shall be considered as authoritive.
+Special NOTE: If there is a difference between the Global metadata and the dataset metadata, the dataset metadata shall be considered as authoritative.
 
 The optional _<Extension>_ element indicates that this CDB Version is in fact a CDB Extension.
 
@@ -429,7 +429,7 @@ Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files t
 
 These are optional metadata files. This file is not included with the CDB distribution schema package.
 
-Most metadata standards specify dozens of possible elements, such as author, that can be specified in a metadata encoding. This is why in many communities there are profiles that are applicable to the information sharing and discovery requirements of that community. For example, there are numerous profiles of ISO 19115:2013 Geographic information – Metadata. These include the INSPIRE, Defence NSG Geospatial Core metadata, and FGDC profiles. As such, the CDB standard does not specify mandatory and/or optional metadata elements. Instead, a suggested set of minimal metadata elements are provided. The two lists – one for global and one for local – are based on an evaluation of mandatory elements in eight widely implemented metadata standards that are used in the geospatial and simulation communities. The one requirement is that all local metadata in a CDB data store provides the same mandatory elements as defined in the metadata standard specified in the Version metadata.
+Most metadata standards specify dozens of possible elements, such as author, that can be specified in a metadata encoding. This is why in many communities there are profiles that are applicable to the information sharing and discovery requirements of that community. For example, there are numerous profiles of ISO 19115:2013 Geographic information – Metadata. These include the INSPIRE, Defense NSG Geospatial Core metadata, and FGDC profiles. As such, the CDB standard does not specify mandatory and/or optional metadata elements. Instead, a suggested set of minimal metadata elements are provided. The two lists – one for global and one for local – are based on an evaluation of mandatory elements in eight widely implemented metadata standards that are used in the geospatial and simulation communities. The one requirement is that all local metadata in a CDB data store provides the same mandatory elements as defined in the metadata standard specified in the Version metadata.
 
 These following two sub-clauses recommend the metadata elements for global and local metadata. The use of F.1 refers to Table F.1 in ISO 19115-1:2014. Each element is identified by a general string followed by two element names The first name is the DCAT name followed by the ISO 19115:2014 element name.
 
@@ -465,7 +465,7 @@ Local Geospatial metadata can be stored in a number of different folder location
 +
 While the same metadata elements are recommended for both global and local geospatial metadata, there are some differences that should be considered.
 +
-_Metadata Reference Information_ (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifers would facilitate development of a RESTful API for discovery and access of CDB resources.
+_Metadata Reference Information_ (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifiers would facilitate development of a RESTful API for discovery and access of CDB resources.
 +
 _Resource Title_ (http://purl.org/dc/terms/title[dct:title], CI_Citation.title): Title by which the data set is known (Table F.1). For local metadata, this could be a name given to a layer or model in the data store. In a CDB data store, at the dataset or tile level this would be a name given to the resource, such as “county soils.”
 +
@@ -477,7 +477,7 @@ _Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolu
 
 ===== Where are local metadata files stored?
 
-Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the esamples in Section 3.0 for more detail.
+Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the examples in Section 3.0 for more detail.
 
 [[ConfigurationMetadata]]
 ==== Configuration Metadata

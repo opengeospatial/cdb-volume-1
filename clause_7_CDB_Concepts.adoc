@@ -234,7 +234,7 @@ Please refer to Clause 5 in Volume 10: OGC CDB Implementation Guidance (Best Pra
 [[LightNaming]]
 === Light Naming
 
-The CDB standard defines rules that unambiguously tag any modeled light point. The CDB standard does not distinguish between a light-point and a light-source with a descriptive name.. In the simulation industry, the term light-point refers to a point source of light that does not illuminate its immediate surroundings. Likewise, the term light-source refers to a point source of light capable of illuminating its immediate surroundings.  This provides client-devices with the information necessary to control all light points that have been tagged with a name that conforms to this standard.
+The CDB standard defines rules that unambiguously tag any modeled light point. The CDB standard does not distinguish between a light-point and a light-source with a descriptive name. In the simulation industry, the term light-point refers to a point source of light that does not illuminate its immediate surroundings. Likewise, the term light-source refers to a point source of light capable of illuminating its immediate surroundings.  This provides client-devices with the information necessary to control all light points that have been tagged with a name that conforms to this standard.
 
 The CDB standard provides a comprehensive set of light types, particularly well suited to the needs of Visual simulation. Light types include those found on:
 
@@ -292,7 +292,7 @@ The CDB standard provides a comprehensive set of model components, particularly 
 .  surface (maritime) platforms
 .  pylons and posts
 
-Each model component defined by this standard corresponds to a real-world model component. The XML file containing the CDB Model Components  is part of the CDB standard distribution package and can be found in the following file: `\CDB\Metadata\Model_Components.xml`. 
+Each model component defined by this standard corresponds to a real-world model component. The XML file containing the CDB Model Components  is part of the CDB standard distribution package and can be found in the following file: `\CDB\Metadata\Model_Components.xml`.
 
 NOTE: Since submission of CDB Version 3.2 as OGC version 1.0, the list of CDB model components is no longer presented as an annex to avoid the risk of miscorrelation between the appendix and the metadata. The list is now exclusively found in the Metadata folder.
 
@@ -314,7 +314,7 @@ This portion of the CDB standard deals with the handling of materials that make 
 
 In general, materials are inputs to production or manufacturing. They are often raw - that is unprocessed, but are sometimes processed before being used in more advanced production processes. A material represents the substance or substances out of which a thing is or can be made.
 
-The CDB standard provides the means to representthe following.
+The CDB standard provides the means to represent the following.
 
 * *Basic* (homogeneous) materials such as steel, aluminum, copper, sand, soil, stone, glass, concrete, wood, water, rubber. CDB materials are chosen for their relevance to simulation, in particular, thermal spectrum simulation.
 * *Aggregates* or mixtures of basic materials
