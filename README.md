@@ -1,4 +1,4 @@
-# Standard template
+# OGC CDB Volume 1 Core Requirements
 
 ## Content
 
