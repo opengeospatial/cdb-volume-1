@@ -1,5 +1,5 @@
 [cols=",,",]
-|===========================================================================================================================================================================================================================================
+|===
 |*Conformance Class* 2+|*/conf/core/data-representation* 
 |*Requirements* 2+|/req/core/data-representation 
 |*Dependency* 2+|General data representation unit, coordinate reference system and JPEG 2000 compression algorithm 
@@ -28,4 +28,4 @@
 | |*Test purpose* |Verify that Coordinates are described using the decimal degree format bounded by ±90° latitude, and ±180° longitude respectively
 | |*Test method* |Visual
 | |*Test type* |Conformance
-|===========================================================================================================================================================================================================================================
+|===
