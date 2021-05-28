@@ -1,4 +1,4 @@
-:figure-caption: Figure 5-
+:figure-caption: Figure 10-
 :figure-num: 0
 
 [[TiledRasterDatasets]]
