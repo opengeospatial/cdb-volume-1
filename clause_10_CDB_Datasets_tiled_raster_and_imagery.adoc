@@ -904,9 +904,12 @@ Name* |*Component +
 Description*
 |Dataset 005, RMTexture | | | |
 |001 |001..255 |*.tif |Composite Material Index |Each texel is an index into the Composite Material Table (dataset 006). CS2 is the layer number. Corresponds to a 2D grid of composite material indices draped (orthographically) over the terrain skin derived from the Primary Terrain Elevation Dataset.
-|002 |001..254 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. CS2 is the layer number. Corresponds to a 2D grid draped (orthographically) over the terrain skin derived from the Primary Terrain Elevation Dataset. This Dataset component follows the center grid conventions.
+|002 |001..255 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. CS2 is the layer number. Corresponds to a 2D grid draped (orthographically) over the terrain skin derived from the Primary Terrain Elevation Dataset. This Dataset component follows the center grid conventions.
+|003 |001..255 |*.tif |Composite Material Index |Each texel is an index into the Composite Material Table (dataset 006). CS2 is the layer number. Corresponds to a 2D grid of composite material indices draped (orthographically) at the water bottom derived from the Subordinate Bathymetry Dataset.
+|004 |001..255 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. CS2 is the layer number. Corresponds to a 2D grid draped (orthographically) at the water bottom derived from the Subordinate Bathymetry Dataset. This Dataset component follows the center grid conventions.
 |Dataset 006, RMDescriptor | | | |
-|001 |001 |*.xml |Composite Material Table |The Composite Material Table is referenced by the Composite Material Index component and contains the definitions of the composite materials of a Tile-LOD.
+|001 |001 |*.xml |Composite Material Table |The Terrain Composite Material Table is referenced by the Composite Material Index component for Terrain and contains the definitions of the composite materials of a Tile-LOD.
+|001 |002 |*.xml |Composite Material Table |The Bathymetry Composite Material Table is referenced by the Composite Material Index component for Bathymetry and contains the definitions of the composite materials of a Tile-LOD.
 |===
 
 [[CompositeMaterialIndexComponent]]
