@@ -70,7 +70,22 @@ The current enumeration of supported data types in a CDB data store are:
     <xs:enumeration value="SGI"/>
   </xs:restriction>
 </xs:simpleType>
+```
 
+The following is a snippet of XML code from the datasets.xml file. This snippet provides the information on how the GSFeature dataset type is encoded (GeoPackage) and the extension (.gpkg) used for any GeoPackage used as a container for GSFeature data.
+
+```
+<Dataset code="100" name="GSFeature">
+    <Encoding>
+      <Format name="GeoPackage" version="1.1"/>
+      <File extension="gpkg"/>
+    </Encoding>
+    <Component code="1" name="Man-Made Features"/>
+    <Component code="2" name="Natural Features"/>
+    <Component code="3" name="Trees"/>
+    <Component code="4" name="Airport Features"/>
+    <Component code="5" name="Environmental Lights"/>
+  </Dataset>
 ```
 
 [[LightsDefinitionsMetadatafile]]
