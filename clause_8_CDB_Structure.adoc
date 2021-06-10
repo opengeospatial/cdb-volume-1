@@ -40,6 +40,38 @@ There is one directory containing metadata files that are global to the overall 
 
 This file contains metadata, including spatial metadata, pertinent to an entire CDB data store. Please refer to Clause 5.1.x for detailed information for guidance on metadata elements should be specified for the global metadata elements. The specification of global metadata is mandatory in CDB version 1.1 or later. Please note that this standard does not specify which metadata standard shall be used. Instead, for flexibility and in recognition that different communities use different metadata standards or profiles of metadata standards, the CDB standard provides a list of allowed metadata standards and profiles of those standards. The reader should reference Clause 5.1.6 and Clause 5.1.12 for how the metadata standard used in a CDB data store is specified as part of the “Version” metadata.
 
+[[DatsetsDefinitionFile]]
+===== Datasets Metadata File 
+
+This metadata file provides an index to discover the file format used to encode a given dataset in a CDB Data Store
+
+CDB 1.1 and earlier supported a single (hard-coded) file format per dataset. To allow other file formats to be used in a CDB Data Store, the need to explicitly specify the file format that is used to physically store the components of a given dataset is required.
+
+In CDB version 1.2 and laterm, the metadata and controlled vocabulary definitions (See Clauses 1.4.3, 3.1, and 5.1 in CDB Volume 1: Core) has a file called `Datasets.xml` listing all possible datasets that can be used in a CDB data store. This file has been expanded to indicate the encoding format used to encode the dataset and its components. The related .xsd and .xsl schema files are also updated.
+
+The schema files modified include:
+
+* Datasets.xsd - Now includes an enumeration list "GeoPackage", "JPEG 2000", "GeoTIFF", "TIFF", "Shapefile", "OpenFlight", "XML", "SGI". This list can be expanded in the future as required.
+* Datasets.xml - Each dataset code now has a "crosswalk" between the code and the corresponding encoding format. A complete enumeration of the CDB dataset codes can be found in Annex Q, Volume 2 Model and Physical Structure: Informative Annexes. As an example, for dataset code 1: Elevation, the Dataset.xml file indicates that GeoTIFF shall be the encoding format.
+* Datasets.xsl - Updated to reflect the changes to Datasets.xsd and Datasets.xml for encoding formats.
+
+The current enumeration of supported data types in a CDB data store are:
+
+```
+<xs:simpleType>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="GeoPackage"/>
+    <xs:enumeration value="JPEG 2000"/>
+    <xs:enumeration value="GeoTIFF"/>
+    <xs:enumeration value="TIFF"/>
+    <xs:enumeration value="Shapefile"/>
+    <xs:enumeration value="OpenFlight"/>
+    <xs:enumeration value="XML"/>
+    <xs:enumeration value="SGI"/>
+  </xs:restriction>
+</xs:simpleType>
+
+```
 
 [[LightsDefinitionsMetadatafile]]
 ===== “Lights” Definitions Metadata file
