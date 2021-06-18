@@ -60,17 +60,17 @@ The CDB standard makes use of several XML namespaces to isolate the definitions 
 
 The target namespace of all CDB schemas follow this pattern:
 
-"http://schemas.opengis.net/cdb/[Name]/[Version]"
+"http://opengis.net/cdb/[Name]/[Version]"
 
 Where the Name is identical to the filename portion of the file containing the schema and Version is the version number of the schema.
 
 To illustrate how a target namespace is composed, here is the target namespace of the schema found in Version.xsd (item 12 in the list above):
 
-"http://schemas.opengis.net/cdb/Version/1.2"
+"http://opengis.net/cdb/Version/1.3"
 
 IMPORTANT NOTE: For brevity, the literal “CDB” in a schema path should be expanded to:
 
-http://schemas.opengis.net/cdb/[Name]/1.2
+http://opengis.net/cdb/[Name]/1.3
 
 in any implementation.
 
