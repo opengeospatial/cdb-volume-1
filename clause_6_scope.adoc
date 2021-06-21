@@ -45,7 +45,7 @@ Each of these documents has been annotated to reflect the conventions establishe
 
 In addition, a new CDB topic volume for CDB Version 1.2 defines the Best Practices for conversion of CDB Shapefiles into CDB GeoPackages.
 
-The CDB light type naming hierarchy can be found at`cdb/1.2/Lights.xml` and the CDB model component hierarchy can be found in Annex J Volume 2 respectively while `cdb/1.2/Materials.xml` provides the material list for the CDB standard.
+The CDB light type naming hierarchy can be found at `cdb/1.2/Lights.xml` and the CDB model component hierarchy can be found in Annex J Volume 2 respectively while `cdb/1.2/Materials.xml` provides the material list for the CDB standard.
 
 Other Annexes in Volume 2 further describe additional aspects of the CDB standard:
 
