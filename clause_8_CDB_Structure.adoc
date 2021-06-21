@@ -91,7 +91,7 @@ The following is a snippet of XML code from the datasets.xml file. This snippet 
 [[LightsDefinitionsMetadatafile]]
 ===== “Lights” Definitions Metadata file
 
-This file contains the metadata that defines the light points name hierarchy for the CDB. Refer to Section 2.3, Light Naming, for a description of the light type hierarchy. A listing of the CDB light type hierarchy can be found in the http://schemas.opengis.net/cdb/1.2/Lights.xsd[lights schema definition] (Formerly Volume 2 Annex J).  Refer to link:#LightDataHierarchyControlledVocabulary[Section 5.1.3] Light Name Hierarchy Metadata for a description of the light point name hierarchy file. For reference:
+This file contains the metadata that defines the light points name hierarchy for the CDB. Refer to Section 2.3, Light Naming, for a description of the light type hierarchy. A listing of the CDB light type hierarchy can be found in the http://opengis.net/cdb/1.2/Lights.xsd[lights schema definition] (Formerly Volume 2 Annex J).  Refer to link:#LightDataHierarchyControlledVocabulary[Section 5.1.3] Light Name Hierarchy Metadata for a description of the light point name hierarchy file. For reference:
 
 - http://opengis.net/cdb/1.1/Lights.xsd[Lights.xsd file for version 1.1]
 - http://opengis.net/cdb/1.1/Lights.xsd[Lights.xsd file for version 1.2]
