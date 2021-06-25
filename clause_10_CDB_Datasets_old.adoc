@@ -1,4 +1,4 @@
-:figure-caption: Figure 5-
+:figure-caption: Figure 10-
 :figure-num: 0
 
 [[CDBDatasets]]
@@ -2039,7 +2039,7 @@ Version 1.2 of the CDB standard specifies the use of either OGC GeoPackages or E
 
 * Refer to Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage for detailed information and requirements for using Shapefiles for storing vector data in a CDB data store.
 * Refer to Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage. for detailed information and requirements for using GeoPackages for storing vector data in a CDB data store.
-* Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages. 
+* Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages.
 
 Geometry data features types used in a CDB data store are as follows <Note - remove??>:
 
