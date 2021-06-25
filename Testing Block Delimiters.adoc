@@ -5,14 +5,14 @@ Example 1
 Some stuff
 Some more stuff
 ```
-Example {counter:example:1} some words describing the example
+.{counter:example:} some words describing the example
 ====
 Some stuff
 
 Some more stuff
 ====
 
-Example {counter:example} more words describing the second example
+.{counter:example:} more words describing the second example
 ====
 Second example stuff
 
