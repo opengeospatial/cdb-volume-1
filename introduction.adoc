@@ -381,7 +381,7 @@ include::requirements/REQ009.adoc[]
 include::requirements/REQ010.adoc[]
 
 [[CDBFeatureDataDictionary]]
-== CDB Feature Data Dictionary
+=== CDB Feature Data Dictionary
 
 The CDB Feature Data Dictionary (FDD) is provided with the CDB standard in the form of an XML file. An XML Stylesheet is provided to format and display the dictionary inside a standard Web browser. Furthermore, the XML Schema defining the format of the FDD can also be found in the Schema subdirectory of the CDB Schema Distribution Package.
 
