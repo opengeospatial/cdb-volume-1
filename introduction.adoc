@@ -331,7 +331,7 @@ The CDB standard is transport protocol-independent. The standard does not mandat
 [[SystemHardwareIndependence]]
 ===== System Hardware Independence
 
-This section was moved to section 5.3 Volume 10, Implementation Guidance
+This section and requirements 2 through 4 were moved to section 5.3 Volume 10, Implementation Guidance
 
 [[LiteralCase]]
 ===== Literal Case
