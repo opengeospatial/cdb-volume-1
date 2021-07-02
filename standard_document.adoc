@@ -81,9 +81,6 @@ toc::[]
 
 ////
 Make sure to complete each included document
-////
-include::clause_0_front_material.adoc[]
-
 include::clause_1_introduction.adoc[]
 
 include::clause_2_conformance.adoc[]
@@ -95,6 +92,11 @@ include::clause_4_terms_and_definitions.adoc[]
 include::clause_5_conventions.adoc[]
 
 include::clause_6_scope.adoc[]
+////
+
+include::clause_0_front_material.adoc[]
+
+include::introduction.adoc[]
 
 include::clause_7_CDB_Concepts.adoc[]
 
