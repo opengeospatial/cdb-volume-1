@@ -10,13 +10,13 @@ A data store that conforms to the CDB standard (i.e. a CDB) contains datasets or
 
 include::list_of_volumes.adoc[]
 
-The major enhancements for version 1.2 are the definition of 1.) rules for encoding GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB Shapefiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests. 
+The major enhancements for version 1.2 are the definition of 1.) rules for encoding GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB Shapefiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests.
 
 The GeoPackage encoding is an optional extension and does not need to be implemented to provide a compliant CDB data store to the community. The only caveat is that if the developer of a version of a CDB data store wishes to use GeoPackages, then that version of the data store must use only the CDB GeoPackage encoding. Shapefiles and GeoPackages cannot be mixed in a unique version of a CDB data store.
 
 
 [[Conformance]]
-== Conformance
+=== Conformance
 
 This standard defines an Abstract Test Suite in Annex A.
 
@@ -26,7 +26,7 @@ Conformance with this standard shall be checked using all the relevant tests spe
 
 
 [[References]]
-== References
+=== References
 
 Normative References
 
@@ -34,19 +34,19 @@ Please see the link:annex-bibliography.adoc[Bibliography] in this CDB volume for
 
 
 [[TermsandDefinitions]]
-== Terms and Definitions
+=== Terms and Definitions
 
 This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
 
 Terms and Definitions specific to this standard or defined by existing ISO 19000 series standards are provided in Volume 3: OGC CDB Terms and Definitions <need URL at publication>.
 
 [[Conventions]]
-== Conventions
+=== Conventions
 
 This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
 [[Identifiers]]
-=== Identifiers
+==== Identifiers
 
 The normative provisions in this standard are denoted by the URI namespace
 
@@ -69,7 +69,7 @@ For the sake of brevity, the use of “conf” in a requirement URI denotes:
         http://www.opengis.net/spec/cdb/1.0/core/conf
 
 [[CDBXMLSchemaDefinitions]]
-=== CDB XML Schema Definitions
+==== CDB XML Schema Definitions
 
 NOTE: The content in this clause was originally in CDB Volume 2, Annex J.
 
@@ -93,12 +93,12 @@ The following XML Schemas can be found in the `\CDB\Metadata\Schema` subdirector
 Clause 1.4.3 and 1.4.4 provides more information on these files.
 
 [[TheCDBNamespace]]
-==== The CDB Namespace
+===== The CDB Namespace
 
 The CDB standard makes use of several XML namespaces to isolate the definitions of its schemas. The name of these namespaces is built around a base URL.
 
 [[SchemaConventions]]
-==== Schema Conventions
+===== Schema Conventions
 
 The target namespace of all CDB schemas follow this pattern:
 
@@ -117,12 +117,12 @@ http://opengis.net/cdb/1.2/`Name`
 in any implementation.
 
 [[CDBMetadata,ControlledVocabulary,andMetadataFiles]]
-=== CDB Metadata, Controlled Vocabulary, and Metadata Files
+==== CDB Metadata, Controlled Vocabulary, and Metadata Files
 
 There are a number of CDB XML files that are stored and referenced from the CDB metadata folder. First, some terms are defined
 
 [[Metadata]]
-==== Metadata
+===== Metadata
 
 http://www.merriam-webster.com/dictionary/metadata[Metadata] is data that provides information about other data. In the geospatial community and the rapidly emerging spatial web community, metadata is critical to operations such as discovery and determining whether a resource is “fit for purpose”. Three distinct types of metadata exist: *descriptive metadata*, *structural metadata*, and **administrative metadata** (https://www.niso.org/[National Information Standards Organization (NISO)]).
 
@@ -141,7 +141,7 @@ In computer programming, an enumerated type (also called an enumeration) is a da
 
 [[CDBmetadata,controlledvocabularies,andenumerationssummarytable]]
 
-==== CDB metadata, controlled vocabularies, and enumerations summary table
+===== CDB metadata, controlled vocabularies, and enumerations summary table
 
 The following is a list of these files. While the general term being used is “metadata” in terms of the file system structure, a number of these files are either controlled vocabularies or attribute files. Please read link:#cdb-structure[Clauses 1.4.4, 1.5, and 3.1.1 Metadata Directory] for more detailed information on the files maintained in that folder. The following table identifies the files stored in the metadata folder and whether they are metadata or controlled vocabularies.
 
