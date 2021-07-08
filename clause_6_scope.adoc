@@ -7,7 +7,7 @@ See /CDB/Metadata/Feature_Data_Dictionary.xml for the complete list of the suppo
 
 Please see section link:#FeatureClassification[3.3.8.1] for more detailed information on the use of feature codes and extensions to that codelist in the CDB standard.
 
-=== Introduction
+=== Introduction to the CDB Specification
 
 [[Purpose]]
 ==== Purpose

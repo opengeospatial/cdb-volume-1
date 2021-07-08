@@ -1,6 +1,6 @@
 
 [[Introduction]]
-== Introduction
+== Document Introduction
 
 The CDB standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The standard makes use of existing commercial and simulation data formats Future versions of the CDB standard will continue to define the use of other industry approved standards and formats.
 
@@ -175,7 +175,7 @@ Each of these files is described in detail later in this document.
 In CDB version 1.1 and later, additional metadata requirements and elements are specified. These are traditional metadata including geospatial metadata. Specifically, the reader should reference clauses 3.1.1, 3.1.2, and 5.1 (special focus on 5.1.6). Also, make special note of the guidance in clause “3.2.3.2 How to handle the metadata directory.”
 
 [[CDBDirectoryFileNamingandStructure]]
-=== CDB Directory File Naming and Structure
+==== CDB Directory File Naming and Structure
 
 The CDB directory and folder structure is defined by a combination of folder hierarchy and metadata files delivered with the CDB Standard Distribution Package.
 
