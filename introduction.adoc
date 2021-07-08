@@ -206,7 +206,16 @@ The following file extensions are used:
 
 Previous version sf the above table had a column labeled: _CDB Client-device Behavior for Prior Versions"_. All rows had the label _Ignores data_. The column has been removed but the value is still valid.
 
-=== Introduction
+[[CDBFeatureDataDictionary]]
+=== CDB Feature Data Dictionary
+
+The CDB Feature Data Dictionary (FDD) is provided with the CDB standard in the form of an XML file. An XML Stylesheet is provided to format and display the dictionary inside a standard Web browser. Furthermore, the XML Schema defining the format of the FDD can also be found in the Schema subdirectory of the CDB Schema Distribution Package.
+
+See /CDB/Metadata/Feature_Data_Dictionary.xml for the complete list of the supported codes. Currently, these are a mixture of FACC, SEDRIS, DGIWG, DO-272B, UHRB, and other codes. Future revisions of the CDB standard will provide guidance on using other feature code lists.
+
+Please see section link:#FeatureClassification[3.3.8.1] for more detailed information on the use of feature codes and extensions to that codelist in the CDB standard.
+
+=== Introduction to the CDB Specification
 
 [[Purpose]]
 ==== Purpose
@@ -379,12 +388,3 @@ include::requirements/REQ009.adoc[]
 ==== Geographic Coordinates
 
 include::requirements/REQ010.adoc[]
-
-[[CDBFeatureDataDictionary]]
-=== CDB Feature Data Dictionary
-
-The CDB Feature Data Dictionary (FDD) is provided with the CDB standard in the form of an XML file. An XML Stylesheet is provided to format and display the dictionary inside a standard Web browser. Furthermore, the XML Schema defining the format of the FDD can also be found in the Schema subdirectory of the CDB Schema Distribution Package.
-
-See /CDB/Metadata/Feature_Data_Dictionary.xml for the complete list of the supported codes. Currently, these are a mixture of FACC, SEDRIS, DGIWG, DO-272B, UHRB, and other codes. Future revisions of the CDB standard will provide guidance on using other feature code lists.
-
-Please see section link:#FeatureClassification[3.3.8.1] for more detailed information on the use of feature codes and extensions to that codelist in the CDB standard.
