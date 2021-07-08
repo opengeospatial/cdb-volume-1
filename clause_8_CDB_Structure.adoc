@@ -464,7 +464,7 @@ Where A is the first character of the feature code, Category is the category nam
 
 
 [[AnoteonFeatureCodes]]
-===== A note on Feature Codes
+====== A note on Feature Codes
 
 Feature codes provide a means for encoding real-world entities or objects and concepts, including those which are not necessarily visible or have a tangible physical form (e.g., airspace). Featuture codes allow a standardized way to describe the world in terms of features, attributes and attribute values. Feature codes do not specify the delineation or geometry of features. Attributes are the properties or characteristics associated with features. A standardized dictionary is required to support encoding in order to maximize interoperability and to understand the production, exchange, distribution, and exploitation of digital geographic data.
 

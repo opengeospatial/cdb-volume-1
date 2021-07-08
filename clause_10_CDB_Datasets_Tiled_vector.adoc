@@ -2299,7 +2299,7 @@ Dataset 311, GSModelInteriorCMT
 
 
 [[GSModelArchiveSizeLimit]]
-==== GSModel Archive Size Limit
+===== GSModel Archive Size Limit
 
 The size of any GSModel archive is limited to 32 MB to permit reading, processing and writing the file at runtime.
 

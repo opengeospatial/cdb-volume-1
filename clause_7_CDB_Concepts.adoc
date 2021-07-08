@@ -200,12 +200,12 @@ image::images/image7.png[image,width=591,height=478]
 *_{figure-caption}{counter:figure-num}. Earth Slice Example (Five Levels of Detail)_*
 
 [[TileLODHierarchyRules]]
-==== Tile-LOD Hierarchy Rules
+===== Tile-LOD Hierarchy Rules
 
 include::requirements/REQ015.adoc[]
 
 [[TileLODReplacementRules]]
-==== Tile-LOD Replacement Rules
+===== Tile-LOD Replacement Rules
 
 In general, finer tiles replace coarser tiles. The requirements are:
 
