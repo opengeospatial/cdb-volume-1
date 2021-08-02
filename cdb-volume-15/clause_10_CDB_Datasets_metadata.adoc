@@ -1,0 +1,596 @@
+:figure-caption: Figure 10-
+:figure-num: 0
+
+[[CDBDatasets]]
+== CDB Datasets
+
+This chapter provides the description of the content of datasets in a CDB data store, except OpenFlight and RCS models that are covered in separate documents (Volumes 5 and 6 of this standard). Chapter 5 also provides the Component Selectors necessary to complete the file names associated with all CDB datasets
+
+[[ControlledVocabulariesandMetadataDatasetsusedbyCDB]]
+=== Controlled Vocabularies and Metadata Datasets used by CDB
+
+This clause provides details on the requirements and guidance for the various global and local metadata files that can be used in a CDB data store. As mentioned above, controlled vocabularies are agreements on how to define the concepts and relationships (also referred to as “terms”) used to describe and represent an area of concern. Controlled vocabularis define the structure, naming hierarchies, default values, allowable values, and status of terms used globally in a CDB data store.
+
+Currently, the majority of CDB controlled vocabularies, enumerations, and metadata files are formatted using eXtended Markup Language (XML) files and their XML schemas can be found in the \CDB\Metadata\Schema\ folder delivered with the CDB standard. The exceptions are the global and local geospatial metadata files which may be XML schema, JSON, JSON schema, or some other internationally recognized coding.
+
+[[GlobalMetadata]]
+==== Global Metadata
+
+Global metadata is data, such as version, that is global to an entire CDB data store instance. Individual file sets, tiles, and other resources in a CDB data store may also have metadata. These resources are termed “local” metadata (see 5.1.2 below). The majority of the files stored in the \CDB\Metadata\Schema\ folder are global metadata and controlled vocabularies and as such are relevant to the entire CDB data store. The file name for global metadata (including geospatial and temporal elements) is “Global_Metadata” and is stored in the metadata schema folder.
+
+==== Local Metadata
+
+Local refers to metadata specific to a given dataset within a CDB data store. This level of metadata is the minimum core for geospatial datasets regardless of the specific geospatial subject (i.e., vector, raster (imagery) and sensor). Metadata at this level is designed to assist in discovery, retrieval and semantic description of the data. Dataset level metadata is typically stored at the model or tile level. For example, while all tiles for a given layer may have the same metadata, discovery and indexing is facilitated by having the metadata stored at the tile level. For example, if there is a buildings layer in the CDB data store, each tile for this layer could include metadata specific to the buildings layer. Any tiled data as specified in CDB Clause 3.6.1 could have metadata provided at the tile level. All the current rules for defining the tile structure and naming conventions are the same as for previous version of the CDB standard/specification. The only change is that if there is metadata at the dataset tile level than an additional file of metadata shall be stored in appropriate directory/folder. Please see the examples in Section 3.0.
+
+For example, Clause 3.6.3.1.1 provides an example of the name of an elevation file in a given tile. The example from that section is:
+
+The primary elevation data corresponding to this coordinate will be found in the file named:
+
+```
+    S06E045_D001_S001_T001_L02_U3_R0.tif”
+```
+
+If there are metadata for the elevation dataset, then perhaps this example is expanded to:
+
+“The primary elevation data and geospatial metadata corresponding to this coordinate will be found in the file named:
+
+```
+    S06E045_D001_S001_T001_L02_U3_R0.tif
+
+    S06E045_D001_S001_T001_L02_U3_R0_mtd.xml
+```
+
+The associated metadata file is specified by using a “_mtd” addition to the base file name and then followed by the <.ext> file type designation which in the above case is “.xml”. Another example for a ShapeFile might be:
+
+If ShapeFiles are being used, this approach results in the following file names:
+
+```
+    N62W162_D100_S001_T001_L07_U38_R102.shp
+
+    N62W162_D100_S001_T001_L07_U38_R102.shx
+
+    N62W162_D100_S001_T001_L07_U38_R102.dbf
+
+    N62W162_D100_S001_T001_L07_U38_R102.dbt
+
+    N62W162_D100_S001_T001_L07_U38_R102_mtd.xml
+```
+
+include::requirements/requirements_class012.adoc[]
+
+The table below lists all metadata files that are allowed and defined by the CDB standard. Note that a dataset code and component selectors are assigned to each metadata file even though these codes do not participate in the construction of their file names. Dataset codes are assigned to metadata datasets for consistency with all other CDB Datasets.
+
+[#table_ComponentSelectorsforCDBControlledVocabulariesandMetadataDatasets*,reftext='{table-caption} {counter:table-num}']
+*Table 5-1: Component Selectors for CDB Controlled Vocabularies and Metadata Datasets*
+[cols=",,",]
+|===============================================================
+|*CS1* |*CS2* |*File Name*
+|Dataset 700, Metadata | |
+|001 |- |Lights.xml
+|002 |- |Model_Components.xml
+|003 |- |Materials.xml
+|004 |- |Defaults.xml
+|005 |- |Specification_Version.xml (Deprecated)
+|006 |- |Version.xml
+|007 |- |CDB_Attributes.xml
+|008 |- |Geomatics_Attributes.xml (optional and vendor supplied)
+|009 |- |Vendor_Attributes.xml (optional and vendor supplied)
+|010 |- |Configuration.xml
+|011 | |Global_Metadata
+|Dataset 701, Client-Specific Metadata | |
+|- |- |Lights_xxx.xml
+|===============================================================
+
+For client-specific metadata, the standard only reserves one dataset code but no component selector. The mechanism is kept for backward compatibility with previous versions of the CDB standard. However, its use is strongly discouraged because it defeats the very intent of the CDB, which is to promote correlation between client devices by having a single source of data.
+
+[[LightDataHierarchyControlledVocabulary]]
+==== Light Data Hierarchy Controlled Vocabulary
+
+The light name hierarchy for a CDB compliant data store is described in detail within the table found in Volume 2 OGC CDB Core Model and Physical Structure Annexes - Annex J - of this standard. For run-time access of this data, clients need to retrieve such information. To this end, the Lights Hierarchy Definition metadata is stored in an XML file in the metadata CDB directory as described in Section 3.1.1, Metadata Directories. The name of the file is “*Lights.xml.*”
+
+The XML file provides a description of the entire naming hierarchy, including the hierarchical relationship of the levels with respect to each other and the position of each light type within this hierarchy. In addition to the name of each light type, the “*Lights.xml*” file contains a unique code with each light type.
+
+In the case of light features (Airport Features - Lights and Environmental Lights tiled datasets), the light type code provides a storage-efficient means to attribute each light, since only the code is used to attribute light features. Data processing tools are required to map the light type name string provided by the modeler into a light type code.
+
+NOTE: In the case of light features that are part of OpenFlight models, the light type name string provided by the modeler is used “as-is” within the model to attribute each of the light features.
+
+Client-devices are required to internally build and initialize a table of light properties and characteristics for their respective use. This table could be indexed at runtime using the light type code. The table can be built at CDB data store load time and should match the device’s inherent capabilities and level-of-fidelity; this flexibility can be achieved because the “*Lights.xml*” file communicates the lights naming hierarchy to the client-devices.
+
+The client-devices are required by the CDB standard to ensure that properties and characteristics of lower-tier names in the light point hierarchy inherit the properties and characteristics of the higher-tier names in the light name hierarchy. This feature allows modelers to add new light names to the light name hierarchy and be assured that the new light names will immediately inherit all of the properties and characteristics of the parent names even if the simulator vendor does not update any of the client-devices.
+
+The light type code can range from *0 to 9,999*. The light type codes are used by the Airport Features - Lights and Environmental Lights tiled datasets of the CDB. It is up to the CDB creation tools to ensure that the light type code does in fact correspond to the light type name assigned by the modeler.
+
+Below is a small sample of the CDB light name hierarchy in XML format.
+
+```xml
+<Lights>
+  <Light type="Light" code="0">
+    <Description>
+      All Purpose Generic light
+    </Description>
+    <Light type="Platform" code="1">
+      <Description>
+        Platform light
+      </Description>
+      <Light type="Air" code="2">
+        <Description>
+          Aircraft light
+        </Description>
+        <Light type="Aircraft_Helos" code="3">
+          <Description>
+            Light for Aircraft and Helicopters
+          </Description>
+          <Light type="Anti-collision" code="4">
+            <Description>
+              Anti collision light – normally red flashing
+            </Description>
+            <Light type="Bottom_Light" code="5">
+              <Description>
+                Anti-collision found on bottom of the fuselage
+              </Description>
+              <Light type="NVG_Bottom_Light" code="6">
+                <Description>
+                  Anti-collision found on bottom of fuselage in NVG mode
+                </Description>
+              </Light>
+            </Light>
+          </Light>
+      ... other light definitions of type Platform-Air-Aircraft_Helos
+        </Light>
+    ... other light definitions of type Platform-Air
+      </Light>
+  ... other light definitions of type Platform
+    </Light>
+  </Light>
+</Lights>
+
+```
+
+Note that light code numbering need not be consecutive. Light codes have a one-to-one association with light types; consequently, the light codes are unique among all light types.
+
+[[ClientSpecificLightsDefinitionMetadata]]
+===== Client Specific Lights Definition Metadata
+
+Client-devices use the light type code as an index to lookup the client-specific properties and characteristics of each light type. This approach is client-device independent because the (device-specific) client’s rendering parameters are local to its implementation. As a result, modelers need not bother setting or even understanding the many parameters specific to each light type and to each client-device type.
+
+The CDB standard also offers a complementary approach to modifying the appearance of lights. This approach provides basic control over light intensity, color, lobe width and aspect, frequency and duty cycle to client devices. The approach also permits a modeler to add new light types to the CDB light hierarchy.
+
+_Example:_
+
+As an example, we will create a client-specific lights definition metadata file for a hypothetical client-device. The information would be held in the Lights_xxx.xml metadata file corresponding to the client-device for which lights are to be tuned. There can be one file per client-device and the file for each client-device is optional. The file is not required if the modeler does not wish to adjust the basic characteristics of one or more light types for the associated client-device, or he/she doesn’t require new light types to be added to the CDB light hierarchy. The metadata file would be loaded by the client-device whose name matches the “xxx” character string of the Lights_xxx.xml file. As for the Lights, the file would be located at the top of the CDB storage hierarchy in directory \CDB\Metadata\ as described in Section 3.1.1, Metadata Directories.
+
+Nominally, the Lights_xxx.xml consists of light type entries corresponding to the light types the modeler wishes to add/modify. Each entry in the Lights_xxx.xml file consists of one or optional fields.
+
+Consider the case of a simulator equipped with a client-device rendering simulated imagery for model “A” NVG goggles and a second client-device rendering simulated imagery for model “B” NVG goggles. After viewing the CDB on the simulator, the modeler wishes to diminish the intensity of the \Lights\Cultural\Line-based\Highway lights for model “A” NVG goggles to 90% of the intensity calculated by the simulator. To do this, the modeler creates a Lights_NVG_A.xml, creates a light type entry for \Lights\Cultural\Line-based\Highway and provides an intensity field with value of 0.9. Note that all other characteristics of the light type in this client-device are unaffected since the modeler did not provide additional fields. Furthermore, the characteristics of the light type in all other client-devices remain unaffected since the modeler did not provide other Lights_xxx.xml files.
+
+The XML schema for the fields of the Lights_xxx.xml is delivered with the standard in \CDB\Schema\Lights_Tuning.xsd. The fields are as follows.
+
+* _Intensity:_ When a light type is non-native to the CDB standard, which means that it is without a corresponding entry in Annex J Intensity represents the light point intensity for the client-device (range normalized from 0.0 to 1.0). When the light entry is native to the CDB standard, Intensity is used as a floating-point intensity modifier that multiplies the intensity calculated by the client-device. In both cases, Intensity defaults to a value of 1.0.
+* _Color:_ When a light type is non-native to the CDB standard, Color is a floating-point RGB triplet that represents the color of the light type for the client-device (range normalized from 0.0 to 1.0). When the light entry is native to the CDB specification, Color is a floating-point RGB triplet that multiplies the RGB value calculated by the client-device. Color applies only to visual system client-device types. If absent in a light type entry, Color defaults to a value of white (1.0, 1.0, 1.0).
+* _Directionality:_ A string that categorizes the light type as “Omnidirectional”, “Directional” or “Bidirectional”. If absent in a light type entry, Directionality defaults to the value “Omnidirectional.”
+* _Lobe_Width:_ Represents the identifying section for the light’s lobe width characteristics, which can have a horizontal and vertical attribute.
+** _Horizontal:_ When a light type is non-native to the CDB specification, the Horizontal field represents the light point’s half-intensity horizontal lobe width for the client-device (range from 0.0 to 360.0). When the light entry is native to the CDB standard, Horizontal field is used as a floating-point modifier that multiplies the horizontal lobe width calculated by the client-device. Applies only to Directional and Bidirectional light types. If absent in a light type entry, Horizontal field defaults to a value of 1.0.
+** _Vertical:_ When a light type is non-native to the CDB standard, Vertical field represents the light point’s half-intensity vertical lobe width for the client-device (range from 0.0 to 360.0). When the light entry is native to the CDB standard, Vertical field is used as a floating-point modifier that multiplies the vertical lobe width calculated by the client-device. This applies only to Directional and Bidirectional light types. If absent in a light type entry, Vertical field defaults to a value of 1.0.
+* _Residual_Intensity:_ When a light type is non-native to the CDB standard, Residual_Intensity represents the residual intensity of the light. Residual intensity is the intensity of the light (range normalized from 0.0 to 1.0) outside of the lobe defined by Lobe_Width:Horizontal and Lobe_Width:Vertical fields. When the light entry is native to the CDB specification, Residual_Intensity is used as a floating-point modifier that multiplies the residual intensity calculated by the client-device. This applies only to Directional and Bidirectional light types. If absent in a light type entry, Residual_Intensity defaults to a value of 1.0.
+* _Frequency:_ A floating-point value greater than or equal to 0.0 that sets the blink or rotating frequency of the light in Hertz (cycles per second). A value of 0.0 disables all blinking and rotating properties. If absent in a light type entry, Frequency defaults to a value of 0.0.
+* _Duty_Cycle:_ A floating-point value ranging from 0.0 to 1.0 that sets the duty cycle of the light. Duty cycle is defined as the percentage of time the light is turned on over a complete cycle. A value of 0.0 permanently turns the light off. A value of 1.0 turns it on. The value is ignored if Frequency = 0.0. If absent in a light type entry, Duty_Cycle defaults to a value of 0.5.
+
+Here is a sample of a _Lights_xxx.xml_ file where a modeler has exercised explicit control over the properties of an anti-collision light and a landing light.
+
+```xml
+<Lights_Tuning>
+  <Light type="\Light\Platform\Air\Aircraft_Helos\Anti-collision">
+    <Description>Tuned for MH-47 CMS</Description>
+    <Intensity>0.75</Intensity>
+    <Color>1.0 0.0 0.0</Color>
+    <Directionality>Omnidirectional</Directionality>
+    <Frequency>0.5</Frequency>
+    <Duty_Cycle>0.2</Duty_Cycle>
+  </Light>
+  <Light type="\Light\Platform\Air\Aircraft_Helos\Landing">
+    <Description>...</Description>
+    <Intensity>1.0</Intensity>
+    <Color>1.0 0.9 0.9</Color>
+    <Directionality>Directional</Directionality>
+    <Residual_Intensity>0.05</Residual_Intensity>
+    <Lobe_Width>
+      <Horizontal>30.0</Horizontal>
+      <Vertical>25.0</Vertical>
+    </Lobe_Width>
+  </Light>
+</Lights_Tuning>
+```
+
+[[ModelComponentsDefinitionFile]]
+==== Model Components Definition File
+
+The CDB standard provides the means to unambiguously tag any portions of a 3D model (moving model or cultural feature with a modeled representation) with a descriptive name. Component model names are stored in the model components definition file, “\CDB\Metadata\Model_Components.xml” as described in Section 3.1.1, Metadata Directories. The XML file containing the CDB Model Components is part of the CDB standard distribution package. The XML schema is provided in \CDB\Metadata\Schema\Model_Components.xsd delivered with the standard.
+
+The following shows a content sample of the model component definition file:
+
+```xml
+<Model_Components>
+  <Component name="Artillery_Gun">
+    <Description>
+      1) Refers to any engine used for the discharge of large
+         projectiles and served by a crew of men.
+      2) Cannon-like weapons operated by more than one person.
+    </Description>
+  </Component>
+  <Component name="Windshield">
+    <Description>
+      A transparent screen located in front of the occupants of a
+      vehicle to protect them from the wind and weather.
+    </Description>
+  </Component>
+ ... other components
+</Model_Components>
+```
+
+[[BaseMaterialsTable]]
+==== Base Materials Table
+
+CDB Base Materials are listed in \CDB\Metadata\Materials.xml and stored in an XML file named \CDB\Metadata\Materials.xml, as mentioned in section 3.1.1. The format of the file is defined by an XML schema that is delivered with the CDB standard in the file named \CDB\Metadata\Schema\Base_Material_Table.xsd.
+
+Here is an excerpt of the CDB Base Material Table showing the definitions of the first and the last base materials of the standard.
+
+```xml
+<Base_Material_Table>
+  <Base_Material>
+    <Name>BM_ASH</Name>
+    <Description>
+      The solid remains of a fire
+    </Description>
+  </Base_Material>
+...
+  <Base_Material>
+    <Name>BM_WOOD-DECIDUOUS</Name>
+    <Description>
+      Trunks, branches of live deciduous trees
+    </Description>
+  </Base_Material>
+</Base_Material_Table>
+```
+
+[[DefaultValuesDefinitionTable]]
+==== Default Values Definition Table
+
+Default values for all datasets can be stored in the default values metadata file “\CDB\Metadata\Defaults.xml” as described in Section 3.1.1, Metadata Directories. Default values defined throughout the CDB standard are listed in Annex S OGC CDB Core: Model and Physical Structure: Informative Annexes. The XML schema is provided in \CDB\Metadata\Schema\Defaults.xsd delivered with the standard. There are two types of default values: read and write default values (‘R’ or ‘W’.) Generally, read default values are values to be used when optional information is not available. Write default values are default values to be used by CDB creation tools to fill mandatory content when information is either missing or not available. The default value name is a unique name identifying a default value for a given dataset. Valid default value names are listed in Annex S. Each default value has a type. Valid default value data types are “float”, “integer” and “string.”
+
+The following is an excerpt of a “Defaults.xml” file containing the default terrain elevation value.
+
+```xml
+<Default_Value_Table>
+  <Default_Value>
+    <Dataset>001_Elevation</Dataset>
+    <Name>Default_Elevation-1</Name>
+    <Description>Default Primary Terrain Elevation</Description>
+    <Type>float</Type>
+    <Value>0.0</Value>
+    <R_W_Type>R</R_W_Type>
+  </Default_Value>
+  <!-- Insert other Default Values in accordance to the table above -->
+</Default_Value_Table>
+```
+
+[[VersionMetadata]]
+==== Version Metadata
+
+include::requirements/REQ074.adoc[]
+
+The complete XML schema can be found in \CDB\Metadata\Schema\Version.xsd delivered with the standard. The entries are now described.
+
+The optional _<PreviousIncrementalRootDirectory>_ element is used to refer to another CDB Version. This is the mechanism to use to chain together two CDB versions.
+
+The optional _<Comment>_ element is a free-format text to describe the purpose and/or the nature of the data of this CDB Version.
+
+The mandatory _<Specification>_ element indicates the version of the CDB standard that is used to produce the content of this CDB Version. Note that version numbers of the standard are limited to the existing versions: 1.0, 1.1, 3.2, 3.1, and 3.0. Other values are not permitted.
+
+The optional _<Metadata standard="metadata-standard-name">_ element specifies the metadata standard used in a CDB data store. The metadata standard specifically refers to traditional resource metadata, such as “title”, “author” and “geographic bounding box”. “metadata-standard-name” is the acronym of the standard being used. Currently allowed metadata standards and their acronym names are provided below:
+
+[cols=",",options="header",]
+|===
+|*Acronym* |*Full Title*
+|_ISO-http://ogc.standardstracker.org/show_bug.cgi?id=439#c19115[19115]:http://ogc.standardstracker.org/show_bug.cgi?id=439#c2014[2014]_ |Geographic information -- Metadata -- Part 1: Fundamentals footnote:[https://www.iso.org/standard/53798.html]
+|_ISO-http://ogc.standardstracker.org/show_bug.cgi?id=439#c19115[19115]:http://ogc.standardstracker.org/show_bug.cgi?id=439#c2003[2003]_ |Geographic information -- Metadata footnote:[https://www.iso.org/standard/26020.html]
+|_DDMS-5.0_ |DoD Discovery Metadata Specification footnote:[https://www.ise.gov/sites/default/files/Track1-PeteAttas-WIS3-DDMSOverview.pdf]
+|_DDMS-http://ogc.standardstracker.org/show_bug.cgi?id=439#c5[5].http://ogc.standardstracker.org/show_bug.cgi?id=439#c0[0]-M&S-Profile_ |
+|_DCAT_ |Data Catalog Vocabulary footnote:[https://www.w3.org/TR/vocab-dcat/]
+|_DCAT-AP_ |DCAT Application Profile footnote:[https://data.gov.ie/openstandard/dcat-ap]
+|GeoDCAT-AP footnote:[https://joinup.ec.europa.eu/node/139283] |https://joinup.ec.europa.eu/release/geodcat-ap-v10#download-links[GeoDCAT-AP] is an extension of https://joinup.ec.europa.eu/release/dcat-ap-v11[DCAT-AP] for describing geospatial datasets, dataset series, and services.
+|NGCMP footnote:[National System for Geospatial Intelligence (NSG) Geospatial Core Metadata Profile _www.gwg.nga.mil/documents/NSG_Geo_Core_MD_Profile.doc_] |National System for Geospatial Intelligence (NSG) Geospatial Core Metadata Profile
+|_NoMetadata_ |
+|===
+
+NOTE: In a CDB data store, there are two categories of metadata: Global and Local. _Global_ metadata is comprised of metadata that describes an entire CDB data store. _Local_ refers to metadata specific to a given dataset within a CDB data store. Dataset level metadata is stored at the tile or model definition level. While all tiles for a given layer may have the same dataset level metadata, discovery and indexing is facilitated by having the metadata stored at the tile level. For example, if there is a buildings layer in the CDB datastore, each tiles for this layer could include metadata specific to the buildings layer.
+
+Special NOTE: If there is a difference between the Global metadata and the dataset metadata, the dataset metadata shall be considered as authoritative.
+
+The optional _<Extension>_ element indicates that this CDB Version is in fact a CDB Extension.
+
+A version control file that does not have a CDB Extension indicates that the CDB Version holds content that strictly follows the CDB standard.
+
+A CDB Extension corresponds to user defined information, which is not described or supported by the CDB standard, stored within the CDB Version. As an example, such additional information could be client or vendor-specific information used to increase system performance. Any user defined information _shall_ not replace or be used in place of existing CDB information. A CDB Extension should only contain vendor or device specific information. CDB content adhering to the CDB standard should only be found in the CDB versions. Client devices not concerned with a CDB extension should ignore all non-CDB compliant content, without loss of information.
+
+
+[[CDBAttributesMetadata]]
+==== CDB Attributes Metadata
+
+The CDB attributes are listed and described in Section 10.7.1.3 of the OGC CDB 1.2 - Volume 1: link:#CDBAttributes[CDB Attributes]. The metadata for these attributes is stored in \CDB\Metadata\CDB_Attributes.xml and the schema can be found in \CDB\Metadata\Schema\Vector_Attributes.xsd. In essence, the file is the transposition of the text found in Section 10.7.1.3 of the OGC CDB 1.2 - Volume 1: link:#CDBAttributes[CDB Attributes] into a format more appropriate for a computer program.
+
+Its contents are as follows:
+
+```xml
+<Vector_Attributes>
+  <Attributes>
+    <Attribute>
+      <Name>...</Name>
+      <Definition>...</Definition>
+      <Description>...</Description>
+      <UsageNote>...</UsageNote>
+      <Compatibility>...</Compatibility>
+      <Level>
+        <Instance>...</Instance>
+        <Class>...</Class>
+        <Extended>...</Extended>
+      </Level>
+      <Value>
+        <Type>...</Type>
+        <Enumeration>...</Enumeration>
+        <Format>...</Format>
+        <Precision>...</Precision>
+        <Range interval="Right-Open">
+          <Min>...</Min>
+          <Max>...</Max>
+        </Range>
+        <Length>...</Length>
+        <Default>...</Default>
+        <Unit>...</Unit>
+      </Value>
+    </Attribute>
+  </Attributes>
+</Version>
+```
+
+The file is composed of three majors sections, the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by individual attribute.
+
+
+[[DefinitionoftheAttributeElement]]
+===== Definition of the <Attribute> Element
+
+include::requirements/REQ075.adoc[]
+
+The code is the integer value assigned to each attribute listed in Section 10.7.1.3 of the OGC CDB 1.2 - Volume 1: link:#CDBAttributes[CDB Attributes]. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively.  The <UsageNote> element contains possible usage note. The <Compatibility> shows the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
+
+include::requirements/REQ076.adoc[]
+
+include::requirements/REQ077.adoc[]
+
+In the case of an _Enum_ datatype, the Enumeration element provides a complete listing of all possible values (codes) of the attribute and a respective description. In the case of a numeric datatype, the <Format> indicates if it is a _Floating-Point_ or an _Integer_ value. For a floating-point type, the <Precision> provides the number of digits before and after the decimal point. For numeric types, the <Range> provides the minimum and maximum values; the <Length> element provides the length of value for _Text_ datatype; the <Default> element provides the default value of the attribute, and the <Unit> is a reference to a unit code.
+
+[[ExampleofCDB_Attributesxml]]
+===== Example of CDB_Attributes.xml
+
+The following example illustrates how to define an attribute of _Numeric_ datatype:
+
+```xml
+<Vector_Attributes>
+ <Attributes>
+  <Attribute code="3" symbol="AO1">
+    <Name>Angle of Orientation with greater than 1 degree resolution</Name>
+    <Definition>
+      The angular distance measured from true north (0 deg) clockwise to the major Y-axis of the feature.
+    </Definition>
+    <Description>
+      If the feature is square, the axis 0 through 89.999 deg shall be recorded.
+      If the feature is circular, 360.000 deg shall be recorded.
+    </Description>
+    <UsageNote>
+      Recommended.
+      Applicable to point, Light point, Moving Model Location, and Figure point features.
+      DEFAULT: CDB readers should default to a value of 0.000 if AO1 is missing.
+      When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon.
+      The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
+      Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
+    </UsageNote>
+    <Compatibility>OGC CDB 1.0, DIGEST v2.1</Compatibility>
+    <Level>
+      <Instance>Preferred</Instance>
+      <Class>Not Supported</Class>
+      <Extended>Supported</Extended>
+    </Level>
+    <Value>
+      <Type>Numeric</Type>
+      <Format>Floating-Point</Format>
+      <Precision>3.3</Precision>
+      <Range interval="Right-Open">
+        <Min>0</Min>
+        <Max>360</Max>
+      </Range>
+      <Default>0.000</Default>
+      <Unit>2</Unit>
+    </Value>
+  </Attribute>
+ </Attributes>
+</Vector_Attributes>
+```
+
+The following example illustrates how to define an attribute with _Enum_ dattatype:
+
+```xml
+  <Attribute code="41" symbol="MODT">
+    <Name>Model Type</Name>
+    <Definition>
+      A flag indicating whether the modeled feature is geo-typical, geo-specific or a Moving Model.
+    </Definition>
+    <Description>
+      MODT indicates whether a feature is represented using a geotypical, geospecific or moving model.
+      Together, the MODT, FeatureCode, FSC, and MODL model name or the MMDC produce a unique path to a
+      directory within the CDB hierarchy and a unique filename within that directory identifies a unique model into the CDB.
+    </Description>
+    <UsageNote>
+      Needed for features that are modeled using a CDB specified format.
+      "T" for geo-typical, "S" for geo-specific, "M" for Moving Model.
+      DEFAULT: "S" when not present.
+    </UsageNote>
+    <Compatibility>OGC CDB 1.0</Compatibility>
+    <Level>
+      <Instance>Preferred</Instance>
+      <Class>Supported</Class>
+      <Extended>Supported</Extended>
+    </Level>
+    <Value>
+      <Type>Enum</Type>
+      <Enumeration>
+        <CodeList>
+          <Code>T</Code>
+          <Description>geotypical</Description>
+        </CodeList>
+        <CodeList>
+          <Code>S</Code>
+          <Description>geospecific</Description>
+        </CodeList>
+      </Enumeration>
+      <Length>1</Length>
+      <Default>"S"</Default>
+    </Value>
+  </Attribute>
+```
+
+The schema explains the use of the interval attribute of the <Range> element.
+
+include::requirements/REQ080.adoc[]
+
+[[GeomaticsAndVendorAttributesMetadata]]
+==== Geomatics and Vendor Attributes Metadata
+
+Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see Section 10.7.1.2.7.3 of the OGC CDB 1.2 - Volume 1: link:#ExtendedlevelSchema[Extended-level Schema]). The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the Vector_Attributes.xsd schema.
+
+[[GeospatialMetadataGuidance]]
+==== Geospatial Metadata – Guidance
+
+These are optional metadata files. This file is not included with the CDB distribution schema package.
+
+Most metadata standards specify dozens of possible elements, such as author, that can be specified in a metadata encoding. This is why in many communities there are profiles that are applicable to the information sharing and discovery requirements of that community. For example, there are numerous profiles of ISO 19115:2013 Geographic information – Metadata. These include the INSPIRE, Defense NSG Geospatial Core metadata, and FGDC profiles. As such, the CDB standard does not specify mandatory and/or optional metadata elements. Instead, a suggested set of minimal metadata elements are provided. The two lists – one for global and one for local – are based on an evaluation of mandatory elements in eight widely implemented metadata standards that are used in the geospatial and simulation communities. The one requirement is that all local metadata in a CDB data store provides the same mandatory elements as defined in the metadata standard specified in the Version metadata.
+
+These following two sub-clauses recommend the metadata elements for global and local metadata. The use of F.1 refers to Table F.1 in ISO 19115-1:2014. Each element is identified by a general string followed by two element names The first name is the DCAT name followed by the ISO 19115:2014 element name.
+
+
+[[SuggestedGlobalGeospatialMetadataElements]]
+===== Suggested Global Geospatial Metadata Elements
+
+Resource Identifier (dct:identifier, MD_Metadata.metadataIdentifier): A unique identifier for the entire CDB data store instance. This identifier is persistent and is considered global metadata. For example, this could be a Digital Object Identifier (DOI). The *DOI* system provides a framework for persistent identification of electronic resources management of intellectual content, managing metadata, linking customers with content suppliers, facilitating electronic commerce and enable automated management of media.
+
+Resource Title (http://purl.org/dc/terms/title[dct:title], CI_Citation.title): Title by which the resource is known (Table F.1). For global metadata for a CDB data store, this would be a name given to the entire data store. For example, this could be “Yemen demonstration CDB data store.”
+
+Resource point of contact (dcat:contactPoint, (MD_Metadata.contact/CI_ResponsibleParty): Name of the person, position, or organization responsible for the resource. (Table F.1). This is a text string. An example of a resource point of contact could be “Flight Safety” or “CAE.”
+
+Resource reference date (dct:issued, CI_Citation.date): A date which is used to help identify the resource. (Table F.1). For global metadata, this is the date that the CDB data store was created or issued.
+
+Resource Language (dct:language, PT_Locale): The language and character set used in the resource (if a language is used). (Table F.1) NOTE: We should recommend use of ISO 639-2 . For example, for English, the code would be “ENG.”
+
+Geographic Location (dct:spatial, EX_GeographicBoundingBox): Geographic description or coordinates (latitude/longitude) which describes the location of the resource. Note: I think for the CDB standard that the definition should be narrowed to the bounding box of the contents of the data store. (Table F.1). We should also follow guidance from OGC OWS Common. See also 19115 annex B.3.1.2 Geographic extent information.
+
+Resource abstract (dct:description footnote:[DCAT does not have a concept “abstract”. Use description instead.], MD_DataIdentification.abstract): A brief description of the content of the resource (Table F.1).
+
+Metadata date stamp (dct:issued, MD_Metadata.dateInfo): Reference date(s) for the metadata, especially creation. (Table F.1). Note: Date gives values for year, month and day. Character encoding of a date is a string which shall follow the format for date specified by ISO 8601. This class is documented in full in ISO/TS 19103.
+
+Temporal Extent information for the dataset (dct:temporal, EX_TemporalExtent): The temporal extent of the resource. For a CDB data store, this would be the temporal range of when the data store was initially created to the point where the most recent content was created.
+
+Constraints on resource access and use (dct:accessRights, MD_SecurityConstraints): Security restrictions on the access and use of the resource. These would be constraints for an entire CDB data store. This could be information necessary to generate an EDH compliant encoding.
+
+Constraints on resource access and use (dct:license, MD_LegalConstraints): A sub-class of all access constraints. These legal constraints include copyright, patent, patent pending, trademark, license, Intellectual Property Rights, restricted, and other. At the global level, these are legal constraints applicable to an entire CDB data store.
+
+===== Suggested Local Geospatial Metadata Elements
+
+Local Geospatial metadata can be stored in a number of different folder locations based on the data resource (data set) for which the metadata is associated. For instance, metadata for vector data will be stored at the LoD/tile level. Metadata for a moving model would be stored in the same folder using the same path name as the actual model definition. See Clause 5.1.2 above for examples.
++
+While the same metadata elements are recommended for both global and local geospatial metadata, there are some differences that should be considered.
++
+_Metadata Reference Information_ (dct:identifier, MD_Metadata.metadataIdentifier) This is a unique identifier for the dataset. In CDB, this could be the pathname to the dataset or the tile. These pathnames are unique. Using such identifiers would facilitate development of a RESTful API for discovery and access of CDB resources.
++
+_Resource Title_ (http://purl.org/dc/terms/title[dct:title], CI_Citation.title): Title by which the data set is known (Table F.1). For local metadata, this could be a name given to a layer or model in the data store. In a CDB data store, at the dataset or tile level this would be a name given to the resource, such as “county soils.”
++
+_Resource point of contact_: Name of the person, position, or organization responsible for the resource. This is a text string. An example of a resource point of contact for the content for a given layer and tile could be “Ordnance Survey.”
++
+_Resource reference date_ (dct:issued , CI_Citation.date): A date which is used to help identify the resource. For local metadata, this could the date that the tile content was created in the CDB data store or the date a moving model was added to the data store
++
+_Spatial Resolution Information_ (No equivalent, MD_Identification.spatialResolution): The nominal scale and/or spatial resolution of the resource. This description can include LoD information. Note: This is not precision! Precision is more about the number of decimal places and not the accuracy of the resource.
+
+===== Where are local metadata files stored?
+
+Typically, local metadata files will be stored with the physical data. For GTModel geotypical data sets, the metadata file would be stored along with the model XML file. If the model is stored in multiple LoDs, the metadata would also be stored at each LoD. For tiled vector data, the local metadata would be stored with the vector files at the tile level. Please see the examples in Section 3.0 for more detail.
+
+[[ConfigurationMetadata]]
+==== Configuration Metadata
+
+The Configuration metadata file provides the means of defining CDB Configurations. The syntax of the file is given below. The complete XML schema is provided in /CDB/Metadata/Schema/Configuration.xsd delivered with the standard.
+
+```xml
+<Configuration>
+  <Comment> An optional comment describing this CDB Configuration. </Comment>
+  <Version>
+    <Folder path="..."/>
+    <Comment> An optional comment describing this CDB Version. </Comment>
+    <Specification version="..."authority="..."/>
+    <Metadata standard=". . ."/>
+    <Extension name="..." version="..."/>
+  </Version>
+  <!-- Other versions as needed -->
+</Configuration>
+```
+
+A <Configuration> is a list of one or more <Version> elements. A <Version> has a mandatory <Folder> element to provide the path to the CDB Version. The other four (4) elements have the same definitions as that of section 5.1.8, Version Metadata.
+
+
+[[ANoteaboutFolderPath]]
+===== A Note about Folder Path
+
+The use of a relative path to a CDB Version ensures a greater form of interoperability between operating systems and file systems. However, the CDB standard does not prevent the use of absolute paths footnote:[On Windows, the path can even be specified using the UNC notation.]. A relative path is expressed relative to the root of the CDB Version containing the Configuration file.
+
+
+[[Example]]
+===== Example
+
+Assume that we want to assemble two CDB Versions into a single CDB Configuration. The first CDB Version is located in /CDB/myVersion and has the following Version.xml file.
+
+```xml
+<Version>
+  <PreviousIncrementalRootDirectory name="/CDB/theVersion"/>
+  <Comment> This is the comment describing myVersion. </Comment>
+  <Specification version="1.1"authority="OGC"/>
+   <Metadata standard="ISO-19115:2014"/>
+</Version>
+```
+
+The second CDB Version complies with version 3.0 of the original CDB Specification (prior to submission to the OGC) and is located in /CDB/theVersion and has the following Version.xml file.
+
+```xml
+<Version>
+  <Comment> This is the comment describing theVersion. </Comment>
+</Version>
+```
+
+The resulting CDB Configuration is stored in /CDB/myConfiguration and its Configuration.xml file could look like this:
+
+```xml
+<Configuration>
+  <Comment>
+    This is an example of a CDB Configuration referring to two CDB Versions.
+  </Comment>
+  <Version>
+    <Folder path="../myVersion"/>
+    <Comment> This is the comment describing myVersion. </Comment>
+    <Specification version="1.1"authority="OGC"/>
+    <Metadata standard="ISO-19115:2014"/>
+  </Version>
+  <Version>
+    <Folder path="../theVersion"/>
+    <Comment> This is the comment describing theVersion. Notice that the version number is for a pre-OGC version of the CDB specification. </Comment>
+    <Specification version="3.0"/>
+    <Metadata standard="NoMetadata"/5-37>
+  </Version>
+</Configuration>
+```
+
+Notice the use of relative paths to refer to the CDB Versions. Also notice the addition of the <Specification> element to the second <Version> to explicitly state that it contains data complying with version 3.0 footnote:[Was Version 3.0 in the OGC Best Practice.] of the specification.

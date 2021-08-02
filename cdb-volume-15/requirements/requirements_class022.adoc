@@ -1,0 +1,11 @@
+[cols="1,4",width="90%"]
+|=============================================================================================================================================================================================================================================
+2+|Requirements Class - Vector datasets Mandatory Attribute Usage (113-116) {set:cellbgcolor:#CACCCE}
+2+|/req/core/tiled-vector-datasets-mandatory-attributes {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Various XML schema
+|Requirement 113 {set:cellbgcolor:#CACCCE} |/req/core/mandatory-attribute-compliance {set:cellbgcolor:#FFFFFF}
+|Requirement 114 {set:cellbgcolor:#CACCCE} |/req/core/optional-attribute-compliance {set:cellbgcolor:#FFFFFF}
+|Requirement 115 {set:cellbgcolor:#CACCCE} |/req/core/dataset-instance-schema {set:cellbgcolor:#FFFFFF}
+|Requirement 116 {set:cellbgcolor:#CACCCE} |/req/core/attributes-metadata {set:cellbgcolor:#FFFFFF}
+|=============================================================================================================================================================================================================================================

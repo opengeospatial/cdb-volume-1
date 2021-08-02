@@ -1,0 +1,18 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 92* {set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]terrain-online-terrain-constraints +
+
+
+For the following constraints, the Feature’s AHGT attribute _SHALL_ be set to TRUE.
+
+_Elevation Constraint Point (CA099-000):_ In the case of PointZ and MultiPointZ features, the coordinates are used by the client-device to control the terrain elevation at the specified (lat-long). Please note features are ignored that are implemented as Point, PointM, MultiPoint, or MultiPointM types.
+
+
+_Elevation Constraint Line (CA099-001):_ In the case of PolyLineZ features, the coordinates are used by the client-device to control the terrain elevation at the specified (lat-long). Please note that features are ignored that are implemented as a PolyLine and PolyLineM.
+
+_Elevation Constraint Area (CA099-002):_ In the case of PolygonZ and `MultiPatch (see note)` features, the coordinates are used by the client-device to control the terrain elevation at the specified (lat-long). Please note features are ignored that are implemented as a Polygon and PolygonM.
+
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
+{set:cellbgcolor:#FFFFFF}
+|===

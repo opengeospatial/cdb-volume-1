@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 59*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/mmodeldescriptor-name[http://www.opengis.net/spec/cdb/core/1.0/mmodeldescriptor-name]{set:cellbgcolor:#FFFFFF} +
+
+The MModelDescriptor dataset _SHALL_ be assigned dataset code 603 and the names of all MModelDescriptor files adhere to the following naming convention: D603_S001_T001_MMDC.xml{set:cellbgcolor:#FFFFFF}
+|===

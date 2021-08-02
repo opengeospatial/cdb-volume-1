@@ -1,0 +1,9 @@
+[cols=",,",]
+|======================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/tiled-hydro-network*
+|*Requirements* 2+|/req/core/tiled-hydro-network 
+|*Dependency* 2+|Various XML schema
+|*Test 127* |*Test purpose* |Verify that the hydrography networks use HydrographyNetwork Dataset to specify its components.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|======================================================================================================================================================================================================================================

@@ -1,0 +1,23 @@
+Get editor to confirm requirement class hyperlinks, especially requirement class 008
+
+There are two Requirement 50's in the spec.
+
+Several hyperlinks to DGGS in the requirements
+
+Several hyperlinks to WaterML in the requirement classes
+
+
+Table 3-8 and Table 3-9 caption same
+
+Table 3-23 and Table 3-24  caption same
+
+Table 5-3 missing.
+
+Local Metadata subsection in Section 5.1 had not been made a header so was not showing on original Table Of Contents. Have made it a header in the Asciidoc version, with the implication being that Section 5.1.x become 5.1.(x+1) where x >1
+
+
+
+//*A.1.14b Geotypical Models LOD Resolution*
+*Geotypical Models LOD Resolution*
+
+NOTE: Labelled as A.1.14b Geotypical Models LOD Resolution in the MS Word version of the standard

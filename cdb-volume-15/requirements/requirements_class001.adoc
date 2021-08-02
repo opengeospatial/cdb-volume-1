@@ -1,0 +1,10 @@
+[cols="1,4",width="90%"]
+|=================================================================================
+2+|*Requirements Class - Platform requirements.* {set:cellbgcolor:#CACCCE}
+2+|/req/core/platform {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Operating System
+|Dependency |Hardware
+|Dependency |File Management system
+|Requirement 5 {set:cellbgcolor:#CACCCE} |/req/core/literal-case {set:cellbgcolor:#FFFFFF}
+|=================================================================================

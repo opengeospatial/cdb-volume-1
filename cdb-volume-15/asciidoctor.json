@@ -1,0 +1,12 @@
+{
+        "1": {
+                "OGC_doc_number": "15-113r6",
+                "urn":"hhttp://www.opengis.net/doc/IS/CDB-core/2.0",
+                "title":"Volume 1: OGC CDB Core Standard: Model and Physical Data Store Structure",
+                "path":"standard_document.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri"
+                ]
+        }
+}

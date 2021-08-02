@@ -1,0 +1,21 @@
+[cols=",,",
+|================================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/tiled-raster-datasets-general*
+|*Requirements* 2+|/req/core/tiled-raster-datasets-general
+|*Dependency* 2+|Various XML schema
+|*Test 85* |/conf/core/tiled-raster-datasets-general/tile-grid-structure |
+| |*Requirement* |/req/core/tile-grid-structure
+| |*Test purpose* |Verify that the tile grid structure has correct alignment,
+| |*Test method* |Visually
+| |*Test type* |Conformance
+|*Test 86* |/conf/core/tiled-raster-datasets-general/tile-implicit-corner-computation |
+| |*Requirement* |/req/core/tile-implicit-corner-computation
+| |*Test purpose* |Verify the latitude and longitude of an implicit corner data element in a grid are correct based on the equation 5-1.
+| |*Test method* |Visually check if the value of CS2 is T002 for the schema files,
+| |*Test type* |Conformance
+|*Test 87* |/conf/core/tiled-raster-datasets-general/tile-implicit-center-computation |
+| |*Requirement* |/req/core/tile-implicit-center-computation
+| |*Test purpose* |Verify that the position of an implicit center data element in a tile are acceptable referring to the equation 5.2.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|================================================================================================================================================================================================================================================

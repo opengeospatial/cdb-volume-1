@@ -1,0 +1,11 @@
+[width="90%",cols="2,0,6"]
+|===
+|*Requirement 89*{set:cellbgcolor:#CACCCE}
+|{set:cellbgcolor:#FFFFFF}
+a|http://www.opengis.net/spec/cdb/core/terrain-tiff-elevation[http://www.opengis.net/spec/cdb/1.0/core/terrain-tiff-elevation]
+
+The _Elevation_ component _SHALL_ be represented as a floating-point or signed integer value. Integer values for tiles at LOD larger than 0 _SHALL_ be scaled according to the following formula:
+
+image::images/image54.png[image,width=257,height=42]
+{set:cellbgcolor:#FFFFFF}
+|===

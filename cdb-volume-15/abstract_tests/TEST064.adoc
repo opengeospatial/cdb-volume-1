@@ -1,0 +1,26 @@
+[cols=",,",]
+|===========================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/tiled-data*
+|*Requirements* 2+|/req/core/tiled-data
+|*Dependency* 2+|Various XML schema
+|*Test 64* |/conf/core/tiled-data/vector-dataset-limit |
+| |*Requirement* |/req/core/vector-dataset-limit
+| |*Test purpose* |For positive LODs, each Tile-LOD of the vector datasets SHALL have no more than 16,384 points to describe the features, whether the file contains point, lineal, or polygon features.  For negative LODs, this limit SHALL be recursively divided by 4 until it reaches the value 1
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 65* |/conf/core/tiled-data/latitude-directory-name |
+| |*Requirement* |/req/core/latitude-directory-name
+| |*Test purpose* |Verify that the Latitude Directory naming is based on a specific policy.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 66* |/conf/core/tiled-data/longitude-directory-name |
+| |*Requirement* |/req/core/longitude-directory-name
+| |*Test purpose* |Verify that the Longitude Directory naming is based on a specific policy.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 67* |/conf/core/tiled-data/uref-directory-name |
+| |*Requirement* |/req/core/uref-directory-name
+| |*Test purpose* |All files stored in the UREF subdirectory of section 3.6.2.5 have the following naming convention: LatLon_Dnnn_Snnn_Tnnn_LOD_Un_Rn.ext
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|===========================================================================================================================================================================================================================================

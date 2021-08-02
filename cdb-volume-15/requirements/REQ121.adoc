@@ -1,0 +1,13 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 121*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/elevation-constraint-ahgt[http://www.opengis.net/spec/cdb/1.0/core/elevation-constraint-ahgt] {set:cellbgcolor:#FFFFFF} +
+
+The Feature’s AHGT attribute _SHALL_ be set to TRUE. Vector data features implemented as Point, PointM, MultiPoint, and MultiPointM are ignored.
+
+_Elevation Constraint Line (CA099-001):_ In the case of PolyLineZ features, the lines _SHALL_ be used by the client-device to control the terrain elevation. The Feature’s AHGT attribute _SHALL_ be set to TRUE. Vector features implemented as PolyLine and PolyLineM are ignored.
+
+_Elevation Constraint Area (CA099-002):_ In the case of PolygonZ and `MultiPatch (see note)` features, the areas _SHALL_ be used by the client-device to control the terrain elevation. The Feature’s AHGT attribute _SHALL_ be set to TRUE. Vector features implemented as Polygon and PolygonM are ignored.
+
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
+|===

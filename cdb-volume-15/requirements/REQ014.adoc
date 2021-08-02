@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 14*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/lod-area-coverage{set:cellbgcolor:#FFFFFF} +
+
+A tile from LOD –10 to LOD 0 _SHALL_ occupy the area of exactly one CDB Geocell. This is true for all CDB Geocells from all CDB Zones. Starting with LOD 1 and up, this area _SHALL_ recursively be subdivided into smaller tiles, every level corresponding to a finer representation of the previous level allowing for multiple levels of detail.{set:cellbgcolor:#FFFFFF}
+|===

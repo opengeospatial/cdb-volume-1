@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 13*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/tile-sizes{set:cellbgcolor:#FFFFFF} +
+
+Tile sizes _SHALL_ be 1024 × 1024 (e.g., 1024 _XUnit~LOD~_ by 1024 _YUnit~LOD~_)..{set:cellbgcolor:#FFFFFF}
+|===

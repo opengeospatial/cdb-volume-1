@@ -1,0 +1,21 @@
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class Light Name Hierarchy (18-21)* {set:cellbgcolor:#CACCCE}
+2+|/req/core/light-name-hierarchy {set:cellbgcolor:#FFFFFF}
+|Target type |Data instance
+|Dependency |XML
+|Dependency |Light Name
+|Dependency |XML Schema – Part 2
+|Requirement 18 {set:cellbgcolor:#CACCCE} |req/core/light-name-hierarchy/type name +
+
+The modeler or the simulator vendor SHALL create a new light type name with its corresponding light code. {set:cellbgcolor:#FFFFFF}
+|Requirement 19 {set:cellbgcolor:#CACCCE} |req/core/light-name-hierarchy/type-name-definition +
+
+The modeler or the simulator vendor SHALL provide a definition for the light type name. {set:cellbgcolor:#FFFFFF}
+|Requirement 20 {set:cellbgcolor:#CACCCE} |req/core/light-name-hierarchy/insert +
+
+The modeler or the simulator vendor SHALL insert the new light type into the light name hierarch {set:cellbgcolor:#FFFFFF}
+|Requirement 21 {set:cellbgcolor:#CACCCE} |req/core/light-name-hierarchy/edit +
+
+The modeler or the simulator vendor SHALL edit the Lights.xml metadata file to reflect the change to the Light Name Hierarchy {set:cellbgcolor:#FFFFFF}
+|===

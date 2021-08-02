@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 80*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/version[http://www.opengis.net/spec/cdb/1.0/core]/ao1{set:cellbgcolor:#FFFFFF} +
+
+The angular distance measured from true north (0 deg) clockwise to the major (Y) axis of the feature. If the feature is square, the axis 0 through 89.999 deg _SHALL_ be recorded. If the feature is circular, 360.000 deg _SHALL_ be recorded.
+|===

@@ -1,0 +1,9 @@
+[cols=",,",]
+|============================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/geospecific-storage*
+|*Requirements* 2+|/req/core/geospecific-storage 
+|*Dependency* 2+|Feature Code (FC)
+|*Test 40* |*Test purpose* |Verify if geospecific models are stored in the \CDB\Tiles\ with a unique file name.
+| |*Test method* |Visually check if geospecific models are stored in the \CDB\Tiles\ with a unique file name derived from the model’s unique position, level-of-detail, and its feature code.
+| |*Test type* |Conformance
+|============================================================================================================================================================================================

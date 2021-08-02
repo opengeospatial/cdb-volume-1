@@ -1,0 +1,10 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 123*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/hyspograph-shapefile[http://www.opengis.net/spec/cdb/1.0/core/hyspograph-vector-types]{set:cellbgcolor:#FFFFFF} +
+
+The allowed feature types _SHALL_ be of type PointZ, MultiPointZ, PolyLineZ, PolygonZ, or `MultiPatch (see note)`.
+
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
+{set:cellbgcolor:#FFFFFF}
+|===

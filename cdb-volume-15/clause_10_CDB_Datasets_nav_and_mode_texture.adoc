@@ -1,0 +1,466 @@
+:figure-caption: Figure 10-
+:figure-num: 0
+
+
+[[NavigationLibraryDatasets]]
+=== Navigation Library Datasets
+
+The NavData dataset represents the navigation portion of a CDB. NavData supports several simulation subsystems such as the Instrument Landing System (ILS), Inertial Navigation/Global Positioning System, and Microwave Landing System Communications. The dataset also provides descriptions of airspaces, airways, heliports, helipads, gates, runways, approaches, and terminals. The dataset also provides information regarding climb procedures out of airports.
+
+`*Important note for version 1.2: In the OGC CDB Vector Data in GeoPackage Interoperability Experiment, OGC members tested the ability to convert selected CDB Vector Datasets from Shapefiles to GeoPackages. For the experiment, the Vector Data of interest included geo-specific (dataset 100) and geo-typical features (dataset 101) as well as road (dataset 201), railroad (dataset 202), powerline (dataset 203), and hydrography (dataset 204) networks. Other Shapefile-encoded CDB datasets such as the Navigation Data (datasets 400 and 401) and RCS Models (datasets 302, 512, and 606) were not tested during the experiment. Therefore version 1.2 of the CDB standard does not provide guidance on the use of GeoPackage to encode Navigation Data and RCS Models. As such they remain Shapefile specific. Future work may propose new encodings for CDB Navigation Data or RCS Models.`
+
+include::requirements/requirements_class013.adoc[]
+
+The NavData dataset is broken down into a collection of 46 (forty-six) components related to the Flight Navigation. Together, these 46 components combine all of the information currently provided by the following two organizations:
+
+* Navigation System DataBase (produced by Jeppesen) around the ARINC Standard 424-16
+* Product Standard for the Digital Aeronautical Flight Information File (DAFIF) produced by the National Geospatial Intelligence Agency (NGA)
+
+The Component Selector 2 (CS2) is set to 001 for basic navigation records. These files are located in the tiled Navigation dataset directories. CS2 is set to 002 for schema files and a value between 101 and 126 for key datasets. Schema and key datasets are located in the global Navigation directory. Component selector 1 (CS1) and the file type are as defined in Table 5-2: Tiled Navigation Dataset. This table provides a list of all CDB Navigation components with their designated names and description.
+
+[#table_ComponentSelectorsforNavigationDataset,reftext='{table-caption} {counter:table-num}']
+*Table 5-2: Component Selectors for Navigation Dataset*
+[cols=",,,,",]
+|===============================================================================================
+|*CS1* |*CS2* |*File Extension* |*Component Name* |*Component Description*
+|Dataset 400, NavData | | | |
+|001-046 |002 |As appropriate |Schema |Lists the data attributes for the given component
+| |101-126 |As appropriate |Key Dataset |Sorted lists used to perform queries within the NavData
+|===============================================================================================
+
+- T002: Schema file +
+- T101: Storage number search key +
+- T102: Ident search Key +
+- T103: ICAO search Key +
+- T104: Frequency search Key +
+- T106: IATA search Key +
+- T107: Type search Key +
+- T108: Additional Ident 1 search Key +
+- T109: Additional ICAO 1 search Key +
+- T110: Channel search Key +
+- T111: Additional Ident 2 search Key +
+- T114: Range search Key +
+- T115: Sequence search Key +
+- T116: Country search Key +
+- T117: Boundary search Key +
+- T118: Code search Key +
+- T120: Additional Ident 3 search Key +
+- T121: Reserved +
+- T122: Additional Type 1 search Key +
+- T123: Additional ICAO 2 search Key +
+- T126: Additional Ident 4 search Key
+
+include::requirements/REQ081.adoc[]
+
+[#table_ListofNavigationComponents,reftext='{table-caption} {counter:table-num}']
+*Table 5-3: List of Navigation Components*
+[cols=",,,",]
+|===
+|*Component Name* |*CS1* |*Shape Type* |*Component Description*
+|Airport |1 |Point |Area or land that is used (or intended for use) for the landing and take-off of aircraft.
+|AirRefueling |2 |Point |A specifically designated airspace where air-to-air refueling operations are normally conducted.
+|AirRefuelingControl |3 |Point |Information regarding the Air Traffic Control Center that controls the airspace within which the refueling track or anchor is located.
+|AirRefuelingFootnote |4 |Point |Supplemental notes defining an Air Refueling component
+|AirRefuelingPoint |5 |Point |Single Point from an Air Refueling structure
+|AirRefuelingSegment |6 |Multipoint |Segment from an Air Refueling structure
+|AirspaceBoundary |7 |Point |Designated airspace within which some or all aircraft may be subject to air traffic control.
+|AirwayRestriction |8 |Point |Altitude and time restrictions for airways, airway segments, or sequences of airway segments
+|Approach |9 |Multipoint |Preplanned instrument flight rule (IFR) for air traffic control approach procedures.
+|ArrestingGear |10 |Point |Safety device consisting of engaging or catching devices, and energy absorption devices for the purpose of arresting both tail hook and/or non-tail hook equipped aircraft
+|COMMS |11 |Point |Voice, radio communications, and facility call sign and frequencies available for same operations between the airport environment and aircraft.
+|ControlAirspace |12 |Multipoint |Sequential listing of vertical and lateral limits, defining airspaces of different classifications, within which air traffic control service is provided
+|EnrouteAirway |13 |Point |A specified route designed for channeling the flow of traffic as necessary for the provision of air traffic services
+|FirUir |14 |Multipoint |Flight Information region – Upper Information Region. Designated airspace within which some or all aircraft may be subject to air traffic control.
+|Gate |15 |Point |Passenger gate at an airport
+|GLS |16 |Point |GNSS Landing System
+|Helipad |17 |Line |Designated area usually with a prepared surface used for take-off and landing of helicopters
+|Heliport |18 |Point |Area or land intended to be used for landing and takeoff of helicopters
+|HoldingPattern |19 |Point |Flight path maintained by an aircraft that is awaiting permission to land
+|ILS |20 |Multipoint |Instrument landing system – Precision instrument approach system normally consisting of electronic components and visual aids
+|Marker |21 |Point |Transmitter that radiates vertically a distinctive pattern for providing position information to aircrafts
+|MilitaryTrainingRoute |22 |Point |Routes used by the Department of Defense and associated Reserve and Air Guard Units for the purpose of conducting low altitude navigation and tactical training in both IFR and VFR weather conditions below 10,000 feet MSL at airspeeds in excess of 250 KTS IAS.
+|MilitaryTrainingRouteAirspace |23 |Point |Special use airspace or military operations area associated with a Military Training Route
+|MilitaryTrainingRouteDescription |24 |Point |Supplemental information regarding a Military Training Route
+|MilitaryTrainingRouteOverlay |25 |Multipoint |The width left and right of centerline based on a set of widths at Point Ident and another set of width at the Next Point Ident in one segment record.
+|MLS |26 |Multipoint |Microwave Landing System – precision instrument approach system normally consisting of electronic components and visual aids
+|MSA |27 |Point |Minimum Safe Altitude - altitude below which it is hazardous to fly owing to presence of high ground or other obstacles
+|Navaid |28 |Multipoint |Electronic device on the surface, which provides point-to-point guidance information or position data to aircraft in flight
+|OffRouteTerrainClrAltitude |29 |Polygon |Off-Route Terrain Clearance Altitude - Clearance altitudes in non-mountainous and in mountainous areas
+|ParachuteJumpArea |30 |Point |An area designated for parachute jumping activities.
+|ParachuteJumpAreaBoundary |31 |Multipoint |Boundary of a Parachute Jump Area
+|PathPoint |32 |Point |No description
+|PreferredRoute |33 |Point |A system of routes designed to minimize route changes during the operational phase of flight and to aid in the efficient management of air traffic.
+|PresetSite |34 |Point |Preset Site
+|RestrictiveAirspace |35 |Multipoint |Airspace of defined dimensions identified by an area on the surface of the earth wherein activities must be confined
+|Runway |36 |Line |Rectangular area on a land airport prepared for the landing and takeoff runs of aircraft along its length
+|SID |37 |Multipoint |Standard Instrument Departure - preplanned instrument flight rule (IFR) for air traffic control departure procedure
+|SpecialUse Airspace |38 |Point |Airspace of defined dimensions wherein activities must be confined because of their nature and/or wherein limitations may be imposed upon aircraft operations that are not a part of those activities.
+|STAR |39 |Multipoint |Standard Terminal Arrival – preplanned instrument flight rule (IFR) air traffic control arrival procedure
+|SupplTerminalData |40 |Point |Supplemental terminal data
+|TerminalProcClimb |41 |Point |Terminal Procedure Climb - Min or ATC Climb rates
+|TerminalProcFeedRoute |42 |Multipoint |Terminal Procedure Feeder Route – A route depicted on Instrument Approach Procedures to designate routes for aircraft to proceed from the en route structure to the Initial Approach Fix
+|TerminalProcMin |43 |Point |Terminal Procedure Minima – Height minima data for Terminal Procedure
+|VFRRoute |44 |Multipoint |Preplanned arrival or departure routes for helicopters or light fixed wing aircraft to specified airports or heliports using/in Visual Flight Rules (VFR
+|VFRRouteSegment |45 |Multipoint |Segment of a VFR Route
+|Waypoint |46 |Point |Predetermined geographical position, used for route or instrument approach definition or progress reporting purposes
+|===
+
+[[SchemaFiles]]
+==== Schema Files
+
+The schema file lists the data attributes for the given NavData component. It contains the following columns:
+
+[#table_ListofNavigationSchemaAttributes,reftext='{table-caption} {counter:table-num}']
+*Table 5-4: List of Navigation Schema Attributes*
+[cols=",,,",]
+|===
+|*Attribute* |*Type* |*Length* |*Definition*
+|ShortName |String |11 |A null-terminated string (ten characters or less). Short-hand name of the attribute used in the tiled vector datasets, (this restriction is for backwards compatibility with the dBASE III+ .dbf format which limits the field names to 10 characters or less)
+|DataType |String |255 |The data type for the attribute
+|KeyId |Int |4 |Index key for the attribute, used when performing a query. Not all attributes have an assigned index key, as only a few attributes can be used to perform a query. For each attribute with an index key, an index key dataset will be created.
+|===
+
+include::requirements/REQ082.adoc[]
+
+Each attribute with an index Key (KeyId) has an index key dataset created. The index key dataset includes the last three characters of the KeyId inside the component selector 2 (ex. KeyId 2101 would be dataset component selector 2 – T101).
+
+[[Example_0]]
+===== Example
+
+Here is the data content of the schema file for the Airport dataset (D400_S001_T002.dbf):
+
+[#table_ExampleofaNavigationSchema,reftext='{table-caption} {counter:table-num}']
+*Table 5-5: Example of a Navigation Schema*
+[cols=",,",]
+|====================================
+|*ShortName* |*DataType* |*KeyId*
+|StoraNumbe |Uint64 |2101
+|AlterNam |String |
+|AsCoStNumb |Uint64 |
+|BeacoAvail |Bool32 |
+|City |String |
+|CivMilTyp |CivilMilitaryType |
+|ClearStatu |ClearanceStatus |
+|Country |CountryEntry |2116
+|DayliTim |Float32 |
+|DayTimFram |String |
+|FlipPage |String |
+|FuelType |String |
+|HydElePres |Bool32 |
+|IataCode |String |
+|IcaoCode |String |2103
+|Ident |String |2102
+|IfrCapabil |Bool32 |
+|IslanGrou |String |
+|Jasu |String |
+|LonRunLeng |Uint32 |
+|LonRunSurf |PavementType |
+|MagTruIndi |MagneticTrueIndication |
+|MagneVaria |Float32 |
+|MgrsPositi |String |
+|Name |String |
+|NavIcaCod |String |
+|NavaiIden |String |
+|Notam |NotamSystem |
+|OilType |String |
+|OperaAgenc |String |
+|OperaHour |OperatingHours |
+|Point1 |GeoCoordinate |
+|Remark |String |
+|ServiRemar |String |
+|SpeedLimit |Uint32 |
+|SpeLimAlti |Sint32 |
+|StateName |StateEntry |
+|SupFluTyp |String |
+|TerraImpac |Bool32 |
+|Timezone |Float32 |
+|TransAltit |Sint32 |
+|TransLeve |Sint32 |
+|====================================
+
+As per this example, four Airport attributes can be used to perform queries:
+
+* StoraNumbe (key index 2101)
+* Ident (key index 2102)
+* IcaoCode (key index 2103)
+* Country (key index 2116)
+
+[[KeyDatasets]]
+==== Key Datasets
+
+The index Key Datasets are sorted lists used to perform queries within the NavData.
+
+include::requirements/REQ083.adoc[]
+
+[#table_ListofNavigationKeyAttributes,reftext='{table-caption} {counter:table-num}']
+*Table 5-6: List of Navigation Key Attributes*
+[cols=",,,",]
+|==================================================================================================
+|*Attribute* |*Type* |*Length* |*Definition*
+|Value |String |255 |Value of the data attribute sorted in increasing order (numbers or characters)
+|Lat ID |Signed Integer |3 |Latitude index of the Geocell which contains the data record
+|Lon ID |Signed Integer |4 |Longitude index of the Geocell which contains the data record
+|Row ID |Integer |4 |Index of the data record in the Geocell starting at 1.
+|==================================================================================================
+
+This information can then be used to rapidly lookup which CDB Tile contain the data in the pageable NAV dataset (401) and use the Object ID to access the data record in this dataset.
+
+The Storage number is a Primary Surrogate key that uniquely identifies each record within each NAV dataset sub components.
+
+[[Example_1]]
+===== Example
+
+include::requirements/REQ084.adoc[]
+
+The following is an example from a Shapefile encoding and is an excerpt from the D400_S001_T102.dbf file (Key Dataset for the Ident attribute):
+
+[#table_ExampleofNavigationKeys,reftext='{table-caption} {counter:table-num}']
+*Table 5-7: Example of Navigation Keys*
+[cols=",,,",]
+|========================================
+|*Value* |*Object ID* |*Lon ID* |*Lat ID*
+|00CA |2 |-117 |35
+|00UT |3 |-113 |37
+|00WI |6 |-90 |44
+|01LS |4 |-92 |30
+|01MT |3 |-115 |48
+|01WI |2 |-91 |44
+|02P |0 |-78 |40
+|03AZ |5 |-111 |31
+|03CO |3 |-105 |40
+|03GA |5 |-84 |31
+|04CA |10 |-118 |34
+|04MS |4 |-91 |32
+|04NV |1 |-116 |35
+|05CL |2 |-123 |38
+|05LS |2 |-93 |31
+|05UT |0 |-111 |37
+|06FA |0 |-81 |26
+|06MN |1 |-93 |47
+|06MO |7 |-95 |39
+|06TE |10 |-96 |30
+|07FA |7 |-81 |25
+|07MT |1 |-107 |48
+|========================================
+
+For example, the Airport with Ident 04CA will be found in the Geocell with southwest corner at N34:00:00/W118:00:00. NOTE: For Shapefile implementations this will be the 10th record in the corresponding Shapefile. NOTE: Similar guidance will be specified for GeoPackages in a later version of the CDB Standard.
+
+Here is an example of the Storage number being used as a reference between Navigation types:
+
+* Type: Approach
+* _
+Attributions:
+_
+** StoraNumbe → Storage number (Approach)
+** AirStoNumb → Airport storage number (referenced)
+
+In this case, we see the Approach navigation type referencing the Airport navigation type by using the Airport Storage number.
+
+
+[[CDBModelTextures]]
+=== CDB Model Textures
+
+The following table provides the Component Selectors associated with all kinds of textures that are usable on geotypical (GT), geospecific (GS), moving (MM), and tiled (T2D) models.
+
+In the context of CDB model textures, the first component selector is known as the “Texture Kind” and the second component selector is simply called the “Texture Index”. Column 1 lists all texture kinds supported by the CDB standard. The second column gives the range of indices allowed for each kind.
+
+[#table_ComponentSelectorsforCDBModelTextures,reftext='{table-caption} {counter:table-num}']
+*Table 5-8: Component Selectors for CDB Model Textures*
+[cols=",,,",]
+|===
+|*CS1 +
+(Kind)* |*CS2 +
+(Index)* |*Component +
+Name* |*Component +
+Description*
+|001 |001 |Year-Round Texture |Base textures for year-round usage on model shells or general base textures for model interiors.
+|002 |001..012 |Monthly Texture |Base textures for monthly usage on the shell of models (enumeration values in Annex O, details in section 6.13.5.2)
+|003 |001..004 |Seasonal Texture |Deprecated – Replaced with kind 009
+|004 |001..999 |Uniform Paint Scheme |Base textures for Moving Models with Uniform Paint Schemes (enumeration values in Annex O, details in section 6.13.5.2)
+|005 |001..999 |Camouflage Paint Scheme |Base textures for Moving Models with Camouflage Paint Schemes (enumeration values in Annex O, details in section 6.13.5.2)
+|006 |001..999 |Airline Paint Scheme |Base textures for Moving Models with Airline Paint Schemes (enumeration values in Annex O, details in section 6.13.5.2)
+|007 |001..999 |Shadow Map |Base textures of Moving Models Shadows to be projected onto terrain and/or culture (details in section 6.13.5.1.2)
+|008 |001..999 |Motion Blur Texture |Base textures for use with rotating parts (details in section 6.9.2.3)
+|009 |001..004 |Quarterly Texture |Base textures for quarterly usage on the shell of models (enumeration values in Annex O, details in section 6.13.5.2)
+|051 |001..999 |Night Map |Subordinate textures to simulate the effect of lights inside 3D model shells (details in section 6.13.5.3)
+|052 |001..999 |Tangent-Space Normal Map |Subordinate textures used to simulate the effect of irregular surfaces (details in section 6.13.5.5)
+|053 |001..999 |Light Map |Subordinate textures to simulate the effect of lights on surrounding surfaces (detail in section 6.13.5.4)
+|054 |001..999 |Contaminant |Subordinate textures to represent the presence of particles on runways, taxiways, and roads in general (enumeration values in Annex O, details in section 6.13.5.7)
+|055 |001..999 |Skid Mark |Subordinate textures to represent the visible mark left by any solid which moves against another one; especially marks of tires on roads and runways (enumeration values in Annex O, details in section 6.13.5.7)
+|056 |001..999 |Detail Texture |Subordinate texture used to add detail to the surface. In most cases, modelers use detail textures to add a finer scaled texture to the base texture (details in section 6.13.5.6)
+|057 |001..999 |Cubic Reflection Map |Subordinate textures to simulate reflective surfaces (details in section 6.13.5.8)
+|058 |001..999 |Gloss Map |Subordinate textures providing the glossiness of a surface on a per-pixel basis (details in section 6.13.5.9)
+|099 |001 |Night Map |Deprecated – Replaced with kind 051
+| |002 |Bump Map |Deprecated – Replaced with kind 052
+| |003 |Light Map |Deprecated – Replaced with kind 053
+|===
+
+footnote:[Annex O can be found in Volume 2 CDB Core Model and Physical Structure Annexes]
+
+Annex O enumerates all textures allocated to kind 002, 003, 004, 005, 006, and 055 (See footnote 32).
+
+[[GTModelLibraryDatasets]]
+=== GTModel Library Datasets
+
+Table 5-9 provides the component selector values associated with all GTModel datasets.
+
+[#table_ComponentSelectorsforGTModelDatasets,reftext='{table-caption} {counter:table-num}']
+*Table 5-9: Component Selectors for GTModel Datasets*
+[cols=",,,,",]
+|===
+|*CS1* |*CS2* |*File +
+Extension* |*Component +
+Name* |*Component +
+Description*
+|Dataset 500, GTModelGeometry | | | |
+|001 |001 |*.flt |Geometry Entry File |Files containing the references to both the shell and interiors of all levels of detail of geotypical models.
+|Dataset 510, GTModelGeometry | | | |
+|001 |001 |*.flt |Geometry Level of Detail |Files containing the geometry of the shell of geotypical models for a given level of detail.
+|Dataset 506, GTModelInteriorGeometry | | | |
+|001 |001..999 |*.flt |Interior Geometry |Files describing the geometry of the interior of geotypical models for a given level of detail. The value of Component Selector 2 is the file number. Multiple files are used when the complexity of the interior justifies using more than one file.
+a|
+Dataset 503, GTModelDescriptor
+
+Dataset 508, GTModelInteriorDescriptor
+
+ | | | |
+|001 |001 |.xml |Descriptor a|
+Provides additional metadata associated with a GTModel. See Volume 6: OGC CDB Rules for Encoding Data using OpenFlight section 6.14, Metadata, for a description of the content. This metadata is in addition to optional additional local metadata as per Clause 5.1.2)
+
+NOTE: A model descriptor includes a Composite Material Table for the exclusive use by its corresponding model geometry datasets above. This CMT is not to be confused with the GTModelCMT and GTModelInteriorCMT datasets below.
+
+a|
+Dataset 511, GTModelTexture
+
+Dataset 507, GTModelInteriorTexture
+
+ | | | |
+|- |- |*.rgb |Texture |Individual base and subordinate textures applied on model geometry, see the complete list in section 5.3, CDB Model Textures.
+a|
+Dataset 504, GTModelMaterial
+
+Dataset 509, GTModelInteriorMaterial
+
+ | | | |
+|001 |001..255 |*.tif |Composite Material Index |Each texel is an index into the associated Composite Material Table (dataset 505 and 513 below). CS2 is the layer number.
+|002 |001..254 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. Component Selector 2 is the layer number. When the texels are of integral types, they are scaled to the range 0.0 to 1.0.
+a|
+Dataset 505, GTModelCMT
+
+Dataset 513, GTModelInteriorCMT
+
+ | | | |
+|001 |001 |*.xml |Composite Material Table |The Composite Material Table is associated with Material Textures; it contains the definition of the composite materials referenced by the model material datasets above. Its format is as specified in section 2.5.2.2, Composite Material Tables (CMT)
+|Dataset 512, GTModelSignature (See notes 1 and 2 below) | | | |
+|001..999 |001..016 a|
+*.shp
+
+*.shx
+
+*.dbf
+
+ |RCS Signature |The Radar Cross Section of a geotypical model is described in Volume 5 of this standard.
+| |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
+|===
+
+Note 1: For GTModelSignature dataset, CS1 refers to the “RCS Frequency” and is used to indicate at which frequency (in MegaHertz) the dataset was generated for. The value of CS1 represents a power of 10 of the frequency and ranges from 1 to 999. The range of frequencies that can be represented is from 10^1^ MHz to 10^999^ MHz.
+
+Note 2: For GTModelSignature dataset, CS2 refers to the “RCS Polarization Type” and is used to indicate how the electromagnetic field is polarized at transmission and reception by typical Radar. The value can range from 1 to 16 for the instanced-level attributes and from 17 to 32 for the class-level attributes.
+
+[cols=",,",]
+|==========================================
+|*Polarization Type (CS2)* |*Description* |
+|*Instance Attribute* |*Class Attribute* |
+|1 |17 |LINEAR Polarization
+|2 |18 |CIRCULAR Polarization
+|3 |19 |ELLIPTICAL Polarization
+|4 |20 |SINGLE HH Polarization
+|5 |21 |SINGLE HV Polarization
+|6 |22 |SINGLE VV Polarization
+|7 |23 |SINGLE VH Polarization
+|8 |24 |DUAL HH-HV Polarization
+|9 |25 |DUAL VV-VH Polarization
+|10 |26 |DUAL HH-VV Polarization
+|11 |27 |ALTERNATING HH-HV Polarization
+|12 |28 |ALTERNATING VV-VH Polarization
+|13 |29 |POLARIMETRIC HH Polarization
+|14 |30 |POLARIMETRIC VV Polarization
+|15 |31 |POLARIMETRIC HV Polarization
+|16 |32 |POLARIMETRIC VH Polarization
+|==========================================
+
+
+[[MModelLibraryDatasets]]
+=== MModel Library Datasets
+
+Table 5-10 provides provide the component selector values associated with all Mmodel datasets.
+
+
+[#table_ComponentSelectorsforMmodelDatasets,reftext='{table-caption} {counter:table-num}']
+*Table 5-10: Component Selectors for Mmodel Datasets*
+[cols=",,,,",]
+|===
+|*CS1* |*CS2* |*File +
+Extension* |*Component +
+Name* |*Component +
+Description*
+|Dataset 600, MmodelGeometry (See note 1 below) | | | |
+|001..999 |001..999 |*.flt |Geometry |Files containing the geometry of Mmodels as described in Chapter 6.
+|Dataset 601, MmodelTexture | | | |
+|- |- |*.rgb |Texture |Individual base and subordinate textures applied on model geometry, see the complete list in section 5.3, CDB Model Textures.
+|Dataset 603, MmodelDescriptor | | | |
+|001 |001 |*.xml |Descriptor a|
+Provides the metadata associated with a Mmodel. See section 6.14, Metadata, for a description of the content.
+
+NOTE: The MmodelDescriptor includes a Composite Material Table for the exclusive use by the MmodelGeometry dataset. This CMT is not to be confused with the MModelCMT dataset below.
+
+|Dataset 604, MmodelMaterial | | | |
+|001 |001..255 |*.tif |Composite Material Index |Each texel is an index into the Composite Material Table (dataset 605). Component selector 2 is the layer number.
+|002 |001..254 |*.tif |Composite Material Mixture |Each texel indicates the proportion (between 0.0 and 1.0) of the composite material found in the corresponding material layer. Component Selector 2 is the layer number. When the texels are of integral types, they are scaled to the range 0.0 to 1.0.
+|Dataset 605, MModelCMT | | | |
+|001 |001 |*.xml |Composite Material Table |This is the composite material table for use with MmodelMaterial dataset. Its content is described in section 2.5.2.2, Composite Material Tables (CMT).
+|Dataset 606, MmodelSignature (See notes 2 and 3 below) | | | |
+|001..999 |001..016 a|
+*.shp
+
+*.shx
+
+*.dbf
+
+ |RCS Signature |The encoding of the Radar Cross Section of a moving model is described in Volume 5 of the CDB standard.
+| |017..032 |*.dbf |RCS Class Attributes |The class-level attributes associated with the RCS Signature file as described in Volume 5 of this standard.
+|===
+
+Note 1: For the MmodelGeometry dataset, the geometry of a moving model can be made of one or more parts, each stored in one or more files depending on how complex a part is.
+
+The value of CS1 represents the part number. A Moving Model has at least one part, the model itself that is also used as a master file for all the other parts when applicable. This is part number 1. Other parts are numbered sequentially. An example of an extra part is a removable external fuel tank.
+
+The value of CS2 is the file number. This number is used when the complexity of a part requires using more than one file. The file number starts with 1. NOTE: A part that references external files does it through OpenFlight Xref nodes.
+
+Note 2: For MmodelSignature dataset, CS1 refers to the “RCS Frequency” and is used to indicate the range of frequencies (in MegaHertz) the dataset was generated for. The range is the set of frequencies from 10^CS1-1^ MHz without exceeding 10^CS1^ MHz.
+
+Note 3: For MmodelSignature datasets, CS2 refers to the “RCS Polarization Type” and is used to indicate how the electromagnetic field is polarized at transmission and reception by typical Radar. The value can range from 1 to 16 for the instance-level attributes of polarizations and from 17 to 32 for the class-level attributes of polarizations.
+
+Note 4: Please remember that the OGC Shapefile to GeoPackage Interoperability Experiment did not test and validate the results for conversion of RCS related Shapefiles into GeoPackages. If an implementation supports RCS vector encodings as Shapefiles, please continue to do so!
+
+[cols=",,",]
+|==========================================
+|*Polarization Type (CS2)* |*Description* |
+|*Instance Attribute* |*Class Attribute* |
+|1 |17 |LINEAR Polarization
+|2 |18 |CIRCULAR Polarization
+|3 |19 |ELLIPTICAL Polarization
+|4 |20 |SINGLE HH Polarization
+|5 |21 |SINGLE HV Polarization
+|6 |22 |SINGLE VV Polarization
+|7 |23 |SINGLE VH Polarization
+|8 |24 |DUAL HH-HV Polarization
+|9 |25 |DUAL VV-VH Polarization
+|10 |26 |DUAL HH-VV Polarization
+|11 |27 |ALTERNATING HH-HV Polarization
+|12 |28 |ALTERNATING VV-VH Polarization
+|13 |29 |POLARIMETRIC HH Polarization
+|14 |30 |POLARIMETRIC VV Polarization
+|15 |31 |POLARIMETRIC HV Polarization
+|16 |32 |POLARIMETRIC VH Polarization
+|==========================================

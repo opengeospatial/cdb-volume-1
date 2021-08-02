@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 1*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/model {set:cellbgcolor:#FFFFFF} +
+
+_A CDB implementation SHALL include all elements of the CDB Core Data Model as defined in Annex A._{set:cellbgcolor:#FFFFFF}
+|===

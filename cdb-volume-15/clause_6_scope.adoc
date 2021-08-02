@@ -1,0 +1,182 @@
+[[CDBFeatureDataDictionary]]
+== CDB Feature Data Dictionary
+
+The CDB Feature Data Dictionary (FDD) is provided with the CDB standard in the form of an XML file. An XML Stylesheet is provided to format and display the dictionary inside a standard Web browser. Furthermore, the XML Schema defining the format of the FDD can also be found in the Schema subdirectory of the CDB Schema Distribution Package.
+
+See /CDB/Metadata/Feature_Data_Dictionary.xml for the complete list of the supported codes. Currently, these are a mixture of FACC, SEDRIS, DGIWG, DO-272B, UHRB, and other codes. Future revisions of the CDB standard will provide guidance on using other feature code lists.
+
+Please see section link:#FeatureClassification[3.3.8.1] for more detailed information on the use of feature codes and extensions to that codelist in the CDB standard.
+
+=== Introduction to the CDB Specification
+
+[[Purpose]]
+==== Purpose
+
+This standard provides a full description of a data model (aka schema) for the synthetic representation of the world. The representation of the synthetic environment in the CDB model as expressed in a physical data store is intended for use by authoring tools and by various simulator client-devices that are able to simultaneously retrieve, in real-time, relevant information to perform their respective runtime simulation tasks. With the addition of the DIS protocol, the application of the CDB standard provides a Common Environment to which inter-connected simulators share a common view of the simulated environment.
+
+
+[[DocumentStructure]]
+==== Document Structure
+
+This document is structured as follows.
+
+Section 1.6 defines general CDB data store and implementation requirements
+
+Sections 2.1, 2.2, 2.3, and 2.4 provide an overview if key elements of the CDB data store structure.
+
+Section 2.5: CDB concepts and semantics. Describes the naming and handling of materials that make up the synthetic environment
+
+Section 3.0: Focuses on aspects of the data model that relate to the structure of the data store repository on the storage subsystem. The organization of the CDB data into tiles, levels-of-detail and datasets is embodied through a set of conventions that prescribe the CDB directory hierarchy and file naming conventions.
+
+Section 4: CDB File Formats provides a description of all the formats prescribed by the CDB Standard.
+
+Section 5: CDB Datasets provides a detailed description of all CDB datasets.
+
+The current CDB standard relies on established industry formats:
+
+* *TIFF*: TIFF encoding rules are defined in Volume 10: OGC CDB Implementation Guidance.
+* *OpenFlight*: The Best Practice use of the OpenFlight. In the future other 3D formats will be evaluated and considered for best practice specification in future versions of CDB. These include CityGML, InDoorGML, COLLADA, and so forth. (See Volume 6: OGC CDB Rules for Encoding Data using OpenFlight).
+* *SGI Image*: A native raster graphics file format also known as RGB file format.
+* *Shapefile*: The Best Practice use of the Shapefile format in a CDB data store. The Shapefile table content encoding rules are in Volume 4. (See Volume 4: OGC CDB Best Practice use of Shapefiles for Vector Data Storage).
+* *GeoPackage*: Using GeoPackages for use in a CDB data store. The GeoPackage content encoding rules are documented in the OGC Volume 13: OGC CDB Rules for Encoding CDB Vector Data using GeoPackage (Normative, Optional Extension).
+* *JPEG 2000*: JPEG 2000 file format (See Volume 2: OGC CDB Core Model and Physical Structure Annexes, Annex H).
+
+Each of these documents has been annotated to reflect the conventions established by the CDB standard. The Best Practice conventions currently define how TIFF, OpenFlight, SGI Image, Shapefile, GeoPackage, and JPEG 2000 formatted files are to be interpreted by CDB-compliant simulator readers.
+
+In addition, a new CDB topic volume for CDB Version 1.2 defines the Best Practices for conversion of CDB Shapefiles into CDB GeoPackages.
+
+The CDB light type naming hierarchy can be found at `cdb/1.2/Lights.xml` and the CDB model component hierarchy can be found in Annex J Volume 2 respectively while `cdb/1.2/Materials.xml` provides the material list for the CDB standard.
+
+Other Annexes in Volume 2 further describe additional aspects of the CDB standard:
+
+* Providing the CDB Directory Naming and Structure (Annex M),
+* List of Texture Component Selectors (See Annex O in Volume 2 CDB Core Model and Physical Structure Informative Annexes),
+* SGI Image File Format (http://paulbourke.net/dataformats/sgirgb/sgiversion.html),
+* Table of Dataset Codes (See Annex Q in Volume 2 OGC CDB Core: Model and Physical Structure: Informative Annexes)
+* How some datasets are derived from others (Annex R in Volume 2 OGC CDB Core: Model and Physical Structure: Informative Annexes).
+
+
+[[WhatistheCDBStandard:AnOverview]]
+==== What is the CDB Standard: An Overview
+
+The CDB standard defines a conceptual model that models the organization, and storage structure of a data store to support real time simulation applications. A data store that conforms to the CDB standard contains datasets organized in layers and tiles that represent the features of the earth for the purposes of distributed simulation applications. A CDB data store can be readily used by existing simulation client-devices (legacy IGs, Radars, CGF, etc.) through a publishing process performed in real-time. The CDB conceptual model would allow an implementation if a CDB compliant data store in a relational database. However, the data structures used in CDB structured data stores are somewhat different than those used in relational databases because 1.) of the use of standardized data formats adopted by the simulation community and 2.) the CDB storage structure is optimized for near real time simulation applications. The approach defined in this CDB Core standard facilitates the work required to adapt existing authoring tools to read/write/modify data into the CDB and the task to develop runtime publishers (RTP) designed to operate on these data structures.
+
+The CDB standard is fundamentally about:
+
+* A representation of the earth and man-made environment for use in real time simulations; and
+* A turnkey, as-is representation of the Synthetic Environment (SE) for use in real-time distributed simulation applications.
+
+Currently, the majority of a CDB conformant internal data storage representation is based on well known and supported data formats endorsed by leaders of the Modeling and Simulation (M&S) industry. The CDB Best Practices associated with the Core standard are currently recommended for implementation of a CDB data store:
+
+* For the representation of terrain altimetry, terrain surface characteristics relevant to simulation: TIFF/GeoTIFF.
+* For the representation of 3D culture and moving models: OpenFlight.
+* For the textures associated with 3D culture and moving models: SGI Image (RGB).
+* For the instancing and attribution of statically positioned point, lineal and polygon 2D/3D culture features: Shapefile or GeoPackage.
+* For a representation of terrain raster imagery comprising a well-defined and accepted compression method that allows both lossy and lossless schemes: JPEG 2000.
+
+Note that the OGC CDB Standards Working Group will consider developing best practice guidance for using other industry standard formats and encodings, such as OGC CityGML or OGC InDoorGML.
+
+NOTE: _Due to the real time requirement, the CDB standard limits the number of units of measure for each physical quantity. For instance, all coordinates are represented in latitude longitude and all distances are in meters._
+
+NOTE: _In the future, the CDB standard may evolve to enable the use of other international and de-facto geospatial encoding structures._
+
+The CDB specified storage structure enables efficient searching, retrieval and storage of any information contained within a CDB structured data store. Storage structure aspects include descriptions of each information field used within CDB conformant files, including data types and data type descriptions.
+
+The CDB standard relies on three important concepts to organize the geospatial data.
+
+* *Tiles*: The CDB defined storage structure allows efficient searching, retrieval and storage of any information contained within the CDB. The storage structure portion of this standard geographically divides the world into geodetic tiles (each tile bounded by latitude and longitude), each tile containing a specific set of features (such as terrain altimetry, vectors) and models (such as 3d models and radar cross section models), which are in turn represented by the datasets. The datasets define the basic storage unit used in a CDB data store. The geographic granularity is at the tile level while the information granularity is at the dataset level. As a result, the CDB storage structure permits flexible and efficient updates due to the different levels of granularity with which the information can be stored or retrieved.
+* *Layers*: The CDB model is also logically organized as distinct layers of information. The layers are notionally independent from each other (i.e., changes in one layer do not impose changes in other layers).
+* *Levels-of-Detail (LODs):* The availability of LOD representations is critical to real-time performance. Most simulation client-devices can readily take advantage of an LOD structure because, in many cases, less detail/information is necessary at increasing distances from the simulated own-ship. As a result, many client-devices can reduce (by 100-fold or more) the required bandwidth to access environmental data in real-time. The availability of levels-of-detail permits client-devices to deal with data stores having big-data levels of content. The CDB storage model supports a LOD hierarchy consisting of up to 34 LODs. The CDB standard requires that each geographic area be reduced into a LOD hierarchy in accordance to the availability of source data.
+
+The standard does not define or enforce an operating system or file system.
+
+[[WhattheCDBStandardisNot]]
+==== What the CDB Standard is Not
+
+The representation and sharing of geospatial data plays a key role in the interoperation of systems and applications that use such data. In the mid to late 90’s some specifications/standards were conceived to provide a means of sharing synthetic environment data, in source form, for a wide variety of applications. They provided a standardized means to share native databases, thereby avoiding direct and (often inefficient) conversion of the data to/from (often proprietary) native database format.
+
+The CDB standard defines a model for data representation and attribution of terrain, objects and entities within the CDB data store. However, the standard does not define requirements for the movement, change in shape, physical properties and/or behavior of such objects and entities. These capabilities fall under the domain of simulation software or application.
+
+The CDB standard does not define requirements for the representations of celestial bodies, such as the Sun, Moon, stars, and planets. Rather, this standard assumes that the modeled representation of celestial bodies is internally held within the appropriate simulator client-devices.
+
+The CDB standard does not specify a mandatory “coverage completeness requirement”. This permits the generation of a CDB structured data store even when there is limited data availability.
+
+Given the requirement that the CDB standard be platform independent, the standard does not provide the implementation details of specific off-line data store compilers or runtime publishers attached to specific client-devices Example client devices are: UAV simulators, mission planning simulators, helicopter training simulators, and so forth. Furthermore, since there is no standardization of the SE representation internal to client-devices (they vary by type), it is unlikely that such information would completely satisfy the interests of all developers. One of the goals of the CDB standard to provide such standardizationMore importantly, the structure and format of data ingested by each client-device is typically proprietary. Finally, this standard does not describe the effort required to develop CDB off-line compilers and/or CDB runtime publishers.
+
+[[GeneralCDBDataStoreandImplementationrequirements]]
+=== General CDB Data Store and Implementation requirements
+
+This section details the requirements for a CDB conformant or structured data store.
+
+include::requirements/REQ001.adoc[]
+
+[[PlatformRequirements]]
+==== Platform Requirements
+
+include::requirements/requirements_class001.adoc[]
+[[FileSystem]]
+===== File System
+
+Moved to section 5.1 Volume 10: Implementation Guidance
+
+[[OperatingSystem]]
+===== Operating System
+
+Moved to section 5.2 Volume 10: Implementation Guidance
+
+[[TransportProtocols]]
+===== Transport Protocols
+
+The CDB standard is transport protocol-independent. The standard does not mandate the use of specific transport protocols. Furthermore, this standard does not explicitly rely on or specify any transport protocols.
+
+[[SystemHardwareIndependence]]
+===== System Hardware Independence
+
+This section was moved to section 5.3 Volume 10, Implementation Guidance
+
+[[LiteralCase]]
+===== Literal Case
+
+include::requirements/REQ005.adoc[]
+
+CDB structured data stores may be implemented on any modern operating systems whether they are Windows-like or Unix-like.
+
+Throughout this standard, the reader will notice that filenames and directory paths are specified using a mix of upper and lower cases. This choice is made to improve and ease the readability of those names. However to ensure interoperability, the use of lower case for all extensions is strongly recommended.
+
+However, it is important to note that no two names are to differ only by their case. After all, a name is used to designate a single object or concept whether that name is spelled in lowercase or uppercase or even using mixed case. For instance, the terms house, House, and HOUSE (and even HoUsE) all convey the same idea of a residence where people live. And this stays true for all combination of cases.
+
+[[GeneralDataRepresentationRequirements]]
+==== General Data Representation Requirements
+
+The following is the Requirements Class for general data representation requirements.
+
+include::requirements/requirements_class002.adoc[]
+
+[[CompressionofStorageIntensiveImageryDatasets]]
+===== Compression of Storage Intensive Imagery Datasets
+
+include::requirements/REQ006.adoc[]
+
+[[Compressionofotherimagerydatasets]]
+===== Compression of other imagery datasets
+
+In general, all TIFF/GeoTIFF files benefit from LZW compression. For this reason, and as a general practice, the compression of all TIFF-based raster datasets is recommended. The one exception is when every cell in the raster dataset is a unique floating point number. In this case, the compressed file may be larger than the original.
+
+[[UnitsofMeasure]]
+===== Units of Measure
+
+include::requirements/REQ007.adoc[]
+
+[[CoordinateReferenceSystems]]
+==== Coordinate Reference Systems
+
+include::requirements/REQ008.adoc[]
+
+Please see the Volume 8: OGC CDB Spatial Reference System Guidance.
+
+include::requirements/REQ009.adoc[]
+
+[[GeographicCoordinates]]
+==== Geographic Coordinates
+
+include::requirements/REQ010.adoc[]

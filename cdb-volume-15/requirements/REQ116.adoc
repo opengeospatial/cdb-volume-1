@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 116 Attributes Metadata* {set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/shapefile-reader[http://www.opengis.net/spec/cdb/1.0/core/]attributes-metadata{set:cellbgcolor:#FFFFFF} +
+
+The CDB_Attributes.xml metadata file _SHALL_ be used to describe all the CDB attributes listed in 5.7.1.2, CDB Attribution. This attribute metadata *.xml file _SHALL_ be included in the CDB folder hierarchy under the CDB Metadata directory (refer to section 3.1.1, Metadata Directory). The CDB_Attributes.xml metadata file _SHALL_ be based on a *.xsd schema file that governs the syntax and structure of the attribute metadata file.{set:cellbgcolor:#FFFFFF}
+|===

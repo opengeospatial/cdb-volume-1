@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 124*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/tiled-roadnetwork[http://www.opengis.net/spec/cdb/1.0/core/tiled-roadnetwork]{set:cellbgcolor:#FFFFFF} +
+
+The RoadNetwork Dataset _SHALL_ be used to specify all of the roadfootnote:[Within the context of the CDB, the term road encompasses a broad gamut of networks implemented as long, narrow stretch of smoothed or paved surfaces, made for traveling by foot, motor vehicle, carriage, etc., between two or more points. Examples of road networks are highways, interstates, roads, boulevards, streets, etc. It excludes railways.] networks.{set:cellbgcolor:#FFFFFF}
+|===

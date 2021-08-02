@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 49*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/gtmodeltexture-name[http://www.opengis.net/spec/cdb/core/1.0/gtmodeltexture-name]{set:cellbgcolor:#FFFFFF} +
+
+The names of the GTModelTexture files _SHALL_ adhere to the following naming convention: D511_Snnn_Tnnn_LOD_TNAM.<ext>{set:cellbgcolor:#FFFFFF}
+|===

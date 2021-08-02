@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 25*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/CDB/1.0/core/base-material-order{set:cellbgcolor:#FFFFFF} +
+
+The base materials that make each substrate _SHALL_ be listed in decreasing order of weighting.{set:cellbgcolor:#FFFFFF}
+|===

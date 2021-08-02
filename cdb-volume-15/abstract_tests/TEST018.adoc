@@ -1,0 +1,28 @@
+[cols=",,",]
+|=====================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/light-name-hierarchy*
+|*Requirements* 2+|/req/core/light-name-hierarchy
+|*Dependency* 2+|XML
+|*Dependency* 2+|Light Name
+|*Dependency* 2+|XML Schema – Part 2
+|*Test 18* |req/core/light-name-hierarchy/type-name |
+| |*Requirement* |/req/core/light-name-hierarchy/type-name
+| |*Test purpose* |Verify that the modeler or the simulator vendor creates a new light type name and light code which follow an XML schema specified in Req. 18.
+| |*Test method* |Inspect whether the light code is conformant to light.XML schema located in the CDB schema folder.
+| |*Test type* |Conformance
+|*Test 19* |/conf/core/cdb-structure-tiles-lod/geocell-length |
+| |*Requirement* |/req/core/light-name-hierarchy/type-name-definition
+| |*Test purpose* |Verify that the modeler or the simulator vendor provides an appropriate definition for the light type name.
+| |*Test method* |Inspect whether the light type name is conformant to light.XML schema located in the CDB schema folder.
+| |*Test type* |Conformance
+|*Test 20* |/conf/core/light-name-hierarchy/insert |
+| |*Requirement* |req/core/light-name-hierarchy/insert
+| |*Test purpose* |Verify that the modeler or the simulator vendor inserts the new light type into the light name hierarch
+| |*Test method* |Inspect whether the light xml schema file created/edited by the simulator/vendor is conformant to light.XML schema located in the CDB schema folder.
+| |*Test type* |Conformance
+|*Test 21* |/conf/core/light-name-hierarchy/edit |
+| |*Requirement* |req/core/light-name-hierarchy/edit
+| |*Test purpose* |Verify that the modeler or the simulator vendor edits the Lights.xml metadata file to reflect the change to the light name hierarchy.
+| |*Test method* |Inspect whether the light xml schema file edited by the simulator/vendor is conformant to light.XML schema located in the CDB schema folder.
+| |*Test type* |Conformance
+|=====================================================================================================================================================================

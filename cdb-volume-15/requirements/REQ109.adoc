@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 109 Light Points CRS*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]model-light-point-position{set:cellbgcolor:#FFFFFF} +
+
+The position of light points _SHALL_ be expressed using WGS-84 geographic coordinates (latitude, longitude, altitude), as explained in Volume 8 OGC CDB Spatial Reference System Guidance. Client-devices _SHALL_ position the center of the light point at the specified coordinate, orient directional light points in accordance to the AO1 attribute.{set:cellbgcolor:#FFFFFF}
+|===

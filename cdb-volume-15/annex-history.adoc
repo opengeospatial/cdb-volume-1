@@ -1,0 +1,12 @@
+[appendix]
+:appendix-caption: Annex
+== Revision History
+
+[width="90%",options="header"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+|2016-04-04 |1.0 |C. Reed |all | Initial version
+|2018-03-04 |1.1 |C. Reed |all | revision
+|2020-01-20 |1.2 |C. Reed |Various | Version 1.2 changes
+|2020-05-16 |1.2 |C. Reed |Various | Suggested changes from OGC-NA and others for v 1.2.
+|===

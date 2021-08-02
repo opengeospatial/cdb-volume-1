@@ -1,0 +1,54 @@
+[cols=",,",]
+|===================================================================================================================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core*/tiled-raster-elevation-terrain
+|*Requirements* 2+|/req/core/tiled-raster-elevation-terrain
+|*Dependency* 2+|Various XML schema
+|*Test 88* |/conf/core/tiled-raster-elevation-terrain/primary-terrain-component |
+| |*Requirement* |/req/core/primary-terrain-component
+| |*Test purpose* |Verify that the Primary Terrain Elevation component of the Elevation dataset is represented as a 1 or 2-channel TIFF image.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 89* |/conf/core/tiled-raster-elevation-terrain/terrain-tiff-channel1 |
+| |*Requirement* |/req/core/terrain-tiff-channel1
+| |*Test purpose* |Verify that the first channel of the TIFF image contains the Elevation component and is represented as a floating-point or signed integer value.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 90* |/conf/core/tiled-raster-elevation-terrain/terrain-tiff-channel2 |
+| |*Requirement* |/req/core/terrain-tiff-channel2
+| |*Test purpose* |Verify that the _Mesh Type_ channel of the TIFF image contains the necessary components and _are_ stored in correct format.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 130* |/conf/core/tiled-raster-elevation-terrain/terrain-tiff-channel3 |
+| |*Requirement* |/req/core/terrain-tiff-channel3
+| |*Test purpose* |Verify that the _Latitude Offset_ and _Longitude Offset_ channels of the TIFF image contains the necessary components and _are_ stored in correct format.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 91* |/conf/core/tiled-raster-elevation-terrain/terrain-hyspography-offline |
+| |*Requirement* |/req/core/terrain-hyspography-offline
+| |*Test purpose* |Verify that after terrain constraining is performed off-line, hypsography features have AHGT set to True, thereby instructing the SE Tools to constrain the terrain elevation using the supplied coordinates; and, the vector feature _is_ a type PointZ, a MultiPointZ, a PolyLineZ, a PolygonZ or a `MultiPatch (see note)`. +
+  +
+`Note: Geometry type multi-patch was deprecated in version 1.2 of this standard. This geometry is no longer supported. Use at your own risk. This geometry type will remain in the CDB standard until version 2.0.`
+
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 92* |/conf/core/tiled-raster-elevation-terrain/terrain-online-terrain-constraints |
+| |*Requirement* |/req/core/terrain-online-terrain-constraints
+| |*Test purpose* |Verify that for the Feature’s AHGT attribute _is_ set to TRUE in some specific cases listed in section 5.6.1.5
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 93* |/conf/core/tiled-raster-elevation-terrain/terrain-lpn-use |
+| |*Requirement* |/req/core/terrain-lpn-use
+| |*Test purpose* |Verify that in the case where features overlap one other, client-devices use the mandatory Layer Priority Number (LPN) attribute.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 94* |/conf/core/tiled-raster-elevation-terrain/min-max-elevation-data-type |
+| |*Requirement* |/req/core/min-max-elevation-data-type
+| |*Test purpose* |Verify that the MinElevation and MaxElevation components _are_ represented correctly according to the formulamentioned in Req 94.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 95* |/conf/core/tiled-raster-elevation-terrain/maxculture-data-type |
+| |*Requirement* |/req/core/maxculture-data-type
+| |*Test purpose* |Verify that the MaxCulture component is represented correctly according to the formulamentioned in Req 95.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|===================================================================================================================================================================================================================================================================================================================================

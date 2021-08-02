@@ -1,0 +1,9 @@
+[cols=",,",]
+|==================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/model* 
+|*Requirements* 2+|/req/core/model 
+|*Dependency* 2+|Target system operating and file management system, Annex A 
+|*Test 1* |*Test purpose* |Verify that all elements of the CDB Core Data Model are included in the implementation as defined in Annex A.
+| |*Test method* |Pass if all of the test cases in Annex A conformance test suite class are passed.
+| |*Test type* |Conformance
+|==================================================================================================================================

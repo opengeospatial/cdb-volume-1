@@ -1,0 +1,12 @@
+[cols="1,4",width="90%"]
+|========================================================================================================================================================================================================================
+2+|Requirements Class - Tiled Vector Datasets (107-112) {set:cellbgcolor:#CACCCE}
+2+|/req/core/tiled-vector-datasets {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |Various XML schema
+|Requirement 107 {set:cellbgcolor:#CACCCE} |/req/core/vector-type-rule {set:cellbgcolor:#FFFFFF}
+|Requirement 108 {set:cellbgcolor:#CACCCE} |/req/core/vector-client-origin-with-model {set:cellbgcolor:#FFFFFF}
+|Requirement 109 {set:cellbgcolor:#CACCCE} |/req/core/model-light-point-position {set:cellbgcolor:#FFFFFF}
+|Requirement 110 {set:cellbgcolor:#CACCCE} |/req/core/light-point-with-z-position {set:cellbgcolor:#FFFFFF}
+|Requirement 111 {set:cellbgcolor:#CACCCE} |/req/core/vertex-position {set:cellbgcolor:#FFFFFF}
+|========================================================================================================================================================================================================================

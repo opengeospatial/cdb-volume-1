@@ -1,0 +1,14 @@
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class - General Data Representation. (6-10)* {set:cellbgcolor:#CACCCE}
+2+|/req/core/data-representation {set:cellbgcolor:#FFFFFF}
+|Target type |Operations
+|Dependency |WGS-84 definition
+|Dependency |Compression Algorithms
+|Dependency |Units of measure
+|Requirement 6 {set:cellbgcolor:#CACCCE} |/req/core/raster-imagery-compression {set:cellbgcolor:#FFFFFF}
+|Requirement 7 {set:cellbgcolor:#CACCCE} |/req/core/uom {set:cellbgcolor:#FFFFFF}
+|Requirement 8 {set:cellbgcolor:#CACCCE} |/req/core/crs {set:cellbgcolor:#FFFFFF}
+|Requirement 9 {set:cellbgcolor:#CACCCE} |/req/core/crs-client {set:cellbgcolor:#FFFFFF}
+|Requirement 10 {set:cellbgcolor:#CACCCE} |/req/core/coordinates {set:cellbgcolor:#FFFFFF}
+|===

@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 55*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/gtmodelinteriormaterial-name[http://www.opengis.net/spec/cdb/core/1.0/gtmodelinteriormaterial-name]{set:cellbgcolor:#FFFFFF} +
+
+The names of the GTModelInteriorMaterial files _SHALL_ adhere to the following naming convention: D509_Snnn_Tnnn_LOD_TNAM.<ext>{set:cellbgcolor:#FFFFFF}
+|===

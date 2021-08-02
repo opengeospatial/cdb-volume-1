@@ -1,0 +1,41 @@
+[cols=",,",]
+|=========================================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/mmodel-naming*
+|*Requirements* 2+|/req/core/mmodel-naming
+|*Dependency* 2+|Various XML schema
+|*Test 57* |/conf/core/mmodel-naming/mmodel-root |
+| |*Requirement* |/req/core/mmodel-root
+| |*Test purpose* |Verify that the \CDB\MModel\ folder is the root directory of the MModel library and is composed of the following datasets. MModelGeometry, MModelDescriptor, MModelTexture, MModelMaterial, MModelCMT, MModelSignature.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 58* |/conf/core/mmodel-naming/mmodelgeometry-name |
+| |*Requirement* |/req/core/mmodelgeometry-name
+| |*Test purpose* |Verify that the names of all MModelGeometry files adhere to the following naming convention: D600_Snnn_Tnnn_MMDC.”.ext”. “.flt” for OpenFlight files.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 59* |/conf/core/mmodel-naming/mmodeldescriptor-name |
+| |*Requirement* |/req/core/mmodeldescriptor-name
+| |*Test purpose* |Verify that the MModelDescriptor dataset is assigned dataset code 603 and the names of all MModelDescriptor files adhere to the following naming convention: D603_S001_T001_MMDC.xml.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 60* |/conf/core/mmodel-naming/mmodeltexture-name |
+| |*Requirement* |/req/core/mmodeltexture-name
+| |*Test purpose* |Verify that the names of all MModelTexture files adhere to the following naming convention: D601_Snnn_Tnnn_Wnn_TNAM.<ext> Always rgb in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 61* |/conf/core/mmodel-naming/mmodelmaterial-name |
+| |*Requirement* |/req/core/mmodelmaterial-name
+| |*Test purpose* |Verify that the MModelMaterial dataset is assigned dataset code 604 and the names of all MModelMaterial files adhere to the following naming convention: D604_Snnn_Tnnn_Wnn_TNAM.<ext>. Always tif in CDB Version 1,0
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 62* |/conf/core/mmodel-naming/mmodelcmt-name |
+| |*Requirement* |/req/core/mmodelcmt-name
+| |*Test purpose* |Verify that the MModelCMT dataset is assigned dataset code 605 and the names of all MModelCMT files adhere to the following naming convention: D605_S001_T001_TNAM.xml.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 63* |/conf/core/mmodel-naming/mmodelsignature-name |
+| |*Requirement* |/req/core/mmodelsignature-name
+| |*Test purpose* |Verify that the names of all MModelSignature files adhere to the following naming convention: D606_Snnn_Tnnn_LOD_MMDC.ext where ext is the file extension for each file or table required for the Model Signature file
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|=========================================================================================================================================================================================================================================

@@ -1,0 +1,20 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 57*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/1.0/mmodel-root[http://www.opengis.net/spec/cdb/core/1.0/mmodel-root] +
+
+The *\CDB\MModel\* folder _SHALL_ be the root directory of the MModel library which _SHALL_ be composed of the following datasets.
+
+1.  MModelGeometry
+
+2.  MModelDescriptor
+
+3.  MModelTexture
+
+4.  MModelMaterial
+
+5.  MModelCMT
+
+6.  MModelSignature
+{set:cellbgcolor:#FFFFFF}
+|===

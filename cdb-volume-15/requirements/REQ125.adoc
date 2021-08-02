@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 125*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/core/tiled-railroadnetwork[http://www.opengis.net/spec/cdb/1.0/core/tiled-railroadnetwork]{set:cellbgcolor:#FFFFFF} +
+
+The RailRoadNetwork Dataset _SHALL_ be used to specify all of the railroadfootnote:[Within the context of the CDB, the term railroads encompasses a broad gamut of networks implemented as roads that are composed of parallel steel rails supported by ties and providing a track for locomotive-drawn trains or other wheeled vehicles.] networks.{set:cellbgcolor:#FFFFFF}
+|===

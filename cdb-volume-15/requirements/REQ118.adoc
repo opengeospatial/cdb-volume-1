@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 118*{set:cellbgcolor:#CACCCE}
+|http://www.opengis.net/spec/cdb/1.0/core/topo-tile-clip{set:cellbgcolor:#FFFFFF} +
+
+The CDB Topological network is broken into tiles and therefore _SHALL_ be clipped against tile boundaries. To ensure the connectivity between tile boundaries of a lineal feature, the resulting clipping point _SHALL_ share the same junction identifier (JID) in both tiles{set:cellbgcolor:#FFFFFF}
+|===

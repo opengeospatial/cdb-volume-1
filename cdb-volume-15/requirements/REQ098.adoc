@@ -1,0 +1,14 @@
+[width="90%",cols="2,0,6"]
+|===
+|*Requirement 98* {set:cellbgcolor:#CACCCE}
+|{set:cellbgcolor:#FFFFFF}
+a|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]tide-component-data-type +
+
+Tide components _SHALL_ be represented as floating-point or signed integer values. Integer values for tiles at LOD larger than 0 _SHALL_ be scaled according to the following formula:
+
+image::images/image72.png[image,width=189,height=38]
+
+Integer values can make use of TIFF’s 8-bit, 16-bit, or 32-bit representation.
+
+{set:cellbgcolor:#FFFFFF}
+|===

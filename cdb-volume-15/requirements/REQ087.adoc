@@ -1,0 +1,11 @@
+[width="90%",cols="2,0,6"]
+|===
+|*Requirement 87* {set:cellbgcolor:#CACCCE}
+| {set:cellbgcolor:#FFFFFF}
+a|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]tile-implicit-center-computation {set:cellbgcolor:#FFFFFF} +
+
+Similarly, the position of an implicit center data element in a tile _SHALL_ be computed as per the following equation (5-2): +
+
+image::images/image46.png[image,width=351,height=49]
+
+|===

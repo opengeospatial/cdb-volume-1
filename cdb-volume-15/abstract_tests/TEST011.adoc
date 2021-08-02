@@ -1,0 +1,41 @@
+[cols=",,",]
+|=========================================================================================================================================================================================================================
+|*Conformance Class* 2+|*/conf/core/cdb-structure-tiles-lod*
+|*Requirements* 2+|/req/core/cdb-structure-tiles-lod 
+|*Dependency* 2+|CDB data store structure and model and coordinate reference system
+|*Test 11* |/conf/core/cdb-structure-tiles-lod/geocell-extent |
+| |*Requirement* |/req/core/geocell-extent
+| |*Test purpose* |Verify the CDB Geocell extent is a whole degree along with the proper longitudinal axis
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 12* |/conf/core/cdb-structure-tiles-lod/geocell-length |
+| |*Requirement* |/req/core/geocell-length
+| |*Test purpose* |Verify the CDB Geocell length is a whole factor of 180
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 13* |/conf/core/cdb-structure-tiles-lod/tile-sizes |
+| |*Requirement* |/req/core/tile-sizes
+| |*Test purpose* |Verify the tile sizes is 1024 × 1024 grid size for all of the positive LODs
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 14* |/conf/core/cdb-structure-tiles-lod/lod-area-coverage |
+| |*Requirement* |req/core/lod-area-coverage
+| |*Test purpose* |Verify a tile from LOD –10 to LOD 0 occupy the area of exactly one CDB Geocell and a tile from LOD 1 and up recursively is subdivided into smaller tiles and covers smaller area based on the table 2-4
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 15* |/conf/core/cdb-structure-tiles-lod/hierarchy |
+| |*Requirement* |req/core/hierarchy
+| |*Test purpose* |Verify the LOD hierarchy of all tiled datasets is complete for every CDB Geocell, although the number of Tile-LODs is different for each Geocell.
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 16* |/conf/core/cdb-structure-tiles-lod/tile-lod-replacement |
+| |*Requirement* |req/core/tile-lod-replacement
+| |*Test purpose* |Verify that for negative LODs, a tile at LODn exactly replaces a tile at LODn-1, and for positive LODs, a tile at LODn is replaced by 4 tiles at LODn+1
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|*Test 17* |/conf/core/cdb-structure-tiles-lod/lod-organization-resolution |
+| |*Requirement* |req/core/lod-organization-resolution
+| |*Test purpose* |Verify the geometry, texture, and signature datasets of 3D models is organized into levels of details (LOD) based on their resolutions
+| |*Test method* |Visual
+| |*Test type* |Conformance
+|=========================================================================================================================================================================================================================
