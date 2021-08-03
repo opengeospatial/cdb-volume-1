@@ -324,20 +324,20 @@ Its contents are as follows:
 <Vector_Attributes>
   <Attributes>
     <Attribute>...</Attribute>
-     ...
-     <Attribute>...</Attribute>
+    ...
+    <Attribute>...</Attribute>
   </Attributes>
   <Units>
-   <Unit>...</Unit>
-   ...
-   <Unit>...</Unit>
- </Units>
- <Scalers>
-   <Scaler>...</Scaler>
-   ...
-   <Scaler>...</Scaler>
- </Scalers>
-</Version>
+    <Unit>...</Unit>
+    ...
+    <Unit>...</Unit>
+  </Units>
+  <Scalers>
+    <Scaler>...</Scaler>
+    ...
+    <Scaler>...</Scaler>
+  </Scalers>
+</Vector_Attributes>
 ```
 
 The file is composed of three majors sections, the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by individual attribute.
@@ -348,7 +348,7 @@ The file is composed of three majors sections, the first one being the most impo
 
 include::requirements/REQ075.adoc[]
 
-The code is the integer value assigned to each attribute listed in Vector_Attributes\CDB_Attributes.xml. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively.  The <UsageNote> element contains possible usage note. The <Compatibility> shows the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
+The code is the integer value assigned to each attribute listed in Vector_Attributes\CDB_Attributes.xml. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively. The <UsageNote> element contains possible usage note. The <Compatibility> shows the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
 
 include::requirements/REQ076.adoc[]
 
@@ -373,49 +373,49 @@ The following example illustrates how to define an attribute of _Numeric_ dataty
 
 ```xml
 <Vector_Attributes>
- <Attributes>
-  <Attribute code="3" symbol="AO1">
-    <Name>Angle of Orientation with greater than 1 degree resolution</Name>
-    <Definition>
-      The angular distance measured from true north (0 deg) clockwise to the major Y-axis of the feature.
-    </Definition>
-    <Description>
-      If the feature is square, the axis 0 through 89.999 deg shall be recorded.
-      If the feature is circular, 360.000 deg shall be recorded.
-    </Description>
-    <UsageNote>
-      Recommended.
-      Applicable to point, Light point, Moving Model Location, and Figure point features.
-      DEFAULT: CDB readers should default to a value of 0.000 if AO1 is missing.
-      When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon.
-      The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
-      Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
-    </UsageNote>
-    <Compatibility>OGC CDB 1.0, DIGEST v2.1</Compatibility>
-    <Level>
-      <Instance>Preferred</Instance>
-      <Class>Not Supported</Class>
-      <Extended>Supported</Extended>
-    </Level>
-    <Value>
-      <Type>Numeric</Type>
-      <Format>Floating-Point</Format>
-      <Precision>3.3</Precision>
-      <Range interval="Right-Open">
-        <Min>0</Min>
-        <Max>360</Max>
-      </Range>
-      <Default>0.000</Default>
-      <Unit>2</Unit>
-    </Value>
-  </Attribute>
- </Attributes>
- <Units>
-  <Unit code="2" symbol="deg">
-    <Name>degree</Name>
-    <Description>To measure an angle</Description>
-  </Unit>
- </Units>
+  <Attributes>
+    <Attribute code="3" symbol="AO1">
+      <Name>Angle of Orientation with greater than 1 degree resolution</Name>
+      <Definition>
+        The angular distance measured from true north (0 deg) clockwise to the major Y-axis of the feature.
+      </Definition>
+      <Description>
+        If the feature is square, the axis 0 through 89.999 deg shall be recorded.
+        If the feature is circular, 360.000 deg shall be recorded.
+      </Description>
+      <UsageNote>
+        Recommended.
+        Applicable to point, Light point, Moving Model Location, and Figure point features.
+        DEFAULT: CDB readers should default to a value of 0.000 if AO1 is missing.
+        When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon.
+        The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
+        Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
+      </UsageNote>
+      <Compatibility>OGC CDB 1.0, DIGEST v2.1</Compatibility>
+      <Level>
+        <Instance>Preferred</Instance>
+        <Class>Not Supported</Class>
+        <Extended>Supported</Extended>
+      </Level>
+      <Value>
+        <Type>Numeric</Type>
+        <Format>Floating-Point</Format>
+        <Precision>3.3</Precision>
+        <Range interval="Right-Open">
+          <Min>0</Min>
+          <Max>360</Max>
+        </Range>
+        <Default>0.000</Default>
+        <Unit>2</Unit>
+      </Value>
+    </Attribute>
+  </Attributes>
+  <Units>
+    <Unit code="2" symbol="deg">
+      <Name>degree</Name>
+      <Description>To measure an angle</Description>
+    </Unit>
+  </Units>
   <Scalers>
     <Scaler code="2" symbol="k">
       <Name>kilo</Name>
@@ -475,7 +475,7 @@ include::requirements/REQ080.adoc[]
 [[GeomaticsAndVendorAttributesMetadata]]
 ==== Geomatics and Vendor Attributes Metadata
 
-Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see Section 5.7.1.2.7.3 of the OGC CDB 1.2 - Volume 1: link:#ExtendedlevelSchema[Extended-level Schema]). The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the Vector_Attributes.xsd schema.
+Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see Section 5.7.1.2.7.3 of Volume 1: Extended-level Schema). The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the Vector_Attributes.xsd schema.
 
 [[GeospatialMetadataGuidance]]
 ==== Geospatial Metadata – Guidance
