@@ -323,32 +323,20 @@ Its contents are as follows:
 ```xml
 <Vector_Attributes>
   <Attributes>
-    <Attribute>
-      <Name>...</Name>
-      <Definition>...</Definition>
-      <Description>...</Description>
-      <UsageNote>...</UsageNote>
-      <Compatibility>...</Compatibility>
-      <Level>
-        <Instance>...</Instance>
-        <Class>...</Class>
-        <Extended>...</Extended>
-      </Level>
-      <Value>
-        <Type>...</Type>
-        <Enumeration>...</Enumeration>
-        <Format>...</Format>
-        <Precision>...</Precision>
-        <Range interval="Right-Open">
-          <Min>...</Min>
-          <Max>...</Max>
-        </Range>
-        <Length>...</Length>
-        <Default>...</Default>
-        <Unit>...</Unit>
-      </Value>
-    </Attribute>
+    <Attribute>...</Attribute>
+     ...
+     <Attribute>...</Attribute>
   </Attributes>
+  <Units>
+   <Unit>...</Unit>
+   ...
+   <Unit>...</Unit>
+ </Units>
+ <Scalers>
+   <Scaler>...</Scaler>
+   ...
+   <Scaler>...</Scaler>
+ </Scalers>
 </Version>
 ```
 
@@ -366,7 +354,17 @@ include::requirements/REQ076.adoc[]
 
 include::requirements/REQ077.adoc[]
 
-In the case of an _Enum_ datatype, the Enumeration element provides a complete listing of all possible values (codes) of the attribute and a respective description. In the case of a numeric datatype, the <Format> indicates if it is a _Floating-Point_ or an _Integer_ value. For a floating-point type, the <Precision> provides the number of digits before and after the decimal point. For numeric types, the <Range> provides the minimum and maximum values; the <Length> element provides the length of value for _Text_ datatype; the <Default> element provides the default value of the attribute, and the <Unit> is a reference to a unit code.
+In the case of an _Enum_ datatype, the Enumeration element provides a complete listing of all possible values (codes) of the attribute and a respective description. In the case of a numeric datatype, the <Format> indicates if it is a _Floating-Point_ or an _Integer_ value. For a floating-point type, the <Precision> provides the number of digits before and after the decimal point. For numeric types, the <Range> provides the minimum and maximum values; the <Length> element provides the length of value for _Text_ datatype; the <Default> element provides the default value of the attribute, the <Unit> is a reference to a unit code; and the <Scaler> is a reference to a scaler code; both codes being respectively defined in subsequent <Units> and <Scalers> sections.
+
+[[DefinitionoftheUnitElement]]
+===== Definition of the <Unit> Element
+
+include::requirements/REQ078.adoc[]
+
+[[DefinitionoftheScalerElement]]
+===== Definition of the <Scaler> Element
+
+include::requirements/REQ079.adoc[]
 
 [[ExampleofCDB_Attributesxml]]
 ===== Example of CDB_Attributes.xml
@@ -412,10 +410,23 @@ The following example illustrates how to define an attribute of _Numeric_ dataty
     </Value>
   </Attribute>
  </Attributes>
+ <Units>
+  <Unit code="2" symbol="deg">
+    <Name>degree</Name>
+    <Description>To measure an angle</Description>
+  </Unit>
+ </Units>
+  <Scalers>
+    <Scaler code="2" symbol="k">
+      <Name>kilo</Name>
+      <Description>A multiplier: thousand</Description>
+      <Multiplier>1000</Multiplier>
+    </Scaler>
+  </Scalers>
 </Vector_Attributes>
 ```
 
-The following example illustrates how to define an attribute with _Enum_ dattatype:
+The following example illustrates how to define an attribute with _Enum_ datatype:
 
 ```xml
   <Attribute code="41" symbol="MODT">
