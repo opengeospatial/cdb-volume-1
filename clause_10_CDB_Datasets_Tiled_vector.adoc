@@ -154,13 +154,13 @@ A unique three-character or four-character alphanumeric identifier is associated
 [[AttributeSemantics]]
 ====== Attribute Semantics
 
-Each attribute is associated with a textual description (describing semantic information), which provides a human readable definition of the attribute.
+Each attribute is associated with a textual definition (defining semantic information), which provides a human readable definition of the attribute.
 
 
 [[AttributesValues]]
 ====== Attributes Values
 
-A value can be assigned to each attribute. The data type, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
+A value can be assigned to each attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
 
 
 [[AttributeUsage]]
@@ -170,7 +170,7 @@ CDB attribution usage falls in the following categories:
 
 include::requirements/REQ113.adoc[]
 
-_Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to section 5.7.1.3, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
+_Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to `\CDB\1.3\Metadata\CDB_Attributes.xml`, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
 
 _Optional:_ An optional attribute is an attribute whose value may (optionally) be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) cannot rely on the availability of optional attributes.
 
@@ -178,7 +178,7 @@ include::requirements/REQ114.adoc[]
 
 _Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
 
-Note that attribute usage information for each of the CDB attributes can be found in section 5.7.1.3, CDB Attributes and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Note that attribute usage information for each of the CDB attributes can be found in `\CDB\1.3\Metadata\CDB_Attributes.xml` and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
 
 
 [[AttributionDataCompatibility]]
@@ -190,7 +190,7 @@ The CDB standard provides a flexible means to tag features with attribution data
 [[CDBAttributes_49]]
 *CDB Attributes*
 
-CDB attributes are attributes whose semantics, data type, length, format, range, usage, units, compatibility and schema are entirely governed by the CDB standard. Most of these attributes are unique to the CDB standard, i.e., these attributes are not found in source data that conforms to various (US) governmental standards and specifications. As a result, this attribution data must be derived via CDB tool automation or provided directly by the user.
+CDB attributes are attributes whose semantics, data type, enumeration, length, format, range, usage, units, compatibility and schema are entirely governed by the CDB standard. Most of these attributes are unique to the CDB standard, i.e., these attributes are not found in source data that conforms to various (US) governmental standards and specifications. As a result, this attribution data must be derived via CDB tool automation or provided directly by the user.
 
 [[GeomaticsAttributes]]
 *Geomatics Attributes*
@@ -220,7 +220,7 @@ This is the attribution schema used for features whose attributes and attribute 
 
 include::requirements/REQ115.adoc[]
 
-The data type, length, format, range, usage, and units of the attribution values are specific to each attribute. The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
+The data type, enumeration, length, format, range, usage, and units of the attribution values are specific to each attribute. The interpretation of the attribution data value is governed by metadata that describes the data type, the data enumeration, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
 
 include::requirements/REQ116.adoc[]
 
@@ -239,7 +239,7 @@ This is the preferred attribution schema for features whose attributes and attri
 
 The attributes and their values are logically re-grouped under a classname (CNAM attribute) that stands for the group of attributes specific to that class. Each row of the class-level *.dbf file corresponds to a classname found in the instance-level *.dbf shape file. Each attribute class is characterized by a set of attributes implemented as a row within the class-level *.dbf file. In turn, each attribute is uniquely defined by a name that is a “case-sensitive” character string of 10 characters or less. This 10-character limitation of attribute names is set for backwards compatibility due to use of the dBASE III+ File format structure (see Volume 2: OGC CDB Core Model and Physical Structure: Annexes, Annex E).
 
-The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes listed in section 5.7.1.2, CDB Attribution. The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance to a *.xsd schema file. Refer to Section 1.4.2 of this document for a description of the attribute metadata schema.
+The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes (`\CDB\1.3\Metadata\CDB_Attributes.xml`). The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance to a *.xsd schema file. Refer to Section 1.4.2 of this document for a description of the attribute metadata schema.
 
 The first column of the file is the classname and acts as the primary key to access table entries; all other rows correspond to the attributes represented by the classname. All of the class-level attributes are CDB attributes. For each dataset, a classname is unique within a geocell.
 
@@ -256,7 +256,7 @@ The extended-level schema can be used to represent CDB attributes, Geomatics att
 
 Linkage to the extended-level CDB attribution data is accomplished through the CEAI attribute; CEAI is an index to a link list of CDB attributes stored in the extended-level attribute file (or table) footnote:[Currently a *.dbf file.]. Similarly, the GEAI and VEAI attributes are also indices to link lists of attributes stored in the extended-level attribute file (or table). The extended-level files have the structure described in section 5.7.1.2.7.4, Structure of Extended-level Files.
 
-There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes of section link:#CDBAttributes[5.7.1.3], CDB Attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
+There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
 
 
 [[StructureofExtendedlevelAttributeFilesorTables]]
@@ -268,7 +268,7 @@ Column 1 – *LNK (Link)*: The first column is a numeric 6-digit index to the ne
 
 Column 2 – *GRP (Group)*: The second column provides an 8-character string that is used to name the group to which the extended attributes belongs to. The actual value of this character string is arbitrary and provides an indication of the source of the attribute. In practice, attributes belongs to one of three (3) groups: CDB, Geomatics, and Vendor. If the extended-level attribute is one of the CDB attributes of section 5.7.1.2.7.5, the group name is “CDB”. If the extended-level attribute belongs to one of the Geomatics standards (such as “DIGEST”, “VMAP”, “SEDRIS”, “DGIWG”, “UHRB”), it is recommended to use the name of the standard as the group name. If the extended-level attribute is a vendor-specific attribute, then the group name should represent the name of the vendor (such as “CAE-M”, “Presagis”, “Thales”, “Rockwell”).
 
-Column 3 – *EAC (Environment Attribute Code)*: The third column provides a unique four-digit numeric code for each attribute type. The codes for the CDB attributes can be found in section 5.7.1.3, CDB Attributes. Note however, that the codes for the Geomatics and Vendor attributes are not specified by this standard. Instead, this standard provides a metadata schema that allows developers to describe these attributes. See section 5.1.7, CDB Attributes Metadata, for details.
+Column 3 – *EAC (Environment Attribute Code)*: The third column provides a unique four-digit numeric code for each attribute type. The codes for the CDB attributes can be found in `\CDB\1.3\Metadata\CDB_Attributes.xml`. Note however, that the codes for the Geomatics and Vendor attributes are not specified by this standard. Instead, this standard provides a metadata schema that allows developers to describe these attributes. See section 5.1.7, CDB Attributes Metadata, for details.
 
 Column 4 – *EAV (Environment Attribute Value)*: The fourth column provides a data value for the attribute. The data value is represented by general-purpose 16-character alphanumeric string. In the case where more than 16-characters are needed to represent a data value, the remaining characters are provided by appending consecutive row(s) with the same GRP and EAC values; the value of LNK is incremented for each of the consecutive row(s). The interpretation of the data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute type.
 
