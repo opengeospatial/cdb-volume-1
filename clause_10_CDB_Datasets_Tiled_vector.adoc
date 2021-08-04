@@ -297,6 +297,34 @@ Note that it is possible to simultaneously extend a record (instance and class) 
 
 List of CDB attributes and description of the attributes that are governed by the CDB standard provided in `\CDB\1.3\Metadata\CDB_Attributes.xml`. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
 
+CDB Attributes are stored in the XML format which is more appropriate for a computer program. The schema can be found in `\CDB\1.3\Vector_Attributes.xsd`.
+
+The `CDB_Attributes.xml` file contents are composed of three major sections: Attributes, Units and Scalers. The Attributes section is the most important section. The file has a list of Attributes, followed by two lists of Units and Scalers that are referenced by individual Attribute.
+
+image::images/image88.png[image,width=505,height=542]
+[#img_CDB_Attributes Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Schema_*
+
+The Units section is a list of Unit definitions. Each Unit that assigned a code and a symbol defines by Name and Description. The Name is the long form of the unit symbol and the Description is a free-form text describing this unit. The symbol is the character string that is commonly recognized as the unit identifier. The code is a positive integer used as a key when a Value references a unit.
+
+image::images/image89.png[image,width=305,height=342]
+[#img_CDB_Attributes Unit Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Unit Schema_*
+
+The Scalers section is a list of Scaler definitions. Scaler has a code and symbol and defines by Name, Description and Multiplier. The Name is the long form of the scaler symbol and the Description is a free-form text describing this scaler. Finally, Multiplier is the numerical multiplier applied to the base unit. The code is a positive integer used as a key when a Value references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier.
+
+image::images/image90.png[image,width=305,height=342]
+[#img_CDB_Attributes Scaler Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Scaler Schema_*
+
+The Attribute defines using Name, Definition, Description, UsageNote, Compatibility, Level and Value and assigned a code, symbol. The Attribute provides a means to state if the attribute is Deprecated or not. The Name is the long form of the symbol. The Definition defines the Attribute. The Description is a free-form text describing the attribute. The UsageNote element contains a possible usage note. The Compatibility shows the version of the CDB that the attribute is compatible with. The Level provides a means to state if the attribute is Preferred, Supported, Deprecated, or Not Supported for each of the schema levels. It also provides the schema level of the attribute. The Value element provides the information required to interpret (parse) the value assigned to this attribute.
+
+The Value defines using Type, Enumeration, Format, Precision, Range, Length, Default, Unit and Scaler. The Type is one of Text, Enumeration (Enum), Numeric, or Boolean. In the case of an Enumeration datatype, The Enumeration provides a list of accepted values. In the case of a numeric datatype, the Format indicates if it is a Floating-Point or an Integer value. For a floating-point type, the Precision provides the number of digits before and after the decimal point. For numeric types, the Range provides the minimum and maximum values; the Unit is a reference to a unit code, and the Scaler is a reference to a scaler code; both codes being respectively defined in subsequent Units and Scalers sections.
+
+image::images/image91.png[image,width=605,height=542]
+[#img_CDB_Attributes Value Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Value Schema_*
+
 [[ExplicitlyModeledRepresentations]]
 ===== Explicitly Modeled Representations
 
