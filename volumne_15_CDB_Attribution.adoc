@@ -28,7 +28,7 @@ The UML diagram is composed of three majors sections (i.e., attributes, units an
 
 | Attributes/Attribute
 | Assigned attribute's code, symbol, and it states if the attribute is Deprecated or not
-| 1..+
+| 1..*
 
 | Attribute/Name
 | The long form of the symbol
@@ -112,7 +112,7 @@ The UML diagram is composed of three majors sections (i.e., attributes, units an
 
 | Units/Unit
 | A reference to a unit code with assigned code and symbol. The code is a positive integer used as a key when a Value references a unit. The symbol is the character string that is commonly recognized as the unit identifier.
-| 1..+
+| 1..*
 
 | Unit/Name
 | The long form of the unit symbol
@@ -128,7 +128,7 @@ The UML diagram is composed of three majors sections (i.e., attributes, units an
 
 | Scalers/Scaler
 | A reference to a scaler code
-| 1..+
+| 1..*
 
 | Scaler/Name
 | The long form of the scaler symbol
