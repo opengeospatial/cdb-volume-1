@@ -12,194 +12,134 @@ This chapter defines the CDB attribute schema file, CDB attribution, CDB attribu
 
 
 [[TopLevelCDBAttributeSchemaFile]]
-== Top-Level CDB Attribute Schema File
+== CDB Attribute Schema Overview
 The CDB attributes are listed and described in Volume 1: CDB Core section 5.7.1.3 CDB Attributes. The controlled vocabulary for these attributes is stored in \CDB\Metadata\CDB_Attributes.xml and the following diagram indicates the schema file as provided in the CDB schema folder, Vector_Attributes.xsd. In essence, the file is the transposition of CDB Attributes into a format more appropriate for a computer program.
 The UML diagram is composed of three majors sections (i.e., attributes, units and scalers), the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by an individual attribute. The main properties of the vector attributes’ UML diagram are documented below.
 
 [#table_countries,reftext='{table-caption} {counter:table-num}']
 .CDB attributes
-[cols="15e, <25m,<30m,<20m,<10m",width="100%",options="header",align="center"]
+[cols="15e, <30m,<10m",width="75%",options="header",align="center"]
 |===
-|Name | Parent Class Name | Definition | Datatype & Value | Multiplicity
+|Name | Definition | Multiplicity
 
-| Attributes
-| Vector Attributes
+| Vector-Attributes/Attributes
 | Contains a list of Attributes
-|
 | 1
 
-| Units
-| Vector Attributes
-| A list of Unit definitions
-|
-| 1
-
-| Scalers
-| Vector Attributes
-| A list of Scaler definitions
-|
-| 1
-
-| Unit
-| Units
-| A reference to a unit code
-|
-| 1..+
-
-| Scaler
-| Scalers
-| A reference to a scaler code
-|
-| 1..+
-
-| Attribute
-| Attributes
+| Attributes/Attribute
 | Assigned attribute's code, symbol, and it states if the attribute is Deprecated or not
-|
 | 1..+
 
-| Name
-| Attribute
+| Attribute/Name
 | The long form of the symbol
-|
 | 1
 
-| Definition
-| Attribute
-| Defines the Attribute
-|
+| Attribute/Definition
+| Provides definition for each attribute
 | 1
 
-| Description
-| Attribute
+| Attribute/Description
 | A free-form text describing the attribute
-|
-| 1
+| 0..1
 
-| UsageNote
-| Attribute
+| Attribute/UsageNote
 | A possible usage note
-|
-| 1
+| 0..1
 
-| Compatibility
-| Attribute
+| Attribute/Compatibility
 | Shows the version of the CDB that the attribute is compatible with
-|
-| 1
+| 0..1
 
-| Level
-| Attribute
+| Attribute/Level
 | Provides a means to state if the attribute is Preferred, Supported, Deprecated, or Not Supported for each of the schema levels. It also provides the schema level of the attribute.
-|
 | 1
 
-| Value
-| Attribute
-| Provides the information required to interpret (parse) the value assigned to this attribute.
-|
-| 1
-
-| Instance
-| Level
+| Level/Instance
 | Used for features whose attributes and attribute values vary with each instance of a feature in a dataset.
-|
 | 1
 
-| Extended
-| Level
+| Level/Extended
 | Can be used to represent CDB attributes, Geomatics attributes and Vendor attributes. However, the extended-level schema is the only means by which Geomatics attributes and Vendor attributes can be accessed
-|
 | 1
 
-| Class
-| Level
+| Level/Class
 | The preferred attribution schema for features whose attributes and attribute values can be shared by one or more of the instances of a feature in a dataset.
-|
 | 1
 
-| Type
-| Value
-| The type of the attribute value.
-| Text, Enumeration (Enum), Numeric, or Boolean
+| Attribute/Value
+| Provides the information required to interpret (parse) the value assigned to this attribute.
 | 1
 
-| Enumeration
-| Value
+| Value/Type
+| The type of the attribute value. NOTE: accepted types are: Text, Enumeration (Enum), Numeric, or Boolean
+| 1
+
+| Value/Enumeration
 | Provides a reference to a value code. NOTE: valid for Enum datatype only.
-|
-| 1
+| 0..1
 
-| Format
-| Value
-| The format of the value. NOTE: valid for numeric datatype only.
-| Floating-Point, Integer
-| 1
+| Value/Format
+| The format of the value. NOTE: valid for numeric datatype only. Accepted formats are Floating-Point, Integer
+| 0..1
 
-| Precision
-| Value
+| Value/Precision
 | Provides the number of digits before and after the decimal point. NOTE: valid for floating-point formats only.
-|
-| 1
+| 0..1
 
-| Range
-| Value
+| Value/Range
 | Provides the minimum and maximum values. NOTE: valid for numeric datatype only.
-|
-| 1
+| 0..1
 
-| Length
-| Value
+| Value/Length
 | Provides the length of value (character). NOTE: valid for text datatype only.
-|
-| 1
+| 0..1
 
-| Default
-| Value
+| Value/Default
 | Represents the default value of the attribute.
-|
-| 1
+| 0..1
 
-| Unit
-| Value
+| Value/Unit
 | Provides a reference to a unit code.
-|
-| 1
+| 0..1
 
-| Scaler
-| Value
+| Value/Scaler
 | A reference to a scaler code.
-|
+| 0..1
+
+| Vector-Attributes/Units
+| A list of Unit definitions
 | 1
 
-| Name
-| Scaler
-| The long form of the scaler symbol
-|
-| 1
+| Units/Unit
+| A reference to a unit code with assigned code and symbol. The code is a positive integer used as a key when a Value references a unit. The symbol is the character string that is commonly recognized as the unit identifier.
+| 1..+
 
-| Description
-| Scaler
-| A free-form text describing the scaler
-|
-| 1
-
-| Multiplier
-| Scaler
-| The numerical multiplier applied to the base unit
-|
-| 1
-
-| Name
-| Unit
+| Unit/Name
 | The long form of the unit symbol
-|
 | 1
 
-| Description
-| Unit
+| Unit/Description
 | A free-form text describing the unit
-|
+| 1
+
+| Vector-Attributes/Scalers
+| A list of Scaler definitions, such as kilo. Scaler has a code and symbol. The code is a positive integer used as a key when a Value references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier.
+| 1
+
+| Scalers/Scaler
+| A reference to a scaler code
+| 1..+
+
+| Scaler/Name
+| The long form of the scaler symbol
+| 1
+
+| Scaler/Description
+| A free-form text describing the scaler
+| 1
+
+| Scaler/Multiplier
+| The numerical multiplier applied to the base unit
 | 1
 
 |===
