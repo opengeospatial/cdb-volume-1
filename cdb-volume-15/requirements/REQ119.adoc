@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 119*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/topo-jid-range[http://www.opengis.net/spec/cdb/1.0/core/topo-jid-range]{set:cellbgcolor:#FFFFFF} +
-
-This version of the standard imposes that SJID, EJID and JID _SHALL_ have unique values for all network datasets within the same geocell.{set:cellbgcolor:#FFFFFF}
-|===

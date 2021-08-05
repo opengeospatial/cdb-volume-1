@@ -1,9 +1,0 @@
-[cols=",,",]
-|==========================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/navdata-naming*
-|*Requirements* 2+|/req/core/navdata-naming 
-|*Dependency* 2+|
-|*Test 73* |*Test purpose* |Verify if All files of the NavData dataset have the appropriate naming convention.
-| |*Test method* |Visually check if if All files of the NavData dataset have the following naming convention: D400_Snnn_Tnnn.dbf and Table 3-32: NavData Naming Convention.
-| |*Test type* |Conformance
-|==========================================================================================================================================================================

@@ -1,9 +1,0 @@
-[cols=",,",]
-|==========================================================================================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/tiled-powerline-network*
-|*Requirements* 2+|/req/core/tiled-powerline-network 
-|*Dependency* 2+|Various XML schema
-|*Test 126* |*Test purpose* |Verify that the powerline networks use PowerLineNetwork Dataset to specify its components.
-| |*Test method* |Visual
-| |*Test type* |Conformance
-|==========================================================================================================================================================================================================================================

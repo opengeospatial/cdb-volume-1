@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 64*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/1.0/core/vector-dataset-limit{set:cellbgcolor:#FFFFFF} +
-
-For positive LODs, each Tile-LOD of the vector datasets _SHALL_ have no more than 16,384 points to describe the features, whether the file contains point, lineal, or polygon features. For negative LODs, this limit _SHALL_ be recursively divided by 4 until it reaches the value 1.{set:cellbgcolor:#FFFFFF}
-|===

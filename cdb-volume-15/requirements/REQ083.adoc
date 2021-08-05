@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 83*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/nav-key-datasets[http://www.opengis.net/spec/cdb/1.0/core/nav-key-datasets]{set:cellbgcolor:#FFFFFF} +
-
-For each attribute that has an index key in the schema file, an index Key Dataset _SHALL_ be created. For Key Datasets, the Dataset Component Selector 2 _SHALL_ include the last three digits of the index key from the schema file.{set:cellbgcolor:#FFFFFF}
-|===

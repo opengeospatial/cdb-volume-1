@@ -1,8 +1,0 @@
-[cols="1,4",width="90%"]
-|=====================================================================================================================================================================================================================
-2+|Requirements Class - VSTLM (103) {set:cellbgcolor:#CACCCE}
-2+|/req/core/tiled-raster-vstlm {set:cellbgcolor:#FFFFFF}
-|Target type |Operations
-|Dependency {set:cellbgcolor:#CACCCE} |Various XML schema
-|Requirement 103 {set:cellbgcolor:#CACCCE} |/req/core/vstlm-component-data-type {set:cellbgcolor:#FFFFFF}
-|=====================================================================================================================================================================================================================

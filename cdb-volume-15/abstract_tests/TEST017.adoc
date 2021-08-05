@@ -1,9 +1,0 @@
-[cols=",,",]
-|======================================================================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/light-name*
-|*Requirements* 2+|/req/core/light-name 
-|*Dependency* 2+|
-|*Test 17* |*Test purpose* |Verify that name of a light is based on the naming hierarchy style.
-| |*Test method* |Pass if the light nam is visually conformed with a naming hierarchy and starting from the top-most level of the hierarchy, concatenate each of the names encountered with the backslash“\” character.
-| |*Test type* |Conformance
-|======================================================================================================================================================================================================================

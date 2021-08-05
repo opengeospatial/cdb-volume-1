@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 26*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/composite-material-tag{set:cellbgcolor:#FFFFFF} +
-
-Each composite material _SHALL_ be tagged with a non-negative integer index, zero being reserved for default value that is assigned by the CDB data manipulation tools.{set:cellbgcolor:#FFFFFF}
-|===

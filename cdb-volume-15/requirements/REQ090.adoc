@@ -1,8 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 90*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/terrain-tiff-mesh-type[http://www.opengis.net/spec/cdb/1.0/core/terrain-tiff-mesh-type]
-
-The _Mesh Type_ _SHALL_ be represented as a 0 or 1.  If the _Mesh Type_ is stored as the second channel of a TIFF image, it _SHALL_ be stored as an unsigned 8-bit integer.  If the _Mesh Type_ is stored as a single channel subfile of a TIFF, it _SHALL_ be stored as either an unsigned 8-bit integer or as a bilevel 1-bit image.
-{set:cellbgcolor:#FFFFFF}
-|===

@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 101*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]vsti-component-data-type{set:cellbgcolor:#FFFFFF} +
-
-The VSTI component _SHALL_ be represented as single-channel gray-scale images, or as triple-channel non-paletted color images in JPEG 2000 format. The use of transparency on terrain imagery is not allowed.{set:cellbgcolor:#FFFFFF}
-|===

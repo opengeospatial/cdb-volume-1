@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 10*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/coordinates{set:cellbgcolor:#FFFFFF} +
-
-Coordinates SHALL be described using the decimal degree format without the “°”symbol. The values of latitude and longitude _SHALL_ be bounded by ±90° and ±180° respectively. Positive latitudes are north of the equator, negative latitudes are south of the equator. Positive longitudes are east of the Prime Meridian; negative longitudes are west of the Prime Meridian. Latitude and longitude are expressed in that sequence, namely latitude before longitude.{set:cellbgcolor:#FFFFFF}
-|===

@@ -1,9 +1,0 @@
-[cols=",,",]
-|====================================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/metadata-flir*
-|*Requirements* 2+|/req/core/metadata-flir 
-|*Dependency* 2+|XML
-|*Test 34* |*Test purpose* |Verify if “FLIR” client device has a client specific metadata file available in a specific folder
-| |*Test method* |Visually inspect whether if each “FLIR” client device has a client specific metadata file called “Lights_FLIR.xml” available in a specific folder “\CDB\Metadata\ “
-| |*Test type* |Conformance
-|====================================================================================================================================================================================

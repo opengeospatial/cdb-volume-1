@@ -1,9 +1,0 @@
-[cols="1,4",width="90%"]
-|=============================================================================================================================================================================================================================
-2+|Requirements Class - Tiled JPEG metadata(99-100) {set:cellbgcolor:#CACCCE}
-2+|/req/core/tiled-raster-jpeg-metadata {set:cellbgcolor:#FFFFFF}
-|Target type |Operations
-|Dependency |Various XML schema
-|Requirement 99 {set:cellbgcolor:#CACCCE} |/req/core/jpeg-origin-metadata {set:cellbgcolor:#FFFFFF}
-|Requirement 100 {set:cellbgcolor:#CACCCE} |/req/core/jpeg-security-metadata {set:cellbgcolor:#FFFFFF}
-|=============================================================================================================================================================================================================================

@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 34*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/metadata-flir{set:cellbgcolor:#FFFFFF} +
-
-A Forward Looking Infrared client device named “FLIR” SHALL have a client specific metadata file having the following directory path and filename: \CDB\Metadata\Lights_FLIR.xml{set:cellbgcolor:#FFFFFF}
-|===

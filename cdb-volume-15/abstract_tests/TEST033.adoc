@@ -1,9 +1,0 @@
-[cols=",,",]
-|=================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/metadata-version*
-|*Requirements* 2+|/req/core/metadata-version 
-|*Dependency* 2+|XML
-|*Test 33* |*Test purpose* |Verify that CDB Version has a metadata file available in a specific folder
-| |*Test method* |Visually inspect whether each CDB Version has a metadata file called “Version.xml” available in “\CDB\Metadata\”
-| |*Test type* |Conformance
-|=================================================================================================================================

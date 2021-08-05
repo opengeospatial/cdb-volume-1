@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 40*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/geospecific-storage{set:cellbgcolor:#FFFFFF} +
-
-Like all of the CDB Tiled datasets, geospecific models _SHALL_ be stored in the \CDB\Tiles\ directory. As a result, client-devices can reference each model with a unique directory path and a unique file name which is derived from the model’s unique position, level-of-detail, and its feature code{set:cellbgcolor:#FFFFFF}
-|===

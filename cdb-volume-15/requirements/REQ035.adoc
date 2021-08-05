@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 35*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/cdb-not-in-root-directory{set:cellbgcolor:#FFFFFF} +
-
-A CDB Version _SHALL_ not be stored directly in the root directory of a disk device or volume{set:cellbgcolor:#FFFFFF}
-|===

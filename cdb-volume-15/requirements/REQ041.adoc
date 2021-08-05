@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 41*{set:cellbgcolor:#CACCCE}
-|http://opengis.net/spec/CDB/1.0/core/lod-hierarchy[http://www.opengis.net/spec/CDB/1.0/cor]e/lod-organization-resolution{set:cellbgcolor:#FFFFFF} +
-
-The geometry, texture, and signature datasets of 3D models _SHALL_ be organized into levels of details (LOD) based on their resolutions.{set:cellbgcolor:#FFFFFF}
-|===

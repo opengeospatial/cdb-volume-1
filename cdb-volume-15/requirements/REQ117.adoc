@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 117*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/shapefile-reader[http://www.opengis.net/spec/cdb/1.0/core/]topoplogy-attributes{set:cellbgcolor:#FFFFFF} +
-
-For all topological network datasets the SJID, EJID or JID attributes _SHALL_ be specified.{set:cellbgcolor:#FFFFFF}
-|===

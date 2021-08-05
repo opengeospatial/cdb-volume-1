@@ -1,8 +1,0 @@
-[cols="1,4",width="90%"]
-|=============================================================================================================================================================================================================
-2+|Requirements Class - Tiled Composite Materials Table (128) {set:cellbgcolor:#CACCCE}
-2+|/req/core/tiled-vcmt {set:cellbgcolor:#FFFFFF}
-|Target type |Operations
-|Dependency |Various XML schema
-|Requirement 128 {set:cellbgcolor:#CACCCE} |/req/core/vcmt {set:cellbgcolor:#FFFFFF}
-|=============================================================================================================================================================================================================

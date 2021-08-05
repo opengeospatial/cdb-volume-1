@@ -1,9 +1,0 @@
-[cols=",,",]
-|===================================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/cultural-representation*
-|*Requirements* 2+|/req/core/cultural-representation 
-|*Dependency* 2+|
-|*Test 39* |*Test purpose* |Verify if the cultural features of a CDB data store are valid file type.
-| |*Test method* |Visually inspect weather the cultural features of a CDB data store are one of the following types of modeled representations: GTModel, GSModel, T2DModel & MModel.
-| |*Test type* |Conformance
-|===================================================================================================================================================================================

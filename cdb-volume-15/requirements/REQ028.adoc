@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 28*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/generation-materials-3d{set:cellbgcolor:#FFFFFF} +
-
-In the case of 3D models, the modeler _SHALL_ appropriately tag zones or selected polygons with the appropriate materials. Here again, the modeler need not be aware of the Base Materials mandated by the CDB standard and can work with the materials he is most familiar with.{set:cellbgcolor:#FFFFFF}
-|===

@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 48*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/1.0/gtmodeldescriptor-name[http://www.opengis.net/spec/cdb/core/1.0/gtmodeldescriptor-name]{set:cellbgcolor:#FFFFFF} +
-
-The files of the GTModelDescriptor dataset _SHALL_ be stored in level 4 of the 5-level directory structure presented above. The names of the files _SHALL_ adhere to the following naming convention: D503_Snnn_Tnnn_FeatureCode_FSC_MODL.xml{set:cellbgcolor:#FFFFFF}
-|===

@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 6*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/raster-imagery-compression{set:cellbgcolor:#FFFFFF} +
-
-JPEG 2000 _SHALL_ be used for storing and compressing Raster Imagery such as the imagery used for Out The Window (OTW) applications. See Annex C Volume 2 for reasons for this requirement.{set:cellbgcolor:#FFFFFF}
-|===

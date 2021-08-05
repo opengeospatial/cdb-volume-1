@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 67*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/vector-dataset-llimit[http://www.opengis.net/spec/cdb/1.0/core/]uref-directory-name{set:cellbgcolor:#FFFFFF} +
-
-All files stored in the UREF subdirectory of section 3.6.2.5 _SHALL_ have the following naming convention: LatLon_Dnnn_Snnn_Tnnn_LOD_Un_Rn.<ext>
-|===

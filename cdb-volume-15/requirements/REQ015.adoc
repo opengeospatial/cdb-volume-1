@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 15*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/hierarchy{set:cellbgcolor:#FFFFFF} +
-
-The LOD hierarchy of all tiled datasets _SHALL_ be complete for every CDB Geocell. However, each CDB Geocell may have a different number of Tile-LODs.{set:cellbgcolor:#FFFFFF}
-|===

@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 127*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/tiled-hydronetwork[http://www.opengis.net/spec/cdb/1.0/core/tiled-hydronetwork]{set:cellbgcolor:#FFFFFF} +
-
-The HydrographyNetwork Dataset _SHALL_ be used to specify hydrographyfootnote:[Within the context of the CDB, the term hydrography encompasses a broad gamut of natural and man-made bodies of water such as oceans, lakes, rivers, canals, etc.] networks.{set:cellbgcolor:#FFFFFF}
-|===

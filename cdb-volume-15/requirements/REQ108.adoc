@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 108 Client device model origin and orientation*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]vector-client-origin-with-model{set:cellbgcolor:#FFFFFF} +
-
-If the feature has an associated model, client-devices _SHALL_ position the model’s origin at the specified coordinate, orient the model’s Y-axis in accordance to the AO1 attribute, and align the model’s Z-axis so that it points up. In the case of vector data types that do not have a Z component value, the object’s height value _SHALL_ be referenced to the underlying terrain; as a result, client-devices are required to position the model’s origin wrt underlying terrain elevation dataset. For Point features with a Z component, client-devices _SHALL_ position the model as per the AHGT class attribute value. If AHGT is true, the model’s origin _SHALL_ be positioned to the value specified by the Z component (Absolute Terrain Altitude), irrelevant of the terrain elevation dataset. If AHGT is false or not present, the model’s origin _SHALL_ be positioned to the value specified by the underlying terrain offset by the Z component value.{set:cellbgcolor:#FFFFFF}
-|===

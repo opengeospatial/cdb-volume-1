@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 104*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]material-layer-data-type{set:cellbgcolor:#FFFFFF} +
-
-The Material Layer components each _SHALL_ be represented as single-channel, material coded one byte unsigned integer value images stored in TIFF.{set:cellbgcolor:#FFFFFF}
-|===

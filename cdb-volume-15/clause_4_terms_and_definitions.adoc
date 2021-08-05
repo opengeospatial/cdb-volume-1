@@ -1,7 +1,0 @@
-
-[[TermsandDefinitions]]
-== Terms and Definitions
-
-This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
-
-Terms and Definitions specific to this standard or defined by existing ISO 19000 series standards are provided in Volume 3: OGC CDB Terms and Definitions <need URL at publication>.

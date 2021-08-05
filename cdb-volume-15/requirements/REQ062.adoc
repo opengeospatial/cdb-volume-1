@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 62*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/1.0/mmodelcmt-name[http://www.opengis.net/spec/cdb/core/1.0/mmodelcmt-name]{set:cellbgcolor:#FFFFFF} +
-
-The MModelCMT dataset is assigned dataset code 605 and the names of all MModelCMT files _SHALL_ adhere to the following naming convention: D605_S001_T001_TNAM.xml{set:cellbgcolor:#FFFFFF}
-|===

@@ -1,9 +1,0 @@
-[cols="1,4",width="90%"]
-|====================================================================================================================================================================================================================
-2+|Requirements Class - VSTI (101-102) {set:cellbgcolor:#CACCCE}
-2+|/req/core/tiled-raster-vsti {set:cellbgcolor:#FFFFFF}
-|Target type |Operations
-|Dependency |Various XML schema
-|Requirement 101 {set:cellbgcolor:#CACCCE} |/req/core/vsti-component-data-type {set:cellbgcolor:#FFFFFF}
-|Requirement 102 {set:cellbgcolor:#CACCCE} |Note: This requirement removed in version 1.1 {set:cellbgcolor:#FFFFFF}
-|====================================================================================================================================================================================================================

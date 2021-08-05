@@ -1,9 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 86*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]tile-implicit-corner-computation{set:cellbgcolor:#FFFFFF} +
-
-
-The latitude and longitude of an implicit corner data element (in a tile) with coordinates (_i_, _j_) _SHALL_ be computed as per the following equation (note the equation for _Xunit~LOD~_ and _Yunit~LOD~_ can be found in eq. 3-4)
-[cols=",",]{set:cellbgcolor:#FFFFFF}
-|===

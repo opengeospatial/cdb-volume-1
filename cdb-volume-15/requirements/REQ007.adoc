@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 7*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/uom{set:cellbgcolor:#FFFFFF} +
-
-All units of measure in a CDB conformant data store _SHALL_ be in meters.{set:cellbgcolor:#FFFFFF}
-|===

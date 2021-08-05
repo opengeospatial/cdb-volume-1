@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 37*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/cdb-version-entry-point-access{set:cellbgcolor:#FFFFFF} +
-
-The path to the boot CDB Version is the entry point that _SHALL_ be provided to all client-device applications when loading the CDB synthetic environment. Run-time applications _SHALL_ have access, directly or indirectly, to all disk devices and volumes as well as all paths to all linked CDB Versions simultaneously.{set:cellbgcolor:#FFFFFF}
-|===

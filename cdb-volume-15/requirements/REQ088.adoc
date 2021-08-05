@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 88*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.2/core/]primary-terrain-component{set:cellbgcolor:#FFFFFF} +
-
-The Primary Terrain Elevation component of the Elevation dataset _SHALL_ be represented as a 1 or 2-channel TIFF image, where the first channel is the _Elevation_ component and the optional second channel is the _Mesh Type_ component.{set:cellbgcolor:#FFFFFF}
-|===

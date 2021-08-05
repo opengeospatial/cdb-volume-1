@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 129*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/tiled-gsmd[http://www.opengis.net/spec/cdb/1.0/core/tiled-gsmd]{set:cellbgcolor:#FFFFFF}
-
-There _SHALL_ be one GeoSpecific Model Descriptor file at each LOD of the corresponding GeoSpecific Model Geometry file.{set:cellbgcolor:#FFFFFF}
-|===

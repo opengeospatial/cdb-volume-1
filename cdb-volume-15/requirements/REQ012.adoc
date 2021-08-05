@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 12*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/CDB/1.0/core/geocell-length{set:cellbgcolor:#FFFFFF} +
-
-The length of the CDB Geocell _SHALL_ be a whole factor of 180, in other words a length of 1, 2, 3, 4, 6 and 12 degrees are legal but lengths of 7 and 8 degrees would not be since these are not exact factors of 180.{set:cellbgcolor:#FFFFFF}
-|===

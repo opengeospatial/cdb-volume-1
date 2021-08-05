@@ -1,9 +1,0 @@
-[cols=",,",]
-|=====================================================================================================================================================================
-|*Conformance Class* 2+|*/conf/core/lod-organization-resolution* 
-|*Requirements* 2+|/req/core/lod-organization-resolution 
-|*Dependency* 2+|NA 
-|*Test 41* |*Test purpose* |Verify if the geometry, texture, and signature datasets of 3D models is organized into levels of details (LOD) based on their resolutions.
-| |*Test method* |Visually check if the geometry, texture, and signature datasets of 3D models is organized into levels of details (LOD) based on their resolutions.
-| |*Test type* |Conformance
-|=====================================================================================================================================================================

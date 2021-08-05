@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 71*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/1.0/msmodelmaterial-archive-name[http://www.opengis.net/spec/cdb/1.0/core/msmodelmaterial-archive-name]{set:cellbgcolor:#FFFFFF} +
-
-The files from the GSModelMaterial and GSModelInteriorMaterial datasets _SHALL_ have the following naming convention: LatLon_Dnnn_Snnn_Tnnn_LOD_Un_Rn_TNAM.<ext>footnote:[The file extension was .tif in CDB Version 1]{set:cellbgcolor:#FFFFFF}
-|===

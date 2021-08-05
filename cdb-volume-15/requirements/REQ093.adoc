@@ -1,7 +1,0 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement 93*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]terrain-lpn-use{set:cellbgcolor:#FFFFFF} +
-
-In the case where features overlap one other, client-devices _SHALL_ use the <<LayerPriorityNumberLPN>> attribute. This attribute is mandatory for geographically overlapping features.{set:cellbgcolor:#FFFFFF}
-|===
