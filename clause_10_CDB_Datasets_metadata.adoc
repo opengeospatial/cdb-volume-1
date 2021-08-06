@@ -316,9 +316,7 @@ A CDB Extension corresponds to user defined information, which is not described 
 [[CDBAttributesMetadata]]
 ==== CDB Attributes Metadata
 
-
-The CDB attributes are listed and described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the (http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd)[Official Schemas]. The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
-
+The CDB attributes are listed and described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas]. The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
 Its contents are as follows:
 
@@ -350,7 +348,7 @@ The file is composed of three majors sections, the first one being the most impo
 
 include::requirements/REQ075.adoc[]
 
-The code is the integer value assigned to each attribute listed in Vector_Attributes\CDB_Attributes.xml. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively. The <UsageNote> element contains possible usage note. The <Compatibility> shows the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
+The code is the integer value assigned to each attribute listed in Vector_Attributes\CDB_Attributes.xml. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively. The <UsageNote> element contains notes related to how to apply the attribute in the CDB datastore. The <Compatibility> shows the attribute's source or origin and the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
 
 include::requirements/REQ076.adoc[]
 

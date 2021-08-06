@@ -127,7 +127,7 @@ This metadata file is mandatory and identifies the content of one CDB Version. T
 [[CDB_AttributesMetadatafile]]
 ===== “CDB_Attributes” Metadata file
 
-This file is used to describe all the CDB attributes that are supported by the CDB standard. A complete listing and description of CDB attributes is provided in Vector_Attributes\CDB_Attributes.xml of this standard. The file is described in Section 5.1.8 of Volume 1: CDB Attributes Metadata.
+This file is used to describe all the CDB attributes that are supported by the CDB standard. A complete listing and description of CDB attributes is provided in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas]. The file is described in Section 5.1.8 of Volume 1: CDB Attributes Metadata.
 
 
 [[Geomatics_AttributesMetadatafile]]
