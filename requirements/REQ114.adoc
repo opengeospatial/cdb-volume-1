@@ -3,5 +3,5 @@
 |*Requirement 114 Missing optional attributes*{set:cellbgcolor:#CACCCE}
 |http://www.opengis.net/spec/cdb/core/shapefile-reader[http://www.opengis.net/spec/cdb/1.0/core/optional-attribute-compliance]{set:cellbgcolor:#FFFFFF} +
 
-A CDB dataset with missing optional attributes _SHALL_ be considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be enhanced by including the optional attributes. See `\CDB\1.3\Metadata\CDB_Attributes.xml` for Optional attributes and their characteristics.{set:cellbgcolor:#FFFFFF}
+A CDB dataset with missing optional attributes _SHALL_ be considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be enhanced by including the optional attributes. See `\CDB\Metadata\CDB_Attributes.xml` for Optional attributes and their characteristics.{set:cellbgcolor:#FFFFFF}
 |===
