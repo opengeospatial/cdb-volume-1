@@ -137,31 +137,46 @@ The value of M and Mrange found in some of the vector types (PointM, MultiPointM
 [[CDBAttribution]]
 ===== CDB Attribution
 
+The CDB attributes are listed and described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the (http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd)[Official Schemas]. The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
+
+image::images/image92.png[untitled1,width=1200,height=600]
+[#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. UML diagram of the CDB vector attribute_*
+
+The UML diagram is composed of three majors sections (i.e., attributes, units and scalers), the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by an individual attribute. The main properties of the vector attributes’ UML diagram are documented below.
+
+|===
+|Name | Definition
+
+| Vector_Attributes
+| Attributes are defined through 3 lists: 1) the attributes themselves, 2) their units, and 3) their scalers.
+
+| Attribute Code
+| A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
+
+| Attribute Symbol (Identifier)
+| A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
+
+| Attribute Values
+| A value can be assigned to each attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
+
+| Attribute Compatibility
+| The CDB standard provides a flexible means to tag features with attribution data. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies. The CDB standard provides the means to attribute features with attribution data with varied origins.
+
+| Attribute Level
+| It provides the schema level of the attribute.
+
+| Units
+| A list of Unit definitions
+
+| Scalers
+| A list of Scaler definitions, such as kilo. Scaler has a code and symbol.
+
+|===
+
 Attributes are used to describe one or more real or virtual characteristics of a feature. Features can be assigned a variable number of attributes.
 
 include::requirements/requirements_class022.adoc[]
-
-[[AttributeCode]]
-====== Attribute Code
-
-A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
-
-[[AttributeIdentifier]]
-====== Attribute Identifier
-
-A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
-
-[[AttributeSemantics]]
-====== Attribute Semantics
-
-Each attribute is associated with a textual definition (defining semantic information), which provides a human readable definition of the attribute.
-
-
-[[AttributesValues]]
-====== Attributes Values
-
-A value can be assigned to each attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
-
 
 [[AttributeUsage]]
 ====== Attribute Usage
@@ -179,13 +194,6 @@ include::requirements/REQ114.adoc[]
 _Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
 
 Note that attribute usage information for each of the CDB attributes can be found in `\CDB\1.3\Metadata\CDB_Attributes.xml` and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
-
-
-[[AttributionDataCompatibility]]
-====== Attribution Data Compatibility
-
-The CDB standard provides a flexible means to tag features with attribution data. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies. The CDB standard provides the means to attribute features with attribution data with varied origins.
-
 
 [[CDBAttributes_49]]
 *CDB Attributes*
