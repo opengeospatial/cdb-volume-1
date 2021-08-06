@@ -185,7 +185,7 @@ CDB attribution usage falls in the following categories:
 
 include::requirements/REQ113.adoc[]
 
-_Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to `\CDB\1.3\Metadata\CDB_Attributes.xml`, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
+_Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to `\CDB\Metadata\CDB_Attributes.xml`, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
 
 _Optional:_ An optional attribute is an attribute whose value may (optionally) be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) cannot rely on the availability of optional attributes.
 
@@ -193,7 +193,7 @@ include::requirements/REQ114.adoc[]
 
 _Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
 
-Note that attribute usage information for each of the CDB attributes can be found in `\CDB\1.3\Metadata\CDB_Attributes.xml` and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Note that attribute usage information for each of the CDB attributes can be found in `\CDB\Metadata\CDB_Attributes.xml` and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
 
 [[CDBAttributes_49]]
 *CDB Attributes*
