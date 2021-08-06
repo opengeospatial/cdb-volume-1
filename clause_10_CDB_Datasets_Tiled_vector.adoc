@@ -137,31 +137,32 @@ The value of M and Mrange found in some of the vector types (PointM, MultiPointM
 [[CDBAttribution]]
 ===== CDB Attribution
 
-The CDB attributes are listed and described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the (http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd)[Official Schemas]. The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
+The schema of vector attributes can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the (http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd)[Official Schemas].
+The list of CDB attributes are described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas].
+The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
 image::images/image92.png[untitled1,width=1200,height=600]
 [#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. UML diagram of the CDB vector attribute_*
 
-The UML diagram comprises three major sections (i.e., attributes, units and scalers). The main properties of the vector attributes’ UML diagram are documented below.
+The UML diagram comprises three major sections (i.e., attributes, units and scalers).
+The main properties of the vector attributes’ UML diagram are documented below.
 
 |===
 |Name | Definition
 
 | Vector Attributes
-| The CDB standard provides a flexible means to tag features with attribution data. Attributes are defined through 3 lists: 1) the attributes themselves, 2) their units, and 3) their scalers.
+| Attributes are used to describe one or more real or virtual characteristics of a feature.
 
 | Attribute Code
-| A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
+| A unique four-digit numeric code is associated to each attribute.
 
 | Attribute Symbol (Identifier)
-| A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
+| A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard.
 
 | Attribute Values
-| A value can be assigned to each attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
+| A value can be assigned to each attribute. Attribute values give quantitative/qualitative meaning to the attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard.
 
-| Attribute Compatibility
-| The CDB standard provides the means to attribute features with attribution data with varied origins. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies.
 
 | Attribute Level
 | It provides the schema level of the attribute.
@@ -175,6 +176,7 @@ The UML diagram comprises three major sections (i.e., attributes, units and scal
 |===
 
 Attributes are used to describe one or more real or virtual characteristics of a feature. Features can be assigned a variable number of attributes.
+The CDB standard provides a flexible means to tag features with attribution data.
 
 include::requirements/requirements_class022.adoc[]
 
@@ -303,35 +305,36 @@ Note that it is possible to simultaneously extend a record (instance and class) 
 [[CDBAttributes]]
 ===== CDB Attributes
 
-List of CDB attributes and description of the attributes that are governed by the CDB standard provided in `\CDB\Metadata\CDB_Attributes.xml`. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
+This section provides a list and definition of the attributes specific to the CDB standard and not from external standards.
+A complete list of all CDB attributes can be found in the CDB_Attributes.xml file, (\CDB\Metadata\CDB_Attributes.xml) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas].
+Note that it is possible to provide attributes other than those listed in the CDB_Attributes.xml by making use of the Geomatics and Vendor Extended-level attribution schema.
+CDB Attributes are stored in the XML format which is more appropriate for a computer program.
 
-CDB Attributes are stored in the XML format which is more appropriate for a computer program. The schema can be found in `CDB\Metadata\Schema\Vector_Attributes.xsd`.
+|===
+|Attribute Name | Semantic Definition
 
-The `CDB_Attributes.xml` file contents are composed of three major sections: Attributes, Units and Scalers. The Attributes section is the most important section. The file has a list of Attributes, followed by two lists of Units and Scalers that are referenced by individual Attribute.
+| Class Name (CNAM)
+| A name that represents the Attribution Class. The class-level attribution schema is described in Section 5.7.1.2.7.2, Class-level Schema. Attributes are referenced via this class name. The class name is used as the primary key to perform searches within the Dataset Class Attribute file. Each row of a class-level database file or table must have a valid CNAM entry; the CNAM must be unique within the file. Each row of an instance-level *.dbf can optionally use the CNAM to refer to class attributes; blank indicates “no class attribute”.
 
-image::images/image88.png[image,width=505,height=542]
-[#img_CDB_Attributes Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Schema_*
+| Feature Sub Code (FSC)
+| This code, in conjunction with the feature code is used to distinguish and categorize features within a dataset.
 
-The Units section is a list of Unit definitions. Each Unit that assigned a code and a symbol defines by Name and Description. The Name is the long form of the unit symbol and the Description is a free-form text describing this unit. The symbol is the character string that is commonly recognized as the unit identifier. The code is a positive integer used as a key when a Value references a unit.
+| Bounding Boxes Height (BBH), Width (BBW) and Length (BBL)
+| The dimension of the bounding box is intrinsic to the model and identical for all LOD representations.The Height/Width/Length of the Bounding Box of the 3D model associated with a point feature. It is the dimension of the box centered at the model origin and that bounds the portion of the model above its XY plane, including the envelopes of all articulated parts. BBH refers to the height of the box above the XY plane of the model, BBW refers to the width of the box along the X-axis, and BBL refers to the length of the box along the Y-axis. Note that for 3D models used as cultural features, the XY plane of the model corresponds to its ground reference plane. The value of BBH, BBW and BBL should be accounted for by client-devices (in combination with other information) to determine the appropriate distance at which the model should be paged-in, rendered or processed. BBH, BBW and BBL are usually generated through database authoring tool automation.
 
-image::images/image89.png[image,width=305,height=342]
-[#img_CDB_Attributes Unit Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Unit Schema_*
+| Bounding Sphere Radius (BSR)
+| The radius of a feature. In the case where a feature references an associated 3D model, it is the radius of the hemisphere centered at the model origin and that bounds the portion of the model above its XY plane, including the envelopes of all articulated parts. Note that for 3D models used as cultural features, the XY plane of the model corresponds to its ground reference plane. The value of BSR should be accounted for by client-devices (in combination with other information) to determine the appropriate distance at which the model should be paged-in, rendered or processed. When the feature does not reference a 3D model, BSR is the radius of the abstract point representing the feature (e.g., a city). The dimension of the bounding sphere is intrinsic to the model and identical for all LOD representations.
 
-The Scalers section is a list of Scaler definitions. Scaler has a code and symbol and defines by Name, Description and Multiplier. The Name is the long form of the scaler symbol and the Description is a free-form text describing this scaler. Finally, Multiplier is the numerical multiplier applied to the base unit. The code is a positive integer used as a key when a Value references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier.
+| AHGT, HGT, and Z Attributes
+| Indicates how to interpret the Z component of a vertex. If AHGT is true, the feature is positioned to the value specified by the Z component (Absolute Terrain Altitude), irrelevant of the terrain elevation dataset. If AHGT is false or not present, the feature is positioned to the value specified by the underlying terrain offset by the Z component value. When the Z coordinate (altitude) of a feature is relative to the ground, the terrain elevation dataset can be updated without the need to recompute the altitude of the feature. CAUTION: When the AHGT flag is set to true, the feature will be at a fixed WGS-84 elevation independently of the terrain LOD selected by the client-device. As a result, there is no guarantee that the feature (and its modeled representation) will remain above the terrain skin across all terrain LODs.
 
-image::images/image90.png[image,width=305,height=342]
-[#img_CDB_Attributes Scaler Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Scaler Schema_*
+| AO1
+| The angular distance measured from true north (0 deg) clockwise to the major (Y) axis of the feature. If the feature is square, the axis 0 through 89.999 deg shall be recorded. If the feature is circular, 360.000 deg shall be recorded. Recommended Usage. CDB readers should default to a value of 0.000 if AO1 is missing. Applicable to Point, Light Point, Moving Model Location and Figure Point features. When used in conjunction with the PowerLine dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon. The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
 
-The Attribute defines using Name, Definition, Description, UsageNote, Compatibility, Level and Value and assigned a code, symbol. The Attribute provides a means to state if the attribute is Deprecated or not. The Name is the long form of the symbol. The Definition defines the Attribute. The Description is a free-form text describing the attribute. The UsageNote element contains a possible usage note. The Compatibility shows the version of the CDB that the attribute is compatible with. The Level provides a means to state if the attribute is Preferred, Supported, Deprecated, or Not Supported for each of the schema levels. It also provides the schema level of the attribute. The Value element provides the information required to interpret (parse) the value assigned to this attribute.
+|===
 
-The Value defines using Type, Enumeration, Format, Precision, Range, Length, Default, Unit and Scaler. The Type is one of Text, Enumeration (Enum), Numeric, or Boolean. In the case of an Enumeration datatype, The Enumeration provides a list of accepted values. In the case of a numeric datatype, the Format indicates if it is a Floating-Point or an Integer value. For a floating-point type, the Precision provides the number of digits before and after the decimal point. For numeric types, the Range provides the minimum and maximum values; the Unit is a reference to a unit code, and the Scaler is a reference to a scaler code; both codes being respectively defined in subsequent Units and Scalers sections.
 
-image::images/image91.png[image,width=605,height=542]
-[#img_CDB_Attributes Value Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Value Schema_*
+
 
 [[ExplicitlyModeledRepresentations]]
 ===== Explicitly Modeled Representations
