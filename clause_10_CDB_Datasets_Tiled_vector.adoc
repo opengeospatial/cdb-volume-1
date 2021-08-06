@@ -143,13 +143,13 @@ image::images/image92.png[untitled1,width=1200,height=600]
 [#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. UML diagram of the CDB vector attribute_*
 
-The UML diagram is composed of three majors sections (i.e., attributes, units and scalers), the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by an individual attribute. The main properties of the vector attributes’ UML diagram are documented below.
+The UML diagram comprises three major sections (i.e., attributes, units and scalers). The main properties of the vector attributes’ UML diagram are documented below.
 
 |===
 |Name | Definition
 
-| Vector_Attributes
-| Attributes are defined through 3 lists: 1) the attributes themselves, 2) their units, and 3) their scalers.
+| Vector Attributes
+| The CDB standard provides a flexible means to tag features with attribution data. Attributes are defined through 3 lists: 1) the attributes themselves, 2) their units, and 3) their scalers.
 
 | Attribute Code
 | A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
@@ -161,13 +161,13 @@ The UML diagram is composed of three majors sections (i.e., attributes, units an
 | A value can be assigned to each attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
 
 | Attribute Compatibility
-| The CDB standard provides a flexible means to tag features with attribution data. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies. The CDB standard provides the means to attribute features with attribution data with varied origins.
+| The CDB standard provides the means to attribute features with attribution data with varied origins. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies.
 
 | Attribute Level
 | It provides the schema level of the attribute.
 
 | Units
-| A list of Unit definitions
+| A list of Unit definitions.
 
 | Scalers
 | A list of Scaler definitions, such as kilo. Scaler has a code and symbol.
