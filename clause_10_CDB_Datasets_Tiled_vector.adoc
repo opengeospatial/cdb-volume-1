@@ -228,7 +228,7 @@ This is the attribution schema used for features whose attributes and attribute 
 
 include::requirements/REQ115.adoc[]
 
-The data type, enumeration, length, format, range, usage, and units of the attribution values are specific to each attribute. The interpretation of the attribution data value is governed by metadata that describes the data type, the data enumeration, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
+The data type, enumeration, length, format, range, usage, and units of the attribution values are specific to each attribute. The interpretation of the attribution data value is governed by metadata that describes the data type, the enumeration, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
 
 include::requirements/REQ116.adoc[]
 
@@ -247,7 +247,7 @@ This is the preferred attribution schema for features whose attributes and attri
 
 The attributes and their values are logically re-grouped under a classname (CNAM attribute) that stands for the group of attributes specific to that class. Each row of the class-level *.dbf file corresponds to a classname found in the instance-level *.dbf shape file. Each attribute class is characterized by a set of attributes implemented as a row within the class-level *.dbf file. In turn, each attribute is uniquely defined by a name that is a “case-sensitive” character string of 10 characters or less. This 10-character limitation of attribute names is set for backwards compatibility due to use of the dBASE III+ File format structure (see Volume 2: OGC CDB Core Model and Physical Structure: Annexes, Annex E).
 
-The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes (`\CDB\1.3\Metadata\CDB_Attributes.xml`). The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance to a *.xsd schema file. Refer to Section 1.4.2 of this document for a description of the attribute metadata schema.
+The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes (`\CDB\Metadata\CDB_Attributes.xml`). The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance to a *.xsd schema file. Refer to Section 1.4.2 of this document for a description of the attribute metadata schema.
 
 The first column of the file is the classname and acts as the primary key to access table entries; all other rows correspond to the attributes represented by the classname. All of the class-level attributes are CDB attributes. For each dataset, a classname is unique within a geocell.
 
