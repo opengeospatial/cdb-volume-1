@@ -4,7 +4,7 @@
 |http://www.opengis.net/spec/cdb/core/shapefile-reader[http://www.opengis.net/spec/cdb/1.0/core/mandatory-attribute-compliance]{set:cellbgcolor:#FFFFFF} +
 
 
-A CDB compliant vector dataset _SHALL_ have no missing mandatory attributes. See `\CDB\1.3\Metadata\CDB_Attributes.xml` for Mandatory attributes and their characteristics.{set:cellbgcolor:#FFFFFF}
+A CDB compliant vector dataset _SHALL_ have no missing mandatory attributes. See `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) for Mandatory attributes and their characteristics.{set:cellbgcolor:#FFFFFF}
 
 _Clarification note Mandatory:_ A mandatory attribute is an attribute whose value _SHALL_ be provided for all of the features of a specified dataset, i.e., a producer of CDB data (e.g., tools) is required to generate values for mandatory attributes. Consumers of CDB compliant data (tools and/or simulator client-devices) can rely on the availability of mandatory attributes.{set:cellbgcolor:#FFFFFF}
 
