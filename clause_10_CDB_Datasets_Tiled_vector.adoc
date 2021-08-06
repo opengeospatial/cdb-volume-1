@@ -305,7 +305,7 @@ Note that it is possible to simultaneously extend a record (instance and class) 
 
 List of CDB attributes and description of the attributes that are governed by the CDB standard provided in `\CDB\Metadata\CDB_Attributes.xml`. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
 
-CDB Attributes are stored in the XML format which is more appropriate for a computer program. The schema can be found in `\CDB\1.3\Vector_Attributes.xsd`.
+CDB Attributes are stored in the XML format which is more appropriate for a computer program. The schema can be found in `CDB\Metadata\Schema\Vector_Attributes.xsd`.
 
 The `CDB_Attributes.xml` file contents are composed of three major sections: Attributes, Units and Scalers. The Attributes section is the most important section. The file has a list of Attributes, followed by two lists of Units and Scalers that are referenced by individual Attribute.
 
