@@ -9,11 +9,17 @@ Each <Value> _SHALL_ be defined as follows:
 
 <Type>...</Type>
 
+<Enumeration>...</Enumeration>
+
 <Format>...</Format>
 
 <Precision>...</Precision>
 
 <Range>...</Range>
+
+<Length>...</Length>
+
+<Default>...</Default>
 
 <Unit>...</Unit>
 

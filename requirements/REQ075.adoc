@@ -7,11 +7,17 @@
 Each attribute _SHALL_ be defined as follows:
 
 
-<Attribute code="..." symbol="...">
+<Attribute code="..." symbol="..." deprecated="...">
 
 <Name>...</Name>
 
+<Definition>...</Definition>
+
 <Description>...</Description>
+
+<UsageNote>...</UsageNote>
+
+<Compatibility>...</Compatibility>
 
 <Level>...</Level>
 
