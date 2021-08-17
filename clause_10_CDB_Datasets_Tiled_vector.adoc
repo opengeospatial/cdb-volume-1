@@ -137,18 +137,20 @@ The value of M and Mrange found in some of the vector types (PointM, MultiPointM
 [[CDBAttribution]]
 ===== CDB Attribution
 
-The schema of vector attributes can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas].
-The list of CDB attributes are described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas].
+The schema of vector attributes can be found in the `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas].
+The list of CDB attributes is described in the `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas].
+
 The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
 The following diagram is the UML Model for CDB Attribute schema and defining different entities and their properties, together with the relationship between entities.
 
 image::images/image92.png[untitled1,width=1200,height=600]
 [#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. UML diagram of the CDB vector attribute_*
+*_{figure-caption}{counter:figure-num}. The UML diagram of the CDB vector attribute_*
 
 The UML diagram comprises three major sections (i.e., attributes, units and scalers).
-The main properties of the vector attributes’ UML diagram are documented below.
+
+The main properties of the vector attributes’ UML diagram are documented below. A complete listing and description of CDB attributes are provided in the `CDB_Attributes.xml` file of this standard. The file is described in Section 5.1.8 of Volume 1: CDB Attributes Metadata.
 
 |===
 |Name | Definition
@@ -157,14 +159,13 @@ The main properties of the vector attributes’ UML diagram are documented below
 | Attributes are used to describe one or more real or virtual characteristics of a feature.
 
 | Attribute Code
-| A unique four-digit numeric code is associated to each attribute.
+| A unique four-digit numeric code is associated with each attribute.
 
 | Attribute Symbol (Identifier)
-| A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard.
+| A unique three-character or four-character alphanumeric identifier is associated with the attributes that are governed by this standard.
 
 | Attribute Values
 | A value can be assigned to each attribute. Attribute values give quantitative/qualitative meaning to the attribute. The data type, enumeration, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard.
-
 
 | Attribute Level
 | It provides the schema level of the attribute.
