@@ -47,7 +47,8 @@ The UML diagram is composed of three majors sections (i.e., attributes, units an
 | 0..1
 
 | Attribute/Compatibility
-| Shows the version of the CDB that the attribute is compatible with
+| Shows the attribute's source or origin and the version of the CDB that the attribute is compatible with.
+The CDB standard provides the means to attribute features with attribution data with varied origins. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies.
 | 0..1
 
 | Attribute/Level
@@ -157,6 +158,10 @@ include::requirements/requirements_class022.adoc[]
 
 A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
 
+[[AttributeSymbolIdentifier]]
+=== Attribute Symbol (Identifier)
+A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
+
 [[AttributeIdentifier]]
 === Attribute Identifier
 
@@ -195,7 +200,7 @@ Note that attribute usage information for each of the CDB attributes can be foun
 [[AttributionDataCompatibility]]
 === Attribution Data Compatibility
 
-The CDB standard provides a flexible means to tag features with attribution data. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies. The CDB standard provides the means to attribute features with attribution data with varied origins.
+The CDB standard provides the means to attribute features with attribution data with varied origins. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies. The CDB standard provides the means to attribute features with attribution data with varied origins.
 
 
 [[CDBAttributes_49]]

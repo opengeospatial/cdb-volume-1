@@ -137,8 +137,8 @@ The value of M and Mrange found in some of the vector types (PointM, MultiPointM
 [[CDBAttribution]]
 ===== CDB Attribution
 
-The schema of vector attributes can be found in the `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the (http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd)[Official Schemas].
-The list of CDB attributes is described in the `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas].
+The schema of vector attributes can be found in the `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas].
+The list of CDB attributes is described in the `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas].
 
 The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
