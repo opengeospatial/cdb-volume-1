@@ -144,7 +144,7 @@ The `CDB_Attributes.xml` file is based on XML format which is appropriate for a 
 
 The following diagram is the UML Model for CDB Attribute schema and defining different entities and their properties, together with the relationship between entities.
 
-image::images/image92.png[untitled1,width=1200,height=600]
+image::images/image92.jpg[untitled1,width=1200,height=600]
 [#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. The UML diagram of the CDB vector attribute_*
 
@@ -309,7 +309,7 @@ Note that it is possible to simultaneously extend a record (instance and class) 
 ===== CDB Attributes
 
 This section provides a list and definition of the attributes specific to the CDB standard and not from external standards.
-A complete list of all CDB attributes can be found in the CDB_Attributes.xml file, (\CDB\Metadata\CDB_Attributes.xml) and accessible from the (http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml)[Official Schemas].
+A complete list of all CDB attributes can be found in the CDB_Attributes.xml file, (\CDB\Metadata\CDB_Attributes.xml) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas].
 Note that it is possible to provide attributes other than those listed in the CDB_Attributes.xml by making use of the Geomatics and Vendor Extended-level attribution schema.
 CDB Attributes are stored in the XML format which is more appropriate for a computer program.
 
@@ -335,9 +335,6 @@ CDB Attributes are stored in the XML format which is more appropriate for a comp
 | The angular distance measured from true north (0 deg) clockwise to the major (Y) axis of the feature. If the feature is square, the axis 0 through 89.999 deg shall be recorded. If the feature is circular, 360.000 deg shall be recorded. Recommended Usage. CDB readers should default to a value of 0.000 if AO1 is missing. Applicable to Point, Light Point, Moving Model Location and Figure Point features. When used in conjunction with the PowerLine dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon. The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
 
 |===
-
-
-
 
 [[ExplicitlyModeledRepresentations]]
 ===== Explicitly Modeled Representations
