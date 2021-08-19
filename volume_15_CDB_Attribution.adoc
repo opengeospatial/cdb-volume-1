@@ -10,40 +10,82 @@ This chapter defines the CDB attribute schema file, CDB attribution, CDB attribu
 == Introduction
 
 
+// [[CDB attribution for tiled vector dataset]]
+== CDB attribution for tiled vector dataset
+
+
+[[CDBAttributes]]
+=== CDB Attributes
+List of CDB attributes and description of the attributes that are governed by the CDB standard provided in `\CDB\Metadata\CDB_Attributes.xml`. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
+CDB Attributes are stored in the XML format which is more appropriate for a computer program. The schema can be found in `CDB\Metadata\Schema\Vector_Attributes.xsd`.
+The `CDB_Attributes.xml` file contents are composed of three major sections: Attributes, Units and Scalers. The Attributes section is the most important section. The file has a list of Attributes, followed by two lists of Units and Scalers that are referenced by individual Attribute.
+
+image::images/image88.png[image,width=505,height=542]
+[#img_CDB_Attributes Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Schema_*
+
+The Units section is a list of Unit definitions. Each Unit that assigned a code and a symbol defines by Name and Description. The Name is the long form of the unit symbol and the Description is a free-form text describing this unit. The symbol is the character string that is commonly recognized as the unit identifier. The code is a positive integer used as a key when a Value references a unit.
+
+image::images/image89.png[image,width=305,height=342]
+[#img_CDB_Attributes Unit Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Unit Schema_*
+
+The Scalers section is a list of Scaler definitions. Scaler has a code and symbol and defines by Name, Description and Multiplier. The Name is the long form of the scaler symbol and the Description is a free-form text describing this scaler. Finally, Multiplier is the numerical multiplier applied to the base unit. The code is a positive integer used as a key when a Value references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier.
+
+image::images/image90.png[image,width=305,height=342]
+[#img_CDB_Attributes Scaler Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Scaler Schema_*
+
+The Attribute defines using Name, Definition, Description, UsageNote, Compatibility, Level and Value and assigned a code, symbol. The Attribute provides a means to state if the attribute is Deprecated or not. The Name is the long form of the symbol. The Definition defines the Attribute. The Description is a free-form text describing the attribute. The UsageNote element contains a possible usage note. The Compatibility shows the version of the CDB that the attribute is compatible with. The Level provides a means to state if the attribute is Preferred, Supported, Deprecated, or Not Supported for each of the schema levels. It also provides the schema level of the attribute. The Value element provides the information required to interpret (parse) the value assigned to this attribute.
+
+The Value defines using Type, Enumeration, Format, Precision, Range, Length, Default, Unit and Scaler. The Type is one of Text, Enumeration (Enum), Numeric, or Boolean. In the case of an Enumeration datatype, The Enumeration provides a list of accepted values. In the case of a numeric datatype, the Format indicates if it is a Floating-Point or an Integer value. For a floating-point type, the Precision provides the number of digits before and after the decimal point. For numeric types, the Range provides the minimum and maximum values; the Unit is a reference to a unit code, and the Scaler is a reference to a scaler code; both codes being respectively defined in subsequent Units and Scalers sections.
+
+image::images/image91.png[image,width=605,height=542]
+[#img_CDB_Attributes Value Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Value Schema_*
 
 [[TopLevelCDBAttributeSchemaFile]]
-== CDB Attribute Schema Overview
+=== CDB Attribute Schema Overview
 The CDB attributes are listed and described in Volume 1: CDB Core section 5.7.1.3 CDB Attributes. The controlled vocabulary for these attributes is stored in \CDB\Metadata\CDB_Attributes.xml and the following diagram indicates the schema file as provided in the CDB schema folder, Vector_Attributes.xsd. In essence, the file is the transposition of CDB Attributes into a format more appropriate for a computer program.
 The UML diagram is composed of three majors sections (i.e., attributes, units and scalers), the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by an individual attribute. The main properties of the vector attributes’ UML diagram are documented below.
 
-[#table_countries,reftext='{table-caption} {counter:table-num}']
+The following diagram is the UML Model for CDB Attribute schema and defining different entities and their properties, together with the relationship between entities.
+
+image::images/image92.jpg[untitled1,width=1200,height=600]
+[#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. The UML diagram of the CDB vector attribute Schema_*
+
+The UML diagram was generated based on the `Vector_Attributes.xsd` file.
+<<table_cdb_attributes>> defines components of the above figure.
+
+[#table_cdb_attributes,reftext='{table-caption} {counter:table-num}']
 .CDB attributes
-[cols="15e, <30m,<10m",width="75%",options="header",align="center"]
+[cols="15e, <30m,<10m",width="100%",options="header",align="center"]
 |===
 |Name | Definition | Multiplicity
 
 | Vector-Attributes/Attributes
-| Contains a list of Attributes
+| Contains a list of Attributes.
 | 1
 
 | Attributes/Attribute
-| Assigned attribute's code, symbol, and it states if the attribute is Deprecated or not
+| Assigned attribute's code, symbol, and it states if the attribute is Deprecated or not.
 | 1..*
 
 | Attribute/Name
-| The long form of the symbol
+| The long form of the symbol.
 | 1
 
 | Attribute/Definition
-| Provides definition for each attribute
+| Provides definition for each attribute. Each attribute is associated with a textual description (describing semantic information), which provides a human readable definition of the attribute.
 | 1
 
 | Attribute/Description
-| A free-form text describing the attribute
+| A free-form text describing the attribute.
 | 0..1
 
 | Attribute/UsageNote
-| A possible usage note
+| A possible usage note.
 | 0..1
 
 | Attribute/Compatibility
@@ -60,7 +102,7 @@ The CDB standard provides the means to attribute features with attribution data 
 | 1
 
 | Level/Extended
-| Can be used to represent CDB attributes, Geomatics attributes and Vendor attributes. However, the extended-level schema is the only means by which Geomatics attributes and Vendor attributes can be accessed
+| The extended-level schema is used to access Geomatics attributes and Vendor attributes.
 | 1
 
 | Level/Class
@@ -72,7 +114,7 @@ The CDB standard provides the means to attribute features with attribution data 
 | 1
 
 | Value/Type
-| The type of the attribute value. NOTE: accepted types are: Text, Enumeration (Enum), Numeric, or Boolean
+| The type of the attribute value. NOTE: accepted types are: Text, Enumeration (Enum), Numeric, or Boolean.
 | 1
 
 | Value/Enumeration
@@ -80,7 +122,7 @@ The CDB standard provides the means to attribute features with attribution data 
 | 0..1
 
 | Value/Format
-| The format of the value. NOTE: valid for numeric datatype only. Accepted formats are Floating-Point, Integer
+| The format of the value. NOTE: valid for numeric datatype only. Accepted formats are Floating-Point, Integer.
 | 0..1
 
 | Value/Precision
@@ -108,19 +150,19 @@ The CDB standard provides the means to attribute features with attribution data 
 | 0..1
 
 | Vector-Attributes/Units
-| A list of Unit definitions
+| A list of Unit definitions.
 | 1
 
 | Units/Unit
-| A reference to a unit code with assigned code and symbol. The code is a positive integer used as a key when a Value references a unit. The symbol is the character string that is commonly recognized as the unit identifier.
+| A list of unit codes with assigned code and symbol. The code is a positive integer used as a key when a Value references a unit. The symbol is the character string that is commonly recognized as the unit identifier.
 | 1..*
 
 | Unit/Name
-| The long form of the unit symbol
+| The long form of the unit symbol.
 | 1
 
 | Unit/Description
-| A free-form text describing the unit
+| A free-form text describing the unit.
 | 1
 
 | Vector-Attributes/Scalers
@@ -128,23 +170,36 @@ The CDB standard provides the means to attribute features with attribution data 
 | 1
 
 | Scalers/Scaler
-| A reference to a scaler code
+| A list of scaler codes.
 | 1..*
 
 | Scaler/Name
-| The long form of the scaler symbol
+| The long form of the scaler symbol.
 | 1
 
 | Scaler/Description
-| A free-form text describing the scaler
+| A free-form text describing the scaler.
 | 1
 
 | Scaler/Multiplier
-| The numerical multiplier applied to the base unit
+| The numerical multiplier applied to the base unit.
 | 1
 
 |===
 
+////
+(10.1.8) CDB Attributes Metadata (.xsd file)
+
+Kholase section 8
+
+10.1.8.1. Definition of the <Attribute> Element
+
+10.1.8.2. Definition of the <Unit> Element
+
+10.1.8.3. Definition of the <Scaler> Element
+
+10.1.8.4. Example of CDB_Attributes.xml
+////
 
 [[CDBAttribution]]
 == CDB Attribution
@@ -153,7 +208,34 @@ Attributes are used to describe one or more real or virtual characteristics of a
 
 include::requirements/requirements_class022.adoc[]
 
-include::CDB_Attributes_table.adoc[]
+This section provides a list and description of the attributes that are governed by the CDB standard. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
+
+[#table_cdb_attributes,reftext='{table-caption} {counter:table-num}']
+.CDB attributes
+[frame=none,grid=none]
+|===
+|===
+++++
+include::cdb_attributes.html[]
+++++
+
+[#table_cdb_units,reftext='{table-caption} {counter:table-num}']
+.CDB Units
+[frame=none,grid=none]
+|===
+|===
+++++
+include::cdb_units.html[]
+++++
+
+[#table_cdb_scalers,reftext='{table-caption} {counter:table-num}']
+.CDB Scalers
+[frame=none,grid=none]
+|===
+|===
+++++
+include::cdb_scalers.html[]
+++++
 
 [[AttributeCode]]
 === Attribute Code
