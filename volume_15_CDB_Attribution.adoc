@@ -153,6 +153,8 @@ Attributes are used to describe one or more real or virtual characteristics of a
 
 include::requirements/requirements_class022.adoc[]
 
+include::CDB_Attributes_table.adoc[]
+
 [[AttributeCode]]
 === Attribute Code
 
