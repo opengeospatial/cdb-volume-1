@@ -157,18 +157,21 @@ Attributes have two main properties as named by Level and Value. The main proper
 The following table defines the major components of the above figure.
 Please refer to Section 5.1.8 of Volume 1: CDB Attributes Metadata for a detailed definition of UML model components.
 
+[#table_MajorComponentsofUMLmodel,reftext='{table-caption} {counter:table-num}']
+*Table 5-??: The major components of UML model definition*
 |===
 |Name | Definition
 
 | Attributes
 | Attributes are used to describe one or more real or virtual characteristics of a feature. Attributes have three characteristics: +
-  - _Attribute Code_, A unique four-digit numeric code is associated with each attribute.
-  - _Attribute Symbol_ (Identifier): A unique three-character or four-character alphanumeric identifier is associated with the attributes that are governed by this standard. +
+  - _Code_: A unique four-digit numeric code is associated with each attribute. +
+  - _Symbol_ (Identifier): A unique three-character or four-character alphanumeric identifier is associated with the attributes that are governed by this standard. +
+  - _Deprecated_: It states if the attribute is Deprecated or not.
 
 | Level
 | It provides the schema level of the attribute such as class-level, instance-level and extended-level.
 
-| Values
+| Value
 | Attribute values give quantitative/qualitative meaning to the attribute. This property includes data type, enumeration, length, format, range, usage, units, and compatibility of each attribute.
 
 | Units
