@@ -1,65 +1,52 @@
-:figure-caption: Figure 3-
-:figure-num: 0
+= Volume 15: OGC CDB Attribution for Tiled Vector Dataset
 
 [[CDBAttributionSummary]]
 == Summary
 
-This chapter defines the CDB attribute schema file, CDB attribution, CDB attributes, and allocation of CDB attributes.
+This document defines the CDB attribute schema file, CDB attribution,
+CDB attributes, and allocation of CDB attributes.
+The CDB attributes and their normative requirements are described in
+the OGC CDB Volume 1, section 5.7.1.3 CDB Attributes.
+The metadata for these attributes is stored in `\CDB\Metadata\CDB_Attributes.xml`
+and the schema can be found in `\CDB\Metadata\Schema\Vector_Attributes.xsd`.
 
-[[CDBAttributionIntroduction]]
-== Introduction
+[[CDBAttributesOverview]]
+== CDB Attributes Overview
+Attributes are used to describe one or more real or virtual characteristics of a feature.
+Features can be assigned a variable number of attributes.
 
+Three category of attributes are defined for the OGC CDB standard, however, this document focuses only on the first category.
 
-// [[CDB attribution for tiled vector dataset]]
-== CDB attribution for tiled vector dataset
+*CDB Attributes*
 
+CDB attributes are attributes whose semantics, data type, length, format, range, usage, units, compatibility and schema are entirely governed by the CDB standard. Most of these attributes are unique to the CDB standard, i.e., these attributes are not found in source data that conforms to various (US) governmental standards and specifications.
+As a result, this attribution data must be derived via CDB tool automation or provided directly by the user.
 
-[[CDBAttributes]]
-=== CDB Attributes
-List of CDB attributes and description of the attributes that are governed by the CDB standard provided in `\CDB\Metadata\CDB_Attributes.xml`. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
-CDB Attributes are stored in the XML format which is more appropriate for a computer program. The schema can be found in `CDB\Metadata\Schema\Vector_Attributes.xsd`.
-The `CDB_Attributes.xml` file contents are composed of three major sections: Attributes, Units and Scalers. The Attributes section is the most important section. The file has a list of Attributes, followed by two lists of Units and Scalers that are referenced by individual Attribute.
+*Geomatics Attributes*
 
-image::images/image88.png[image,width=505,height=542]
-[#img_CDB_Attributes Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Schema_*
+Geomatics attributes are attributes whose semantics, data type, length, format, range, usage, and units, are governed by various governmental/industrial specifications and standards. Such attributes are generally found in source data that conforms to such standards and specifications. While the CDB standard itself does not define and govern the usage of these attributes, it nonetheless accommodates their storage within the repository structure of a CDB compliant dataset/data store. Please see section <<Extendedlevel>> for more information on extended level schemas and how Geomatics Attributes are used.
 
-The Units section is a list of Unit definitions. Each Unit that assigned a code and a symbol defines by Name and Description. The Name is the long form of the unit symbol and the Description is a free-form text describing this unit. The symbol is the character string that is commonly recognized as the unit identifier. The code is a positive integer used as a key when a Value references a unit.
+*Vendor Attributes*
 
-image::images/image89.png[image,width=305,height=342]
-[#img_CDB_Attributes Unit Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Unit Schema_*
+Vendor attributes are attributes whose semantics, data type, length, format, range, usage, and units are governed by one or more vendors. In general, such attributes cannot be used by other vendors since they are often proprietary. Such attributes exclude the above two types of attributes and are generally unique to each vendor. While the CDB standard itself does not define and govern the usage of these attributes, it nonetheless accommodates their storage within a CDB compliant data store/dataset. Please see section <<Extendedlevel>> for more information on extended level schemas and how Vendor Attributes are used.
 
-The Scalers section is a list of Scaler definitions. Scaler has a code and symbol and defines by Name, Description and Multiplier. The Name is the long form of the scaler symbol and the Description is a free-form text describing this scaler. Finally, Multiplier is the numerical multiplier applied to the base unit. The code is a positive integer used as a key when a Value references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier.
+The CDB attributes are listed and described in Volume 1: CDB Core section 5.7.1.3 CDB Attributes.
+The controlled vocabulary for these attributes is stored in `\CDB\Metadata\CDB_Attributes.xml`.
 
-image::images/image90.png[image,width=305,height=342]
-[#img_CDB_Attributes Scaler Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Scaler Schema_*
-
-The Attribute defines using Name, Definition, Description, UsageNote, Compatibility, Level and Value and assigned a code, symbol. The Attribute provides a means to state if the attribute is Deprecated or not. The Name is the long form of the symbol. The Definition defines the Attribute. The Description is a free-form text describing the attribute. The UsageNote element contains a possible usage note. The Compatibility shows the version of the CDB that the attribute is compatible with. The Level provides a means to state if the attribute is Preferred, Supported, Deprecated, or Not Supported for each of the schema levels. It also provides the schema level of the attribute. The Value element provides the information required to interpret (parse) the value assigned to this attribute.
-
-The Value defines using Type, Enumeration, Format, Precision, Range, Length, Default, Unit and Scaler. The Type is one of Text, Enumeration (Enum), Numeric, or Boolean. In the case of an Enumeration datatype, The Enumeration provides a list of accepted values. In the case of a numeric datatype, the Format indicates if it is a Floating-Point or an Integer value. For a floating-point type, the Precision provides the number of digits before and after the decimal point. For numeric types, the Range provides the minimum and maximum values; the Unit is a reference to a unit code, and the Scaler is a reference to a scaler code; both codes being respectively defined in subsequent Units and Scalers sections.
-
-image::images/image91.png[image,width=605,height=542]
-[#img_CDB_Attributes Value Schema,reftext='{figure-caption} {counter:figure-num}']
-*_{figure-caption}{counter:figure-num}. CDB Attributes Value Schema_*
-
-[[TopLevelCDBAttributeSchemaFile]]
-=== CDB Attribute Schema Overview
-The CDB attributes are listed and described in Volume 1: CDB Core section 5.7.1.3 CDB Attributes. The controlled vocabulary for these attributes is stored in \CDB\Metadata\CDB_Attributes.xml and the following diagram indicates the schema file as provided in the CDB schema folder, Vector_Attributes.xsd. In essence, the file is the transposition of CDB Attributes into a format more appropriate for a computer program.
+[[CDBAttributeSchemaFile]]
+=== CDB Attribute Schema
+The following diagram indicates the schema file as provided in the CDB schema folder,`CDB\Metadata\Schema\Vector_Attributes.xsd`. In essence, the file is the transposition of CDB Attributes into a format more appropriate for a computer program.
 The UML diagram is composed of three majors sections (i.e., attributes, units and scalers), the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by an individual attribute. The main properties of the vector attributes’ UML diagram are documented below.
-
-The following diagram is the UML Model for CDB Attribute schema and defining different entities and their properties, together with the relationship between entities.
 
 image::images/image92.jpg[untitled1,width=1200,height=600]
 [#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. The UML diagram of the CDB vector attribute Schema_*
 
 The UML diagram was generated based on the `Vector_Attributes.xsd` file.
-<<table_cdb_attributes>> defines components of the above figure.
+<<table_cdb_schema>> defines components of the above figure.
 
-[#table_cdb_attributes,reftext='{table-caption} {counter:table-num}']
-.CDB attributes
+[#table_cdb_schema,reftext='{table-caption} {counter:table-num}']
+.Describing the elements of the CDB attribute schema
 [cols="15e, <30m,<10m",width="100%",options="header",align="center"]
 |===
 |Name | Definition | Multiplicity
@@ -71,6 +58,14 @@ The UML diagram was generated based on the `Vector_Attributes.xsd` file.
 | Attributes/Attribute
 | Assigned attribute's code, symbol, and it states if the attribute is Deprecated or not.
 | 1..*
+
+| Attribute/Code
+| A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
+| 1
+
+| Attribute/Symbol (Identifier)
+| A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
+| 1
 
 | Attribute/Name
 | The long form of the symbol.
@@ -85,7 +80,15 @@ The UML diagram was generated based on the `Vector_Attributes.xsd` file.
 | 0..1
 
 | Attribute/UsageNote
-| A possible usage note.
+| CDB attribution usage falls in the following categories:
+- _Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset.
+Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value.
+A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
+- _Optional:_ An optional attribute is an attribute whose value may (optionally) be provided for all of the features of a specified dataset.
+Consumers of CDB compliant data (tools and/or simulator client-devices) cannot rely on the availability of optional attributes.
+- _Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional.
+The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
+Note: The attribute usage information for each of the CDB attributes can be found in <<table_cdb_attributes>>, CDB Attributes and in <<table_AllocationofCDBAttributestoVectorDataset>>, Allocation of CDB Attributes to Vector Datasets.
 | 0..1
 
 | Attribute/Compatibility
@@ -110,7 +113,9 @@ The CDB standard provides the means to attribute features with attribution data 
 | 1
 
 | Attribute/Value
-| Provides the information required to interpret (parse) the value assigned to this attribute.
+| Attribute values give quantitative/qualitative meaning to the attribute.
+It provides the information required to interpret (parse) the value assigned to this attribute.
+A value can be assigned to each attribute including data type, length, format, range, usage, units, and compatibility.
 | 1
 
 | Value/Type
@@ -187,125 +192,244 @@ The CDB standard provides the means to attribute features with attribution data 
 
 |===
 
-////
-(10.1.8) CDB Attributes Metadata (.xsd file)
+[[CDBAttributesMetadata]]
+== CDB Attributes Metadata
 
-Kholase section 8
+The CDB attributes are listed and described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas]. The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
-10.1.8.1. Definition of the <Attribute> Element
+Its contents are as follows:
 
-10.1.8.2. Definition of the <Unit> Element
+```xml
+<Vector_Attributes>
+  <Attributes>
+    <Attribute>...</Attribute>
+    ...
+    <Attribute>...</Attribute>
+  </Attributes>
+  <Units>
+    <Unit>...</Unit>
+    ...
+    <Unit>...</Unit>
+  </Units>
+  <Scalers>
+    <Scaler>...</Scaler>
+    ...
+    <Scaler>...</Scaler>
+  </Scalers>
+</Vector_Attributes>
+```
 
-10.1.8.3. Definition of the <Scaler> Element
-
-10.1.8.4. Example of CDB_Attributes.xml
-////
-
-[[CDBAttribution]]
-== CDB Attribution
-
-Attributes are used to describe one or more real or virtual characteristics of a feature. Features can be assigned a variable number of attributes.
-
-include::requirements/requirements_class022.adoc[]
-
-This section provides a list and description of the attributes that are governed by the CDB standard. Note that it is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
-
-[#table_cdb_attributes,reftext='{table-caption} {counter:table-num}']
-.CDB attributes
-[frame=none,grid=none]
-|===
-|===
-++++
-include::cdb_attributes.html[]
-++++
-
-[#table_cdb_units,reftext='{table-caption} {counter:table-num}']
-.CDB Units
-[frame=none,grid=none]
-|===
-|===
-++++
-include::cdb_units.html[]
-++++
-
-[#table_cdb_scalers,reftext='{table-caption} {counter:table-num}']
-.CDB Scalers
-[frame=none,grid=none]
-|===
-|===
-++++
-include::cdb_scalers.html[]
-++++
-
-[[AttributeCode]]
-=== Attribute Code
-
-A unique four-digit numeric code is associated to each attribute. For example, the attribute "Angle of Orientation" has an attribute code of “0003.”
-
-[[AttributeSymbolIdentifier]]
-=== Attribute Symbol (Identifier)
-A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
-
-[[AttributeIdentifier]]
-=== Attribute Identifier
-
-A unique three-character or four-character alphanumeric identifier is associated to the attributes that are governed by this standard. Attributes other than those governed by the CDB standard may not have an assigned identifier. For example, the CDB attribute "Length" has the “LEN” identifier. The identifier is a case-sensitive string of up to 10 characters. In the case of instance-level and class-level attributes, the identifier is used as the base name for a column name, such as counties.dbf, in a vector attribute encoding.
-
-[[AttributeSemantics]]
-=== Attribute Semantics
-
-Each attribute is associated with a textual description (describing semantic information), which provides a human readable definition of the attribute.
+The file is composed of three majors sections, the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by individual attribute.
 
 
-[[AttributesValues]]
-=== Attributes Values
+[[DefinitionoftheAttributeElement]]
+=== Definition of the <Attribute> Element
 
-A value can be assigned to each attribute. The data type, length, format, range, usage, units, compatibility and schema of each attribute value is governed by this standard. Attribute values give quantitative/qualitative meaning to the attribute.
+Each attribute is defined as follows:
+
+```xml
+<Attribute code="..." symbol="..." deprecated="...">
+
+<Name>...</Name>
+
+<Definition>...</Definition>
+
+<Description>...</Description>
+
+<UsageNote>...</UsageNote>
+
+<Compatibility>...</Compatibility>
+
+<Level>...</Level>
+
+<Value>...</Value>
+
+</Attribute>
+```
+
+The code is the integer value assigned to each attribute listed in `Vector_Attributes\CDB_Attributes.xml`.
+The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively. The <UsageNote> element contains notes related to how to apply the attribute in the CDB datastore. The <Compatibility> shows the attribute's source or origin and the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
+
+Each <Value> is defined as follows:
+
+```xml
+<Value>
+
+<Type>...</Type>
+
+<Enumeration>...</Enumeration>
+
+<Format>...</Format>
+
+<Precision>...</Precision>
+
+<Range>...</Range>
+
+<Length>...</Length>
+
+<Default>...</Default>
+
+<Unit>...</Unit>
+
+<Scaler>...</Scaler>
+
+</Value>
+```
+
+The <Type> is one of _Text_, _Numeric_, or _Boolean_.
+In the case of an _Enum_ datatype, the Enumeration element provides a complete listing of all possible values (codes) of the attribute and a respective description. In the case of a numeric datatype, the <Format> indicates if it is a _Floating-Point_ or an _Integer_ value. For a floating-point type, the <Precision> provides the number of digits before and after the decimal point. For numeric types, the <Range> provides the minimum and maximum values; the <Length> element provides the length of value for _Text_ datatype; the <Default> element provides the default value of the attribute, the <Unit> is a reference to a unit code; and the <Scaler> is a reference to a scaler code; both codes being respectively defined in subsequent <Units> and <Scalers> sections.
+
+[[DefinitionoftheUnitElement]]
+=== Definition of the <Unit> Element
+
+The <Units> section is a list of <Unit> definitions as follow:
+
+```xml
+<Unit code="..." symbol="...">
+
+<Name>...</Name>
+
+<Description>...</Description>
+
+</Unit>
+```
+
+[[DefinitionoftheScalerElement]]
+===== Definition of the <Scaler> Element
+
+The <Scalers> section is a list of <Scaler> definitions as follow:
+
+```xml
+<Scaler code="..." symbol="...">
+
+<Name>...</Name>
+
+<Description>...</Description>
+
+<Multiplier>...</Multiplier>
+
+</Scaler>
+```
+The code is a positive integer used as a key when a <Value> references a scaler. The symbol is the character string that is commonly recognized as the scaler identifier. The <Name> is the long form of the scaler symbol and <Description> is a free-form text describing this scaler. Finally, <Multiplier> is the numerical multiplier applied to the base unit.
+
+[[ExampleofCDB_Attributesxml]]
+=== Example of `CDB_Attributes.xml`
+
+The following example illustrates how to define an attribute of _Numeric_ datatype:
+
+```xml
+<Vector_Attributes>
+  <Attributes>
+    <Attribute code="3" symbol="AO1">
+      <Name>Angle of Orientation with greater than 1 degree resolution</Name>
+      <Definition>
+        The angular distance measured from true north (0 deg) clockwise to the major Y-axis of the feature.
+      </Definition>
+      <Description>
+        If the feature is square, the axis 0 through 89.999 deg shall be recorded.
+        If the feature is circular, 360.000 deg shall be recorded.
+      </Description>
+      <UsageNote>
+        Recommended.
+        Applicable to point, Light point, Moving Model Location, and Figure point features.
+        DEFAULT: CDB readers should default to a value of 0.000 if AO1 is missing.
+        When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon.
+        The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
+        Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
+      </UsageNote>
+      <Compatibility>OGC CDB 1.0, DIGEST v2.1</Compatibility>
+      <Level>
+        <Instance>Preferred</Instance>
+        <Class>Not Supported</Class>
+        <Extended>Supported</Extended>
+      </Level>
+      <Value>
+        <Type>Numeric</Type>
+        <Format>Floating-Point</Format>
+        <Precision>3.3</Precision>
+        <Range interval="Right-Open">
+          <Min>0</Min>
+          <Max>360</Max>
+        </Range>
+        <Default>0.000</Default>
+        <Unit>2</Unit>
+      </Value>
+    </Attribute>
+  </Attributes>
+  <Units>
+    <Unit code="2" symbol="deg">
+      <Name>degree</Name>
+      <Description>To measure an angle</Description>
+    </Unit>
+  </Units>
+  <Scalers>
+    <Scaler code="2" symbol="k">
+      <Name>kilo</Name>
+      <Description>A multiplier: thousand</Description>
+      <Multiplier>1000</Multiplier>
+    </Scaler>
+  </Scalers>
+</Vector_Attributes>
+```
+
+The following example illustrates how to define an attribute with _Enum_ datatype:
+
+```xml
+  <Attribute code="41" symbol="MODT">
+    <Name>Model Type</Name>
+    <Definition>
+      A flag indicating whether the modeled feature is geo-typical, geo-specific or a Moving Model.
+    </Definition>
+    <Description>
+      MODT indicates whether a feature is represented using a geotypical, geospecific or moving model.
+      Together, the MODT, FeatureCode, FSC, and MODL model name or the MMDC produce a unique path to a
+      directory within the CDB hierarchy and a unique filename within that directory identifies a unique model into the CDB.
+    </Description>
+    <UsageNote>
+      Needed for features that are modeled using a CDB specified format.
+      "T" for geo-typical, "S" for geo-specific, "M" for Moving Model.
+      DEFAULT: "S" when not present.
+    </UsageNote>
+    <Compatibility>OGC CDB 1.0</Compatibility>
+    <Level>
+      <Instance>Preferred</Instance>
+      <Class>Supported</Class>
+      <Extended>Supported</Extended>
+    </Level>
+    <Value>
+      <Type>Enum</Type>
+      <Enumeration>
+        <CodeList>
+          <Code>T</Code>
+          <Description>geotypical</Description>
+        </CodeList>
+        <CodeList>
+          <Code>S</Code>
+          <Description>geospecific</Description>
+        </CodeList>
+      </Enumeration>
+      <Length>1</Length>
+      <Default>"S"</Default>
+    </Value>
+  </Attribute>
+```
+
+The schema explains the use of the interval attribute of the <Range> element.
 
 
-[[AttributeUsage]]
-=== Attribute Usage
+[[GeomaticsAndVendorAttributesMetadata]]
+=== Geomatics and Vendor Attributes Metadata
 
-CDB attribution usage falls in the following categories:
-
-include::requirements/REQ113.adoc[]
-
-_Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to section 5.7.1.3, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
-
-_Optional:_ An optional attribute is an attribute whose value may (optionally) be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) cannot rely on the availability of optional attributes.
-
-include::requirements/REQ114.adoc[]
-
-_Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
-
-Note that attribute usage information for each of the CDB attributes can be found in section 5.7.1.3, CDB Attributes and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+`Geomatics_Attributes.xml` and `Vendor_Attributes.xml` are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see Section <<Extendedlevel>>).
+The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the `Vector_Attributes.xsd` schema.
 
 
-[[AttributionDataCompatibility]]
-=== Attribution Data Compatibility
+[[Attribution]]
+== Attribution Level
 
-The CDB standard provides the means to attribute features with attribution data with varied origins. The CDB standard accommodates the vast majority of attribution data that is in use today and available through formats and products supported by the NGA and other US governmental agencies. The CDB standard provides the means to attribute features with attribution data with varied origins.
-
-
-[[CDBAttributes_49]]
-*CDB Attributes*
-
-CDB attributes are attributes whose semantics, data type, length, format, range, usage, units, compatibility and schema are entirely governed by the CDB standard. Most of these attributes are unique to the CDB standard, i.e., these attributes are not found in source data that conforms to various (US) governmental standards and specifications. As a result, this attribution data must be derived via CDB tool automation or provided directly by the user.
-
-[[GeomaticsAttributes]]
-*Geomatics Attributes*
-
-Geomatics attributes are attributes whose semantics, data type, length, format, range, usage, and units, are governed by various governmental/industrial specifications and standards. Such attributes are generally found in source data that conforms to such standards and specifications. While the CDB standard itself does not define and govern the usage of these attributes, it nonetheless accommodates their storage within the repository structure of a CDB compliant dataset/data store. Please see section 5.7.1.2.7.3 for more information on extended level schemas and how Geomatics Attributes are used.
-
-[[VendorAttributes]]
-*Vendor Attributes*
-
-Vendor attributes are attributes whose semantics, data type, length, format, range, usage, and units are governed by one or more vendors. In general, such attributes cannot be used by other vendors since they are often proprietary. Such attributes exclude the above two types of attributes and are generally unique to each vendor. While the CDB standard itself does not define and govern the usage of these attributes, it nonetheless accommodates their storage within a CDB compliant data store/dataset. Please see section 5.7.1.2.7.3 for more information on extended level schemas and how Vendor Attributes are used.
-
-[[AttributionSchemas]]
-=== Attribution Schemas
-
-The CDB standard offers three different attribution schemas. Each of the schemas offers different trade-offs in the manner attribution data is accessed and stored. Each of these schemas is largely motivated by the storage size considerations, and flexibility in the manner attribution data can be assigned to individual features and to groups of features.
+The CDB standard offers three different attribution level schemas.
+Each of the schemas offers different trade-offs in the manner attribution data is accessed and stored.
+Each of these schemas is largely motivated by the storage size considerations, and flexibility in the manner attribution data can be assigned to individual features and to groups of features.
 
 The three attribution schemas supported by the CDB standard are:
 
@@ -313,54 +437,64 @@ The three attribution schemas supported by the CDB standard are:
 * Class-level schema
 * Extended-level schema
 
-[[InstancelevelSchema]]
-*Instance-level Schema*
+[[Instancelevel]]
+==== Instance-level
 
 This is the attribution schema used for features whose attributes and attribute values vary with each instance of a feature in a dataset.
-
-include::requirements/REQ115.adoc[]
-
-The data type, length, format, range, usage, and units of the attribution values are specific to each attribute. The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
-
-include::requirements/REQ116.adoc[]
-
-Refer to link:#CDBXMLSchemaDefinitions[Section 1.4.2] of this document for a listing of the attribute metadata schema.
+The data type, length, format, range, usage, and units of the attribution values are specific to each attribute.
+The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
 
 Each row of this instance-level file (or table) contains the instance-level attribute values for a corresponding feature in the *.shp file. The first column of each row within the instance-level *.dbf is always the classname (CNAM). If the classname is not used, its value is set to blank, and all of the classname attributes need to be added to the instance-level file (or table). The number of columns in a Dataset Instance-level file (or table) is different for each dataset. All of the instance-level attributes are CDB attributes.
 
 image::images/image77.jpeg[untitled1,width=514,height=244]
-[#img_InstancelevelAttributionSchema,reftext='{figure-caption} {counter:figure-num}']
+[#img_InstancelevelAttribution,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Instance-level Attribution Schema_*
 
-[[ClasslevelSchema]]
-*Class-level Schema*
+[[Classlevel]]
+==== Class-level
 
 This is the preferred attribution schema for features whose attributes and attribute values can be shared by one or more of the instances of a feature in a dataset.
 
-The attributes and their values are logically re-grouped under a classname (CNAM attribute) that stands for the group of attributes specific to that class. Each row of the class-level *.dbf file corresponds to a classname found in the instance-level *.dbf shape file. Each attribute class is characterized by a set of attributes implemented as a row within the class-level *.dbf file. In turn, each attribute is uniquely defined by a name that is a “case-sensitive” character string of 10 characters or less. This 10-character limitation of attribute names is set for backwards compatibility due to use of the dBASE III+ File format structure (see Volume 2: OGC CDB Core Model and Physical Structure: Annexes, Annex E).
+The attributes and their values are logically re-grouped under a classname (CNAM attribute) that stands for the group of attributes specific to that class.
+Each row of the class-level *.dbf file corresponds to a classname found in the instance-level *.dbf shape file.
+Each attribute class is characterized by a set of attributes implemented as a row within the class-level *.dbf file.
+In turn, each attribute is uniquely defined by a name that is a “case-sensitive” character string of 10 characters or less.
+This 10-character limitation of attribute names is set for backwards compatibility due to use of the dBASE III+ File format structure (see Volume 2: OGC CDB Core Model and Physical Structure: Annexes, Annex E).
 
-The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes listed in section 5.7.1.2, CDB Attribution. The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance to a *.xsd schema file. Refer to Section 1.4.2 of this document for a description of the attribute metadata schema.
+The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute.
+The `CDB_Attributes.xml` metadata file is used to describe all the CDB attributes listed in <<CDBAttributes>>.
+The `CDB_Attributes.xml` file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Metadata Directory] in the OCD CDB Volume 1). 
+The `CDB_Attributes.xml` metadata file is structured in accordance to `\CDB\Metadata\Schema\Vector_Attributes.xsd` schema file.
 
-The first column of the file is the classname and acts as the primary key to access table entries; all other rows correspond to the attributes represented by the classname. All of the class-level attributes are CDB attributes. For each dataset, a classname is unique within a geocell.
+The first column of the file is the classname and acts as the primary key to access table entries; all other rows correspond to the attributes represented by the classname.
+All of the class-level attributes are CDB attributes.
+For each dataset, a classname is unique within a geocell.
 
 image::images/image78.jpeg[untitled1,width=580,height=156]
 [#img_Class-levelAttributionSchema,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. Class-level Attribution Schema_*
 
-[[ExtendedlevelSchema]]
-*Extended-level Schema*
+[[Extendedlevel]]
+==== Extended-level
 
 The CDB standard provides an alternate attribution schema that can be used (in many cases) to supplement the instance-level and class-level schemas.
 
-The extended-level schema can be used to represent CDB attributes, Geomatics attributes and Vendor attributes. However, the extended-level schema is the only means by which Geomatics attributes and Vendor attributes can be accessed.
+The extended-level schema can be used to represent CDB attributes, Geomatics attributes and Vendor attributes.
+However, the extended-level schema is the only means by which Geomatics attributes and Vendor attributes can be accessed.
 
-Linkage to the extended-level CDB attribution data is accomplished through the CEAI attribute; CEAI is an index to a link list of CDB attributes stored in the extended-level attribute file (or table) footnote:[Currently a *.dbf file.]. Similarly, the GEAI and VEAI attributes are also indices to link lists of attributes stored in the extended-level attribute file (or table). The extended-level files have the structure described in section 5.7.1.2.7.4, Structure of Extended-level Files.
+Linkage to the extended-level CDB attribution data is accomplished through the CEAI attribute; CEAI is an index to a link list of CDB attributes stored in the extended-level attribute file (or table) footnote:[Currently a *.dbf file.].
+Similarly, the GEAI and VEAI attributes are also indices to link lists of attributes stored in the extended-level attribute file (or table).
+The extended-level files have the structure described in  the following section, <<StructureofExtendedlevelAttributeFilesorTables>>.
 
-There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes of section link:#CDBAttributes[5.7.1.3], CDB Attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
+There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes of section <<CDBAttributes>>, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes.
+All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Metadata Directory Section] of the OGC CDB Volume 1).
+All three attribute metadata *.xml files share the same schema.
+The schema that governs the contents of the attribute metadata files is `Vector_Attributes.xsd`.
+Refer to <<CDBAttributeSchemaFile>> Section of this document for a description of this schema.
 
 
 [[StructureofExtendedlevelAttributeFilesorTables]]
-=== Structure of Extended-level Attribute Files or Tables
+===== Structure of Extended-level Attribute Files or Tables
 
 Each row of the Extended-Level attribute files (or tables) correspond to an attribute. Each attribute row consists of four columns as follows.
 
@@ -392,6 +526,61 @@ image::images/image79.png[image,width=605,height=642]
 
 Note that it is possible to simultaneously extend a record (instance and class) with CDB, Geomatics, and vendor attributes. The example does not illustrate this situation to keep it (relatively) simple.
 
+[[CDBAttributes]]
+== CDB Attributes
+
+This section provides a list and description of the attributes that are governed by the CDB standard.
+The Attributes is the most important section and can be find at the CDB datastore Metadata folder (`\CDB\Metadata\CDB_Attributes.xml`).
+
+The Attribute defined by Name, Definition, Description, UsageNote, Compatibility, Level and Value and assigned a code, symbol.
+The Name is the long form of the symbol. The Definition defines the Attribute. The Description is a free-form text describing the attribute. The UsageNote element contains a possible usage note.
+The Compatibility shows the version of the CDB that the attribute is compatible with. The Level provides a means to state if the attribute is Preferred, Supported, Deprecated, or Not Supported for each of the schema levels.
+It also provides the schema level of the attribute. The Value element provides the information required to interpret (parse) the value assigned to this attribute.
+
+The Value is defined by Type, Enumeration, Format, Precision, Range, Length, Default, Unit and Scaler.
+The Type is one of Text, Enumeration (Enum), Numeric, or Boolean. In the case of an Enumeration datatype, The Enumeration provides a list of accepted values.
+In the case of a numeric datatype, the Format indicates if it is a Floating-Point or an Integer value.
+For a floating-point type, the Precision provides the number of digits before and after the decimal point. For numeric types, the Range provides the minimum and maximum values; the Unit is a reference to a unit code, and the Scaler is a reference to a scaler code; both codes being respectively defined in subsequent Units and Scalers sections.
+
+image::images/image91.png[image,width=605,height=542]
+[#img_CDB_Attributes Value Schema,reftext='{figure-caption} {counter:figure-num}']
+*_{figure-caption}{counter:figure-num}. CDB Attributes Value Schema_*
+
+This section has a list of CDB Attributes (<<table_cdb_attributes>>), followed by two lists of Units (<<table_cdb_units>>) and Scalers (<<table_cdb_scalers>>) that are referenced by individual Attribute.
+
+[NOTE]
+====
+It is possible to provide attributes other than those listed here by making use of the Geomatics and Vendor Extended-level attribution schema.
+====
+
+
+[#table_cdb_attributes,reftext='{table-caption} {counter:table-num}']
+.CDB attributes
+[frame=none,grid=none]
+|===
+|===
+++++
+include::cdb_attributes.html[]
+++++
+
+[#table_cdb_units,reftext='{table-caption} {counter:table-num}']
+.CDB Units
+[frame=none,grid=none]
+|===
+|===
+++++
+include::cdb_units.html[]
+++++
+
+[#table_cdb_scalers,reftext='{table-caption} {counter:table-num}']
+.CDB Scalers
+[frame=none,grid=none]
+|===
+|===
+++++
+include::cdb_scalers.html[]
+++++
+
 [[AllocationOfCDBAttributesToVectorDatasets]]
 == Allocation of CDB Attributes To Vector Datasets
 
@@ -400,6 +589,8 @@ The CDB standard limits the applicability of each of the CDB attributes to certa
 The allocation of CDB attributes to each of the Vector datasets is prescribed by Table 5-27 below.
 
 [#table_AllocationofCDBAttributestoVectorDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-27: Allocation of CDB Attributes to Vector Dataset*
-
+.Allocation of CDB Attributes to Vector Dataset
+[frame=none,grid=none]
+|===
+|===
 image::images/image82.png[image,width=624,height=558]
