@@ -27,9 +27,9 @@ Version 1.2 of the CDB standard specifies the use of either OGC GeoPackages or E
 * Refer to Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage. for detailed information and requirements for using GeoPackages for storing vector data in a CDB data store.
 * Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages.
 
-Geometry data features types used in a CDB data store are as follows <Note - remove??>:
+Geometry data features types used in a CDB data store are as follows <Note - remove ??? >:
 
-[options="header",]
+[cols="10, 20, 20, 50",width="100%",options="header",align="center"]
 |===============================================================================================
 |*Value* | *GeoPackage geometry type* |*Shapefile Vector type* |*Fields*
 |0 |Null |shape |None
@@ -53,10 +53,10 @@ include::requirements/REQ107.adoc[]
 All of the information that is needed to instance features is organized in accordance to the CDB tile structure. All the tiled Vector dataset files are located in the same directory.The dataset’s second component selector (CS2) is used to differentiate between files with the same extension or with the same Vector features. Table 5-18: Component Selector 2 for Vector Dataset, presents the list of codes that are allocated. Note that Vector datasets do not necessarily use all of the Dataset Component Selector 2 reserved codes. Users of the CDB standard should refer to the appropriate section for an enumeration of the supported File Component Selector 2 codes as well as the ones specific to the Dataset.
 
 The Vector dataset concept and the feature concepts overlap somewhat; some of the Vector datasets are generalizations or specializations of feature codes. Section 1.5 provides a recommended mapping of the feature attributes across the CDB compliant datasets. Note that the same feature _should_ not have two representations.
-
+[#table_cdb_schema,reftext='{table-caption} {counter:table-num}']
 [#table_ComponentSelector2forVectorDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-18: Component Selector 2 for Vector Datasets*
-[cols=",,",]
+[cols="10, 45, 45",width="100%",options="header",align="center"]
 |===============================================================================================
 |*CS2* |*Dataset Component Name* |*Supported Vector Types*
 |001 |Point features |Point, PointZ, PointM, MultiPoint, MultiPointZ, MultiPointM
@@ -158,8 +158,8 @@ The following table defines the major components of the above figure.
 Please refer to Section 5.1.8 of Volume 1: CDB Attributes Metadata for a detailed definition of UML model components.
 
 [#table_MajorComponentsofUMLmodel,reftext='{table-caption} {counter:table-num}']
-*Table 5-??: The major components of UML model definition*
-[cols="20e, <80m",width="100%",options="header",align="center"]
+*Table 5-19: The major components of UML model definition*
+[cols="20, <80",width="100%",options="header",align="center"]
 |===
 |Name | Definition
 
@@ -207,7 +207,7 @@ d) _Dependent:_
 
 A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
 
-Note that attribute usage information for each of the CDB attributes can be found in `\CDB\Metadata\CDB_Attributes.xml` and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Note that attribute usage information for each of the CDB attributes can be found in `\CDB\Metadata\CDB_Attributes.xml` and in Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 [[CDBAttributes_49]]
 *CDB Attributes*
@@ -324,8 +324,8 @@ Note that it is possible to provide attributes other than those listed in the CD
 CDB Attributes are stored in the XML format which is more appropriate for a computer program.
 
 [#table_CDBAttributesSemantics,reftext='{table-caption} {counter:table-num}']
-*Table 5-??: CDB Specific Attributes Semantics*
-[cols="20e, <80m",width="100%",options="header",align="center"]
+*Table 5-20: CDB Specific Attributes Semantics*
+[cols="20, <80",width="100%",options="header",align="center"]
 |===
 |Attribute Name | Semantic Definition
 
@@ -463,10 +463,10 @@ The CDB standard defines a collection of CDB Light Types that includes airport/r
 
 The CDB standard limits the applicability of each of the CDB attributes to certain vector datasets. This approach helps to reduce the number of columns (hence reducing the size) of the dBase instance and class-level attribution files.
 
-The allocation of CDB attributes to each of the Vector datasets is prescribed in Table 5-27 below.
+The allocation of CDB attributes to each of the Vector datasets is prescribed in Table 5-21 below.
 
 [#table_AllocationofCDBAttributestoVectorDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-27: Allocation of CDB Attributes to Vector Dataset*
+*Table 5-21: Allocation of CDB Attributes to Vector Dataset*
 
 image::images/image82.png[image,width=624,height=558]
 
@@ -493,7 +493,7 @@ As coarser Tile-LODs of the lineal and areal datasets are created, the individua
 As described in section 5.2, the global navigation dataset is complemented by a tile-based dataset of basic navigation information that refers to the corresponding geocell. Those are found in the \401_Navigation dataset which is subdivided into several components as listed in the next table.
 
 [#table_TiledNavigationDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-28: Tiled Navigation Dataset*
+*Table 5-22: Tiled Navigation Dataset*
 [cols="22, <10, <22, <22, <22",width="100%",options="header",align="center"]
 |==============================================================================================================
 |*CS1* |*CS2* |*File Extension* |*Component Name* |*Component +
@@ -504,9 +504,8 @@ Description*
 
 Refer to Table below, List of Navigation Components, for a complete description of the possible values of CS1.
 
-*List of Navigation Components*
-
-[cols="20e, <10m, <10m, <60m",width="100%",options="header",align="center"]
+*Table 5-23: List of Navigation Components*
+[cols="30, <10, <15, <45",width="100%",options="header",align="center"]
 |=====================================================================================================================================================================================================================================================================================================
 |*Component Name* |*CS1* |*Vector Type* |*Component Description*
 |Airport |1 |Point |Area of land that is used (or intended for use) for the landing and take-off of aircraft.
@@ -581,7 +580,7 @@ The GSFeature Dataset provides the position, size, orientation (points), shape (
 * CS1 = 004: Airport features
 * CS1 = 005: Environmental lights
 
-Table 5-29: Component Selectors for GSFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-24: Component Selectors for GSFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 It is customary in many simulation applications to represent street lighting as points of lights; as a result, Airport and Environmental light points can be entirely described by their feature position and attribution information and thus, do not have additional “modeled” data.
 
@@ -589,8 +588,8 @@ The modeling of geospecific trees is permitted when required to represent a spec
 
 
 [#table_ComponentSelectorsforGSFeatureDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-29: Component Selectors for GSFeature Dataset*
-[cols="15, <15, <60",width="80%",options="header",align="center"]
+*Table 5-24: Component Selectors for GSFeature Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |001 |Man-made point features
@@ -649,13 +648,13 @@ The GTFeature Dataset provides the position, size, orientation (points), shape (
 * CS1 = 002: Trees features
 * CS1 = 003: Moving model location features
 
-Table 5-30: Component Selectors for GTFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-25: Component Selectors for GTFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 The Moving model location features component is used to permanently position moving models (e.g., position a row of parked tanks or aircraft on a runway). When referenced and positioned in this manner, these models cannot be moved and articulated during the simulation.
 
 [#table_ComponentSelectorsforGTFeatureDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-30: Component Selectors for GTFeature Dataset*
-[cols="15, <15, <60",width="80%",options="header",align="center"]
+*Table 5-25: Component Selectors for GTFeature Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |===============================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |001 |Man-made point features
@@ -699,8 +698,8 @@ The GeoPolitical Feature dataset is used to provide information on the location,
 The GeoPolitical Feature dataset is subdivided into the following components.
 
 [#table_ComponentSelectorsforGeoPoliticalFeatureDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-31: Component Selectors for GeoPolitical Feature Dataset*
-[cols="15, <15, <60",width="80%",options="header",align="center"]
+*Table 5-26: Component Selectors for GeoPolitical Feature Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |===========================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |001 |Boundary point features
@@ -802,11 +801,11 @@ The points that make up the RoadNetwork lineals are primarily used to establish 
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RoadNetwork lineal. When provided, client-devices should instantiate the modeled representation for each point along the RoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the RoadNetwork lineal feature by assigning a distinct RoadNetwork Figure Point to each point of the RoadNetwork lineal feature.
 
-Table 5-32: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-27: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 [#table_ComponentSelectorsforRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-32: Component Selectors for RoadNetwork Dataset*
-[cols=",,",]
+*Table 5-27: Component Selectors for RoadNetwork Dataset*
+[cols="15, <15, <70",width="100%",options="header",align="center"]
 |=================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |Road/Airport Network Tile Connection 2D relationship
@@ -848,12 +847,12 @@ The points that make up the RailRoadNetwork lineals are primarily used to establ
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RailRoadNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the RailRoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along with the RailRoadNetwork lineal feature by assigning a distinct RailRoadNetwork Figure Point to each point of the RailRoadNetwork lineal feature.
 
-Table 5-33: Component Selectors for RailRoadNetwork Dataset lists RailRoadNetwork Dataset components. The allocation of CDB attributes to each of the RailRoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-28: Component Selectors for RailRoadNetwork Dataset lists RailRoadNetwork Dataset components. The allocation of CDB attributes to each of the RailRoadNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 
 [#table_ComponentSelectorsforRailRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-33: Component Selectors for RailRoadNetwork Dataset*
-[cols="15, <15, <60",width="80%",options="header",align="center"]
+*Table 5-28: Component Selectors for RailRoadNetwork Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |====================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |RailRoad Network Tile Connection 2D relationship point
@@ -893,12 +892,12 @@ The points that make up the PowerLineNetwork lineals are primarily used to estab
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attribute) to each PowerLineNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the PowerLineNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the PowerLineNetwork lineal feature by assigning a distinct a PowerLineNetwork Figure Point to each point of the PowerLineNetwork lineal feature. Allowed model representations are as per Section 5.7.1.4, Explicitly Modeled Representations. In that case of wired- or cabled-networks, the model must include the wire Attach Points footnote:[Note that wires are not explicitly modeled in the CDB. As a result, client-devices are required to automatically model them when rendering PowerLineNetwork lineal features. Such modeling can be achieved using a principle known as the catenary, which is the shape of a perfectly flexible chain suspended by its ends and which is characterized solely by the gravity action.]. Note also that client-devices are also required to automatically orient each instance of the modeled representation along the path of the PowerLineNetwork lineal. In the case where the entrance and exit angles are not identical, the orientation should be the average of both.
 
-Table 5-34: Component Selectors for PowerLineNetwork Dataset, lists all of the PowerLineNetwork Dataset components. The allocation of CDB attributes to each of the PowerLineNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-29: Component Selectors for PowerLineNetwork Dataset, lists all of the PowerLineNetwork Dataset components. The allocation of CDB attributes to each of the PowerLineNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 
 [#table_ComponentSelectorsforPowerLineNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-34: Component Selectors for PowerLineNetwork Dataset*
-[cols="15, <15, <60",width="80%",options="header",align="center"]
+*Table 5-29: Component Selectors for PowerLineNetwork Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |====================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |PowerLineNetwork tile connection 2D relationship point
@@ -932,11 +931,11 @@ The points that make up the HydrographyNetwork lineals are primarily used to est
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each HydrographyNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the HydrographyNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the HydrographyNetwork lineal feature by assigning a distinct a HydrographyNetwork Figure Point to each point of the HydrographyNetwork lineal feature. Allowed model representations are as per Section 5.3.1.4, Explicitly Modeled Representations.
 
-Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-30: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 [#table_ComponentSelectorsforHydrographyNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-35: Component Selectors for HydrographyNetwork Dataset*
-[cols="15, <15, <60",width="80%",options="header",align="center"]
+*Table 5-30: Component Selectors for HydrographyNetwork Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |=======================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |HydrographyNetwork tile connection 2D relationship point
@@ -973,26 +972,28 @@ include::requirements/requirements_class029.adoc[]
 include::requirements/REQ128.adoc[]
 
 [#table_VectorCompositeMaterialTableComponent,reftext='{table-caption} {counter:table-num}']
-*Table 5-36: Vector Composite Material Table Component*
-[cols="22, <10, <22, <22, <22",width="100%",options="header",align="center"]
+*Table 5-31: Vector Composite Material Table Component*
+[cols="15, <10, <10, <20, <45",width="100%",options="header",align="center"]
 |=========================================================================================
 |*CS1* |*CS2* |*File Extension* |*Dataset Component Name* |*Dataset Component Description*
 |Dataset 200, VectorMaterial | | | |
-|001 |001 |*.xml a|
-Vector Composite Material Table
+|001 |001 |*.xml a| Vector Composite Material Table (VCMT)|
 
-(VCMT)
-
- a|
 The VCMT can be referenced by the CMIX attribute of the following datasets:
 
-* 100_GSFeature
-* 101_GTFeature
-* 102_GeoPolitical
-* 201_RoadNetwork
-* 202_RailRoadNetwork
-* 203_PowerLineNetwork
-* 204_HydrographyNetwork
+  * 100_GSFeature
+
+  * 101_GTFeature
+
+  * 102_GeoPolitical
+
+  * 201_RoadNetwork
+
+  * 202_RailRoadNetwork
+
+  * 203_PowerLineNetwork
+
+  * 204_HydrographyNetwork
 
 
 |=========================================================================================
@@ -1021,11 +1022,11 @@ The files associated with the Vector Composite Material Table for the area cover
 [[TiledGSModelDatasets]]
 ==== Tiled GSModel Datasets
 
-Table 5-37, Component Selectors for GSModel Datasets, provides the dataset codes, the file extension types, and associated component selector values of GSModels geometry, GSModelInteriors geometry, and their associated Composite Material Tables (CMT).
+Table 5-32, Component Selectors for GSModel Datasets, provides the dataset codes, the file extension types, and associated component selector values of GSModels geometry, GSModelInteriors geometry, and their associated Composite Material Tables (CMT).
 
 [#table_ComponentSelectorsforGSModelDatasets,reftext='{table-caption} {counter:table-num}']
-*Table 5-37: Component Selectors for GSModel Datasets*
-[cols="10, <10, <10, <20, <50",width="100%",options="header",align="center"]
+*Table 5-32: Component Selectors for GSModel Datasets*
+[cols="20, <10, <10, <20, <40",width="100%",options="header",align="center"]
 |=========================================================================================================================================================================================================================================================
 |*CS1* |*CS2* |*File +
 Extension* |*Component +
@@ -1118,13 +1119,13 @@ include::requirements/REQ129.adoc[]
 [[TiledT2DModelDatasets]]
 ==== Tiled T2DModel Datasets
 
-Table 5-38 provides the component selectors for the T2DModel datasets.
+Table 5-33 provides the component selectors for the T2DModel datasets.
 
 [#table_ComponentSelectorsforT2DModelDatasets,reftext='{table-caption} {counter:table-num}']
-*Table 5-38: Component Selectors for T2DModel Datasets*
-[cols="10, <10, <10, <20, <50",width="100%",options="header",align="center"]
+*Table 5-33: Component Selectors for T2DModel Datasets*
+[cols="25, <10, <10, <20, <35",width="100%",options="header",align="center"]
 |===
-|CS1|CS2|File Extension|Component Name|Component Description
+|CS1 | CS2 |File Extension |Component Name |Component Description
 
 |Dataset 310, T2DModelGeometry | | | |
 |001 |001 |*.flt |Model Geometry |One model file containing the geometry of the T2DModel of a Tile-LOD. The content of the file is explained in Volume 6 – CDB Rules for Encoding Data.
