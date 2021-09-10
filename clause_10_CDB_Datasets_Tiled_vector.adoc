@@ -27,9 +27,9 @@ Version 1.2 of the CDB standard specifies the use of either OGC GeoPackages or E
 * Refer to Volume 13: OGC CDB Optional Extension for Structuring a CDB compliant GeoPackage. for detailed information and requirements for using GeoPackages for storing vector data in a CDB data store.
 * Refer to Volume 14: OGC CDB Guidance on Conversion of CDB Shapefiles into CDB GeoPackages on Best Practice guidance of converting CDB structured vector Shapefiles into CDB structured vector GeoPackages.
 
-Geometry data features types used in a CDB data store are as follows <Note - remove??>:
+Geometry data features types used in a CDB data store are as follows <Note - remove ??? >:
 
-[options="header",]
+[cols="10, 20, 20, 50",width="100%",options="header",align="center"]
 |===============================================================================================
 |*Value* | *GeoPackage geometry type* |*Shapefile Vector type* |*Fields*
 |0 |Null |shape |None
@@ -53,10 +53,10 @@ include::requirements/REQ107.adoc[]
 All of the information that is needed to instance features is organized in accordance to the CDB tile structure. All the tiled Vector dataset files are located in the same directory.The dataset’s second component selector (CS2) is used to differentiate between files with the same extension or with the same Vector features. Table 5-18: Component Selector 2 for Vector Dataset, presents the list of codes that are allocated. Note that Vector datasets do not necessarily use all of the Dataset Component Selector 2 reserved codes. Users of the CDB standard should refer to the appropriate section for an enumeration of the supported File Component Selector 2 codes as well as the ones specific to the Dataset.
 
 The Vector dataset concept and the feature concepts overlap somewhat; some of the Vector datasets are generalizations or specializations of feature codes. Section 1.5 provides a recommended mapping of the feature attributes across the CDB compliant datasets. Note that the same feature _should_ not have two representations.
-
+[#table_cdb_schema,reftext='{table-caption} {counter:table-num}']
 [#table_ComponentSelector2forVectorDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-18: Component Selector 2 for Vector Datasets*
-[cols=",,",]
+[cols="10, 45, 45",width="100%",options="header",align="center"]
 |===============================================================================================
 |*CS2* |*Dataset Component Name* |*Supported Vector Types*
 |001 |Point features |Point, PointZ, PointM, MultiPoint, MultiPointZ, MultiPointM
@@ -122,7 +122,7 @@ include::requirements/REQ110.adoc[]
 
 
 [[Forpointlinealandpolygonfeaturesthatarenotmodeled]]
-====== For point, lineal and polygon features that are not modeled:
+====== For point, line and polygon features that are not modeled:
 
 The CDB data model does not make mandatory that all features of the CDB be modeled; as a result, each feature is _optionally_ associated with a GSModel, a GTModel or a MModel.
 
@@ -142,31 +142,32 @@ The CDB standard provides a flexible means to tag features with attribution data
 
 include::requirements/requirements_class022.adoc[]
 
-The schema of vector attributes can be found in the `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas].
+The schema of vector attributes can be found in the `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`\CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas].
 The list of CDB attributes is described in the `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas].
 The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
-The following diagram is the UML Model for CDB Attribute schema and defining different entities and their properties, together with the relationship between entities.
+The following diagram shows the UML Model for CDB Attribute schema along with defining different entities and their properties, as well as the relationship between entities.
 
 image::images/image92.jpg[untitled1,width=1200,height=600]
 [#img_UMLdiagramOftheCDBvectorAttribute,reftext='{figure-caption} {counter:figure-num}']
 *_{figure-caption}{counter:figure-num}. The UML diagram of the CDB vector attribute Schema_*
 
-The UML diagram was generated based on the `Vector_Attributes.xsd` file and comprised three sections (i.e., attributes, units, and scalers).
-Attributes have two main properties as named by Level and Value. The main properties of the vector attributes are included in the Value (i.e., data type, enumeration, length, format, range, usage, units, compatibility).
+The UML diagram was generated based on the `Vector_Attributes.xsd` file and comprised three sections: attributes, units, and scalers. Each attribute has two main properties called Level and Value. Value contains the main properties of the vector attributes i.e. data type, enumeration, length, format, range, usage, units, compatibility.
+
 The following table defines the major components of the above figure.
 Please refer to Section 5.1.8 of Volume 1: CDB Attributes Metadata for a detailed definition of UML model components.
 
 [#table_MajorComponentsofUMLmodel,reftext='{table-caption} {counter:table-num}']
-*Table 5-??: The major components of UML model definition*
+*Table 5-19: The major components of UML model definition*
+[cols="20, <80",width="100%",options="header",align="center"]
 |===
 |Name | Definition
 
 | Attributes
 | Attributes are used to describe one or more real or virtual characteristics of a feature. Attributes have three characteristics: +
-  - _Code_: A unique four-digit numeric code is associated with each attribute. +
-  - _Symbol_ (Identifier): A unique three-character or four-character alphanumeric identifier is associated with the attributes that are governed by this standard. +
-  - _Deprecated_: It states if the attribute is Deprecated or not.
+  - _Code_: A unique four-digit numeric code associated with each attribute. +
+  - _Symbol_ (Identifier): A unique three-character or four-character alphanumeric identifier associated with the attributes that are governed by this standard. +
+  - _Deprecated_: States if the attribute is deprecated or not.
 
 | Level
 | It provides the schema level of the attribute such as class-level, instance-level and extended-level.
@@ -178,7 +179,7 @@ Please refer to Section 5.1.8 of Volume 1: CDB Attributes Metadata for a detaile
 | A list of Unit definitions, such as meters and degrees.
 
 | Scalers
-| A list of Scaler definitions, such as kilo. Scaler has a code and symbol.
+| A list of Scaler definitions, such as kilo, with a code and symbol for each Scaler.
 
 |===
 
@@ -188,17 +189,25 @@ Please refer to Section 5.1.8 of Volume 1: CDB Attributes Metadata for a detaile
 
 CDB attribution usage falls in the following categories:
 
+a) _Mandatory:_
+
 include::requirements/REQ113.adoc[]
 
-_Recommended:_ A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to `\CDB\Metadata\CDB_Attributes.xml`, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
+b) _Recommended:_
 
-_Optional:_ An optional attribute is an attribute whose value may (optionally) be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) cannot rely on the availability of optional attributes.
+A recommended attribute is an attribute whose value should be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) can always rely on the availability of recommended attributes since the attribute value is either provided explicitly in the CDB data store/dataset or provided implicitly as a defaulted value in accordance to `\CDB\Metadata\CDB_Attributes.xml`, CDB Attributes. A CDB with defaulted recommended attributes is considered compliant by this standard; however, the performance of one or more of the client-devices (commonly found on simulation devices) may be adversely affected.
+
+c) _Optional:_
+
+An optional attribute is an attribute whose value may (optionally) be provided for all of the features of a specified dataset. Consumers of CDB compliant data (tools and/or simulator client-devices) cannot rely on the availability of optional attributes.
 
 include::requirements/REQ114.adoc[]
 
-_Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
+d) _Dependent:_
 
-Note that attribute usage information for each of the CDB attributes can be found in `\CDB\Metadata\CDB_Attributes.xml` and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
+
+Note that attribute usage information for each of the CDB attributes can be found in `\CDB\Metadata\CDB_Attributes.xml` and in Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 [[CDBAttributes_49]]
 *CDB Attributes*
@@ -237,7 +246,7 @@ The data type, enumeration, length, format, range, usage, and units of the attri
 
 include::requirements/REQ116.adoc[]
 
-Refer to link:#CDBXMLSchemaDefinitions[Section 1.4.2] of this document for a listing of the attribute metadata schema.
+Refer to link:#CDBXMLSchemaDefinitions[Section 1.4.2: CDB XML Schema Definitions] of this document for a listing of the attribute metadata schema.
 
 Each row of this instance-level file (or table) contains the instance-level attribute values for a corresponding feature in the *.shp file. The first column of each row within the instance-level *.dbf is always the classname (CNAM). If the classname is not used, its value is set to blank, and all of the classname attributes need to be added to the instance-level file (or table). The number of columns in a Dataset Instance-level file (or table) is different for each dataset. All of the instance-level attributes are CDB attributes.
 
@@ -250,9 +259,9 @@ image::images/image77.jpeg[untitled1,width=514,height=244]
 
 This is the preferred attribution schema for features whose attributes and attribute values can be shared by one or more of the instances of a feature in a dataset.
 
-The attributes and their values are logically re-grouped under a classname (CNAM attribute) that stands for the group of attributes specific to that class. Each row of the class-level *.dbf file corresponds to a classname found in the instance-level *.dbf shape file. Each attribute class is characterized by a set of attributes implemented as a row within the class-level *.dbf file. In turn, each attribute is uniquely defined by a name that is a “case-sensitive” character string of 10 characters or less. This 10-character limitation of attribute names is set for backwards compatibility due to use of the dBASE III+ File format structure (see Volume 2: OGC CDB Core Model and Physical Structure: Annexes, Annex E).
+The attributes and their values are logically re-grouped under a classname (CNAM attribute) that stands for the group of attributes specific to that class. Each row of the class-level *.dbf file corresponds to a classname found in the instance-level *.dbf shape file. Each attribute class is characterized by a set of attributes implemented as a row within the class-level *.dbf file. In turn, each attribute is uniquely defined by a name that is a “case-sensitive” character string of 10 characters or less. This 10-character limitation of attribute names is set for backward compatibility due to the use of the dBASE III+ File format structure (see Volume 2: OGC CDB Core Model and Physical Structure: Annexes, Annex E).
 
-The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes (`\CDB\Metadata\CDB_Attributes.xml`). The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance to a *.xsd schema file. Refer to Section 1.4.2 of this document for a description of the attribute metadata schema.
+The interpretation of the attribution data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute. The CDB_Attributes.xml metadata file is used to describe all the CDB attributes (`\CDB\Metadata\CDB_Attributes.xml`). The CDB_Attributes.xml file must be included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). The CDB_Attributes.xml metadata file is structured in accordance with a *.xsd schema file. Refer to link:#CDBXMLSchemaDefinitions[Section 1.4.2], CDB XML Schema Definitions, of this document for a description of the attribute metadata schema.
 
 The first column of the file is the classname and acts as the primary key to access table entries; all other rows correspond to the attributes represented by the classname. All of the class-level attributes are CDB attributes. For each dataset, a classname is unique within a geocell.
 
@@ -265,11 +274,11 @@ image::images/image78.jpeg[untitled1,width=580,height=156]
 
 The CDB standard provides an alternate attribution schema that can be used (in many cases) to supplement the instance-level and class-level schemas.
 
-The extended-level schema can be used to represent CDB attributes, Geomatics attributes and Vendor attributes. However, the extended-level schema is the only means by which Geomatics attributes and Vendor attributes can be accessed.
+The extended-level schema can be used to represent CDB attributes, Geomatics attributes, and Vendor attributes. However, the extended-level schema is the only means by which Geomatics attributes and Vendor attributes can be accessed.
 
 Linkage to the extended-level CDB attribution data is accomplished through the CEAI attribute; CEAI is an index to a link list of CDB attributes stored in the extended-level attribute file (or table) footnote:[Currently a *.dbf file.]. Similarly, the GEAI and VEAI attributes are also indices to link lists of attributes stored in the extended-level attribute file (or table). The extended-level files have the structure described in section 5.7.1.2.7.4, Structure of Extended-level Files.
 
-There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
+There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes, and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
 
 
 [[StructureofExtendedlevelAttributeFilesorTables]]
@@ -315,7 +324,8 @@ Note that it is possible to provide attributes other than those listed in the CD
 CDB Attributes are stored in the XML format which is more appropriate for a computer program.
 
 [#table_CDBAttributesSemantics,reftext='{table-caption} {counter:table-num}']
-*Table 5-??: CDB Specific Attributes Semantics*
+*Table 5-20: CDB Specific Attributes Semantics*
+[cols="20, <80",width="100%",options="header",align="center"]
 |===
 |Attribute Name | Semantic Definition
 
@@ -380,7 +390,7 @@ The CDB Topological networks are used for the following purposes.
 
 The CDB Topological networks are optimized to facilitate road/river/railroad following tasks. They support the notion of directionality such as one-way roads or both ways for two-way roads, rivers. The vertex positions are physically positioned along the center of the feature’s longitudinal axis. For example, a road such as a dual-lane undivided highway, the vertex data lies along the stripes dividing the two lanes.
 
-Features within the same or different network datasets are connected together using the junction identifier attributes <<StartJunctionIDSJID>>SJID, <<EndJunctionIDEJID>>EJID or <<JunctionIDJID>>JID. Two or more features having the same identifier values are considered virtually connected. This junction identifier allows, for instance, a primary road to connect to a secondary road, or a river to connect a lake (in same network datasets), or to connect a road and a river (in different network dataset).
+Features within the same or different network datasets are connected together using the junction identifier attributes <<StartJunctionIDSJID>> SJID, <<EndJunctionIDEJID>> EJID or <<JunctionIDJID>> JID. Two or more features having the same identifier values are considered virtually connected. This junction identifier allows, for instance, a primary road to connect to a secondary road, or a river to connect a lake (in same network datasets), or to connect a road and a river (in different network dataset).
 
 include::requirements/requirements_class023.adoc[]
 
@@ -412,7 +422,7 @@ In a 2D relationship tile connection file, no two records are identical. However
 [[TwoDimensionalRelationshipDatasetConnectionFile]]
 ====== 2D Relationship Dataset Connection File
 
-The CDB Topological network is made of several network datasets that in turn are made of several vector files of the same encoding format GeoPackage or Shapefiles). By specifying a junction identifier per feature, any features in any of these several vector files can in theory be connected to any other features located in a separate files of the same encoding format. A connection within a tile, which includes the tile boundaries, can be identified by the application by checking the 2D relationship dataset connection file. There is a 2D relationship dataset connection file per network dataset tile. This file contains all the connections between the sub-datasets of the corresponding network dataset with other network datasets. When the file is missing, it indicates there are no connections within the tile. The 2D relationship file is a database or other file that contains a list of records made of 4 attributes; the Junction ID (JID) that identifies the connected point, lineal or polygon features, the Network Dataset Code (NDSC) that identifies the network dataset the feature belongs to, and the Network Component Selectors (NCS1 and NCS2) that identify the network sub-dataset and the shape type. The tile coordinate and tile LOD is implicit to the Network Dataset tile directory.
+The CDB Topological network is made of several network datasets that in turn are made of several vector files of the same encoding format GeoPackage or Shapefiles). By specifying a junction identifier per feature, any features in any of these several vector files can in theory be connected to any other features located in a separate files of the same encoding format. A connection within a tile, which includes the tile boundaries, can be identified by the application by checking the 2D relationship dataset connection file. There is a 2D relationship dataset connection file per network dataset tile. This file contains all the connections between the sub-datasets of the corresponding network dataset with other network datasets. When the file is missing, it indicates there are no connections within the tile. The 2D relationship file is a database or other file that contains a list of records made of 4 attributes; the Junction ID (JID) that identifies the connected point, line or polygon features, the Network Dataset Code (NDSC) that identifies the network dataset the feature belongs to, and the Network Component Selectors (NCS1 and NCS2) that identify the network sub-dataset and the shape type. The tile coordinate and tile LOD is implicit to the Network Dataset tile directory.
 
 All the records in the 2D relationship file are sorted per ascending JID. This has two advantages; it speeds up the search process when looking for a specific JID and it groups all the features that are connected together. In effect, there is always a minimum of two consecutive records with the same JID; the record belonging to the corresponding file dataset (or sub-dataset) and the record identifying the feature it connects to. Note that when a 2D relationship file specifies a connection to a feature belonging to different network dataset, the corresponding LOD file of this dataset may or may not exist. If the corresponding LOD file of the target dataset is missing, the application must look for the feature in the coarser LOD file of the target dataset. If the corresponding LOD file of the target dataset exists, the feature may be missing because it has been removed by the off-line tool decimation process. When this is the case, the application must look for the feature in the finer LOD file of the target dataset.
 
@@ -451,12 +461,12 @@ The CDB standard defines a collection of CDB Light Types that includes airport/r
 [[AllocationofCDBAttributesToVectorDatasets]]
 ===== Allocation of CDB Attributes To Vector Datasets
 
-The CDB standard limits the applicability of each of the CDB attributes to certain vector datasets. This approach helps to reduce the number of columns (hence to reduce the size) of the dBase instance and class-level attribution files.
+The CDB standard limits the applicability of each of the CDB attributes to certain vector datasets. This approach helps to reduce the number of columns (hence reducing the size) of the dBase instance and class-level attribution files.
 
-The allocation of CDB attributes to each of the Vector datasets is prescribed by Table 5-27 below.
+The allocation of CDB attributes to each of the Vector datasets is prescribed in Table 5-21 below.
 
 [#table_AllocationofCDBAttributestoVectorDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-27: Allocation of CDB Attributes to Vector Dataset*
+*Table 5-21: Allocation of CDB Attributes to Vector Dataset*
 
 image::images/image82.png[image,width=624,height=558]
 
@@ -480,11 +490,11 @@ As coarser Tile-LODs of the lineal and areal datasets are created, the individua
 [[TiledNavigationDataset]]
 ==== Tiled Navigation Dataset
 
-As described in section 5.2, the global navigation dataset is complemented by a tiled-based dataset of basic navigation information that refers to the corresponding geocell. Those are found in the \401_Navigation dataset which is subdivided into several components as listed in the next table.
+As described in section 5.2, the global navigation dataset is complemented by a tile-based dataset of basic navigation information that refers to the corresponding geocell. Those are found in the \401_Navigation dataset which is subdivided into several components as listed in the next table.
 
 [#table_TiledNavigationDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-28: Tiled Navigation Dataset*
-[cols=",,,,",]
+*Table 5-22: Tiled Navigation Dataset*
+[cols="22, <10, <22, <22, <22",width="100%",options="header",align="center"]
 |==============================================================================================================
 |*CS1* |*CS2* |*File Extension* |*Component Name* |*Component +
 Description*
@@ -494,57 +504,56 @@ Description*
 
 Refer to Table below, List of Navigation Components, for a complete description of the possible values of CS1.
 
-*List of Navigation Components*
-
-[cols=",,,",]
+*Table 5-23: List of Navigation Components*
+[cols="30, <10, <15, <45",width="100%",options="header",align="center"]
 |=====================================================================================================================================================================================================================================================================================================
 |*Component Name* |*CS1* |*Vector Type* |*Component Description*
-|Airport |1 |Point |Area or land that is used (or intended for use) for the landing and take-off of aircraft.
+|Airport |1 |Point |Area of land that is used (or intended for use) for the landing and take-off of aircraft.
 |AirRefueling |2 |Point |A specifically designated airspace where air-to-air refueling operations are normally conducted.
 |AirRefuelingControl |3 |Point |Information regarding the Air Traffic Control Center that controls the airspace within which the refueling track or anchor is located.
-|AirRefuelingFootnote |4 |Point |Supplemental notes defining an Air Refueling component
-|AirRefuelingPoint |5 |Point |Single Point from an Air Refueling structure
-|AirRefuelingSegment |6 |LineString |Segment from an Air Refueling structure
+|AirRefuelingFootnote |4 |Point |Supplemental notes defining an Air Refueling component.
+|AirRefuelingPoint |5 |Point |Single Point from an Air Refueling structure.
+|AirRefuelingSegment |6 |LineString |Segment from an Air Refueling structure.
 |AirspaceBoundary |7 |Point |Designated airspace within which some or all aircraft may be subject to air traffic control.
-|AirwayRestriction |8 |Point |Altitude and time restrictions for airways, airway segments, or sequences of airway segments
+|AirwayRestriction |8 |Point |Altitude and time restrictions for airways, airway segments, or sequences of airway segments.
 |Approach |9 |LineString |Preplanned instrument flight rule (IFR) for air traffic control approach procedures.
-|ArrestingGear |10 |Point |Safety device consisting of engaging or catching devices, and energy absorption devices for the purpose of arresting both tail hook and/or non-tail hook equipped aircraft
-|COMMS |11 |Point |Voice, radio communications, and facility call sign and frequencies available for same operations between the airport environment and aircraft.
-|ControlAirspace |12 |Multipoint |Sequential listing of vertical and lateral limits, defining airspaces of different classifications, within which air traffic control service is provided
-|EnrouteAirway |13 |Point |A specified route designed for channeling the flow of traffic as necessary for the provision of air traffic services
+|ArrestingGear |10 |Point |Safety device consisting of engaging or catching devices, and energy absorption devices for the purpose of arresting both tail hook and/or non-tail hook-equipped aircraft.
+|COMMS |11 |Point |Voice, radio communications, and facility call signs and frequencies are available for the same operations between the airport environment and aircraft.
+|ControlAirspace |12 |Multipoint |Sequential listing of vertical and lateral limits, defining airspaces of different classifications, within which air traffic control service is provided.
+|EnrouteAirway |13 |Point |A specified route designed for channeling the flow of traffic as necessary for the provision of air traffic services.
 |FirUir |14 |Polygon |Flight Information region - Upper Information Region. Designated airspace within which some or all aircraft may be subject to air traffic control.
-|Gate |15 |Point |Passenger gate at an airport
-|GLS |16 |Point |GNSS Landing System
-|Helipad |17 |Line |Designated area usually with a prepared surface used for take-off and landing of helicopters
-|Heliport |18 |Point |Area or land intended to be used for landing and takeoff of helicopters
-|HoldingPattern |19 |Point |Flight path maintained by an aircraft that is awaiting permission to land
-|ILS |20 |Multipoint |Instrument landing system - Precision instrument approach system normally consisting of electronic components and visual aids
-|Marker |21 |Point |Transmitter that radiates vertically a distinctive pattern for providing position information to aircrafts
+|Gate |15 |Point |Passenger gate at an airport.
+|GLS |16 |Point |GNSS Landing System.
+|Helipad |17 |Line |A designated area usually with a prepared surface used for the take-off and landing of helicopters.
+|Heliport |18 |Point |Area or land intended to be used for landing and takeoff of helicopters.
+|HoldingPattern |19 |Point |Flightpath maintained by an aircraft that is awaiting permission to land.
+|ILS |20 |Multipoint |Instrument landing system - Precision instrument approach system normally consisting of electronic components and visual aids.
+|Marker |21 |Point |A transmitter that radiates vertically a distinctive pattern for providing position information to aircraft.
 |MilitaryTrainingRoute |22 |Point |Routes used by the Department of Defense and associated Reserve and Air Guard Units for the purpose of conducting low altitude navigation and tactical training in both IFR and VFR weather conditions below 10,000 feet MSL at airspeeds in excess of 250 KTS IAS.
-|MilitaryTrainingRouteAirspace |23 |Point |Special use airspace or military operations area associated with a Military Training Route
-|MilitaryTrainingRouteDescription |24 |Point |Supplemental information regarding a Military Training Route
-|MilitaryTrainingRouteOverlay |25 |LineString |The width left and right of centerline based on a set of widths at Point Ident and another set of width at the Next Point Ident in one segment record.
-|MLS |26 |Multipoint |Microwave Landing System - precision instrument approach system normally consisting of electronic components and visual aids
-|MSA |27 |Point |Minimum Safe Altitude - altitude below which it is hazardous to fly owing to presence of high ground or other obstacles
-|Navaid |28 |Multipoint |Electronic device on the surface, which provides point-to-point guidance information or position data to aircraft in flight
-|OffRouteTerrainClrAltitude |29 |Polygon |Off-Route Terrain Clearance Altitude - Clearance altitudes in non-mountainous and in mountainous areas
+|MilitaryTrainingRouteAirspace |23 |Point |Special use airspace or military operations area associated with a Military Training Route.
+|MilitaryTrainingRouteDescription |24 |Point |Supplemental information regarding a Military Training Route.
+|MilitaryTrainingRouteOverlay |25 |LineString |The width left and right of a centerline based on a set of widths at Point Ident and another set of widths at the Next Point Ident in one segment record.
+|MLS |26 |Multipoint |Microwave Landing System - precision instrument approach system normally consisting of electronic components and visual aids.
+|MSA |27 |Point |Minimum Safe Altitude - altitude below which it is hazardous to fly owing to the presence of high ground or other obstacles.
+|Navaid |28 |Multipoint |The electronic device on the surface, which provides point-to-point guidance information or position data to aircraft in flight.
+|OffRouteTerrainClrAltitude |29 |Polygon |Off-Route Terrain Clearance Altitude - Clearance altitudes in non-mountainous and mountainous areas.
 |ParachuteJumpArea |30 |Point |An area designated for parachute jumping activities.
-|ParachuteJumpAreaBoundary |31 |Polygon |Boundary of a Parachute Jump Area
+|ParachuteJumpAreaBoundary |31 |Polygon |Boundary of a Parachute Jump Area.
 |PathPoint |32 |Point |
 |PreferredRoute |33 |Point |A system of routes designed to minimize route changes during the operational phase of flight and to aid in the efficient management of air traffic.
-|PresetSite |34 |Point |Preset Site
-|RestrictiveAirspace |35 |Polygon |Airspace of defined dimensions identified by an area on the surface of the earth wherein activities are confined
-|Runway |36 |Line |Rectangular area on a land airport prepared for the landing and takeoff runs of aircraft along its length
-|SID |37 |Multipoint |Standard Instrument Departure - preplanned instrument flight rule (IFR) for air traffic control departure procedure
+|PresetSite |34 |Point |Preset Site.
+|RestrictiveAirspace |35 |Polygon |Airspace of defined dimensions identified by an area on the surface of the earth wherein activities is confined.
+|Runway |36 |Line |A rectangular area on a land airport prepared for the landing and takeoff runs of aircraft along its length.
+|SID |37 |Multipoint |Standard Instrument Departure - preplanned instrument flight rule (IFR) for air traffic control departure procedure.
 |SpecialUse Airspace |38 |Point |Airspace of defined dimensions wherein activities are confined because of their nature and/or wherein limitations may be imposed upon aircraft operations that are not a part of those activities.
-|STAR |39 |Multipoint |Standard Terminal Arrival - preplanned instrument flight rule (IFR) air traffic control arrival procedure
-|SupplTerminalData |40 |Point |Supplemental terminal data
-|TerminalProcClimb |41 |Point |Terminal Procedure Climb - Min or ATC Climb rates
-|TerminalProcFeedRoute |42 |LineString |Terminal Procedure Feeder Route - A route depicted on Instrument Approach Procedures to designate routes for aircraft to proceed from the en route structure to the Initial Approach Fix
-|TerminalProcMin |43 |Point |Terminal Procedure Minima - Height minima data for Terminal Procedure
-|VFRRoute |44 |LineString |Preplanned arrival or departure routes for helicopters or light fixed wing aircraft to specified airports or heliports using/in Visual Flight Rules (VFR
-|VFRRouteSegment |45 |LineString |Segment of a VFR Route
-|Waypoint |46 |Point |Predetermined geographical position, used for route or instrument approach definition or progress reporting purposes
+|STAR |39 |Multipoint |Standard Terminal Arrival - preplanned instrument flight rule (IFR) air traffic control arrival procedure.
+|SupplTerminalData |40 |Point |Supplemental terminal data.
+|TerminalProcClimb |41 |Point |Terminal Procedure Climb - Min or ATC Climb rates.
+|TerminalProcFeedRoute |42 |LineString |Terminal Procedure Feeder Route - A route depicted on Instrument Approach Procedures to designate routes for aircraft to proceed from the en route structure to the Initial Approach Fix.
+|TerminalProcMin |43 |Point |Terminal Procedure Minima - Height minima data for Terminal Procedure.
+|VFRRoute |44 |LineString |Preplanned arrival or departure routes for helicopters or light fixed-wing aircraft to specified airports or heliports using/in Visual Flight Rules (VFR).
+|VFRRouteSegment |45 |LineString |Segment of a VFR Route.
+|Waypoint |46 |Point |Predetermined geographical position, used for route or instrument approach definition or progress reporting purposes.
 |=====================================================================================================================================================================================================================================================================================================
 
 [[DefaultReadValue_50]]
@@ -561,9 +570,9 @@ The files associated with this dataset for the area covered by the geocell need 
 [[TiledGSFeatureDataset]]
 ==== Tiled GSFeature Dataset
 
-A GSFeature is a geospecific (point, linear, or polygon footnote:[In previous versions of the CDB standard, the terms Point, Lineal, and Areal were used. These are considered to be equivalent to Point, Linear, and Polygon in this version of the standard.]) feature whose optional modeled representation is also geospecific.
+A GSFeature is a geospecific (point, line, or polygon footnote:[In previous versions of the CDB standard, the terms Point, Line, and Areal were used. These are considered to be equivalent to Point, Line, and Polygon in this version of the standard.]) feature whose optional modeled representation is also geospecific.
 
-The GSFeature Dataset provides the position, size, orientation (points), shape (linear and polygons), type and attribution of point, lineal, and polygon features. It is subdivided into the following components:
+The GSFeature Dataset provides the position, size, orientation (points), shape (line and polygons), type, and attribution of point, line, and polygon features. It is subdivided into the following components:
 
 * CS1 = 001: Man-made features
 * CS1 = 002: Natural features
@@ -571,16 +580,16 @@ The GSFeature Dataset provides the position, size, orientation (points), shape (
 * CS1 = 004: Airport features
 * CS1 = 005: Environmental lights
 
-Table 5-29: Component Selectors for GSFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-24: Component Selectors for GSFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 It is customary in many simulation applications to represent street lighting as points of lights; as a result, Airport and Environmental light points can be entirely described by their feature position and attribution information and thus, do not have additional “modeled” data.
 
-The modeling of geospecific trees is permitted when required to represent a specific geographic area; however, it is understood that the majority of the times, geotypical trees will be sufficient.
+The modeling of geospecific trees is permitted when required to represent a specific geographic area; however, it is understood that the majority of the time, geotypical trees will be sufficient.
 
 
 [#table_ComponentSelectorsforGSFeatureDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-29: Component Selectors for GSFeature Dataset*
-[cols=",,",]
+*Table 5-24: Component Selectors for GSFeature Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |001 |Man-made point features
@@ -626,26 +635,26 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_53]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 [[TiledGTFeatureDataset]]
 ==== Tiled GTFeature Dataset
 
-A GTFeature is a geotypical (point, lineal, or polygon) feature whose optional modeled representation is also geotypical.
+A GTFeature is a geotypical (point, line, or polygon) feature whose optional modeled representation is also geotypical.
 
-The GTFeature Dataset provides the position, size, orientation (points), shape (lineal and polygons), type and attribution of point, lineal, and polygon features. It is subdivided into the following components:
+The GTFeature Dataset provides the position, size, orientation (points), shape (line and polygons), type, and attribution of point, line, and polygon features. It is subdivided into the following components:
 
 * CS1 = 001: Man-made features
 * CS1 = 002: Trees features
 * CS1 = 003: Moving model location features
 
-Table 5-30: Component Selectors for GTFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-25: Component Selectors for GTFeature Dataset lists all of the components of the dataset. The allocation of CDB attributes to each of the components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
-The Moving model location features component is used to permanently position moving models (e.g., position a row of parked tanks or aircrafts on a runway). When referenced and positioned in this manner, these models cannot be moved and articulated during the simulation.
+The Moving model location features component is used to permanently position moving models (e.g., position a row of parked tanks or aircraft on a runway). When referenced and positioned in this manner, these models cannot be moved and articulated during the simulation.
 
 [#table_ComponentSelectorsforGTFeatureDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-30: Component Selectors for GTFeature Dataset*
-[cols=",,",]
+*Table 5-25: Component Selectors for GTFeature Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |===============================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |001 |Man-made point features
@@ -679,7 +688,7 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_55]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 [[TiledGeoPoliticalFeatureDataset]]
 ==== Tiled GeoPolitical Feature Dataset
@@ -689,8 +698,8 @@ The GeoPolitical Feature dataset is used to provide information on the location,
 The GeoPolitical Feature dataset is subdivided into the following components.
 
 [#table_ComponentSelectorsforGeoPoliticalFeatureDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-31: Component Selectors for GeoPolitical Feature Dataset*
-[cols=",,",]
+*Table 5-26: Component Selectors for GeoPolitical Feature Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |===========================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |001 |Boundary point features
@@ -726,9 +735,9 @@ The GeoPolitical Feature dataset is subdivided into the following components.
 [[BoundaryandLocationFeatures]]
 ===== Boundary and Location Features
 
-GeoPolitical Polygon features are essentially used for closed surface related attributions whereas GeoPolitical Lineal features are used to model open areas as boundary delineations. When coarse specific locations are stored such as countries or cities, GeoPolitical Point features are used to locate the approximate geometric center of the related feature.
+GeoPolitical Polygon features are essentially used for closed surface-related attributions whereas GeoPolitical Lineal features are used to model open areas as boundary delineations. When coarse specific locations are stored such as countries or cities, GeoPolitical Point features are used to locate the approximate geometric center of the related feature.
 
-Some less-commonly used features could be 1) GeoPolitical Boundaries stored as Point features, or 2) GeoPolitical Locations stored as Lineals or Polygons. The first case could be used to represent a simple boundary consisting of a single radius as given by the Point feature. The second case could be used to represent a city location with detailed Polygon or Lineal vertices.
+Some less-commonly used features could be 1) GeoPolitical Boundaries stored as Point features, or 2) GeoPolitical Locations stored as Lines or Polygons. The first case could be used to represent a simple boundary consisting of a single radius as given by the Point feature. The second case could be used to represent a city location with detailed Polygon or Lineal vertices.
 
 Figure 5-33: Example of International Boundaries, Figure 5-34: Example of City Locations, and Figure 5-35: Example of Major Cities and Time Zone Boundaries, all depict some sample cases where the GeoPolitical Feature dataset components can be used for.
 
@@ -747,7 +756,7 @@ image::images/image85.png[image,width=558,height=301]
 [[ElevationConstraintFeatures]]
 ===== Elevation Constraint Features
 
-There are many instances where modelers may wish to take advantage of the availability of position and altitude of cultural features in order to locally control the terrain elevation data at a point, along a specified contour line or within a given area. This operation is usually performed off-line by the modeler and requires that the Elevation dataset be edited and re-generated offline.
+There are many instances where modelers may wish to take advantage of the availability of position and altitude of cultural features in order to locally control the terrain elevation data at a point, along a specified contour , or within a given area. This operation is usually performed off-line by the modeler and requires that the Elevation dataset be edited and re-generated offline.
 
 include::requirements/requirements_class024.adoc[]
 
@@ -755,7 +764,7 @@ In addition to this approach, the CDB standard provides a Constraint Features co
 
 At runtime, client-devices should apply the elevation constraints to the selected Terrain Elevation component of the Elevation dataset.
 
-The Constraint Features component provides modelers the ability to accurately control terrain elevation profiles even if the Elevation dataset consists in a uniform grid of modest resolution. Each of these features is associated with vertices which define elevation at the supplied geographic coordinates. This approach approximates Terrain Irregular Networks (TINs). The Constraint Features have the following Feature Attribute Codes (feature codes):
+The Constraint Features component provides modelers the ability to accurately control terrain elevation profiles even if the Elevation dataset consists of a uniform grid of modest resolution. Each of these features is associated with vertices that define elevation at the supplied geographic coordinates. This approach approximates Terrain Irregular Networks (TINs). The Constraint Features have the following Feature Attribute Codes (feature codes):
 
 * _Elevation Constraint Point (CA099-000):_ In the case of PointZ and MultiPointZ features, the points are used by the client-device to control the terrain elevation.
 
@@ -767,9 +776,9 @@ include::requirements/REQ122.adoc[]
 
 include::requirements/REQ123.adoc[]
 
-While hypsography features can be used by the off-line tools to control the terrain skinning process, these features can be instead converted into Constraint Features, thereby deferring the terrain constraining process to runtime client-devices. This provides modelers the ability to accurately control terrain elevation profiles even if the Elevation dataset consists in a uniform grid of modest resolution. In effect, the Constraint Features provides a storage-efficient means of capturing terrain contours without having to revert to high resolution terrain grids.
+While hypsography features can be used by the off-line tools to control the terrain skinning process, these features can be instead converted into Constraint Features, thereby deferring the terrain constraining process to runtime client-devices. This provides modelers the ability to accurately control terrain elevation profiles even if the Elevation dataset consists of a uniform grid of modest resolution. In effect, the Constraint Features provide a storage-efficient means of capturing terrain contours without having to revert to high-resolution terrain grids.
 
-The application of constraint features to uniform and non-uniform gridded terrain elevation dataset is discussed in Volume 7: CDB Data Model Guidance (formerly Appendix A). See sections 6.6 and 6.7.
+The application of constraint features to uniform and non-uniform gridded terrain elevation datasets is discussed in Volume 7: CDB Data Model Guidance (formerly Appendix A). See sections 6.6 and 6.7.
 
 [[DefaultReadValue_56]]
 ===== Default Read Value
@@ -779,7 +788,7 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_57]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 [[TiledRoadNetworkDataset]]
 ==== Tiled RoadNetwork Dataset
@@ -792,11 +801,11 @@ The points that make up the RoadNetwork lineals are primarily used to establish 
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RoadNetwork lineal. When provided, client-devices should instantiate the modeled representation for each point along the RoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the RoadNetwork lineal feature by assigning a distinct RoadNetwork Figure Point to each point of the RoadNetwork lineal feature.
 
-Table 5-32: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-27: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 [#table_ComponentSelectorsforRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-32: Component Selectors for RoadNetwork Dataset*
-[cols=",,",]
+*Table 5-27: Component Selectors for RoadNetwork Dataset*
+[cols="15, <15, <70",width="100%",options="header",align="center"]
 |=================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |Road/Airport Network Tile Connection 2D relationship
@@ -823,7 +832,7 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_59]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 [[TiledRailRoadNetworkDataset]]
 ==== Tiled RailRoadNetwork Dataset
@@ -836,14 +845,14 @@ include::requirements/REQ125.adoc[]
 
 The points that make up the RailRoadNetwork lineals are primarily used to establish the railroad network topology. However, additional points can be used to more accurately define the actual path of the RailRoadNetwork lineals between each of the junction points of the network; alternately, points can be used to precisely specify the position of features along the RailRoadNetwork lineal. The altitude of each point is optional and specifies the ground level when present.
 
-It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RailRoadNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the RailRoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the RailRoadNetwork lineal feature by assigning a distinct a RailRoadNetwork Figure Point to each point of the RailRoadNetwork lineal feature.
+It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RailRoadNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the RailRoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along with the RailRoadNetwork lineal feature by assigning a distinct RailRoadNetwork Figure Point to each point of the RailRoadNetwork lineal feature.
 
-Table 5-33: Component Selectors for RailRoadNetwork Dataset lists RailRoadNetwork Dataset components. The allocation of CDB attributes to each of the RailRoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-28: Component Selectors for RailRoadNetwork Dataset lists RailRoadNetwork Dataset components. The allocation of CDB attributes to each of the RailRoadNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 
 [#table_ComponentSelectorsforRailRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-33: Component Selectors for RailRoadNetwork Dataset*
-[cols=",,",]
+*Table 5-28: Component Selectors for RailRoadNetwork Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |====================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |RailRoad Network Tile Connection 2D relationship point
@@ -866,7 +875,7 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_61]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 
 [[TiledPowerLineNetworkDataset]]
@@ -883,12 +892,12 @@ The points that make up the PowerLineNetwork lineals are primarily used to estab
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attribute) to each PowerLineNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the PowerLineNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the PowerLineNetwork lineal feature by assigning a distinct a PowerLineNetwork Figure Point to each point of the PowerLineNetwork lineal feature. Allowed model representations are as per Section 5.7.1.4, Explicitly Modeled Representations. In that case of wired- or cabled-networks, the model must include the wire Attach Points footnote:[Note that wires are not explicitly modeled in the CDB. As a result, client-devices are required to automatically model them when rendering PowerLineNetwork lineal features. Such modeling can be achieved using a principle known as the catenary, which is the shape of a perfectly flexible chain suspended by its ends and which is characterized solely by the gravity action.]. Note also that client-devices are also required to automatically orient each instance of the modeled representation along the path of the PowerLineNetwork lineal. In the case where the entrance and exit angles are not identical, the orientation should be the average of both.
 
-Table 5-34: Component Selectors for PowerLineNetwork Dataset, lists all of the PowerLineNetwork Dataset components. The allocation of CDB attributes to each of the PowerLineNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-29: Component Selectors for PowerLineNetwork Dataset, lists all of the PowerLineNetwork Dataset components. The allocation of CDB attributes to each of the PowerLineNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 
 [#table_ComponentSelectorsforPowerLineNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-34: Component Selectors for PowerLineNetwork Dataset*
-[cols=",,",]
+*Table 5-29: Component Selectors for PowerLineNetwork Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |====================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |PowerLineNetwork tile connection 2D relationship point
@@ -909,7 +918,7 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_63]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 [[TiledHydrographyNetworkDataset]]
 ==== Tiled HydrographyNetwork Dataset
@@ -922,11 +931,11 @@ The points that make up the HydrographyNetwork lineals are primarily used to est
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each HydrographyNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the HydrographyNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the HydrographyNetwork lineal feature by assigning a distinct a HydrographyNetwork Figure Point to each point of the HydrographyNetwork lineal feature. Allowed model representations are as per Section 5.3.1.4, Explicitly Modeled Representations.
 
-Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-30: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-21: Allocation of CDB Attributes to Vector Datasets.
 
 [#table_ComponentSelectorsforHydrographyNetworkDataset,reftext='{table-caption} {counter:table-num}']
-*Table 5-35: Component Selectors for HydrographyNetwork Dataset*
-[cols=",,",]
+*Table 5-30: Component Selectors for HydrographyNetwork Dataset*
+[cols="15, <15, <60",width="100%",options="header",align="center"]
 |=======================================================================
 |*CS1* |*CS2* |*Component Name*
 |001 |011 |HydrographyNetwork tile connection 2D relationship point
@@ -953,7 +962,7 @@ Simulator client-devices should assume an empty tile when data is not available.
 [[DefaultWriteValue_65]]
 ===== Default Write Value
 
-The files associated with this dataset for area covered by tile at a given LOD need not be created if the source data is not available.
+The files associated with this dataset for the area covered by tile at a given LOD need not be created if the source data is not available.
 
 [[TiledVectorCompositeMaterialTableVCMT]]
 ==== Tiled Vector Composite Material Table (VCMT)
@@ -963,26 +972,28 @@ include::requirements/requirements_class029.adoc[]
 include::requirements/REQ128.adoc[]
 
 [#table_VectorCompositeMaterialTableComponent,reftext='{table-caption} {counter:table-num}']
-*Table 5-36: Vector Composite Material Table Component*
-[cols=",,,,",]
+*Table 5-31: Vector Composite Material Table Component*
+[cols="15, <10, <10, <20, <45",width="100%",options="header",align="center"]
 |=========================================================================================
 |*CS1* |*CS2* |*File Extension* |*Dataset Component Name* |*Dataset Component Description*
 |Dataset 200, VectorMaterial | | | |
-|001 |001 |*.xml a|
-Vector Composite Material Table
+|001 |001 |*.xml a| Vector Composite Material Table (VCMT)|
 
-(VCMT)
-
- a|
 The VCMT can be referenced by the CMIX attribute of the following datasets:
 
-* 100_GSFeature
-* 101_GTFeature
-* 102_GeoPolitical
-* 201_RoadNetwork
-* 202_RailRoadNetwork
-* 203_PowerLineNetwork
-* 204_HydrographyNetwork
+  * 100_GSFeature
+
+  * 101_GTFeature
+
+  * 102_GeoPolitical
+
+  * 201_RoadNetwork
+
+  * 202_RailRoadNetwork
+
+  * 203_PowerLineNetwork
+
+  * 204_HydrographyNetwork
 
 
 |=========================================================================================
@@ -997,7 +1008,7 @@ The Vector Composite Material Table follows the XML syntax described in Section 
 [[DefaultReadValue_67]]
 ===== Default Read Value
 
-The default values for the Vector Composite Material Table (Default_Material_Layer) can be found in \CDB\Metadata\Defaults.xml and can be provided to the client-devices on demand. If the default information cannot be found within the \CDB\Metadata\Defaults.xml file, the CDB Specification recommends defaulting to single substrate composite material whose base material is Default_Base_Material (BM_LAND-MOOR).
+The default values for the Vector Composite Material Table (Default_Material_Layer) can be found in \CDB\Metadata\Defaults.xml and can be provided to the client-devices on demand. If the default information cannot be found within the \CDB\Metadata\Defaults.xml file, the CDB Specification recommends defaulting to a single substrate composite material whose base material is Default_Base_Material (BM_LAND-MOOR).
 
 [[DefaultWriteValue_68]]
 ===== Default Write Value
@@ -1011,11 +1022,11 @@ The files associated with the Vector Composite Material Table for the area cover
 [[TiledGSModelDatasets]]
 ==== Tiled GSModel Datasets
 
-Table 5-37, Component Selectors for GSModel Datasets, provides the dataset codes, the file extension types and associated component selector values of GSModels geometry, GSModelInteriors geometry and their associated Composite Material Tables (CMT).
+Table 5-32, Component Selectors for GSModel Datasets, provides the dataset codes, the file extension types, and associated component selector values of GSModels geometry, GSModelInteriors geometry, and their associated Composite Material Tables (CMT).
 
 [#table_ComponentSelectorsforGSModelDatasets,reftext='{table-caption} {counter:table-num}']
-*Table 5-37: Component Selectors for GSModel Datasets*
-[cols=",,,,",]
+*Table 5-32: Component Selectors for GSModel Datasets*
+[cols="20, <10, <10, <20, <40",width="100%",options="header",align="center"]
 |=========================================================================================================================================================================================================================================================
 |*CS1* |*CS2* |*File +
 Extension* |*Component +
@@ -1093,12 +1104,12 @@ Dataset 311, GSModelInteriorCMT
 [[GSModelArchiveSizeLimit]]
 ===== GSModel Archive Size Limit
 
-The size of any GSModel archive is limited to 32 MB to permit reading, processing and writing the file at runtime.
+The size of any GSModel archive is limited to 32 MB to permit reading, processing, and writing the file at runtime.
 
 [[TiledGSModelDescriptorDatasets]]
 ==== Tiled GSModelDescriptor Datasets
 
-Since each GSModel can have more than one level of detail, discovery of the associated GSModelDescriptor is needed.  Therefore, there must be one GSModelDescriptor file stored at the same CDB LOD of the corresponding GSModelGeometry file.
+Since each GSModel can have more than one level of detail, the discovery of the associated GSModelDescriptor is needed.  Therefore, there must be one GSModelDescriptor file stored at the same CDB LOD of the corresponding GSModelGeometry file.
 
 include::requirements/requirements_class030.adoc[]
 
@@ -1108,12 +1119,13 @@ include::requirements/REQ129.adoc[]
 [[TiledT2DModelDatasets]]
 ==== Tiled T2DModel Datasets
 
-Table 5-38 provides the component selectors for the T2DModel datasets.
+Table 5-33 provides the component selectors for the T2DModel datasets.
 
 [#table_ComponentSelectorsforT2DModelDatasets,reftext='{table-caption} {counter:table-num}']
-*Table 5-38: Component Selectors for T2DModel Datasets*
+*Table 5-33: Component Selectors for T2DModel Datasets*
+[cols="25, <10, <10, <20, <35",width="100%",options="header",align="center"]
 |===
-|CS1|CS2|File Extension|Component Name|Component Description
+|CS1 | CS2 |File Extension |Component Name |Component Description
 
 |Dataset 310, T2DModelGeometry | | | |
 |001 |001 |*.flt |Model Geometry |One model file containing the geometry of the T2DModel of a Tile-LOD. The content of the file is explained in Volume 6 – CDB Rules for Encoding Data.
