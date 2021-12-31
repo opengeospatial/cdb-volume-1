@@ -1,7 +1,7 @@
 [width="90%",cols="2,6"]
 |===
 |*Requirement 105*{set:cellbgcolor:#CACCCE}
-|http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]material-mixture-data-type{set:cellbgcolor:#FFFFFF} +
+|http://www.opengis.net/spec/cdb/1.0/core/material-mixture-data-type{set:cellbgcolor:#FFFFFF} +
 
 The Material Mixture components each _SHALL_ be stored in a single-channel TIFF file. All values range from 0.0 (0%) to 1.0 (100%). Integral types represent scaled integers to fit the range 0.0 to 1.0; floating-point values are limited to the range 0.0 to 1.0.{set:cellbgcolor:#FFFFFF}
 |===
