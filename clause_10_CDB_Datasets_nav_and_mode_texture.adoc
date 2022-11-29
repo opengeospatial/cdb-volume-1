@@ -290,6 +290,10 @@ Description*
 |056 |001..999 |Detail Texture |Subordinate texture used to add detail to the surface. In most cases, modelers use detail textures to add a finer scaled texture to the base texture (details in section 6.13.5.6)
 |057 |001..999 |Cubic Reflection Map |Subordinate textures to simulate reflective surfaces (details in section 6.13.5.8)
 |058 |001..999 |Gloss Map |Subordinate textures providing the glossiness of a surface on a per-pixel basis (details in section 6.13.5.9)
+|059 |001..999 |Heat Map |Subordinate textures indicating the heat intensity on a per-pixel basis (details in section 6.13.5.9)
+|060 |001..999 |Decal |Subordinate textures used to describe decals over base texture (details in section 6.13.5.9)
+|061 |001..999 |Mask |Subordinate texture - Single channel texture representing the transparency level (details in section 6.13.5.9)
+|062 |001..999 |ORM |Subordinate texture - 3-channel packed texture for PBR rendering (details in section 6.13.5.9)
 |099 |001 |Night Map |Deprecated – Replaced with kind 051
 | |002 |Bump Map |Deprecated – Replaced with kind 052
 | |003 |Light Map |Deprecated – Replaced with kind 053
