@@ -95,10 +95,8 @@ This file contains the metadata that defines the light points name hierarchy for
 
 - http://schemas.opengis.net/cdb/1.1/Lights.xsd[Lights.xsd file for version 1.1]
 - http://schemas.opengis.net/cdb/1.2/Lights.xsd[Lights.xsd file for version 1.2]
-- http://schemas.opengis.net/cdb/1.3/Lights.xsd[Lights.xsd file for version 1.3]
 - http://schemas.opengis.net/cdb/1.1/Metadata.Lights.xml[Lights.xml file for version 1.1]
 - http://schemas.opengis.net/cdb/1.2/Metadata.Lights.xml[Lights.xml file for version 1.2]
-- http://schemas.opengis.net/cdb/1.3/Metadata.Lights.xml[Lights.xml file for version 1.3]
 
 [[Model_ComponentsDefinitionsMetadatafile]]
 ===== “Model_Components” Definitions Metadata file
