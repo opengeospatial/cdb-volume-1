@@ -19,14 +19,14 @@
 |===
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
-|Submission Date: 2020-01-21
-|Approval Date:      2020-08-24
-|Publication Date:      2021-02-26
+|Submission Date: XXXX-XX-XX
+|Approval Date:      XXXX-XX-XX
+|Publication Date:      XXXX-XX-XX
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.2
-|Internal reference number of this OGC(R) document:        15-113r6
-|Version: 1.2
+|Internal reference number of this OGC(R) document:        15-113rx
+|Version: 1.3
 |Category: OGC® Implementation Standard
-|Editor:      Carl Reed, PhD
+|Editor:      Carl Reed, PhD; David Graham
 |===
 
 [cols = "^", frame = "none"]
