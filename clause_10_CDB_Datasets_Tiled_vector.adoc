@@ -135,6 +135,7 @@ The bounding box coordinates Xmin, Ymin, Xmax, Ymax required by some vector data
 The value of M and Mrange found in some of the vector types (PointM, MultiPointM, PolygonM, and PolyLineM) is ignored by client-devices.
 
 [[CDBAttribution]]
+
 ===== CDB Attribution
 
 Attributes are used to describe one or more real or virtual characteristics of a feature. Features can be assigned a variable number of attributes.
