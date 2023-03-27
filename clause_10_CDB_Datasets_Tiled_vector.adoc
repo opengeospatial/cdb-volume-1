@@ -490,7 +490,7 @@ Description: Index into the Composite Material Table is used to determine the Ba
 [[ClassNameCNAM]]
 ====== Class Name (CNAM)
 
-Description: A name that represents the Attribution Class. The class-level attribution schema is described in Section 5.7.1.2.7.2, Class-level Schema. Attributes are referenced via this class name. The class name is used as the primary key to perform searches within the Dataset Class Attribute file.
+Description: A name that represents the Attribution Class. The class-level attribution schema is described in Section <<AttributionSchemas, Class-level Schema>>. Attributes are referenced via this class name. The class name is used as the primary key to perform searches within the Dataset Class Attribute file.
 
 * Identifier: CNAM
 * Code: 0014
