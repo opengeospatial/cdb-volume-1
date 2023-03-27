@@ -215,7 +215,7 @@ The three attribution schemas supported by the CDB standard are:
 * Extended-level schema
 
 [[InstancelevelSchema]]
-======= Instance-level Schema
+====== Instance-level Schema
 
 This is the attribution schema used for features whose attributes and attribute values vary with each instance of a feature in a dataset.
 
@@ -234,7 +234,7 @@ image::images/image77.jpeg[untitled1,width=514,height=244]
 *_{figure-caption}{counter:figure-num}. Instance-level Attribution Schema_*
 
 [[ClasslevelSchema]]
-======= Class-level Schema
+====== Class-level Schema
 
 This is the preferred attribution schema for features whose attributes and attribute values can be shared by one or more of the instances of a feature in a dataset.
 
@@ -249,7 +249,7 @@ image::images/image78.jpeg[untitled1,width=580,height=156]
 *_{figure-caption}{counter:figure-num}. Class-level Attribution Schema_*
 
 [[ExtendedlevelSchema]]
-======= Extended-level Schema
+====== Extended-level Schema
 
 The CDB standard provides an alternate attribution schema that can be used (in many cases) to supplement the instance-level and class-level schemas.
 
@@ -257,7 +257,7 @@ The extended-level schema can be used to represent CDB attributes, Geomatics att
 
 Linkage to the extended-level CDB attribution data is accomplished through the CEAI attribute; CEAI is an index to a link list of CDB attributes stored in the extended-level attribute file (or table) footnote:[Currently a *.dbf file.]. Similarly, the GEAI and VEAI attributes are also indices to link lists of attributes stored in the extended-level attribute file (or table). The extended-level files have the structure described in section 5.7.1.2.7.4, Structure of Extended-level Files.
 
-There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes of section link:#CDBAttributes[5.7.1.3], CDB Attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
+There is one attribute metadata file (named CDB_Attributes.xml) that describes the CDB attributes of section <<CDBAttributes_49.5.7.1.3>>, CDB Attributes, one attribute metadata file (named Geomatics_Attributes.xml) for the Geomatics attributes and one attribute metadata file (named Vendor_Attributes.xml) for the Vendor attributes. All three attribute metadata *.xml files are optional; if provided, they are included in the CDB folder hierarchy under the CDB Metadata directory (refer to link:#MetadataDirectory[Section 3.1.1], Metadata Directory). All three attribute metadata *.xml files share the same schema. The schema that governs the contents of the attribute metadata files is Vector_Attributes.xsd. Refer to Section 1.4.2 of this document for a description of this schema.
 
 
 [[StructureofExtendedlevelAttributeFilesorTables]]
@@ -267,9 +267,9 @@ Each row of the Extended-Level attribute files (or tables) correspond to an attr
 
 Column 1 – *LNK (Link)*: The first column is a numeric 6-digit index to the next entry of a link list of attributes (a value of 0 marks the end of the list). The LNK field provides a means to organize attributes into link lists of attributes that in turn can be associated with a feature.
 
-Column 2 – *GRP (Group)*: The second column provides an 8-character string that is used to name the group to which the extended attributes belongs to. The actual value of this character string is arbitrary and provides an indication of the source of the attribute. In practice, attributes belongs to one of three (3) groups: CDB, Geomatics, and Vendor. If the extended-level attribute is one of the CDB attributes of section 5.7.1.2.7.5, the group name is “CDB”. If the extended-level attribute belongs to one of the Geomatics standards (such as “DIGEST”, “VMAP”, “SEDRIS”, “DGIWG”, “UHRB”), it is recommended to use the name of the standard as the group name. If the extended-level attribute is a vendor-specific attribute, then the group name should represent the name of the vendor (such as “CAE-M”, “Presagis”, “Thales”, “Rockwell”).
+Column 2 – *GRP (Group)*: The second column provides an 8-character string that is used to name the group to which the extended attributes belongs to. The actual value of this character string is arbitrary and provides an indication of the source of the attribute. In practice, attributes belongs to one of three (3) groups: CDB, Geomatics, and Vendor. If the extended-level attribute is one of the CDB attributes of the <<Example_48,Example>>, the group name is “CDB”. If the extended-level attribute belongs to one of the Geomatics standards (such as “DIGEST”, “VMAP”, “SEDRIS”, “DGIWG”, “UHRB”), it is recommended to use the name of the standard as the group name. If the extended-level attribute is a vendor-specific attribute, then the group name should represent the name of the vendor (such as “CAE-M”, “Presagis”, “Thales”, “Rockwell”).
 
-Column 3 – *EAC (Environment Attribute Code)*: The third column provides a unique four-digit numeric code for each attribute type. The codes for the CDB attributes can be found in section 5.7.1.3, CDB Attributes. Note however, that the codes for the Geomatics and Vendor attributes are not specified by this standard. Instead, this standard provides a metadata schema that allows developers to describe these attributes. See section 5.1.7, CDB Attributes Metadata, for details.
+Column 3 – *EAC (Environment Attribute Code)*: The third column provides a unique four-digit numeric code for each attribute type. The codes for the CDB attributes can be found in section <<CDBAttributes_49, CDB Attributes>>. Note however, that the codes for the Geomatics and Vendor attributes are not specified by this standard. Instead, this standard provides a metadata schema that allows developers to describe these attributes. See section <<CDBAttributesMetadata,CDB Attributes Metadata>>, for details.
 
 Column 4 – *EAV (Environment Attribute Value)*: The fourth column provides a data value for the attribute. The data value is represented by general-purpose 16-character alphanumeric string. In the case where more than 16-characters are needed to represent a data value, the remaining characters are provided by appending consecutive row(s) with the same GRP and EAC values; the value of LNK is incremented for each of the consecutive row(s). The interpretation of the data value is governed by metadata that describes the data type, the data format, the allowable range of the data, the numerical precision of the data, the units associated with the data, etc for each attribute type.
 
@@ -317,7 +317,7 @@ Description: Indicates how to interpret the Z component of a vertex.
 * Usage Note: Optional. Specifies how to interpret vector data type features with a Z component. If AHGT is true, the feature is positioned to the value specified by the Z component (Absolute Terrain Altitude), irrelevant of the terrain elevation dataset. If AHGT is false or not present, the feature is positioned to the value specified by the underlying terrain offset by the Z component value. Refer to section 5.7.1.1, Vector Type Usage and Conventions for more details. AHGT can be present only in datasets using PointZ, PolylineZ, PolygonZ and MultiPointZ vector data types types. AHGT should not be present for all other vector data types or must be ignored otherwise. Refer to Section 6.3 in Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
 * Unit: N/A
 * Default: False
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 NOTE: It is recommended that the AHGT flag be set to false because it facilitates the creation of CDB compliant datasets that are independent of each other. When the Z coordinate (altitude) of a feature is relative to the ground, the terrain elevation dataset can be updated without the need to re-compute the altitude of the feature.
 
@@ -339,7 +339,7 @@ Description: Angle of Orientation with greater than 1 degree resolution – The 
 * Usage Note: Recommended. CDB readers should default to a value of 0.000 if AO1 is missing. Applicable to Point, Light Point, Moving Model Location and Figure Point features. When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon. The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis. Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
 * Unit: degree
 * Default: 0.000
-* Compatibility: OGC CDB 1.0, DIGEST v2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST v2.1
 
 [[AirportFeatureNameAPFNDeprecated]]
 ====== Airport Feature Name (APFN) – Deprecated
@@ -361,7 +361,7 @@ Description: A unique alphanumeric identifier that points to a record in the Nav
 * Usage Note: Recommended for all Airport Light Points and airport-related T2DModels (such as runway/taxiway/apron surfaces, and markings) Failure to appropriately tag airport culture with APID attribute will result in reduced control of airport-related culture by simulator. Optional for Location Points, Environmental Light Points, and Moving Model Location features that fall within the confines of an airport and for which control of the feature is desirable.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[BoundingBoxHeightBBH]]
 ====== Bounding Box Height (BBH)
@@ -386,7 +386,7 @@ Description: The Height/Width/Length of the Bounding Box of the 3D model associa
 * Unit: meters
 * Default: BBH defaults to the value of BSR
 ** BBW and BBL default to twice the value of BSR
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[BoundaryTypeBOTY]]
 ====== Boundary Type (BOTY)
@@ -402,7 +402,7 @@ Description: A value that uniquely attributes a boundary according to the enumer
 * Usage Note: Optional. See table below for a list of accepted values. Can be used only with Boundary Point, Linear or Polygon Feature Datasets (which are part of the Geopolitical Datasets)
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 
 [#table_BoundaryTypeEnumerationValues,reftext='{table-caption} {counter:table-num}']
@@ -448,7 +448,7 @@ Description: The radius of a feature. In the case where a feature references an 
 * Usage Note: Mandatory for features for which a MODL has been assigned, but optional for geopolitical point features. The dimension of the bounding sphere is intrinsic to the model and identical for all LOD representations. Refer to Section 6.3 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
 * Unit: meters
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[CDBExtendedAttributeIndexCEAI]]
 ====== CDB Extended Attribute Index (CEAI)
@@ -464,7 +464,7 @@ Description: An index that points to a row entry of a CDB Extended Attribution f
 * Usage Note: Optional. Use when CDB extended attribution is required. A “blank” or a value of 0 indicates that there are no CDB Extended attributes.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0.
+* Compatibility: OGC CDB 1.0 and later
 
 [[CDBExtendedAttributeCodeCEACDeprecated]]
 ====== CDB Extended Attribute Code (CEAC) – Deprecated
@@ -485,7 +485,7 @@ Description: Index into the Composite Material Table is used to determine the Ba
 * Usage Note: Mandatory. Recommended to specify materials on polygons of Moving Models.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[ClassNameCNAM]]
 ====== Class Name (CNAM)
@@ -501,7 +501,7 @@ Description: A name that represents the Attribution Class. The class-level attri
 * Usage Note: Each row of a class-level database file or table must have a valid CNAM entry; the CNAM must be unique within the file. Each row of an instance-level *.dbf can optionally use the CNAM to refer to class attributes; blank indicates “no class attribute”.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[DamageLevelDAMA]]
 ====== Damage Level (DAMA)
@@ -549,7 +549,7 @@ Description: The depth of a feature. If the feature has no modeled representatio
 * Usage Note: In the case of ground features, DEP refers to the portion of the feature (or its modeled representation) that is underground. In the case of moving models that are used as geotypical features, DEP refers to the portion of the model that is below the waterline (i.e., the XY plane). In the case of network linear features such as roads, railroads and powerlines, DEP refers to the depth of the feature under the ground in its vicinity. In the case of hydrographic features, DEP refers to the depth of rivers, lakes, etc footnote:[Note, that the CDB has provision for a raster dataset to represent the bathymetry. When provided, the dataset provides a much more detailed underwater profile of hydrographic features.]. This data is typically used by client-devices that need to determine whether or not a waterway is navigable by ships with a specific draw.
 * Unit: meters
 * Default: 0.000
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[DirectivityDIR]]
 ====== Directivity (DIR)
@@ -568,7 +568,7 @@ Description: The side or sides of a feature that has the greatest reflectivity p
 * Usage Note: Recommended for linear features. If absent, client-devices are required to default to a value of 3 – Omni-directional
 * Unit: N/A
 * Default: 3
-* Compatibility: OGC CDB 1.0 and DIGEST
+* Compatibility: OGC CDB 1.0 and later, DIGEST
 
 [[DensityMeasureDML]]
 ====== Density Measure (DML)
@@ -584,7 +584,7 @@ Description: Percentage light coverage at night (expressed as a percentage) with
 * Usage Note: Recommended. Applies to Geopolitical Dataset polygon features that delineate inhabited areas. If this field is absent, client-devices shall assume 0%.
 * Unit: Percentage
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 amd later
 
 [[DensityMeasureroofcoverDMR]]
 ====== Density Measure (% roof cover) (DMR)
@@ -600,7 +600,7 @@ Description: Roof cover measure by percent within area of feature.
 * Usage Note: Recommended for Polygon features. If absent, client-devices shall assume 0%.
 * Unit: percentage
 * Default: 0
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [[DensityMeasurestructurecountDMS]]
 ====== Density Measure (structure count) (DMS)
@@ -616,7 +616,7 @@ Description: Number of man-made, habitable structures per square kilometer.
 * Usage Note: Recommended for Polygon features. If absent, client-devices shall assume 0.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [[DensityMeasuretreecanopycoverDMT]]
 ====== Density Measure (% tree/canopy cover) (DMT)
@@ -632,7 +632,7 @@ Description: Canopy cover measure by percent within area of feature during the s
 * Usage Note: Recommended for Polygon features. If absent, client-devices shall assume 0%.
 * Unit: percentage
 * Default: 0
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [[EndJunctionIDEJID]]
 ====== End Junction ID (EJID)
@@ -648,7 +648,7 @@ Description: A Junction Identification Number that is used to virtually connect 
 * Usage Note: Mandatory for all features belonging to Topological Network Datasets. Attribute is stored as a character string representing an unsigned 64-bit number and requires conversion back into numerical representation by client reader. This is due to the 32-bit limitation on integer values within dBASE files.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[FeatureAttributeClassificationCode]]
 ====== Feature Attribute Classification Code
@@ -664,7 +664,7 @@ Description: This code used to distinguish and categorize features within a data
 * Usage Note: Mandatory
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [[FeatureSubCodeFSC]]
 ====== Feature Sub Code (FSC)
@@ -680,7 +680,7 @@ Description: This code, in conjunction with the feature code is used to distingu
 * Usage Note: Mandatory
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[GateIDGAID]]
 ====== Gate ID (GAID)
@@ -696,7 +696,7 @@ Description: A unique alphanumeric identifier (for the airport in question) that
 * Usage Note: Recommended and Optional usages are per Table 5-27: Allocation of CDB Attributes to Vector Datasets. Typically used (but not limited to) for models such as docking systems, marshallers and other models that are logically associated with a Terminal gate and that require some level of control by the simulation application.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[GeomaticsExtendedAttributeIndexGEAI]]
 ====== Geomatics Extended Attribute Index (GEAI)
@@ -712,7 +712,7 @@ Description: An index that points to a row entry of a Geomatics Extended Attribu
 * Usage Note: Optional. Use when Geomatics extended attribution is required. A “blank” or a value of 0 indicates that there are no Geomatics Extended attributes.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0.
+* Compatibility: OGC CDB 1.0 and later
 
 [[HeightaboveSurfaceLevelHGT]]
 ====== Height above Surface Level (HGT)
@@ -728,7 +728,7 @@ Description: The height of a feature. If the feature has no modeled representati
 * Usage Note: In the case of ground features, HGT refers to the portion of the feature (or its modeled representation) that is meant to be above ground. In the case of network lineal and polygon features such as roads, railroads, powerlines, or forest, HGT refers to the elevation of the feature relative to the terrain in its immediate vicinity.
 * Unit: meters
 * Default: 0.00
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[JunctionIDJID]]
 ====== Junction ID (JID)
@@ -744,7 +744,7 @@ Description: A Junction Identification Number that is used to virtually connect 
 * Usage Note: Mandatory for all features belonging to Topological Network Datasets. Attribute is used in 2D relationship file. Attribute is stored as a character string representing an unsigned 64-bit number and requires conversion back into numerical representation by client reader. This is due to the 32-bit limitation on integer values within dBASE files.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[LocationAccuracyLACC]]
 ====== Location Accuracy (LACC)
@@ -760,7 +760,7 @@ Description: A precision value used to quantify the relative precision of the Lo
 * Usage Note: Optional. See Table 5-20: Location Accuracy Enumeration Values for a list of accepted values.
 * Unit: meters.
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [#table_LocationAccuracyEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-20: Location Accuracy Enumeration Values*
@@ -793,7 +793,7 @@ Description: The length of a lineal. If the feature has been clipped to a tile b
 * Usage Note: Mandatory for all networked lineal features. Length computation should be account for the earth’s curvature.
 * Unit: meters
 * Default: None
-* Compatibility: OGC CDB 1.0, SEDRIS (EA = 562)
+* Compatibility: OGC CDB 1.0 and later, SEDRIS (EA = 562)
 
 [[LightMaterialIndexLMIXDeprecated]]
 ====== Light Material Index (LMIX) – Deprecated
@@ -814,7 +814,7 @@ Description: A toponym – a general term for any place or geographical entity. 
 * Usage Note: The use of LNAM goes from the name of a City to the name of a Road, to the name of a Building, etc. Multiple names are possible when using LNAM as an extended attribute. When more than one name is provided, they must appear in order from the shortest name to the longest one.
 * Unit: N/A
 * Default: Blank
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[LocationTypeLOTY]]
 ====== Location Type (LOTY)
@@ -830,7 +830,7 @@ Description: A value that uniquely attributes a location feature according to th
 * Usage Note: Optional. Applicable to Geopolitical Dataset polygon features. See table below for a list of accepted values. Can be used only with Location Point, Lineal or Polygon Feature Datasets (which are part of the Geopolitical Datasets)
 * Unit: In cases where the location represents a bounded area, the approximate geometric center is assumed.
 * Default: 0
-* Compatibility: OGC CDB 1.0.
+* Compatibility: OGC CDB 1.0 and later
 
 [#table_LocationTypeEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-21: Location Type Enumeration Values*
@@ -864,7 +864,7 @@ Description: Used for all light types that are periodic in nature (rotating, bli
 * Usage Note: Optional. In absence of a value, LPH defaults to a value of 0.
 * Unit: thousands of a cycle
 * Default: 000
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[LayerPriorityNumberLPN]]
 ====== Layer Priority Number (LPN)
@@ -880,7 +880,7 @@ Description: A priority number that establishes the relative priority of overlap
 * Usage Note: Mandatory for terrain constraint features that overlap one another. For all other features, LPN is optional. LPN is derived from priority information stored and maintained by the authoring tools.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[LaneTrackNumberLTN]]
 ====== Lane/Track Number (LTN)
@@ -898,7 +898,7 @@ Description: The number of lanes on a road, tracks on railroad, or conductors on
 * Default: 02 – for RoadNetwork lineal features
 ** 01 – for RailRoadNetwork lineal features
 ** 02 – for PowerLineNetwork lineal features
-* Compatibility: CDB 3.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [[LightTypeLTYP]]
 ====== Light Type (LTYP)
@@ -914,7 +914,7 @@ Description: A unique code corresponding to a Light Type; Annex J of this standa
 * Usage Note: Mandatory for all Airport Light Point features, Environmental Light Point features.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[ModelLevelOfDetailMLOD]]
 ====== Model Level Of Detail (MLOD)
@@ -930,7 +930,7 @@ Description: The level of detail of the 3D model associated with the point featu
 * Usage Note: When used in conjunction with MODL, the MLOD attribute indicates the LOD where the corresponding MODL is found. In this case, the value of MLOD can never be larger than the LOD of the Vector Tile-LOD that contains it. When used in the context of Airport and Environmental Light Point features, the value of MLOD, if present, indicates that this lightpoint also exist in a 3D model found at the specified LOD. In such case, the value of MLOD is not constrained and can indicate any LOD.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[MovingModelDISCodeMMDC]]
 ====== Moving Model DIS Code (MMDC)
@@ -946,7 +946,7 @@ Description: A character string composed of the 7 fields of the DIS Entity Type.
 * Usage Note: Mandatory for Moving Model Location features
 * Unit: N/A
 * Default: None
-* Compatibility: CDB 3.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[ModelNameMODL]]
 ====== Model Name (MODL)
@@ -962,7 +962,7 @@ Description: A string reference, the model name, which stands for the modeled ge
 * Usage Note: Needed for Point features, Road Figure Point features, Railroad Figure Point features, Pipeline Figure Point features and Hydrography Figure Point features that are modeled using some industry format. MODL can also be used with Road Lineal features, Railroad Lineal features, Pipeline Lineal features and Hydrography Lineal and Polygon features. Note that it is not permitted to specify a value for MODL simultaneously with a value for MMDC.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[ModelTypeMODT]]
 ====== Model Type (MODT)
@@ -978,7 +978,7 @@ Description: Indicates whether a feature is represented using a geotypical or ge
 * Usage Note: Needed for features that are modeled using a CDB specified format.
 * Unit: N/A
 * Default: ”S”
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[NetworkComponentSelector1NCS1]]
 ====== Network Component Selector 1 (NCS1)
@@ -994,7 +994,7 @@ Description: Code that is used to identify the component selector 1 file which c
 * Usage Note: Mandatory for Network datasets. Attribute is used in 2D relationship file.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[NetworkComponentSelector2NCS2]]
 ====== Network Component Selector 2 (NCS2)
@@ -1010,7 +1010,7 @@ Description: Code that is used to identify the component selector 2 file which c
 * Usage Note: Mandatory for Network datasets. Attribute is used in 2D relationship file.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[NetworkDatasetCodeNDSC]]
 ====== Network Dataset Code (NDSC)
@@ -1026,7 +1026,7 @@ Description: Code that is used to identify the dataset code file which contain t
 * Usage Note: Mandatory for Network datasets. Attribute is used in 2D relationship file.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[NumberofInstancesNISDeprecated]]
 ====== Number of Instances (NIS) – Deprecated
@@ -1072,7 +1072,7 @@ Description: The number of inhabitants per square kilometer.
 * Usage Note: Applicable to Geopolitical features representing inhabited areas.
 * Unit: Inhabitants per square kilometer
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[PopulatedPlaceTypePOPT]]
 ====== Populated Place Type (POPT)
@@ -1088,7 +1088,7 @@ Description: A value that uniquely represents the Populated Place Attribution Ty
 * Usage Note: Optional. Applies to Geopolitical Dataset polygon features that delineate inhabited areas. See table below for a list of accepted values.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 
 [#table_PopulatedPlaceTypeEnumerationValues,reftext='{table-caption} {counter:table-num}']
@@ -1131,7 +1131,7 @@ image::images/image80.jpeg[image,width=276,height=145]
 * Usage Note: Mandatory. All features should be tagged with an appropriate value for the reasons stated above.
 * Unit: Percentage
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[RunwayIDRWID]]
 ====== Runway ID (RWID)
@@ -1147,7 +1147,7 @@ Description: An alphanumeric identifier that uniquely identifies a runway for a 
 * Usage Note: Recommended for all Airport Light Points features. Failure to appropriately tag airport culture with RWID attribute will result in reduced control of runway-related (or helipad) culture by simulator. Optional for Point/Lineal/Polygon features, Location Points Features, Environmental Light Point features, and Moving Model Location features that are associated with a runway and for which control of the feature is desirable. The combination of RWID and APID points to a unique record of the NavData Runway or Helipad dataset components. Note that all of the lights and other features located in vector datasets that are associated with the operation of a runway or helipad are required to reference a runway or helipad in the NavData dataset; the RWID attribute is not required for features unrelated to a runway or helipad.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[ScalingSCALx]]
 ====== Scaling (SCALx)
@@ -1169,7 +1169,7 @@ Description: A set of scaling factors, one of the model axis, to be applied to t
 * Usage Note: Optional. CDB readers should default to a value of 1.0 if SCALx, SCALy, or SCALz is missing.
 * Unit: N/A
 * Default: 1.0
-* Compatibility: CDB 3.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[StartJunctionIDSJID]]
 ====== Start Junction ID (SJID)
@@ -1185,7 +1185,7 @@ Description: A Junction Identification Number that is used to virtually connect 
 * Usage Note: Mandatory for all features belonging to Topological Network Datasets. Attribute is stored as a character string representing an unsigned 64-bit number and requires conversion back into numerical representation by client reader. This is due to the 32-bit limitation on integer values within dBASE files.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 
 [[SurfaceRoughnessDescriptionSRD]]
@@ -1202,7 +1202,7 @@ Description: Describes the condition of the surface materials that may be used f
 * Usage Note: Recommended for Polygon features.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 
 [#table_SurfaceRoughnessEnumerationValues,reftext='{table-caption} {counter:table-num}']
@@ -1295,7 +1295,7 @@ Description: Describes the Geometric form, appearance, or configuration of the f
 * Usage Note: Recommended for Point features, and all Network Lineal/Polygon Figure Points features.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [#table_StructureShapeCategoryEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-24: Structure Shape Category Enumeration Values*
@@ -1403,7 +1403,7 @@ Description: Describes the roof shape.
 * Usage Note: Recommended for Point features, and all Network Linear/Polygon Point Figures.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [#table_StructureShapeofRoofEnumerationValues,reftext='{table-caption} {counter:table-num}']
 *Table 5-25: Structure Shape of Roof Enumeration Values*
@@ -1458,7 +1458,7 @@ Description: Encodes the general destination of traffic.
 * Unit: N/A
 * Default: 003 – for RailRoadNetwork linear features
 ** 004 – for other network lineal features
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 [[TaxiwayIDTXID]]
 ====== Taxiway ID (TXID)
@@ -1474,7 +1474,7 @@ Description: A unique alphanumeric identifier (for the airport in question).
 * Usage Note: Recommended usage and Optional usages are per table Table 5-27: Allocation of CDB Attributes to Vector Datasets. Failure to appropriately tag airport culture with TXID attribute will result in reduced control of taxiway-related culture by a simulation device.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0
+* Compatibility: OGC CDB 1.0 and later
 
 [[UrbanStreetPatternUSP]]
 ====== Urban Street Pattern (USP)
@@ -1490,7 +1490,7 @@ Description: Describes the predominant geometric configuration of streets found 
 * Usage Note: Recommended for Polygon features.
 * Unit: N/A
 * Default: 0
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 
 [#table_UrbanStreetPatternEnumerationValues,reftext='{table-caption} {counter:table-num}']
@@ -1529,7 +1529,7 @@ Description: An index that points to a row entry of a VendorExtended Attribution
 * Usage Note: Optional. Use when Vendor extended attribution is required. A “blank” or a value of 0 indicates that there are no Vendor Extended attributes.
 * Unit: N/A
 * Default: None
-* Compatibility: OGC CDB 1.0.
+* Compatibility: OGC CDB 1.0 and later
 
 [[WidthwithGreaterThan1meterPrecisionWGP]]
 ====== Width with Greater Than 1 meter Precision (WGP)
@@ -1545,7 +1545,7 @@ Description: For lineal features (such as roads, railways, runways, taxiways), W
 * Usage Note: Recommended on all Network Lineal (except PowerLines) features. When supplied for coastline, WGP corresponds to average width of coastline due to water height variations (such as tides) and wave action.
 * Unit: meters
 * Default: None
-* Compatibility: OGC CDB 1.0, DIGEST 2.1
+* Compatibility: OGC CDB 1.0 and later, DIGEST 2.1
 
 
 [[ExplicitlyModeledRepresentations]]
@@ -2001,7 +2001,7 @@ The points that make up the RoadNetwork lineals are primarily used to establish 
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RoadNetwork lineal. When provided, client-devices should instantiate the modeled representation for each point along the RoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the RoadNetwork lineal feature by assigning a distinct RoadNetwork Figure Point to each point of the RoadNetwork lineal feature.
 
-Table 5-32: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-32: Component Selectors for RoadNetwork Dataset lists all of the RoadNetwork Dataset components. The allocation of CDB attributes to each of the RoadNetwork dataset components is prescribed by Table <<AllocationofCDBAttributesToVectorDatasets.Allocation of CDB Attributes to Vector Datasets>>.
 
 [#table_ComponentSelectorsforRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-32: Component Selectors for RoadNetwork Dataset*
@@ -2047,7 +2047,7 @@ The points that make up the RailRoadNetwork lineals are primarily used to establ
 
 It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each RailRoadNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the RailRoadNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the RailRoadNetwork lineal feature by assigning a distinct a RailRoadNetwork Figure Point to each point of the RailRoadNetwork lineal feature.
 
-Table 5-33: Component Selectors for RailRoadNetwork Dataset lists RailRoadNetwork Dataset components. The allocation of CDB attributes to each of the RailRoadNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-33: Component Selectors for RailRoadNetwork Dataset lists RailRoadNetwork Dataset components. The allocation of CDB attributes to each of the RailRoadNetwork dataset components is prescribed by Table <<AllocationofCDBAttributesToVectorDatasets,Allocation of CDB Attributes to Vector Datasets>>.
 
 
 [#table_ComponentSelectorsforRailRoadNetworkDataset,reftext='{table-caption} {counter:table-num}']
@@ -2090,9 +2090,9 @@ include::requirements/REQ126.adoc[]
 
 The points that make up the PowerLineNetwork lineals are primarily used to establish the network topology. However, additional points can be used to more accurately define the actual path of the PowerLineNetwork lineals between each of the junction points of the network; alternately, points can be used to precisely specify the position of the poles, pylons, etc. of the PowerLineNetwork lineal. The altitude of each point is optional and specifies the ground level when present.
 
-It is possible to associate an explicitly modeled representation (via the MODL and MODT attribute) to each PowerLineNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the PowerLineNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the PowerLineNetwork lineal feature by assigning a distinct a PowerLineNetwork Figure Point to each point of the PowerLineNetwork lineal feature. Allowed model representations are as per Section 5.7.1.4, Explicitly Modeled Representations. In that case of wired- or cabled-networks, the model must include the wire Attach Points footnote:[Note that wires are not explicitly modeled in the CDB. As a result, client-devices are required to automatically model them when rendering PowerLineNetwork lineal features. Such modeling can be achieved using a principle known as the catenary, which is the shape of a perfectly flexible chain suspended by its ends and which is characterized solely by the gravity action.]. Note also that client-devices are also required to automatically orient each instance of the modeled representation along the path of the PowerLineNetwork lineal. In the case where the entrance and exit angles are not identical, the orientation should be the average of both.
+It is possible to associate an explicitly modeled representation (via the MODL and MODT attribute) to each PowerLineNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the PowerLineNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the PowerLineNetwork lineal feature by assigning a distinct a PowerLineNetwork Figure Point to each point of the PowerLineNetwork lineal feature. Allowed model representations are as per Section <<ExplicitlyModeledRepresentations, Explicitly Modeled Representations>>. In that case of wired- or cabled-networks, the model must include the wire Attach Points footnote:[Note that wires are not explicitly modeled in the CDB. As a result, client-devices are required to automatically model them when rendering PowerLineNetwork lineal features. Such modeling can be achieved using a principle known as the catenary, which is the shape of a perfectly flexible chain suspended by its ends and which is characterized solely by the gravity action.]. Note also that client-devices are also required to automatically orient each instance of the modeled representation along the path of the PowerLineNetwork lineal. In the case where the entrance and exit angles are not identical, the orientation should be the average of both.
 
-Table 5-34: Component Selectors for PowerLineNetwork Dataset, lists all of the PowerLineNetwork Dataset components. The allocation of CDB attributes to each of the PowerLineNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-34: Component Selectors for PowerLineNetwork Dataset, lists all of the PowerLineNetwork Dataset components. The allocation of CDB attributes to each of the PowerLineNetwork dataset components is prescribed by Table <<AllocationofCDBAttributesToVectorDatasets,Allocation of CDB Attributes to Vector Datasets>>.
 
 
 [#table_ComponentSelectorsforPowerLineNetworkDataset,reftext='{table-caption} {counter:table-num}']
@@ -2129,9 +2129,9 @@ include::requirements/REQ127.adoc[]
 
 The points that make up the HydrographyNetwork lineals are primarily used to establish the network topology. However, additional points can be used to more accurately define the actual path of the HydrographyNetwork lineals between each of the junction points of the network; alternately, points can be used to precisely specify the position of models of the HydrographyNetwork lineal. The altitude of each point is optional and specifies the ground level when present.
 
-It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each HydrographyNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the HydrographyNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the HydrographyNetwork lineal feature by assigning a distinct a HydrographyNetwork Figure Point to each point of the HydrographyNetwork lineal feature. Allowed model representations are as per Section 5.3.1.4, Explicitly Modeled Representations.
+It is possible to associate an explicitly modeled representation (via the MODL and MODT attributes) to each HydrographyNetwork lineal. When provided, client-devices should instance the modeled representation for each point along the HydrographyNetwork lineal. Alternately, it is possible to specify a distinct modeled representation for each point along the HydrographyNetwork lineal feature by assigning a distinct a HydrographyNetwork Figure Point to each point of the HydrographyNetwork lineal feature. Allowed model representations are as per Section <<ExplicitlyModeledRepresentations, Explicitly Modeled Representations>>.
 
-Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Table 5-35: Component Selectors for HydrographyNetwork Dataset lists all of the components of the HydrographyNetwork dataset. The allocation of CDB attributes to each of the HydrographyNetwork dataset components is prescribed by Table <<AllocationofCDBAttributesToVectorDatasets,Allocation of CDB Attributes to Vector Datasets>>.
 
 [#table_ComponentSelectorsforHydrographyNetworkDataset,reftext='{table-caption} {counter:table-num}']
 *Table 5-35: Component Selectors for HydrographyNetwork Dataset*
