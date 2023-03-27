@@ -179,7 +179,7 @@ include::requirements/REQ114.adoc[]
 
 _Dependent:_ A dependent attribute is an attribute whose value depends on another attribute, be it mandatory, recommended, or optional. The attribute is considered mandatory if the attribute it depends on is mandatory. Likewise, the attribute is considered recommended if the attribute it depends on is recommended. Finally, the attribute is considered optional if the attribute it depends on is optional.
 
-Note that attribute usage information for each of the CDB attributes can be found in section 5.7.1.3, CDB Attributes and in Table 5-27: Allocation of CDB Attributes to Vector Datasets.
+Note that attribute usage information for each of the CDB attributes can be found in section <<CDBAttributes_49,CDB Attributes>> and in Table <<AllocationofCDBAttributesToVectorDatasets,Allocation of CDB Attributes to Vector Datasets>>.
 
 
 [[AttributionDataCompatibility]]
