@@ -293,7 +293,9 @@ Description*
 |059 |001..999 |Heat Map |Subordinate textures indicating the heat intensity on a per-pixel basis (details in section 6.13.5.9)
 |060 |001..999 |Decal |Subordinate textures used to describe decals over base texture (details in section 6.13.5.9)
 |061 |001..999 |Mask |Subordinate texture - Single channel texture representing the transparency level (details in section 6.13.5.9)
-|062 |001..999 |ORM |Subordinate texture - 3-channel packed texture for PBR rendering (details in section 6.13.5.9)
+|062 |001..999 |ORM |Subordinate texture - 3-channel packed texture (ambient occlusion, roughness, metallness) for PBR rendering (details in section 6.13.5.9)
+|063 |001..999 |RM |Subordinate texture - 2-channel texture (roughness , metalness) for PBR rendering (details in section 6.13.5.9)
+|064 |001..999 |O |Subordinate texture - 1-channel texture (ambient occlusion) for PBR rendering (details in section 6.13.5.9)
 |099 |001 |Night Map |Deprecated – Replaced with kind 051
 | |002 |Bump Map |Deprecated – Replaced with kind 052
 | |003 |Light Map |Deprecated – Replaced with kind 053
