@@ -282,6 +282,7 @@ Description*
 |007 |001..999 |Shadow Map |Base textures of Moving Models Shadows to be projected onto terrain and/or culture (details in section 6.13.5.1.2)
 |008 |001..999 |Motion Blur Texture |Base textures for use with rotating parts (details in section 6.9.2.3)
 |009 |001..004 |Quarterly Texture |Base textures for quarterly usage on the shell of models (enumeration values in Annex O, details in section 6.13.5.2)
+|010 |001 |Albedo Texture | Base texture representing the base color, without any lighting or shading applied. This texture type is distinct from a Diffuse base texture. By default, the base texture is Diffused  (details in section 6.13.1)
 |051 |001..999 |Night Map |Subordinate textures to simulate the effect of lights inside 3D model shells (details in section 6.13.5.3)
 |052 |001..999 |Tangent-Space Normal Map |Subordinate textures used to simulate the effect of irregular surfaces (details in section 6.13.5.5)
 |053 |001..999 |Light Map |Subordinate textures to simulate the effect of lights on surrounding surfaces (detail in section 6.13.5.4)
