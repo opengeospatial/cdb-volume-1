@@ -2328,4 +2328,6 @@ Table 5-38 provides the component selectors for the T2DModel datasets.
 |001 |001 |*.flt |Model Geometry |One model file containing the geometry of the T2DModel of a Tile-LOD. The content of the file is explained in Volume 6 – CDB Rules for Encoding Data.
 |Dataset 312, T2DModelCMT | | | |
 |001 |001 |*.xml |Composite Material Table |Contains the definition of the composite materials referenced by the model geometry dataset above. Its format is as specified in section 2.5.2.2, Composite Material Tables (CMT)
+|Dataset 313, T2DModelDescriptor | | | |
+|001 |001 |*.xml |Individual Descriptor |Provides the metadata associated with individual T2DModels. See section 6.14, Metadata, for a description of the content.
 |===
