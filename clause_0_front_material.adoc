@@ -35,14 +35,11 @@ Recipients of this document are requested to submit, with their comments, notifi
 The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
 
 * CAE Inc.
-* Carl Reed, OGC Individual Member
-* Envitia, Ltd
-* Glen Johnson, OGC Individual Member
-* KaDSci, LLC
-* Laval University
-* Open Site Plan
-* University of Calgary
-* UK Met Office
+* Carl Reed
+
+[red]#*_Placeholder# for the list of CDB SWG Voting Members who cast a ballot in the SWG eVote approving the draft document for submission to the OAB and request for public comment_*
+
+
 
 Organization name(s)
 
@@ -57,26 +54,10 @@ Organization name(s)
 
 Please submit your comments using the following email address: requests@list.opengeospatial.org. The link provided above should include a standard template in the message body. If the preloaded message body does not work properly using your mail client, please refer to the official http://portal.opengeospatial.org/files/?artifact_id=3239[template] for the message body. Please direct comments to the editors named above.
 
-[big]*vi.     Future work*
+[big]*vi.     Backwards Compatability*
 
-The CDB community anticipates that additional standardization work will be required to prescribe content appropriate to targeted simulation applications, new use cases, and application in new domains. In its current form, the CDB standard does not mandate synthetic environmental richness, quality and resolution.
+This version of the CDB standard is backwards compatible with versions 1.0, 1.1 and 1.2 of the OGC CDB standard.
 
-Further, the OGC CDB Standards Working Group (SWG) members understand there is a requirement for eventual alignment of the CDB standard with the OGC/ISO standards baseline. In CDB Version 1.0, effort was invested to begin aligning terminology and concepts with the OGC standards baseline, specifically in the coordinate reference system discussions and requirements. For version 1.1, the primary effort was focused on resolved several Change Requests and adding guidance on incorporating metadata into a CDB data store.
-
-This version of the CDB standard is backwards compatible with versions 1.0 and 1.1 of the OGC CDB standard.
-
-The requirements for a CDB data store are focused on the ability to store, manage, and access extremely large volumes of geographic content and related model definitions. In this version of the standard, initial harmonization with the OGC and ISO standards baseline has begun. For example, where appropriate, the CDB simulation community terms and definitions have been replaced with OGC/ISO terms and definitions. Further, the standards documents have been reorganized and structured to be consistent with the OGC Modular Specification Policy. However, the CDB SWG and community recognize the need to further harmonize and align this standard with the OGC/ISO baseline and other IT best practices. There has already been considerable discussion in this regard.
-
-Based on such discussions and comments received during the Version 1.0 and Version 1.1 public comment periods, the following future work tasks are envisioned:
-
-.  Describe explicitly how the CDB model may or may not align with the OGC DGGS standard;
-.  Provide best practice details on how to use WMS, WFS, and WCS to access existing CDB data stores. This work may require Interoperability Experiments to better understand the implications of these decisions;
-.  Extend the supported encodings and formats for a CDB structured data store to include the use of the CityGML, and InDoorGML standards as well as other broadly used community encoding standards, such as GeoTIFF. This work may require performing OGC Interoperability Experiments to better understand the implications of these decisions.
-.  Further align CDB terminology to be fully consistent with OGC/ISO terminology.
-
-Making these enhancements may allow the use and implementation of a CDB structured data store for application areas other than aviation simulators.
-
-`NOTE`: For version 1.2 a major enhancement is the specification of using OGC GeoPackages in a CDB data store.
 
 [big]*vii.     A note on using a CDB Data Store with OGC Standards*
 
