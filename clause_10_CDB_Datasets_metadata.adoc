@@ -102,7 +102,7 @@ The light type code can range from *0 to 9,999*. The light type codes are used b
 
 Below is a small sample of the CDB light name hierarchy in XML format.
 
-```
+```xml
 <Lights>
   <Light type="Light" code="0">
     <Description>
@@ -177,7 +177,7 @@ The XML schema for the fields of the Lights_xxx.xml is delivered with the standa
 
 Here is a sample of a _Lights_xxx.xml_ file where a modeler has exercised explicit control over the properties of an anti-collision light and a landing light.
 
-```
+```xml
 <Lights_Tuning>
   <Light type="\Light\Platform\Air\Aircraft_Helos\Anti-collision">
     <Description>Tuned for MH-47 CMS</Description>
@@ -208,7 +208,7 @@ The CDB standard provides the means to unambiguously tag any portions of a 3D mo
 
 The following shows a content sample of the model component definition file:
 
-```
+```xml
 <Model_Components>
   <Component name="Artillery_Gun">
     <Description>
@@ -234,7 +234,7 @@ CDB Base Materials are listed in \CDB\Metadata\Materials.xml and stored in an XM
 
 Here is an excerpt of the CDB Base Material Table showing the definitions of the first and the last base materials of the standard.
 
-```
+```xml
 <Base_Material_Table>
   <Base_Material>
     <Name>BM_ASH</Name>
@@ -259,7 +259,7 @@ Default values for all datasets can be stored in the default values metadata fil
 
 The following is an excerpt of a “Defaults.xml” file containing the default terrain elevation value.
 
-```
+```xml
 <Default_Value_Table>
   <Default_Value>
     <Dataset>001_Elevation</Dataset>
@@ -316,16 +316,16 @@ A CDB Extension corresponds to user defined information, which is not described 
 [[CDBAttributesMetadata]]
 ==== CDB Attributes Metadata
 
-The CDB attributes are listed and described in section 5.7.1.3 CDB Attributes. The metadata for these attributes is stored in \CDB\Metadata\CDB_Attributes.xml and the schema can be found in \CDB\Metadata\Schema\Vector_Attributes.xsd. In essence, the file is the transposition of the text found in section 5.7.1.3 CDB Attributes into a format more appropriate for a computer program.
+The CDB attributes are listed and described in `CDB_Attributes.xml` file stored in the metadata folder of the CDB datastore (`\CDB\Metadata\CDB_Attributes.xml`) and accessible from the http://schemas.opengis.net/cdb/1.3/Metadata/CDB_Attributes.xml[Official Schemas]. The vector attribute schema file can be found in `Vector_Attributes.xsd` file stored in the schema folder of the CDB datastore (`CDB\Metadata\Schema\Vector_Attributes.xsd`) and accessible from the http://schemas.opengis.net/cdb/1.1/Vector_Attributes.xsd[Official Schemas]. The `CDB_Attributes.xml` file is based on XML format which is appropriate for a computer program.
 
 Its contents are as follows:
 
-```
+```xml
 <Vector_Attributes>
   <Attributes>
-    <Attribute>...</Attributes>
+    <Attribute>...</Attribute>
     ...
-    <Attribute>...</Attributes>
+    <Attribute>...</Attribute>
   </Attributes>
   <Units>
     <Unit>...</Unit>
@@ -337,7 +337,7 @@ Its contents are as follows:
     ...
     <Scaler>...</Scaler>
   </Scalers>
-</Version>
+</Vector_Attributes>
 ```
 
 The file is composed of three majors sections, the first one being the most important. The file has a list of attributes, followed by two lists of units and scalers that are referenced by individual attribute.
@@ -348,14 +348,13 @@ The file is composed of three majors sections, the first one being the most impo
 
 include::requirements/REQ075.adoc[]
 
-The code is the integer value assigned to each attribute listed in section 5.7.1.3, CDB Attributes. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. The <Description> is a free form text describing the attribute. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
+The code is the integer value assigned to each attribute listed in Vector_Attributes\CDB_Attributes.xml. The symbol is the unique character string identifying the attribute. The <Name> is the long form of the symbol. <Definition> and <Description> are free-form text defining and describing the attribute, respectively. The <UsageNote> element contains notes related to how to apply the attribute in the CDB datastore. The <Compatibility> shows the attribute's source or origin and the version of the CDB that the attribute is compatible with. The <Level> is defined below and provides the schema level of the attribute. The <Value> element provides the information required to interpret (parse) the value assigned to this attribute.
 
 include::requirements/REQ076.adoc[]
 
 include::requirements/REQ077.adoc[]
 
-In the case of a numeric datatype, the <Format> indicates if it is a _Floating-Point_ or an _Integer_ value. For a floating point type, the <Precision> provides the number of digits before and after the decimal point. For numeric types, the <Range> provides the minimum and maximum values; the <Unit> is a reference to a unit code; and the <Scaler> is a reference to a scaler code; both codes being respectively defined in subsequent <Units> and <Scalers> sections.
-
+In the case of an _Enum_ datatype, the Enumeration element provides a complete listing of all possible values (codes) of the attribute and a respective description. In the case of a numeric datatype, the <Format> indicates if it is a _Floating-Point_ or an _Integer_ value. For a floating-point type, the <Precision> provides the number of digits before and after the decimal point. For numeric types, the <Range> provides the minimum and maximum values; the <Length> element provides the length of value for _Text_ datatype; the <Default> element provides the default value of the attribute, the <Unit> is a reference to a unit code; and the <Scaler> is a reference to a scaler code; both codes being respectively defined in subsequent <Units> and <Scalers> sections.
 
 [[DefinitionoftheUnitElement]]
 ===== Definition of the <Unit> Element
@@ -370,49 +369,103 @@ include::requirements/REQ079.adoc[]
 [[ExampleofCDB_Attributesxml]]
 ===== Example of CDB_Attributes.xml
 
-The following example illustrates how to define an attribute:
+The following example illustrates how to define an attribute of _Numeric_ datatype:
 
-```
+```xml
 <Vector_Attributes>
- <Attributes>
-   <Attribute code="2" symbol="AO1">
-     <Name>Angle of Orientation</Name>
-     <Description>Angle of Orientation with greater than 1 degree resolution.
-       The angular distance measured from true north (0 deg) clockwise to the
-       major (Y) axis of the feature. If the feature is square, the axis 0
-       through 89.999 deg shall be recorded. If the feature is circular, 360.000
-       deg shall be recorded.
-     </Description>
-     <Level>
-       <Instance>Preferred</Instance>
-       <Extended>Supported</Extended>
-     </Level>
-     <Value>
-       <Type>Numeric</Type>
-       <Format>Floating-point</Format>
-       <Precision>3.3</Precision>
-       <Range interval="Right-Open">
-         <Min>0</Min>
-         <Max>360</Max>
-       </Range>
-       <Unit>2</Unit>
-     </Value>
-   </Attribute>
- </Attributes>
-<Units>
-   <Unit code="2" symbol="deg">
-     <Name>degree</Name>
-     <Description>To measure an angle</Description>
-   </Unit>
- </Units>
- <Scalers>
-   <Scaler code="2" symbol="k">
-     <Name>kilo</Name>
-     <Description>A multiplier: thousand</Description>
-     <Multiplier>1000</Multiplier>
-   </Scaler>
- </Scalers>
+  <Attributes>
+    <Attribute code="3" symbol="AO1">
+      <Name>Angle of Orientation with greater than 1 degree resolution</Name>
+      <Definition>
+        The angular distance measured from true north (0 deg) clockwise to the major Y-axis of the feature.
+      </Definition>
+      <Description>
+        If the feature is square, the axis 0 through 89.999 deg shall be recorded.
+        If the feature is circular, 360.000 deg shall be recorded.
+      </Description>
+      <UsageNote>
+        Recommended.
+        Applicable to point, Light point, Moving Model Location, and Figure point features.
+        DEFAULT: CDB readers should default to a value of 0.000 if AO1 is missing.
+        When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon.
+        The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
+        Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
+      </UsageNote>
+      <Compatibility>OGC CDB 1.0, DIGEST v2.1</Compatibility>
+      <Level>
+        <Instance>Preferred</Instance>
+        <Class>Not Supported</Class>
+        <Extended>Supported</Extended>
+      </Level>
+      <Value>
+        <Type>Numeric</Type>
+        <Format>Floating-Point</Format>
+        <Precision>3.3</Precision>
+        <Range interval="Right-Open">
+          <Min>0</Min>
+          <Max>360</Max>
+        </Range>
+        <Default>0.000</Default>
+        <Unit>2</Unit>
+      </Value>
+    </Attribute>
+  </Attributes>
+  <Units>
+    <Unit code="2" symbol="deg">
+      <Name>degree</Name>
+      <Description>To measure an angle</Description>
+    </Unit>
+  </Units>
+  <Scalers>
+    <Scaler code="2" symbol="k">
+      <Name>kilo</Name>
+      <Description>A multiplier: thousand</Description>
+      <Multiplier>1000</Multiplier>
+    </Scaler>
+  </Scalers>
 </Vector_Attributes>
+```
+
+The following example illustrates how to define an attribute with _Enum_ datatype:
+
+```xml
+  <Attribute code="41" symbol="MODT">
+    <Name>Model Type</Name>
+    <Definition>
+      A flag indicating whether the modeled feature is geo-typical, geo-specific or a Moving Model.
+    </Definition>
+    <Description>
+      MODT indicates whether a feature is represented using a geotypical, geospecific or moving model.
+      Together, the MODT, FeatureCode, FSC, and MODL model name or the MMDC produce a unique path to a
+      directory within the CDB hierarchy and a unique filename within that directory identifies a unique model into the CDB.
+    </Description>
+    <UsageNote>
+      Needed for features that are modeled using a CDB specified format.
+      "T" for geo-typical, "S" for geo-specific, "M" for Moving Model.
+      DEFAULT: "S" when not present.
+    </UsageNote>
+    <Compatibility>OGC CDB 1.0</Compatibility>
+    <Level>
+      <Instance>Preferred</Instance>
+      <Class>Supported</Class>
+      <Extended>Supported</Extended>
+    </Level>
+    <Value>
+      <Type>Enum</Type>
+      <Enumeration>
+        <CodeList>
+          <Code>T</Code>
+          <Description>geotypical</Description>
+        </CodeList>
+        <CodeList>
+          <Code>S</Code>
+          <Description>geospecific</Description>
+        </CodeList>
+      </Enumeration>
+      <Length>1</Length>
+      <Default>"S"</Default>
+    </Value>
+  </Attribute>
 ```
 
 The schema explains the use of the interval attribute of the <Range> element.
@@ -422,7 +475,7 @@ include::requirements/REQ080.adoc[]
 [[GeomaticsAndVendorAttributesMetadata]]
 ==== Geomatics and Vendor Attributes Metadata
 
-Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see 5.7.1.2.7.3 of Volume 1). The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the Vector_Attributes.xsd schema.
+Geomatics_Attributes.xml and Vendor_Attributes.xml are optional metadata files that are necessary only if Geomatics or Vendor attributes are used to create Extended Attributes (see Section 5.7.1.2.7.3 of Volume 1: Extended-level Schema). The two files define the attributes that are referenced by the Environment Attribute Code (EAC) and provide the data necessary to interpret the Environment Attribute Values (EAV). The two files are controlled by the Vector_Attributes.xsd schema.
 
 [[GeospatialMetadataGuidance]]
 ==== Geospatial Metadata – Guidance
@@ -484,7 +537,7 @@ Typically, local metadata files will be stored with the physical data. For GTMod
 
 The Configuration metadata file provides the means of defining CDB Configurations. The syntax of the file is given below. The complete XML schema is provided in /CDB/Metadata/Schema/Configuration.xsd delivered with the standard.
 
-```
+```xml
 <Configuration>
   <Comment> An optional comment describing this CDB Configuration. </Comment>
   <Version>
@@ -512,7 +565,7 @@ The use of a relative path to a CDB Version ensures a greater form of interopera
 
 Assume that we want to assemble two CDB Versions into a single CDB Configuration. The first CDB Version is located in /CDB/myVersion and has the following Version.xml file.
 
-```
+```xml
 <Version>
   <PreviousIncrementalRootDirectory name="/CDB/theVersion"/>
   <Comment> This is the comment describing myVersion. </Comment>
@@ -523,7 +576,7 @@ Assume that we want to assemble two CDB Versions into a single CDB Configuration
 
 The second CDB Version complies with version 3.0 of the original CDB Specification (prior to submission to the OGC) and is located in /CDB/theVersion and has the following Version.xml file.
 
-```
+```xml
 <Version>
   <Comment> This is the comment describing theVersion. </Comment>
 </Version>
@@ -531,7 +584,7 @@ The second CDB Version complies with version 3.0 of the original CDB Specificati
 
 The resulting CDB Configuration is stored in /CDB/myConfiguration and its Configuration.xml file could look like this:
 
-```
+```xml
 <Configuration>
   <Comment>
     This is an example of a CDB Configuration referring to two CDB Versions.
