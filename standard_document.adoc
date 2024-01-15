@@ -23,7 +23,7 @@
 |Approval Date:      XXXX-XX-XX
 |Publication Date:      XXXX-XX-XX
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.2
-|Internal reference number of this OGC(R) document:        15-113rx
+|Internal reference number of this OGC(R) document:        15-113r7
 |Version: 1.3
 |Category: OGC® Implementation Standard
 |Editor:      Carl Reed, PhD; David Graham
@@ -55,7 +55,7 @@ provide supporting documentation.
 |===
 |Document type:   	    OGC® Standard
 |Document subtype:   
-|Document stage:   	Approved
+|Document stage:   	Draft
 |Document language: 	English
 |===
 
