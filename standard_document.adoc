@@ -19,14 +19,15 @@
 |===
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
-|Submission Date: XXXX-XX-XX
-|Approval Date:      XXXX-XX-XX
-|Publication Date:      XXXX-XX-XX
-|External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.2
+
+|Submission Date: 2024-XX-XX
+|Approval Date:      2024-XX-XX
+|Publication Date:      2024-XX-XX
+|External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.3
 |Internal reference number of this OGC(R) document:        15-113r7
 |Version: 1.3
 |Category: OGC® Implementation Standard
-|Editor:      Carl Reed, PhD; David Graham
+|Editor:      Carl Reed; David Graham
 |===
 
 [cols = "^", frame = "none"]
@@ -37,7 +38,7 @@
 [cols = "^", frame = "none", grid = "none"]
 |===
 |*Copyright notice*
-|Copyright (C) 2021 Open Geospatial Consortium
+|Copyright (C) 2024 Open Geospatial Consortium
 |To obtain additional rights of use, visit http://www.ogc.org/legal/
 |===
 
