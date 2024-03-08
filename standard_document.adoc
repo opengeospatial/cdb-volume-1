@@ -19,6 +19,7 @@
 |===
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
+
 |Submission Date: 2024-XX-XX
 |Approval Date:      2024-XX-XX
 |Publication Date:      2024-XX-XX

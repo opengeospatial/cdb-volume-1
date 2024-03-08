@@ -1,0 +1,1421 @@
+<table><tbody><tr bgcolor="lightgray"><td valign="top">1</td><td valign="top">AEAC</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>ATARS Extended Attribute Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique numeric identifier that points to the entry number of the ATARS Extended Attribution file for the current dataset.
+        This entry is provided for legacy database generation facility considerations only; CDB-compliant devices are not required to read and interpret this field.
+        The ATARS Extended Attribution file should be located in the same directory as the instance-level attribution file.
+        An empty AEAC field (i.e., null string) is allowed.
+        Refer to Section 3.6.6, Tiled Datasets Folder Hierarchical Organization for the file naming conventions of vector datasets.
+        NOTE: The AEAC is attribute is deprecated as a result of the more comprehensive Extended-level attribution schema introduced in version 3.1 of the CDB Specification.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Supported), 
+        Class (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">2</td><td valign="top">AHGT</td><td valign="top" colspan="2">Absolute Height Flag</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Specifies how to interpret vector geometry type features with a Z component.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        If AHGT is true, the feature is positioned to the value specified by the Z component (Absolute Terrain Altitude), irrelevant of the terrain elevation dataset.
+        If AHGT is false or not present, the feature is positioned to the value specified by the underlying terrain offset by the Z component value.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        NOTE: It is recommended that the AHGT flag be set to false because it facilitates the creation of CDB compliant datasets that are independent of each other.
+        Refer to section 10.7.1.1, Vector Type Usage and Conventions for more details.
+        Refer to Section 6.3 in Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
+        AHGT can be present only in datasets using PointZ, PolylineZ, PolygonZ and MultiPointZ vector geometry types.
+        AHGT should not be present for all other vector geometry types or must be ignored otherwise.NOTE: It is recommended that the AHGT flag be set to false because it facilitates the creation of CDB compliant datasets that are independent of each other.
+        When the Z coordinate (altitude) of a feature is relative to the ground, the terrain elevation dataset can be updated without the need to recompute the altitude of the feature.
+        CAUTION: When the AHGT flag is set to true, the feature will be at a fixed WGS-84 elevation independently of the terrain LOD selected by the client-device.
+        As a result, there is no guarantee that the feature (and its modeled representation) will remain above the terrain across all terrain LODs.
+        RECOMMENDATION: Limit the use of AHGT=TRUE to data whose source is inherently absolute.
+        Such source data include geodetic marks or survey marks that provide a known position in terms of latitude, longitude, and altitude.
+        Good examples of such markers are boundary markers between countries.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Not Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Boolean</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Boolean</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">False</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">3</td><td valign="top">AO1</td><td valign="top" colspan="2">Angle of Orientation with greater than 1 degree resolution</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The angular distance measured from true north (0 deg) clockwise to the major Y-axis of the feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        If the feature is square, the axis 0 through 89.999 deg shall be recorded.
+        If the feature is circular, 360.000 deg shall be recorded.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended.
+        Applicable to point, Light point, Moving Model Location and Figure point features.
+        DEFAULT: CDB readers should default to a value of 0.000 if AO1 is missing.
+        When used in conjunction with the PowerLineNetwork dataset, AO1 corresponds to the orientation of the Y-axis of the modeled pylon.
+        The modeled pylon should be oriented (in its local Cartesian space) so that the wires nominally attach along the Y-axis.
+        Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – “Creating a 3D Model for a Powerline Pylon” for additional usage guidelines.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST v2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">3.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 360
+        )</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">2</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">4</td><td valign="top">APFN</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Airport Feature Name</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">...</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Deprecated), 
+        Extended (Preferred), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">24</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">5</td><td valign="top">APID</td><td valign="top" colspan="2">AirPort ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique alphanumeric identifier that points to a record in the NavData Airport or Heliport dataset (i.e., a link to the Airport or the Heliport description in the NavData dataset).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This ID is the value of the field Ident of the Airport or Heliport dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional for Points, Location Points, Environmental Light Points, and Moving Model Location features that fall within the confines of an airport and for which control of the feature is desirable.
+        Recommended for all Airport Light Points and airport-related T2DModels (such as runway/taxiway/apron surfaces, and markings).
+        Note that all of the lights located in vector datasets that are associated with the operation of an airport (including runway lights and lighting systems) are required to reference an airport or heliport in the NavData dataset.
+        All man-made features associated with an airport or heliport must be assigned an APID attribute; the APID attribute is not required for features unrelated to airports or heliports.
+        Failure to appropriately tag airport culture with APID attribute will result in reduced control of airport-related culture by simulator.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">6</td><td valign="top">BBH</td><td valign="top" colspan="2">Bounding Box Height</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The Height of the Bounding Box of the 3D model associated with a point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        It is the dimensions of the box centered at the model origin and that bound the envelopes of all articulated parts.
+        BBH refers to height of the box above the XY plane of the model.
+        Note that for 3D models used as cultural features, the XY plane of the model corresponds to its ground reference plane.
+        The value of BBH, BBW and BBL should be accounted for by client-devices (in combination with other information)
+        to determine the appropriate distance at which the model should be paged-in, rendered or processed.
+        BBH, BBW and BBL are usually generated through database authoring tool automation.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional on features for which a MODL has been assigned.
+        DEFAULT: When missing, CDB readers should default BBH to the value of BSR, and BBW and BBL to twice the value of BSR. The Default tag is set to 0.000 to be machine readable per disscussed in this issue (https://github.com/opengeospatial/cdb-schema/issues/14) in the CDB SWG meeting.
+        The dimension of the bounding box is intrinsic to the model and identical for all LOD representations.
+        Refer to Section 6.3 of the OGC CDB 1.2 - Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">5.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>(
+          0
+          , 99999.999
+        )</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0.000</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">7</td><td valign="top">BBW</td><td valign="top" colspan="2">Bounding Box Width</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The Width of the Bounding Box of the 3D model associated with a point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        It is the dimensions of the box centered at the model origin and that bound the envelopes of all articulated parts.
+        BBW refers to the width of the box along the X-axis.
+        Note that for 3D models used as cultural features, the XY plane of the model corresponds to its ground reference plane.
+        The value of BBH, BBW and BBL should be accounted for by client-devices (in combination with other information)
+        to determine the appropriate distance at which the model should be paged-in, rendered or processed.
+        BBH, BBW and BBL are usually generated through database authoring tool automation.
+        See BBH for a complete description.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional on features for which a MODL has been assigned.
+        DEFAULT: When missing, CDB readers should default BBH to the value of BSR, and BBW and BBL to twice the value of BSR. The Default tag is set to 0.000 to be machine readable per disscussed in this issue (https://github.com/opengeospatial/cdb-schema/issues/14) in the CDB SWG meeting.
+        The dimension of the bounding box is intrinsic to the model and identical for all LOD representations.
+        Refer to Section 6.3 of the OGC CDB 1.2 - Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">5.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>(
+          0
+          , 99999.999
+        )</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0.000</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">8</td><td valign="top">BBL</td><td valign="top" colspan="2">Bounding Box Length</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The Length of the Bounding Box of the 3D model associated with a point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        It is the dimensions of the box centered at the model origin and that bound the envelopes of all articulated parts.
+        BBL refers to the length of the box along the Y-axis.
+        Note that for 3D models used as cultural features, the XY plane of the model corresponds to its ground reference plane.
+        The value of BBH, BBW and BBL should be accounted for by client-devices (in combination with other information)
+        to determine the appropriate distance at which the model should be paged-in, rendered or processed.
+        BBH, BBW and BBL are usually generated through database authoring tool automation.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional on features for which a MODL has been assigned.
+        DEFAULT: When missing, CDB readers should default BBH to the value of BSR, and BBW and BBL to twice the value of BSR.The Default tag is set to 0.000 to be machine readable per disscussed in this issue (https://github.com/opengeospatial/cdb-schema/issues/14) in the CDB SWG meeting.
+        The dimension of the bounding box is intrinsic to the model and identical for all LOD representations.
+        Refer to Section 6.3 of the OGC CDB 1.2 - Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">5.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>(
+          0
+          , 99999.999
+        )</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0.000</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">9</td><td valign="top">BOTY</td><td valign="top" colspan="2">Boundary Type</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A value that uniquely attributes a boundary according to the enumerators found here.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        See Table 5-19 of the OGC CDB 1.2 - Volume 1 which is captured in the enumeration tag for a list of accepted values.
+        Can be used only with Boundary point, line or polygon Feature Datasets (which are part of the Geopolitical Datasets)
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>1</td><td>Continental</td></tr><tr><td>2</td><td>International</td></tr><tr><td>3</td><td>Interstate</td></tr><tr><td>4</td><td>Inter-provincial</td></tr><tr><td>5</td><td>Territorial</td></tr><tr><td>6</td><td>Economic</td></tr><tr><td>7</td><td>Regional</td></tr><tr><td>8</td><td>Communal</td></tr><tr><td>9</td><td>Tourist</td></tr><tr><td>10</td><td>Private Zone</td></tr><tr><td>11</td><td>Military District</td></tr><tr><td>12</td><td>Disputed</td></tr><tr><td>13</td><td>Populated Place</td></tr><tr><td>14</td><td>Non-capital City</td></tr><tr><td>15</td><td>Time Zone Delimiter</td></tr><tr><td>16</td><td>International Date Line</td></tr><tr><td>17</td><td>Capital City</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">10</td><td valign="top">BSR</td><td valign="top" colspan="2">Bounding Sphere Radius</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The radius of a feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        In the case where a feature references an associated 3D model,
+        it is the radius of the hemisphere centered at the model origin and that bounds the portion of the model above its XY plane,
+        including the envelopes of all articulated parts.
+        Note that for 3D models used as cultural features, the XY plane of the model corresponds to its ground reference plane.
+        The value of BSR should be accounted for by client-devices (in combination with other information)
+        to determine the appropriate distance at which the model should be paged-in, rendered or processed.
+        When the feature does not reference a 3D model, BSR is the radius of the abstract point representing the feature (e.g., a city).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for features for which a MODL has been assigned, but optional for geopolitical point features.
+        The dimension of the bounding sphere is intrinsic to the model and identical for all LOD representations.
+        Refer to Section 6.3 of the OGC CDB 1.2 - Volume 7: CDB Data Model Guidance (formerly Appendix A) – “How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes” for additional usage guidelines.
+        The Default tag is set to 0.000 to be machine readable per disscussed in this issue (https://github.com/opengeospatial/cdb-schema/issues/14) in the CDB SWG meeting.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">5.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>(
+          0
+          , 99999.999
+        )</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">9</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0.000</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">11</td><td valign="top">CEAI</td><td valign="top" colspan="2">CDB Extended Attribute Index</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        An index that points to a row entry of a CDB Extended Attribution file for the current dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This entry permits users to store an index to a link list set of CDB-specific attributes.
+        CDB-compliant devices must be capable of reading and interpreting this field.
+        Usage of this attribution is not portable to other simulators because it falls outside of the documented CDB attribution scheme.
+        An empty CEAI attribute is allowed.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional. Use when CDB extended attribution is required.
+        A value of 0 indicates that there are no CDB Extended attributes.
+        NOTE: The first entry in the CDB Extended Attribution file has an index of 1.
+        The CDB Extended Attribution file should be located in the same directory as the instance-level attribution file.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Not Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">12</td><td valign="top">CEAC</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>CDB Extended Attribute Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique numeric identifier that points to the entry number of a CDB Extended Attribution file for the current dataset.
+        This entry permits users to store a link to a set of CDB-specific attributes beyond those explicitly supported by the current version of this Specification.
+        CDB-compliant devices may optionally read and interpret this field due to program requirements that cannot be supported by the current version of the CDB.
+        Usage of this attribution is not portable to other simulators because it falls outside of the documented CDB attribution scheme.
+        The CDB Extended Attribution file should be located in the same directory as the instance-level attribution file.
+        An empty CEAC field is allowed.
+        Refer to Section 3.6.6, Tiled Datasets Folder Hierarchical Organization for the file naming conventions of vector datasets.
+        NOTE: The CEAC attribute is deprecated as a result of the more comprehensive Extended-level attribution schema introduced in version 3.1 of the CDB Specification.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Deprecated), 
+        Class (Deprecated), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">13</td><td valign="top">CMIX</td><td valign="top" colspan="2">Composite Material Index</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Index into the Composite Material Table Section 7.5.2.2 (?) of the OGC CDB 1.2 - Volume 1 is used to determine the Base Materials composition of the associated feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Refer to Section 2.5, Material Naming Conventions for a description on material naming conventions.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for all vector datasets that represent features except for GeoPolitical vector datasets.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">14</td><td valign="top">CNAM</td><td valign="top" colspan="2">Class Name</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A name that represents the Attribution Class.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        The class-level attribution schema is described in Section 10.7.1.2.7.2, Class-level Schema.
+        Attributes are referenced via this classname.
+        The classname is used as the primary key to perform searches within the Dataset Class Attribute file.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Each row of a class-level database file (e.g., *.dbf) or table must have a valid CNAM entry; the CNAM must be unique within the file.
+        Each row of an instance-level database file (e.g., *.dbf) can optionally use the CNAM to refer to class attributes; blank indicates “no class attribute”.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Supported), 
+        Class (Supported), 
+        Extended (Not Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">32</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">15</td><td valign="top">DEAC</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>DIGEST Extended Attribute Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique numeric identifier that points to the entry number of the DIGEST Extended Attribution file for the current dataset.
+        This entry is provided for legacy database generation facility considerations only; it provides a means for the CDB to act as a repository for legacy DIGEST attribution.
+        CDB-compliant devices are not required to read and interpret this field.
+        The DIGEST Extended Attribution file should be located in the same directory as the instance-level attribution file.
+        An empty DEAC field (i.e., null string) is allowed.
+        Refer to Section 3.6.6, Tiled Datasets Folder Hierarchical OrganizationDirectory for the file naming conventions of vector datasets.
+        Optional. Use when DIGEST extended attribution is required.
+        NOTE: The DEAC attribute is deprecated as a result of the more comprehensive Extended-level attribution schema introduced in version 3.1 of the CDB Specification.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Deprecated), 
+        Class (Deprecated), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">16</td><td valign="top">DEP</td><td valign="top" colspan="2">Depth below Surface Level</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Distance measured from the highest point at surface level to the lowest point of the feature below the surface (The depth of a feature).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        DEP values are positive numbers.
+        If the feature has no modeled representation, its depth is measured as the distance from the surface level to the lowest point of the feature below the surface (Surface here refers to the terrain in the immediate vicinity of the feature).
+        If the feature has an associated 3D model, the depth is measured as the distance from the XY plane of the model to the lowest point of the model below that plane.
+        In the case of ground features, DEP refers to the portion of the feature (or its modeled representation) that is underground.
+        In the case of moving models that are used as geotypical features, DEP refers to the portion of the model that is below the waterline (i.e., the XY plane).
+        In the case of network line features such as roads, railroads and powerlines, DEP refers to the depth of the feature under the ground in its vicinity.
+        In the case of hydrographic features, DEP refers to the depth of rivers, lakes, etc (Note, that the CDB has provision for a raster dataset to represent the bathymetry.
+        When provided, the dataset provides a much more detailed underwater profile of hydrographic features).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Applicable to line features with depth, especially for HydrographyNetwork Dataset features.
+        Not applicable to features that are intrinsically above ground.
+        This data is typically used by client-devices that need to determine whether or not a waterway is navigable by ships with a specific draw.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">5.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>(
+          0.000
+          , 99999.999
+        )</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">9</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0.000</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">17</td><td valign="top">DIR</td><td valign="top" colspan="2">Directivity</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The side or sides of a feature that has the greatest reflectivity potential.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This data is typically needed for Radar simulation.
+        DIR is used solely for line features in accordance to DFAD conventions.
+        If DIR is not equal to 3, then AO1 is the angular distance measured from true north (0 deg) clockwise to the reflective side of the feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for line features.
+        If absent, client-devices are required to default to a value of 3 – Omni-directional.
+        Enumerated per DIGEST:
+        value of 1 means Uni-directional,
+        value of 2 means Bi-directional,
+        value of 3 means Omni-directional.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">3</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">18</td><td valign="top">DML</td><td valign="top" colspan="2">Density Measure (% light cover)</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Percentage of light coverage at night within the area delimited by a polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Percentage of light coverage at night (expressed as a percentage) within the area delimited by a polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended. Applies to Geopolitical Dataset polygon features that delineate inhabited areas.
+        DEFAULT:If this field is absent, client-devices shall assume 0%.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 100
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">7</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">19</td><td valign="top">DMR</td><td valign="top" colspan="2">Density Measure (% roof cover)</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Percentage of roof coverage within the area delimited by a polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Roof cover measure by percent within area of feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for polygon features.
+        DEFAULT:If absent, client-devices shall assume 0%.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 100
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">7</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">20</td><td valign="top">DMS</td><td valign="top" colspan="2">Density Measure (structure count)</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of man-made structures per square kilometer of polygon features.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Canopy cover measure by percent within area of feature during the summer season.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for polygon features.
+        DEFAULT: If absent, client-devices shall assume 0.
+        NOTE: Range values differ from DIGEST range of -32767 to 32768
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 99999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">21</td><td valign="top">DMT</td><td valign="top" colspan="2">Density Measure (% tree/canopy cover)</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Percentage of canopy coverage within the area delimited by a polygon feature during the summer season.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Canopy/tree cover measure by percent within area of feature during the summer season.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for polygon features.
+        DEFAULT:If absent, client-devices shall assume 0%.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 100
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">7</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">22</td><td valign="top">EJID</td><td valign="top" colspan="2">End Junction ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique Junction Identification Number that is used to virtually connect the end point of a line feature to another point, line or polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        line features stored in the same vector file having the same SJID or EJID are connected.
+        line features stored in different vector files having the same SJID or EJID as the JID listed in the corresponding tile 2D relationship file are connected.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for all features belonging to Topological Network Datasets.
+        FORMAT: Unsigned integer64 as character string.
+        Attribute is stored as a character string representing an unsigned 64-bit number and requires conversion back into numerical representation by client reader.
+        This is due to the 32-bit limitation on integer values within dBASE files (e.g., *.dbf).
+        NOTE: In the OGC CDB 1.2 - Volume 1, "Data Type" is text numerals and "Format" is unsigned integer64 as character string which is different from this xml (Type: Numeric and Format: Integer).
+        RANGE: 0 to (2^64 – 1) according to the OGC CDB 1.2 - Volume 1.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">20</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">23</td><td valign="top">FACC</td><td valign="top" colspan="2">Feature Attribute Classification Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Feature and Attribute Coding Catalogue (FACC) Data Dictionary provides a common menu of features and attributes along with a standardized coding system by DIGEST.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This code used to distinguish and categorize features within a dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory.
+        The enumerated codes are listed in /CDB/Metadata/Feature_Data_Dictionary.xml.
+        FORMAT: Two alpha characters following by three digits.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">24</td><td valign="top">FSC</td><td valign="top" colspan="2">Feature Sub Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The CDB standard defines an additional attribute called feature sub-code (FSC) to define a broader set of feature types.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This code, in conjunction with the feature code is used to distinguish and categorize features within a dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory.
+        The enumerated codes are in accordance to /CDB/Metadata/Feature_Data_Dictionary.xml.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">25</td><td valign="top">GAID</td><td valign="top" colspan="2">Gate AirPort ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique alphanumeric identifier (for the airport in question) that is consistent with the IDENT attribute name within the NavData Gate dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This ID is the value of the Gate Identifier of the Gate dataset and can be used to extract additional information such as the gate position and bearing.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended and Optional usages are per Table 5-27 of the OGC CDB 1.2 - Volume 1: Allocation of CDB Attributes to Vector Datasets.
+        Typically used (but not limited to) for models such as docking systems, marshallers and other models that are logically associated with a Terminal gate and that require some level of control by the simulation application.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">26</td><td valign="top">GEAI</td><td valign="top" colspan="2">Geomatics Extended Attribute Index</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        An index that points to a row entry of a Geomatics Extended Attribution file for the current dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This entry permits users to store an index to a link list set of Geomatics-specific attributes.
+        CDB-compliant devices are not mandated to read and interpret this field.
+        Usage of this attribution is not portable to other simulators because it falls outside of the documented CDB attribution scheme.
+        The Geomatics Extended Attribution file should be located in the same directory as the instance-level attribution file.
+        An empty GEAI attribute is allowed.
+        Note that the first entry in the Geomatics Extended Attribution file has an index of 1.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional. Use when Geomatics extended attribution is required.
+        A value of 0 indicates that there are no Geomatics Extended attributes.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Not Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">27</td><td valign="top">HGT</td><td valign="top" colspan="2">Height above surface level</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The height of a feature. Distance measured from the lowest point of the base at ground (non-floating objects) or water level (floating objects downhill side/downstream side) to the tallest point of the feature above the surface.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        HGT values are positive numbers.
+        If the feature has no modeled representation, its height is measured as the distance from the surface level (ground or water) to the tallest point of the feature above the surface (Surface here refers to the terrain in the immediate vicinity of the feature).
+        If the feature has an associated 3D model, the height is measured as the distance from the XY plane of the model to the highest point of the model above that plane.
+        In the case of ground features, HGT refers to the portion of the feature (or its modeled representation) that is meant to be above ground.
+        In the case of network line and polygon features such as roads, railroads, powerlines, or forest, HGT refers to the elevation of the feature relative to the terrain in its immediate vicinity.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory on all point and Figure point features for which a MODL has been assigned.
+        Recommended on line features except coastline (coastlines are assumed to be zero).
+        Recommended on all polygons features.
+        Optional for Airport and Environmental Light Points.
+        Refer to Section 6.1 Volume 7: CDB Data Model Guidance (formerly Appendix A) – "How to Interpret the AHGT, HGT, BSR, BBH, and Z Attributes" for additional usage guidelines.
+        DEFAULT: Value must be provided for point and Figure point features. For the line and polygon features, a default value of 0.00 should be used.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">4.2</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0.00
+          , 9999.99
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">7</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0.00</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">28</td><td valign="top">JID</td><td valign="top" colspan="2">Junction ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique Junction Identification Number that is used to virtually connect a point or a polygon feature to another point, line or polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Features stored in the same vector file having the same JID are connected.
+        Features stored in different vector files having the same JID as the JID listed in the corresponding tile 2D relationship file are connected.
+        When JID is associated to a polygon feature, it necessarily connects to the first point of the polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for all features belonging to Topological Network Datasets.
+        Attribute is used in 2D relationship file.
+        Attribute is stored as a character string representing an unsigned 64-bit number and requires conversion back into numerical representation by client reader.
+        This is due to the 32-bit limitation on integer values within dBASE files (e.g., *.dbf).
+        NOTE: In the OGC CDB 1.2 - Volume 1, "Data Type" is text numerals and "Format" is unsigned integer64 as character string which is different from this xml.
+        RANGE: 0 to (2^64 – 1) according to the OGC CDB 1.2 - Volume 1.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">20</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">29</td><td valign="top">LACC</td><td valign="top" colspan="2">Location Accuracy</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A precision value used to quantify the relative precision of the Location point representing the specific GeoPolitical Location.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        See Table 5-20 of the OGC CDB 1.2 - Volume 1: Location Accuracy Enumeration Values for a list of accepted values which is captured in the enumeration tag.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>1</td><td>Better or equal to 10 m.</td></tr><tr><td>2</td><td>Better or equal to 100 m.</td></tr><tr><td>3</td><td>Better or equal to 250 m.</td></tr><tr><td>4</td><td>Better or equal to 500 m.</td></tr><tr><td>5</td><td>Better or equal to 1200 m.</td></tr><tr><td>6</td><td>Greater than 1200 m.</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">30</td><td valign="top">LENL</td><td valign="top" colspan="2">Length of Lineal</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The length of a line feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        If the feature has been clipped to a tile boundary, the length still gives the initial full length of the object prior to the clipping operation,
+        and if it belonged to a topological network, LENL will represent the distance between the two closest junction points encompassing this line segment.
+        Note the Length attribute is not used to define a bounding sphere associated to an object, but rather to provide a weight to the relative length of the
+        lineal (line feature) as compared to others.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for all networked line features. Length computation should be account for the earth’s curvature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, SEDRIS (EA = 562)</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">31</td><td valign="top">LMIX</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Light Material Index</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Index into the Composite Material Table that is used to determine the Light Material composition of the associated city illumination.
+        Represent the predominant material characterizing the major light attributes of a populated area.
+        Refer to Section 2.5, Material Naming Conventions for a description on material naming conventions.
+        Optional. Applicable to Geopolitical Dataset polygon features that delineate inhabited areas.
+        NOTE: The LMIX attribute is deprecated in version 3.1 of the CDB specification.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">32</td><td valign="top">LNAM</td><td valign="top" colspan="2">Feature (or Location) Name</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A name that corresponds to a GeoPolitical Location.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        A toponym – a general term for any place or geographical entity.
+        The attribute is used to give a proper noun (a human readable name) to any feature from any vector dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        Blank indicates "no name".
+        The use of LNAM goes from the name of a City to the name of a Road, to the name of a Building, etc.
+        Multiple names are possible when using LNAM as an extended attribute.
+        When more than one name is provided, they must appear in order from the shortest name to the longest one.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">32</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">Blank</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">33</td><td valign="top">LOTY</td><td valign="top" colspan="2">Location Type</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A value that uniquely attributes the location type of point, line or polygon features.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        A value that uniquely attributes a location feature according to the enumerators found here.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        Applicable to Geopolitical Dataset polygon features.
+        Enumeration per Table 5-21 of the OGC CDB 1.2 - Volume 1: Location Type Enumeration Values.
+        Can be used only with Location point, line or polygon Feature Datasets (which are part of the Geopolitical Datasets).
+        NOTE: In cases where the location represents a bounded area, the approximate geometric center is assumed.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>1</td><td>Continent</td></tr><tr><td>2</td><td>Country</td></tr><tr><td>3</td><td>State</td></tr><tr><td>4</td><td>Capital</td></tr><tr><td>5</td><td>Province</td></tr><tr><td>6</td><td>City</td></tr><tr><td>7</td><td>Municipality</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">34</td><td valign="top">LPH</td><td valign="top" colspan="2">Light Phase</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A value that controls the phase of the light.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Used for all light types that are periodic in nature (rotating, blink, flashing, etc).
+        The value of LPH controls the phase of the light relative to all other lights that share the same LTYP.
+        All other light characteristics, including frequency and duration are implicitly determined by the LTYP.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        DEFAULT: In absence of a value, LPH defaults to a value of 0.
+        Unit: Thousands of a cycle.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">35</td><td valign="top">LPN</td><td valign="top" colspan="2">Layer Priority Number</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A priority number that establishes the relative priority of overlapping features.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        LPN establishes the order (starting from 0 for lowest priority) by which overlapping features are processed by client-devices.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for terrain constraint features that overlap one another.
+        For all other features, LPN is optional.
+        LPN is derived from priority information stored and maintained by the authoring tools.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 32767
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">36</td><td valign="top">LTN</td><td valign="top" colspan="2">Lane/Track Number</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The number of lanes on a road, tracks on railroad, or conductors on powerlines, including both directions.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        The number of lanes on a road, tracks on railroad, or conductors on powerlines, including both directions.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for Road, RailRoad, and PowerLineNetwork features.
+        Optional for Hydrography Network features.
+        NOTE: The range value is between 0 to 99 which differs from DIGEST range of -32767 to 32768.
+        DEFAULT: 01 – for encoding RailRoadNetwork line features, 02 – for encoding RoadNetwork or PowerLineNetwork line features.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 99
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">2</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">
+          01 – for RailRoadNetwork line features;
+          02 – for RoadNetwork or PowerLineNetwork line features.
+        </td></tr>
+      <tr bgcolor="lightgray"><td valign="top">37</td><td valign="top">LTYP</td><td valign="top" colspan="2">Light Type</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique code corresponding to a Light Type.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        The light types follow a hierarchical organization provided by the light type naming conventions described in Section 7.3 of the OGC CDB 1.2 - Volume 1, Light Naming.
+        Lights schema definition (/CDB/Metadata/Lights.xsd file) of the OGC CDB 1.2 (Formerly Volume 2 Annex J) provides the supported light types.
+        The Lights.xml file (located in CDB\Metadata directory of the CDB storage structure) establishes the correspondence between the LTYP code and the Light Type name.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for all Airport Light point features, Environmental Light point features.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 9999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">4</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">38</td><td valign="top">MLOD</td><td valign="top" colspan="2">Model Level Of Detail</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The level of detail of the 3D model associated with the point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        The level of detail of the 3D model associated with the point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        When used in conjunction with MODL, the MLOD attribute indicates the LOD where the corresponding MODL is found.
+        In this case, the value of MLOD can never be larger than the LOD of the Vector Tile-LOD that contains it.
+        When used in the context of Airport and Environmental Light point features, the value of MLOD, if present,
+        indicates that this Light point also exist in a 3D model found at the specified LOD.
+        In such case, the value of MLOD is not constrained and can indicate any LOD.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          -10
+          , 23
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">39</td><td valign="top">MMDC</td><td valign="top" colspan="2">Moving Model DIS Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A character string composed of the 7 fields of the DIS Entity Type.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        A character string composed of the 7 fields of the DIS Entity Type which is
+        separated by an underscore character (“_”) and formatted like this: 1_2_3_4_5_6_7.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">29</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">40</td><td valign="top">MODL</td><td valign="top" colspan="2">Model Name</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A string referring to the model name.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        A string reference, the model name, which stands for the modeled geometry of a feature;
+        in the case of buildings, this includes both its external shell and modeled interior.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for point features, Road Figure point features, Railroad Figure point features, Pipeline Figure point features and Hydrography Figure
+        point features that are modeled using some industry format.
+        MODL can also be used with Road line features, Railroad line features, Pipeline line features and Hydrography line and polygon features.
+        NOTE: It is not permitted to specify a value for MODL simultaneously with a value for MMDC.
+        FORMAT: Per conventions described in section 8 from the OGC CDB 1.2 - Volume 1, CDB Structure.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">32</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">41</td><td valign="top">MODT</td><td valign="top" colspan="2">Model Type</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A flag indicating whether the modeled feature is geo-typical, geo-specific or a moving model.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        MODT indicates whether a feature is represented using a geotypical, geospecific or moving model.
+        Together, the MODT, FeatureCode, FSC, and MODL model name or the MMDC produce a unique path to a
+        directory within the CDB hierarchy and a unique filename within that directory identifies a unique model into the CDB.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Needed for features that are modeled using a CDB specified format.
+        "T" for geo-typical, "S" for geo-specific, "M" for Moving Model.
+        DEFAULT: "S" when not present.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">1</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">"S"</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">42</td><td valign="top">NCS1</td><td valign="top" colspan="2">Network Component Selector 1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        This attribute is used to identify component selector 1 of Network datasets.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Code that is used to identify the component selector 1 file which contain the point, line, or polygon feature that is virtually connected.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for Network datasets.
+        Attribute is used in 2D relationship file.
+        FORMAT: Unsigned integer.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 9999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">4</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">43</td><td valign="top">NCS2</td><td valign="top" colspan="2">Network Component Selector 2</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        This attribute is used to identify component selector 2 of Network datasets.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Code that is used to identify the component selector 2 file which contain the point, line, or polygon feature that is virtually connected.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for Network datasets. Attribute is used in 2D relationship file.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 9999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">4</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">44</td><td valign="top">NDSC</td><td valign="top" colspan="2">Network Dataset Code</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        This attribute is used to identify the Network dataset code.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Code that is used to identify the dataset code file which contain the point, line, or polygon feature that is virtually connected.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for Network datasets.
+        Attribute is used in 2D relationship file.
+        FORMAT: Unsigned integer.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 9999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">4</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">45</td><td valign="top">NIS</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Number of Instances</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of instances found in the 3D model associated with the cultural point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Deprecated), 
+        Extended (Preferred), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">46</td><td valign="top">NIX</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Number of Indices</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of indices found in the 3D model associated with the cultural point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Deprecated), 
+        Extended (Preferred), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">47</td><td valign="top">NNL</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Number of Normals</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of normal vectors found in the 3D model associated with the cultural point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Deprecated), 
+        Extended (Preferred), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">48</td><td valign="top">NTC</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Number of Texture Coordinates</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of texture coordinates found in the 3D model associated with the cultural point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Deprecated), 
+        Extended (Preferred), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">49</td><td valign="top">NTX</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Number of Texels</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of texels found in the 3D model associated with the cultural point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Class (Deprecated), 
+        Extended (Preferred), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">50</td><td valign="top">NVT</td><td valign="top" colspan="2"><em><strong>Deprecated - </strong></em>Number of Vertices</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Number of vertices of the 3D model associated with a point feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">51</td><td valign="top">POPD</td><td valign="top" colspan="2">Population Density</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        The number of inhabitants per square kilometer.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        The number of inhabitants per square kilometer.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Applicable to Geopolitical features representing inhabited areas.
+        UNIT: Inhabitants per square kilometer.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 99999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">52</td><td valign="top">POPT</td><td valign="top" colspan="2">Populated Place Type</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A value that uniquely represents the Populated Place Attribution Type.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        This attribute should be used in conjunction with the BOTY attribute when BOTY has an (enumerator) value of 13 which corresponds to "Populated Place".
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        Applies to Geopolitical Dataset polygon features that delineate inhabited areas.
+        Enumeration per Table 5-22 from the OGC CDB 1.2 - Volume 1: Populated Place Type Enumeration Values.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>1</td><td>Native Settlement</td></tr><tr><td>2</td><td>Shanty Town</td></tr><tr><td>3</td><td>Tent Dwellings</td></tr><tr><td>4</td><td>Inland Village</td></tr><tr><td>5</td><td>Small City (less than 20,000 inhabitants)</td></tr><tr><td>6</td><td>Medium City (between 20,000 and 500,000 inhabitants)</td></tr><tr><td>7</td><td>Large City (more than 500,000 inhabitants)</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">53</td><td valign="top">RTAI</td><td valign="top" colspan="2">Relative Tactical Importance</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Provides the Relative TActical Importance of moving models or cultural features relative to other features for the purpose of client-device scene/load management.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+       A value of 100% corresponds to the highest importance; a value of 0% corresponds to the lowest importance.
+       When confronted with otherwise identical objects that differ only wrt to their Relative TActical Importance, client-devices should always discard features
+       with lower importance before those of higher importance in the course of performing their scene / load management function. As a
+       result, a value of zero gives complete freedom to client-devices to discard the feature as soon as the load of the client-device is
+       exceeded. The effectiveness of scene / load management functions can be severely hampered if large quantities of features are assigned
+       the same Relative TActical Importance by the modeler. In effect, if all models are assigned the same value, the client-devices have no
+       means to distinguish tactically important objects from each other. Assigning a value of 1% to all objects is equivalent to assigning
+       them all a value of 99%. Ideally, the assignment of tactical importance to features should be in accordance to a histogram
+       similar to the one shown here. The shape of the curve is not critical, however the proportion of models tagged with a high importance
+       compared to those with low importance is critical in achieving effective scene/load management schemes. It is illustrated here to
+       show that few models should have an importance of 100 with progressively more models with lower importance. The assignment
+       of the RTAI to each feature lends itself to database tools automation. For instance, RTAI could be based on a look-up function which
+       factors the feature’s type (FeatureCode or MMDC).
+       RTAI=f(FeatureCode_or_MMDC)
+       The value of Relative TActical Importance should be accounted for by client-devices (in combination with other information) to determine
+       the appropriate distance at which the feature (and its modeled representation, if available) should be rendered or processed.
+       Relative TActical Importance is mandatory. It has no default value.
+       For more details on RTAI Typical Usage Histogram, please refer to Figure 5-31 of the OGC CDB 1.2 - Volume 1.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory.
+        All features should be tagged with an appropriate value for the reasons stated in Description tag of this xml file or section 10.7.1.3.53 of the OGC CDB 1.2 - Volume 1.
+        NOTE: The importance of the model can be further modified at run-time at the simulator console through the scenario importance value assigned to the model.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Not Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 100
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">7</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">54</td><td valign="top">RWID</td><td valign="top" colspan="2">Runway ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        This ID is the value of the field Ident of the Runway or Helipad dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        An alphanumeric identifier that, combined with the APID, points to a unique record in the NavData Runway or Helipad dataset
+        (i.e., a link to the Runway or Helipad description in the NavData dataset).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for all Airport Light Points features.
+        Optional for point/line/polygon features, Location Points Features, Environmental Light point features,
+        and Moving Model Location features that are associated with a runway and for which control of the feature is desirable.
+        Failure to appropriately tag airport culture with RWID attribute will result in reduced control of runway-related (or helipad)
+        culture by simulator.
+        The combination of RWID and APID points to a unique record of the NavData Runway or Helipad dataset components.
+        Note that all of the lights and other features located in vector datasets that are associated with the operation of a
+        runway or helipad are required to reference a runway or helipad in the NavData dataset;
+        the RWID attribute is not required for features unrelated to a runway or helipad.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">55</td><td valign="top">SCALx</td><td valign="top" colspan="2">Scaling X-Axis</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A scaling factor for the model X-axis, to be applied to the rendering of model geometry by the client device.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        A set of scaling factors, one of the model axis, to be applied to the rendering of model geometry by the client-device.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        DEFAULT: A value of 1.0 if SCALx, SCALy, or SCALz is missing.
+        A value of 1.0 instructs the client-devices to use the model as-is.
+        The physical dimension of models processed by client-device should approach zero, as SCALing tends to zero.
+        The value of SCALing should also be accounted for by client-devices (in combination with other information) to determine
+        the appropriate distance at which the model should be paged-in, rendered or processed. All three SCALing factors are optional.
+        Values of zero and negative values are not permitted.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">3.5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          000.00001
+          , 999.99999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">9</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">1.0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">56</td><td valign="top">SCALy</td><td valign="top" colspan="2">Scaling Y-Axis</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A scaling factor for the model Y-axis, to be applied to the rendering of model geometry by the client device.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Scale factor to apply to the Y-axis of the model.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        DEFAULT: A value of 1.0 if SCALx, SCALy, or SCALz is missing.
+        A value of 1.0 instructs the client-devices to use the model as-is.
+        The physical dimension of models processed by client-device should approach zero, as SCALing tends to zero.
+        The value of SCALing should also be accounted for by client-devices (in combination with other information) to determine
+        the appropriate distance at which the model should be paged-in, rendered or processed. All three SCALing factors are optional.
+        Values of zero and negative values are not permitted.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">3.5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          000.00001
+          , 999.99999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">9</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">1.0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">57</td><td valign="top">SCALz</td><td valign="top" colspan="2">Scaling Z-Axis</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A scaling factor for the model Z-axis, to be applied to the rendering of model geometry by the client device.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Scale factor to apply to the Z-axis of the model.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        DEFAULT: a value of 1.0 if SCALx, SCALy, or SCALz is missing.
+        A value of 1.0 instructs the client-devices to use the model as-is.
+        The physical dimension of models processed by client-device should approach zero, as SCALing tends to zero.
+        The value of SCALing should also be accounted for by client-devices (in combination with other information) to determine
+        the appropriate distance at which the model should be paged-in, rendered or processed. All three SCALing factors are optional.
+        Values of zero and negative values are not permitted.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">3.5</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          000.00001
+          , 999.99999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">9</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">1.0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">58</td><td valign="top">SJID</td><td valign="top" colspan="2">Start Junction ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique Junction Identification Number that is used to virtually connect the starting point of a line feature to another point, line or polygon feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        line features stored in the same vector data file having the same SJID or EJID are connected.
+        line features stored in different vector files having the same SJID or EJID as the JID listed in the corresponding tile 2D relationship file are connected.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Mandatory for all features belonging to Topological Network Datasets.
+        Attribute is stored as a character string representing an unsigned 64-bit number and requires conversion back into numerical representation by client reader.
+        This is due to the 32-bit limitation on integer values within dBASE files (e.g., *.dbf).
+        NOTE: In the OGC CDB 1.2 - Volume 1, "Data Type" is text numerals and "Format" is unsigned integer64 as character string which is different from this xml.
+        RANGE: 0 to (2^64 – 1) according to the OGC CDB 1.2 - Volume 1.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">20</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">59</td><td valign="top">SRD</td><td valign="top" colspan="2">Surface Roughness Description</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Describes the condition of the surface materials that may be used for mobility prediction, construction material, and landing sites.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Describes the condition of the surface materials that may be used for mobility prediction, construction material, and landing sites.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for polygon features.
+        Enumeration per Table 5-23 from the OGC CDB 1.2 - Volume 1: Surface Roughness Enumeration Values.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>1</td><td>No surface roughness effect</td></tr><tr><td>2</td><td>Area of high landslide potential</td></tr><tr><td>3</td><td>Uncohesive surface material/flat</td></tr><tr><td>4</td><td>Rough</td></tr><tr><td>5</td><td>Angular</td></tr><tr><td>6</td><td>Rounded</td></tr><tr><td>11</td><td>Surface of numerous cobbles and boulders</td></tr><tr><td>12</td><td>Areas of stony terrain</td></tr><tr><td>13</td><td>Stony soil with surface rock</td></tr><tr><td>14</td><td>Stony soil with scattered boulders</td></tr><tr><td>15</td><td>Stony soil with numerous boulders</td></tr><tr><td>16</td><td>Numerous boulders</td></tr><tr><td>17</td><td>Numerous rock outcrops</td></tr><tr><td>18</td><td>Area of scattered boulders</td></tr><tr><td>19</td><td>Talus slope</td></tr><tr><td>20</td><td>Boulder Field</td></tr><tr><td>31</td><td>Highly fractured rock surface</td></tr><tr><td>32</td><td>Weathered lava flows</td></tr><tr><td>33</td><td>Unweathered lava flows</td></tr><tr><td>34</td><td>Stony soil with numerous rock outcrops</td></tr><tr><td>35</td><td>Irregular surface with deep fractures of foliation</td></tr><tr><td>36</td><td>Rugged terrain with numerous rock outcrops</td></tr><tr><td>37</td><td>Rugged bedrock surface</td></tr><tr><td>38</td><td>Sand dunes</td></tr><tr><td>39</td><td>Sand dunes/low</td></tr><tr><td>40</td><td>Sand dunes/high</td></tr><tr><td>41</td><td>Active sand dunes</td></tr><tr><td>42</td><td>Stabilized sand dunes</td></tr><tr><td>43</td><td>Highly distorted area, sharp rocky ridges</td></tr><tr><td>51</td><td>Stony soil cut by numerous gullies</td></tr><tr><td>52</td><td>Moderately dissected terrain</td></tr><tr><td>53</td><td>Moderately dissected terrain with scattered rock outcrops</td></tr><tr><td>54</td><td>Dissected floodplain</td></tr><tr><td>55</td><td>Highly dissected terrain</td></tr><tr><td>56</td><td>Area with deep erosional gullies</td></tr><tr><td>57</td><td>Steep, rugged, dissected terrain with narrow gullies</td></tr><tr><td>58</td><td>Karst areas of numerous sinkholes and solution valleys</td></tr><tr><td>59</td><td>Karst area of numerous sinkholes</td></tr><tr><td>60</td><td>Karst/hummocky terrain covered with large conical hills</td></tr><tr><td>61</td><td>Karst/hummocky terrain covered with low, broad-based mounds</td></tr><tr><td>62</td><td>Arroyo/wadi/wash</td></tr><tr><td>63</td><td>Playa/dry lake</td></tr><tr><td>64</td><td>Area of numerous meander scars and/or oxbow lakes</td></tr><tr><td>65</td><td>Solifluction lobes and frost scars</td></tr><tr><td>66</td><td>Hummocky ground, areas of frost heaving</td></tr><tr><td>67</td><td>Area of frost polygons</td></tr><tr><td>68</td><td>Area containing sabkhas</td></tr><tr><td>69</td><td>Area of numerous small lakes and ponds</td></tr><tr><td>70</td><td>Area of numerous crevasses</td></tr><tr><td>81</td><td>Area of numerous terraces</td></tr><tr><td>82</td><td>Quarries</td></tr><tr><td>83</td><td>Strip mines</td></tr><tr><td>84</td><td>Quarry/gravel pit</td></tr><tr><td>85</td><td>Quarry/sand pit</td></tr><tr><td>86</td><td>Mine tailings/waste piles</td></tr><tr><td>87</td><td>Salt evaporators</td></tr><tr><td>88</td><td>Area of numerous dikes</td></tr><tr><td>89</td><td>Area of numerous diked fields</td></tr><tr><td>90</td><td>Area of numerous fences</td></tr><tr><td>91</td><td>Area of numerous stone walls</td></tr><tr><td>92</td><td>Area of numerous man-made canals/drains/ditches</td></tr><tr><td>93</td><td>Area of numerous terraced fields</td></tr><tr><td>94</td><td>Parallel earthen mounds row crops</td></tr><tr><td>95</td><td>Area of numerous hedgerows</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">60</td><td valign="top">SSC</td><td valign="top" colspan="2">Structure Shape Category</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Describes the Geometric form, appearance, or configuration of the feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Describes the Geometric form, appearance, or configuration of the feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for point features, and all Network line/polygon Figure Points features.
+        Enumeration per Table 5-24 from the OGC CDB 1.2 - Volume 1: Structure Shape Category Enumeration Values
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>1</td><td>Barrel, Ton</td></tr><tr><td>2</td><td>Blimp</td></tr><tr><td>3</td><td>Boat Hull (Float)</td></tr><tr><td>4</td><td>Bullet</td></tr><tr><td>5</td><td>Reserved</td></tr><tr><td>6</td><td>Conical/Peaked/NUN</td></tr><tr><td>7</td><td>Cylindrical (Upright)/CAN</td></tr><tr><td>9</td><td>Reserved</td></tr><tr><td>10</td><td>Pillar/Spindle</td></tr><tr><td>11</td><td>Reserved</td></tr><tr><td>12</td><td>Pyramid</td></tr><tr><td>13</td><td>Reserved</td></tr><tr><td>14</td><td>Reserved</td></tr><tr><td>15</td><td>Solid/filled</td></tr><tr><td>16</td><td>Spar</td></tr><tr><td>17</td><td>Spherical (Hemispherical)</td></tr><tr><td>18</td><td>Truss</td></tr><tr><td>19</td><td>With Radome</td></tr><tr><td>20</td><td>Reserved</td></tr><tr><td>21</td><td>Artificial Mountain</td></tr><tr><td>22</td><td>Crescent</td></tr><tr><td>23</td><td>Ferris Wheel</td></tr><tr><td>24</td><td>Enclosed</td></tr><tr><td>25</td><td>Roller Coaster</td></tr><tr><td>26</td><td>Lateral</td></tr><tr><td>27</td><td>Mounds</td></tr><tr><td>28</td><td>Ripple</td></tr><tr><td>29</td><td>Star</td></tr><tr><td>30</td><td>Transverse</td></tr><tr><td>31</td><td>Reserved</td></tr><tr><td>32</td><td>Reserved</td></tr><tr><td>33</td><td>Reserved</td></tr><tr><td>34</td><td>Reserved</td></tr><tr><td>36</td><td>Windmotor</td></tr><tr><td>38</td><td>Reserved</td></tr><tr><td>40</td><td>Reserved</td></tr><tr><td>46</td><td>Open</td></tr><tr><td>52</td><td>'A' Frame</td></tr><tr><td>53</td><td>'H' Frame</td></tr><tr><td>54</td><td>'I' Frame</td></tr><tr><td>56</td><td>'Y' Frame</td></tr><tr><td>57</td><td>Reserved</td></tr><tr><td>58</td><td>Reserved</td></tr><tr><td>59</td><td>Telescoping Gasholder (Gasometer)</td></tr><tr><td>60</td><td>Mast</td></tr><tr><td>61</td><td>Tripod</td></tr><tr><td>62</td><td>Reserved</td></tr><tr><td>63</td><td>Reserved</td></tr><tr><td>65</td><td>Cylindrical with flat top</td></tr><tr><td>66</td><td>Cylindrical with domed top</td></tr><tr><td>71</td><td>Cylindrical/Peaked</td></tr><tr><td>73</td><td>Superbuoy</td></tr><tr><td>74</td><td>'T' Frame</td></tr><tr><td>75</td><td>Tetrahedron</td></tr><tr><td>76</td><td>Funnel</td></tr><tr><td>77</td><td>Arch</td></tr><tr><td>78</td><td>Multi-Arch</td></tr><tr><td>79</td><td>Round</td></tr><tr><td>80</td><td>Rectangular</td></tr><tr><td>81</td><td>Dragons Teeth</td></tr><tr><td>82</td><td>I-Beam</td></tr><tr><td>83</td><td>Square</td></tr><tr><td>84</td><td>Irregular</td></tr><tr><td>85</td><td>Diamond Shaped Buoy</td></tr><tr><td>86</td><td>Oval</td></tr><tr><td>87</td><td>Dome</td></tr><tr><td>88</td><td>Spherical with Column Support</td></tr><tr><td>89</td><td>Cylindrical or Peaked with tower support</td></tr><tr><td>90</td><td>High-Rise Building</td></tr><tr><td>91</td><td>Cylindrical</td></tr><tr><td>92</td><td>Cubic</td></tr><tr><td>93</td><td>Pole</td></tr><tr><td>94</td><td>Board</td></tr><tr><td>95</td><td>Column (Pillar)</td></tr><tr><td>96</td><td>Plaque</td></tr><tr><td>97</td><td>Statue</td></tr><tr><td>98</td><td>Cross</td></tr><tr><td>107</td><td>Tower</td></tr><tr><td>108</td><td>Scanner</td></tr><tr><td>109</td><td>Obelisk</td></tr><tr><td>110</td><td>Radome, Tower Mounted</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">61</td><td valign="top">SSR</td><td valign="top" colspan="2">Structure Shape of Roof</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Describes the roof shape.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for point features, and all Network line/polygon point Figures.
+        Enumeration per Table 5-25 of the OGC CDB 1.2 - Volume 1: Structure Shape of Roof Enumeration Values.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>6</td><td>Conical/Peaked/NUN</td></tr><tr><td>38</td><td>Curved/Round (Quonset)</td></tr><tr><td>40</td><td>Dome</td></tr><tr><td>41</td><td>Flat</td></tr><tr><td>42</td><td>Gable (Pitched)</td></tr><tr><td>43</td><td>Reserved</td></tr><tr><td>44</td><td>Reserved</td></tr><tr><td>45</td><td>Reserved</td></tr><tr><td>46</td><td>Reserved</td></tr><tr><td>47</td><td>Sawtooth</td></tr><tr><td>48</td><td>Reserved</td></tr><tr><td>49</td><td>Reserved</td></tr><tr><td>50</td><td>With Monitor</td></tr><tr><td>51</td><td>With Steeple</td></tr><tr><td>55</td><td>Flat with Monitor</td></tr><tr><td>58</td><td>Reserved</td></tr><tr><td>64</td><td>Gable with Monitor</td></tr><tr><td>65</td><td>Reserved</td></tr><tr><td>66</td><td>Reserved</td></tr><tr><td>71</td><td>Reserved</td></tr><tr><td>72</td><td>Reserved</td></tr><tr><td>77</td><td>With Cupola</td></tr><tr><td>78</td><td>With Turret</td></tr><tr><td>79</td><td>With Tower</td></tr><tr><td>80</td><td>With Minaret</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">62</td><td valign="top">TRF</td><td valign="top" colspan="2">Traffic Flow</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Encodes the general destination of traffic.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Encodes the general destination of traffic.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended on all Network line (except PowerLines) features.
+        Enumerated per DIGEST 2.1. A few examples: 3: One-way and 4: Two-way.
+        DEFAULT: 004 - (two-way) for RoadNetwork line features, 003 - (one-way) for RailRoadNetwork line features.
+        As per this issue (https://github.com/opengeospatial/cdb-schema/issues/15) discussed in the OGC CDB SWG, the default value changed to 004 to be unique and machine readable.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">004</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">63</td><td valign="top">TXID</td><td valign="top" colspan="2">Taxiway ID</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        A unique alphanumeric identifier (for the airport in question).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        A unique alphanumeric identifier (for the airport in question).
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended usage and Optional usages are per Table 5-27 from the OGC CDB 1.2 - Volume 1: Allocation of CDB Attributes to Vector Datasets.
+        Failure to appropriately tag airport culture with TXID attribute will result in reduced control of taxiway-related culture by a simulation device.
+        NOTE: In the OGC CDB 1.2 - Volume 1, "Data Type" is alphanumeric which is different from this xml.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Text</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">64</td><td valign="top">USP</td><td valign="top" colspan="2">Urban Street Pattern</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Describes the predominant geometric configuration of streets found within the delineated area of the feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        Describes the predominant geometric configuration of streets found within the delineated area of the feature.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended for polygon features.
+        Enumeration per Table 5-26 from the OGC CDB 1.2 - Volume 1: Urban Street Pattern Enumeration Values.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Enum</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Enumeration</td><td valign="top"><table cellpadding="2"><tbody><tr><th align="left" bgcolor="lightgray">Code</th><th align="left" bgcolor="lightgray">Description</th></tr><tr><td>0</td><td>Unknown</td></tr><tr><td>2</td><td>Rectangular/Grid-Regular</td></tr><tr><td>3</td><td>Rectangular/Grid-Irregular</td></tr><tr><td>4</td><td>Curviline (cluster)</td></tr><tr><td>6</td><td>Concentric / Radial-Regular</td></tr><tr><td>7</td><td>Concentric / Radial-Irregular</td></tr><tr><td>9</td><td>Mixed-Curviline (cluster) and Rectangular (grid)</td></tr><tr><td>10</td><td>Mixed-Concentric / Radial and Rectangular (grid)</td></tr><tr><td>11</td><td>Mixed-Curviline (cluster) and Concentric / Radial</td></tr><tr><td>12</td><td>Reserved</td></tr><tr><td>13</td><td>line Strip</td></tr><tr><td>997</td><td>Unpopulated</td></tr><tr><td>998</td><td>Not Applicable</td></tr><tr><td>999</td><td>Other</td></tr></tbody></table></td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">65</td><td valign="top">VEAI</td><td valign="top" colspan="2">Vendor Extended Attribute Index</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        An index that points to a row entry of a VendorExtended Attribution file for the current dataset.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        An index that points to a row entry of a VendorExtended Attribution file for the current dataset.
+        This entry permits users to store an index to a link list set of Vendor-specific attributes.
+        CDB-compliant devices are not mandated to read and interpret this field.
+        Usage of this attribution is not portable to other simulators because it falls outside of the documented CDB attribution scheme.
+        The Vendor Extended Attribution file should be located in the same directory as the instance-level attribution file.
+        An empty VEAI attribute is allowed. Note that the first entry in the Vendor Extended Attribution file has an index of 1.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Optional.
+        Use when Vendor extended attribution is required.
+        A value of 0 indicates that there are no Vendor Extended attributes.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Not Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 999999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">6</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">66</td><td valign="top">WGP</td><td valign="top" colspan="2">Width with Greater Than 1 meter Precision</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        WGP indicates the width of Network line features with Greater Than 1 meter Precision.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        For line features (such as roads, railways, runways, taxiways), WGP is a measurement of the shorter of two line axes.
+        For a bridge, the width is the measurement perpendicular to the axis between the abutments.
+        For powerlines, the width is the distance between the outermost wires.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        Recommended on all Network line (except PowerLines) features.
+        When supplied for coastline, WGP corresponds to average width of coastline due to water height variations (such as tides) and wave action.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0, DIGEST 2.1</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Floating-Point</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Precision</td><td valign="top">5.3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0.000
+          , 99999.999
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">9</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">None</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">1</td></tr>
+      <tr bgcolor="lightgray"><td valign="top">67</td><td valign="top">DAMA</td><td valign="top" colspan="2">Damage Level</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Definition:</td><td valign="top">
+        Represents the level of damage of the feature and its model, if applicable.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Description:</td><td valign="top">
+        The level is expressed as a percentage where a value of 0 means no damage at all and a value of 100 means fully damaged and completely destroyed.
+        In the case of network datasets, the level of damage should be interpreted as a measure of the incapacity of the feature to perform its function.
+        For instance, a road network whose damage level is 75% tells the client that it is only able to perform 25% of its intended function.
+        As a result, a certain client may decide that it cannot use the road network while another client may continue to do so.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">UsageNote:</td><td valign="top">
+        In the context of HLA/DIS, the concept of DAMA maps directly to the concepts of Damage State for which the standards define 4 states named No Damage, Slight Damage, Moderate Damage, and Destroyed.
+        The CDB standard suggests the following mapping between CDB DAMA and HLA/DIS states.
+
+        From CDB to HLA/DIS,
+        if DAMA &lt; 25 then State = No Damage;
+        else if DAMA &lt; 50 then State = Slight Damage;
+        else if DAMA &lt; 75 then State = Moderate Damage;
+        else State = Destroyed.
+
+        From HLA/DIS to CDB,
+        if State = Destroyed then DAMA = 100;
+        else if State = Moderate Damage then DAMA = 66;
+        else if State = Slight Damage then DAMA = 33;
+        else DAMA = 0.
+      </td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Compatibility:</td><td valign="top">OGC CDB 1.0</td></tr><tr><td></td><td></td><td valign="top" bgcolor="lightgray">Level</td><td valign="top">
+        Instance (Preferred), 
+        Class (Not Supported), 
+        Extended (Supported), 
+      </td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Type</td><td valign="top">Numeric</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Format</td><td valign="top">Integer</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Range</td><td>[
+          0
+          , 100
+        ]</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Length</td><td valign="top">3</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Default</td><td valign="top">0</td></tr>
+        <tr><td></td><td></td><td valign="top" bgcolor="lightgray">Unit</td><td valign="top">7</td></tr>
+      </tbody></table>
