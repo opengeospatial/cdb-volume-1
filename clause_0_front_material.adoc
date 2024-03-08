@@ -36,9 +36,11 @@ The following organizations submitted this Document to the Open Geospatial Conso
 
 * CAE Inc.
 * Carl Reed
-
-[red]#*_Placeholder# for the list of CDB SWG Voting Members who cast a ballot in the SWG eVote approving the draft document for submission to the OAB and request for public comment_*
-
+* UK Met Office
+* Ecere Corporation
+* The Joint Staff
+* FSI International Visual Systems
+* SimBlocks LLC
 
 
 Organization name(s)
