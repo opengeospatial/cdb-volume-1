@@ -204,6 +204,7 @@ The changes to the vector attribute schema are itemized below:
 . `Enumeration` property added to "Value" of "Attributes"
 
 For more information on these changes please refer to CDB V1.3  - Volume 10 (CDB Attribution Roadmap).
+====
 
 
 [[AttributeUsage]]
