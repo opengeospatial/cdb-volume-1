@@ -2,14 +2,20 @@
 [[Introduction]]
 == Introduction
 
-The CDB standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The standard makes use of existing commercial and simulation data formats Future versions of the CDB standard will continue to define the use of other industry approved standards and formats.
+The CDB Standard defines a data model and the representation, organization, storage structure and conventions necessary to support all of the subsystems of a simulation workflow. The CDB Standard makes use of existing commercial and simulation data formats. Future versions of the CDB Standard will continue to define the use of other industry approved standards and formats.
 
 The CDB conceptual model is a representation of the natural environment including external features such as man-made structures and systems. The model encompasses planimetry, terrain relief, terrain imagery, three-dimensional (3D) models of natural and man-made cultural features, 3D models of vehicles, the ocean surface, and the ocean bottom, including features (both natural and man-made) on the ocean floor. In addition, the model includes the attributes of the synthetic environment data as well as their relationships.
 
-A data store that conforms to the CDB standard (i.e. a CDB) contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features and models of a synthetic environment for the purposes of distributed simulation applications. The organization of the geospatial data in a CDB data store is specifically tailored for real-time applications.
+A data store that conforms to the CDB Standard (i.e. a CDB) contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features and models of a synthetic environment for the purposes of distributed simulation applications. The organization of the geospatial data in a CDB data store is specifically tailored for real-time applications.
 
 include::list_of_volumes.adoc[]
 
-The major enhancements for version 1.2 are the definition of 1.) rules for encoding GeoPackages in a CDB data store, 2.) documenting best practices for conversion of CDB Shapefiles into CDB GeoPackages, and 3.) resolution and incorporation of changes defined in <X> OGC Change Requests. 
+The major enhancements for version 1.3 are:
 
-The GeoPackage encoding is an optional extension and does not need to be implemented to provide a compliant CDB data store to the community. The only caveat is that if the developer of a version of a CDB data store wishes to use GeoPackages, then that version of the data store must use only the CDB GeoPackage encoding. Shapefiles and GeoPackages cannot be mixed in a unique version of a CDB data store.
+One of the persistent and important concerns with the OGC CDB 1.2 Standard and earlier versions was how to evolve the use of CDB attributes and feature codes. CDB Version 1.2 and earlier used feature codes and semantics from the Features and Attributes Catalog (FACC). FACC is an older specification maintained as part of the Digital Geographic Information Exchange Standard (https://en.wikipedia.org/wiki/Digital_Geographic_Exchange_Standard). The CDB community wanted the ability to use feature codes and semantics as defined in the The National System for Geospatial Intelligence (NSG) Application Schema (NAS), a platform independent model for geospatial data. CDB Version 1.3 details how the NAS as well as other feature dictionaries can be used without changing the underlying CDB structure. This is accomplished through schema mapping coupled with additions to the vector attribute schema and significant additions to the CDB vector data attributes definitions.
+
+A rework of the Gamma Tutorial. Gamma encoding of images is used to optimize the usage of bits when encoding an image, or bandwidth used to transport an image, by taking advantage of the non-linear manner in which humans perceive light and color. As such, Gamma encoding is a critical aspect related to rendering of model content stored in a CDB datastore. The tutorial was updated and the formulas corrected to provide better implementation guidance.
+
+Finally, numerous editorial changes were applied to Volume 1 of the CDB Standard to correct problems such as the numbering of figures and tables.
+
+NOTE from Version 1.2: The GeoPackage encoding is an optional extension and does not need to be implemented to provide a compliant CDB data store to the community. The only caveat is that if the developer of a version of a CDB data store wishes to use GeoPackages, then that version of the data store must use only the CDB GeoPackage encoding. Shapefiles and GeoPackages cannot be mixed in a unique version of a CDB data store.
