@@ -20,14 +20,14 @@
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
 
-|Submission Date: 2024-XX-XX
-|Approval Date:      2024-XX-XX
-|Publication Date:      2024-XX-XX
+|Submission Date: 2024-05-24
+|Approval Date: 2025-02-10
+|Publication Date: 2025-XX-XX
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/CDB-core/1.3
-|Internal reference number of this OGC(R) document:        15-113r7
+|Internal reference number of this OGC(R) document: 15-113r7
 |Version: 1.3
 |Category: OGC® Implementation Standard
-|Editors:      Carl Reed; David Graham; Sara Saeedi
+|Editors: Carl Reed; David Graham; Sara Saeedi
 |===
 
 [cols = "^", frame = "none"]
@@ -54,10 +54,10 @@ provide supporting documentation.
 
 [width = "50%", grid = "none"]
 |===
-|Document type:   	    OGC® Standard
-|Document subtype:   
-|Document stage:   	Draft
-|Document language: 	English
+|Document type: OGC® Standard
+|Document subtype:
+|Document stage: Approved
+|Document language: English
 |===
 
 <<<

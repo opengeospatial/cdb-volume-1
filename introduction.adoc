@@ -6,7 +6,7 @@ The OGC CDB Standard (aka "This Standard") defines a data model and the represen
 
 The CDB conceptual model is a representation of the natural environment including external features such as man-made structures and systems. The model encompasses planimetry, terrain relief, terrain imagery, three-dimensional (3D) models of natural and man-made cultural features, 3D models of vehicles, the ocean surface, and the ocean bottom, including features (both natural and man-made) on the ocean floor. In addition, the model includes the attributes of the synthetic environment data as well as their relationships.
 
-A data store that conforms to the CDB Standard (i.e. a CDB) contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features and models of a synthetic environment for the purposes of distributed simulation applications. The organization of the geospatial data in a CDB conformant data store is specifically tailored for real-time applications.
+A data store that conforms to the CDB Standard (i.e., a CDB) contains datasets organized in layers, tiles and levels-of-detail. Together, these datasets represent the features and models of a synthetic environment for the purposes of distributed simulation applications. The organization of the geospatial data in a CDB conformant data store is specifically tailored for real-time applications.
 
 include::list_of_volumes.adoc[]
 
@@ -106,7 +106,7 @@ The target namespace of all CDB schemas follow this pattern:
 
 Where the Name is identical to the filename portion of the file containing the schema and Version is the version number of the schema.
 
-To illustrate how a target namespace is composed, here is the target namespace of the schema found in Version.xsd (item 12 in the list above):
+To illustrate how a target namespace is composed, here is the target namespace of the schema found in Version.xsd (i.e.,12 in the list above):
 
 "http://opengis.net/cdb/1.2/Version"
 
@@ -351,7 +351,7 @@ CDB structured data stores may be implemented on any modern operating systems wh
 
 Throughout this Standard, the reader will notice that filenames and directory paths are specified using a mix of upper and lower cases. This choice is made to improve and ease the readability of those names. However to ensure interoperability, the use of lower case for all extensions is strongly recommended.
 
-However, it is important to note that no two names are to differ only by their case. After all, a name is used to designate a single object or concept whether that name is spelled in lowercase or uppercase or even using mixed case. For instance, the terms house, House, and HOUSE (and even HoUsE) all convey the same idea of a residence where people live. And this stays true for all combination of cases.
+However, it is important to note that no two names are to differ only by their case. After all, a name is used to designate a single object or concept whether that name is spelled in lowercase or uppercase or even using mixed case. For instance, the terms house, House, and HOUSE (and even HoUsE) all convey the same i.e.,of a residence where people live. And this stays true for all combination of cases.
 
 [[GeneralDataRepresentationRequirements]]
 ==== General Data Representation Requirements

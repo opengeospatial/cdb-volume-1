@@ -64,7 +64,7 @@ The target namespace of all CDB schemas follow this pattern:
 
 Where the Name is identical to the filename portion of the file containing the schema and Version is the version number of the schema.
 
-To illustrate how a target namespace is composed, here is the target namespace of the schema found in Version.xsd (item 12 in the list above):
+To illustrate how a target namespace is composed, here is the target namespace of the schema found in Version.xsd (i.e.,12 in the list above):
 
 "http://opengis.net/cdb/1.2/Version"
 

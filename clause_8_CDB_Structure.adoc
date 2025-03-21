@@ -1099,7 +1099,7 @@ The following table defines each field of the file name and Table 5-9 provides t
 |FeatureCode |Five-character feature code as defined in Section 1.5
 |FSC |Three-digit integer representing the feature sub-code (FSC) as defined in Section 1.5
 |MODL |32-character Model Name String
-|ext |The file type associated with the dataset. This is designated by the file extension: e.g. .tif for TIFF, .flt for OpenFlight, .shp for ShapeFiles, .gkpg for GeoPackage and so on.
+|ext |The file type associated with the dataset. This is designated by the file extension: e.g., .tif for TIFF, .flt for OpenFlight, .shp for ShapeFiles, .gkpg for GeoPackage and so on.
 |===
 
 [[Examples_74]]
@@ -1499,7 +1499,7 @@ The level-of-detail organization of the Vector Datasets mimics the concept of ma
 *Table 3-27: CDB LOD versus Feature Density*
 [cols=",,,",]
 |============================================================================================================================
-|*CDB LOD* |*Maximum Number of Points per Tile* |*Approximate Tile Edge Size (meters)* |*Average Point Density (points/m^2^)*
+|*CDB LOD* |*Maximum Number of Points per Tile* |*Approximate Tile e.g., Size (meters)* |*Average Point Density (points/m^2^)*
 |-10 |1 |1.11319 × 10^+05^ |8.06977 × 10^-11^
 |-9 |1 |1.11319 × 10^+05^ |8.06977 × 10^-11^
 |-8 |1 |1.11319 × 10^+05^ |8.06977 × 10^-11^
@@ -1594,8 +1594,8 @@ All these datasets share the same 5-level directory structure defined below.
 |*Directory +
 Level* |*Directory +
 Name* |*Description*
-|Level 1 |Lat |Geocell Latitude – This directory level divides the CDB along lines of latitude aligned to Geocells. By convention the name of the directory is based on the latitude of the south edge of the Geocell.
-|Level 2 |Lon |Geocell Longitude – This directory level divides the CDB along lines of longitude aligned to Geocells. By convention the name of the directory is based on the longitude of the west edge of the Geocell.
+|Level 1 |Lat |Geocell Latitude – This directory level divides the CDB along lines of latitude aligned to Geocells. By convention the name of the directory is based on the latitude of the south e.g., of the Geocell.
+|Level 2 |Lon |Geocell Longitude – This directory level divides the CDB along lines of longitude aligned to Geocells. By convention the name of the directory is based on the longitude of the west e.g., of the Geocell.
 |Level 3 |nnn_DatasetName |Tiled Dataset Name – The name of the directory is composed of the 3-digit dataset code (denoted nnn) followed by an underscore and the dataset name. Dataset codes are listed in Annex Q OGC CDB Core: Model and Physical Structure: Informative Annexes.
 |Level 4 |LOD |This directory level divides each of the tiled datasets of the Geocell into its Level of Details
 |Level 5 |UREF |This directory level divides a particular level of details into rows of tiles. UREF is a reference to the Up Index of a tile.

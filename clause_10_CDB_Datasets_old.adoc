@@ -1079,7 +1079,7 @@ image::images/image43.jpeg[image,width=535,height=129]
 *_{figure-caption}{counter:figure-num}. Center Data Elements as a Function of LODs_*
 
 
-Figure 5-4: Corner Data Elements as a Function of LODs, illustrates an implementation of corner grid data elements with four levels-of-details. Note the shift in the edge of the data element area along the x- and y-axis as we shift to progressively coarser levels-of-detail. Note also that the position of the data elements areas stay aligned with x- and y-axis as we shift to progressively coarser levels-of-detail.
+Figure 5-4: Corner Data Elements as a Function of LODs, illustrates an implementation of corner grid data elements with four levels-of-details. Note the shift in the e.g., of the data element area along the x- and y-axis as we shift to progressively coarser levels-of-detail. Note also that the position of the data elements areas stay aligned with x- and y-axis as we shift to progressively coarser levels-of-detail.
 
 image::images/image44.jpeg[image,width=529,height=138]
 [#img_CornerDataElementsasaFunctionofLODs,reftext='{figure-caption} {counter:figure-num}']
@@ -1331,7 +1331,7 @@ image::images/image58.jpeg[image,width=551,height=275]
 
 include::requirements/REQ093.adoc[]
 
-The <<LayerPriorityNumberLPN>>LPN attribute is a number in the 0-32767. Low numeric values correspond to low priority. The LPN attribute is used to control the order in which the features are applied to (e.g. rendered into) the Elevation dataset. Features are applied in succession in low-to-high priority order into the Terrain Elevation dataset.
+The <<LayerPriorityNumberLPN>>LPN attribute is a number in the 0-32767. Low numeric values correspond to low priority. The LPN attribute is used to control the order in which the features are applied to (e.g., rendered into) the Elevation dataset. Features are applied in succession in low-to-high priority order into the Terrain Elevation dataset.
 
 [[MinElevationandMaxElevationComponents]]
 ===== MinElevation and MaxElevation Components

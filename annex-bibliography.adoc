@@ -14,7 +14,7 @@ The document can be obtained at the following address:
 
 *http://www.digest.org/*
 
-|4 |Enumeration and Bit Encoded Values for use with Protocols for Distributed Interactive Simulation Applications. |This is document SISO-REF-010. It accompanies IEEE Std 1278.1-1995 and can be obtained from the _Simulation Interoperability Standards Organization_ at *http://www.sisostds.org/*
+|4 |Enumeration and Bit Encoded Values for use with Protocols for Distributed Interactive Simulation Applications. |This is document SISO-REF-010. It accompanies i.e.,Std 1278.1-1995 and can be obtained from the _Simulation Interoperability Standards Organization_ at *http://www.sisostds.org/*
 |5 |Extensible Markup Language (XML) 1.0 (Third Edition) a|
 Bray, Tim, et al.
 
@@ -33,7 +33,7 @@ Other useful sites include:
 
 The document is targeted at managers; application software developers and end-users who want to know more about JPEG 2000.
 
-|7 |IEEE Standard for Distributed Interactive Simulation - Application Protocols |IEEE Std 1278.1-1995
+|7 |i.e.,Standard for Distributed Interactive Simulation - Application Protocols |i.e.,Std 1278.1-1995
 |8 |JPEG 2000: Image Compression Fundamentals, Standards and Practice |Kluwer International Series in Engineering and Computer Science, Secs 642, by David S. Taubman and Michael W. Marcellin
 |9 |MIL-STD-2411 Raster Product Format Specification a|
 The Raster Product Format (RPF) is a standard data structure for geospatial databases composed of rectangular arrays of pixel values (e.g., in digitized maps or images) in compressed or uncompressed form. RPF defines a common format for the interchange of raster-formatted digital geospatial data among DoD Components.
@@ -136,7 +136,7 @@ This document can be obtained at the following Internet address:
 |27 |MIL-STD-2411 |Defense Mapping Agency, Military Standard, Raster Product Format (RPF)
 |28 |MIL-STD-2411-1 |Defense Mapping Agency, Registered Data Values for Raster Product Format
 |29 |MIL-STD-2411-2 |Defense Mapping Agency, Incorporation of Raster Product Format (RPF) Data in National Imagery Transmission Format (NITF).
-|30 |IEEE Std 1516-2000 |IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA)
+|30 |i.e.,Std 1516-2000 |i.e.,Standard for Modeling and Simulation (M&S) High Level Architecture (HLA)
 |31 |RPR-FOM Version 2 Draft 17 a|
 Real-time Platform Reference (RPR) Federation Object Model (FOM)
 

@@ -138,7 +138,7 @@ Thus, for positive LODs, every tile quadruples its geographic area coverage as t
 [cols=",,,",]
 |==============================================
 |*CDB LOD* |*Grid Size +
-(n × n)* |*Approximate Tile Edge Size +
+(n × n)* |*Approximate Tile e.g., Size +
 (meters)* |*Approximate Grid Spacing +
 (meters)*
 |-10 |1 |1.11319 × 10^+05^ |1.11319 × 10^+05^

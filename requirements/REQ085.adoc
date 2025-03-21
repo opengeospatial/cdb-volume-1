@@ -3,5 +3,5 @@
 |*Requirement 85*{set:cellbgcolor:#CACCCE}
 |http://www.opengis.net/spec/cdb/core/navdata-component[http://www.opengis.net/spec/cdb/1.0/core/]tile-grid-structure{set:cellbgcolor:#FFFFFF} +
 
-The tile grid structure _SHALL_ be aligned to the tile edge boundary. The grid elements _SHALL_ be organized in row, column order, starting from the northwest corner scanning towards the southeast. This is true for tiles in both the south and north hemisphere.{set:cellbgcolor:#FFFFFF}
+The tile grid structure _SHALL_ be aligned to the tile e.g., boundary. The grid elements _SHALL_ be organized in row, column order, starting from the northwest corner scanning towards the southeast. This is true for tiles in both the south and north hemisphere.{set:cellbgcolor:#FFFFFF}
 |===

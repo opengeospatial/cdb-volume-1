@@ -15,7 +15,7 @@ include::requirements/requirements_class021.adoc[]
 [[IntroductiontoVectorDatasets]]
 ==== Introduction to Vector Datasets
 
-The term vector data refers to data that represents the spatial configuration of features as a set of directed line segments. Vector geometry is representation of geometry for vector data through the use of constructive geometric primitives. Commonly known vector geometies are typically called point, line, and polygon features. Very specific definitions of these geometry types and many other geometry types that are used in GIS, CAD, and other technologies can be found in https://www.iso.org/standard/66175.html[ISO 19107:2003 Geographic information — Spatial schema] (recently updated).
+The term vector data refers to data that represents the spatial configuration of features as a set of directed line segments. Vector geometry is representation of geometry for vector data through the use of constructive geometric primitives. Commonly known vector geometries are typically called point, line, and polygon features. Very specific definitions of these geometry types and many other geometry types that are used in GIS, CAD, and other technologies can be found in https://www.iso.org/standard/66175.html[ISO 19107:2003 Geographic information — Spatial schema] (recently updated).
 
 For the purposes of the CDB standard, a point feature is a geographic entity where its simplest representation resolves to a point with general attributes such as size, position, or material. A lineal feature is a geographic entity that defines a one-dimensional feature such as a road, a canal, or a river. A polygon feature is a geographic entity where its simplest representation resolves to a two-dimension feature such as a lake or soil type boundary. In this context, a geographic entity is always specified by latitude and longitude coordinates; in turn, the geographic entity is conformed onto the terrain by the client-device.
 
@@ -53,6 +53,7 @@ include::requirements/REQ107.adoc[]
 All of the information that is needed to instance features is organized in accordance to the CDB tile structure. All the tiled Vector dataset files are located in the same directory.The dataset’s second component selector (CS2) is used to differentiate between files with the same extension or with the same Vector features. Table 5-18: Component Selector 2 for Vector Dataset, presents the list of codes that are allocated. Note that Vector datasets do not necessarily use all of the Dataset Component Selector 2 reserved codes. Users of the CDB standard should refer to the appropriate section for an enumeration of the supported File Component Selector 2 codes as well as the ones specific to the Dataset.
 
 The Vector dataset concept and the feature concepts overlap somewhat; some of the Vector datasets are generalizations or specializations of feature codes. Section 1.5 provides a recommended mapping of the feature attributes across the CDB compliant datasets. Note that the same feature _should_ not have two representations.
+
 [#table_cdb_schema,reftext='{table-caption} {counter:table-num}']
 [#table_ComponentSelector2forVectorDatasets,reftext='{table-caption} {counter:table-num}']
 *Table 5-18: Component Selector 2 for Vector Datasets*
@@ -91,7 +92,7 @@ This section establishes conventions globally applicable to the usage of all vec
 [[Forexplicitlymodeledpointculturalfeatures]]
 ====== For explicitly modeled point cultural features:
 
-Each point-feature of a CDB dtabase can be optionally associated with a GSModel, a GTModel or MModel. The rendering of GSModels, GTModels or MModels by client-devices requires an associated point-feature. The linkage is made through point-feature attributes which together provide the information needed by client-devices to locate the Model from the appropriate Dataset at the appropriate level-of-detail. The following feature attributes provide the necessary linkage:
+Each point-feature of a CDB database can be optionally associated with a GSModel, a GTModel or MModel. The rendering of GSModels, GTModels or MModels by client-devices requires an associated point-feature. The linkage is made through point-feature attributes which together provide the information needed by client-devices to locate the Model from the appropriate Dataset at the appropriate level-of-detail. The following feature attributes provide the necessary linkage:
 
 * _FeatureCode-FSC_: Feature Code and Subcode
 * _MODL_: Model Name
@@ -442,7 +443,7 @@ include::requirements/REQ117.adoc[]
 
 When not specified (i.e., blank), the feature is not connected to any other features. Volume 7: CDB Data Model Guidance (formerly Appendix A) provides guidelines on how to generate the junction identifiers.
 
-Since the junction identifier is associated with a feature's geometry type, the following combinations are supported:
+Since the junction identifier is associated with a feature's geometry type, the following combinations are supported.
 
 * Any point feature can be connected to any start or end point of a linear feature (point to linear connection), or to any start point of a polygon feature (point to polygon connection), using its JID attribute.
 * Any start point of a linear feature can be connected to any point feature (point to lineal connection), or to any start or end point of a linear feature (linear to linear connection), or to any start point of a polygon feature (linear to polygon connection), using its SJID attribute.
@@ -482,7 +483,7 @@ Table 3-27, CDB LOD versus Feature Density, specifies the maximum number of elem
 [[NetworkVectorPriority]]
 ====== Network Vector Priority
 
-When generating CDB Tile-LODs for lineal networks, there is also the concept of vector priority. This concept is to accommodate efficient path planning and following, as well as map drawing and other non-visual usages of networked lineals. The assurances implied by this vector priority concept are the following:
+When generating CDB Tile-LODs for lineal networks, there is also the concept of vector priority. This concept is to accommodate efficient path planning and following, as well as map drawing and other non-visual usages of networked lineals. The assurances implied by this vector priority concept are the following.
 
 * The finest Tile-LOD for a lineal network contains all the features and geometry of that dataset.
 * Coarser Tile-LODs contain both simplified lineal features as well as fewer features, such that:
